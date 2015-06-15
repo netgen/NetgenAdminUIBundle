@@ -1,0 +1,7 @@
+{% spaceless %}
+
+{# SITE NAME #}
+
+{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+
+{% endspaceless %}{% block pagelayout_content %}{% endblock %}

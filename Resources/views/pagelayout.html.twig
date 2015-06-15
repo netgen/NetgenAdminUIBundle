@@ -1,0 +1,179 @@
+{% extends 'NetgenMoreAdminUIBundle::pagelayout_variables.html.twig' %}
+
+{% block pagelayout_content %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    {% set ui_context = module_result.ui_context|default( 'navigation' ) %}
+    {% set ui_component = module_result.ui_component|default( 'content' ) %}
+
+    {% set ui_context_edit = ui_context == 'edit' %}
+    {% set content_edit = ui_context_edit and ui_component == 'content' %}
+
+    {% set hide_left_menu = not( module_result.content_info.persistent_variable.left_menu|default( not content_edit ) ) %}
+    {% set hide_right_menu = not( module_result.content_info.persistent_variable.extra_menu|default( not ui_context_edit ) ) %}
+
+    {% set collapse_right_menu = not ezpreference( 'admin_right_menu_show' ) %}
+    {% set admin_left_size = ezpreference( 'admin_left_menu_size' ) %}
+
+    {% if hide_right_menu %}
+        {% set collapse_right_menu = false %}
+    {% endif %}
+
+    {% if ( not ui_context_edit ) and ( collapse_right_menu or admin_left_size or hide_left_menu ) %}
+        <style type="text/css">
+            {% if collapse_right_menu %}
+                div#page div#rightmenu { width: 18px; }
+                div#page div#maincolumn { margin-right: 27px; }
+            {% endif %}
+
+            {% if hide_left_menu %}
+                div#maincolumn { padding-right: 20px; padding-left: 50px; }
+            {% else %}
+                {% if admin_left_size %}
+                    {% set left_menu_widths = ezpublish.configResolver.parameter( 'LeftMenuSettings.MenuWidth', 'menu' ) %}
+
+                    {% if left_menu_widths[admin_left_size] is defined %}
+                        {% set left_size_hash = left_menu_widths[admin_left_size]|number_format %}
+
+                        div#leftmenu { width: {{ left_size_hash }}em; }
+                        div#maincontent { margin-left: {{ left_size_hash }}em; }
+                    {% else %}
+                        div#page div#leftmenu { width: {{ admin_left_size }}; }
+                        div#page div#maincontent { margin-left: {{ admin_left_size }}; }
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </style>
+    {% endif %}
+
+    <title>{{ siteName }}</title>
+    <meta name="generator" content="eZ Publish" />
+
+    {% include 'design:page_head_style.tpl' %}
+    {% include 'design:page_head_script.tpl' %}
+</head>
+
+<body>
+    <div id="page" class="{{ module_result.navigation_part }} section_id_{{ module_result.section_id|default( '0' ) }}">
+        <div id="header">
+            <div id="header-design" class="float-break">
+                <div id="header-logo">
+                    <a href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ siteName }}"></a>
+                </div>
+
+                <div id="header-search">
+                    {% include 'design:page_search.tpl' %}
+                </div>
+
+                <div id="header-usermenu">
+                    <a href="{{ path( 'logout' ) }}" title="{{ 'Logout from the system.'|trans }}" id="header-usermenu-logout">{{ 'Logout'|trans }}</a>
+                </div>
+
+                {% include 'design:page_topmenu.tpl' with { navigation_part: { identifier: module_result.navigation_part } } %}
+            </div>
+        </div>
+
+        <hr class="hide" />
+
+        <div id="columns"{% if hide_right_menu %} class="hide-rightmenu"{% endif %}>
+            <div id="left-panels-separator">
+                <div class="panels-separator-top"></div>
+                <div class="panels-separator-bottom"></div>
+            </div>
+
+            <div id="right-panels-separator">
+                <div class="panels-separator-top"></div>
+                <div class="panels-separator-bottom"></div>
+            </div>
+
+            <div id="canvas-top"></div>
+
+            <div id="rightmenu">
+                {% include 'design:page_rightmenu.tpl' %}
+            </div>
+
+            <div id="maincolumn">
+                <hr class="hide" />
+
+                {% if not hide_left_menu %}
+                    {% include 'design:page_leftmenu.tpl' %}
+
+                    <div id="maincontent">
+                        <div id="maincontent-design" class="float-break">
+                            <div id="fix">
+                                <div id="path">
+                                    <div id="path-design">
+                                        {% include 'design:page_toppath.tpl' %}
+                                    </div>
+                                </div>
+                {% endif %}
+
+                                <div class="span main-content">
+                                    {% block content %}{% endblock %}
+                                </div>
+
+                {% if not hide_left_menu %}
+                            </div>
+
+                            <div class="break"></div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="break"></div>
+
+            <div id="canvas-bottom"></div>
+
+        </div>
+
+        <hr class="hide" />
+
+        <div id="footer" class="float-break">
+            <div id="footer-design">
+                <p>
+                    Powered by <span class="edition-info">eZ Publish</span>.<br />
+                    <a href="http://ez.no/ezpublish">eZ Publish</a> Copyright &copy; 1999-2015 <a href="http://ez.no">eZ Systems AS</a> and others.
+                </p>
+            </div>
+        </div>
+
+        <div class="break"></div>
+
+        {# The popup menu include must be outside all divs. It is hidden by default. #}
+        {% include 'design:popupmenu/popup_menu.tpl' %}
+
+        <script type="text/javascript">
+            document.getElementById('header-usermenu-logout').innerHTML += '<span class="header-usermenu-name">{{ app.user.APIUser.login }}<\/span>';
+
+            document.getElementById('right-panels-separator').style.right = (parseInt(document.getElementById('rightmenu').offsetWidth,10) - 20) + 'px';
+
+            (function( $ )
+            {
+                var searchtext = document.getElementById('searchtext');
+                if ( !searchtext || searchtext.disabled )
+                    return;
+
+                jQuery( searchtext ).val( searchtext.title
+                ).addClass('passive'
+                ).focus(function(){
+                    if ( this.value === this.title )
+                    {
+                        jQuery( this ).removeClass('passive').val('');
+                    }
+                }).blur(function(){
+                    if ( this.value === '' )
+                    {
+                        jQuery( this ).addClass('passive').val( this.title );
+                    }
+                });
+            })( jQuery );
+        </script>
+    </div>
+
+    <div id="overlay-mask" style="display:none;"></div>
+    <img src="{{ asset( '/design/admin/images/2/loader.gif' ) }}" id="ajaxuploader-loader" style="display:none;" alt="{{ 'Loading...'|trans }}" />
+</body>
+</html>
+{% endblock %}

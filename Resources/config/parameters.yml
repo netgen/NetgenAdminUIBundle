@@ -1,0 +1,2 @@
+parameters:
+    ngmore.administration_group.pagelayout: 'NetgenMoreAdminUIBundle::pagelayout.html.twig'

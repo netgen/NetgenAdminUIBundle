@@ -1,0 +1,9 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% if module_result is not defined %}
+    {% set module_result = ezpublish.legacy.all %}
+{% endif %}
+
+{% block content %}
+    {{ module_result.content|raw }}
+{% endblock %}
