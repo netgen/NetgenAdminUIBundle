@@ -48,7 +48,7 @@
     {% endif %}
 
     <title>{{ siteName }}</title>
-    <meta name="generator" content="eZ Publish" />
+    <meta name="generator" content="{{ 'ngmore_admin_ui.layout.generator'|trans }}" />
 
     {% include 'design:page_head_style.tpl' %}
     {% include 'design:page_head_script.tpl' %}
@@ -67,7 +67,7 @@
                 </div>
 
                 <div id="header-usermenu">
-                    <a href="{{ path( 'logout' ) }}" title="{{ 'Logout from the system.'|trans }}" id="header-usermenu-logout">{{ 'Logout'|trans }}</a>
+                    <a href="{{ path( 'logout' ) }}" title="{{ 'ngmore_admin_ui.layout.logout.title'|trans }}" id="header-usermenu-logout">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
                 </div>
 
                 {% include 'design:page_topmenu.tpl' with { navigation_part: { identifier: module_result.navigation_part } } %}
@@ -173,7 +173,7 @@
     </div>
 
     <div id="overlay-mask" style="display:none;"></div>
-    <img src="{{ asset( '/design/admin/images/2/loader.gif' ) }}" id="ajaxuploader-loader" style="display:none;" alt="{{ 'Loading...'|trans }}" />
+    <img src="{{ asset( '/design/admin/images/2/loader.gif' ) }}" id="ajaxuploader-loader" style="display:none;" alt="{{ 'ngmore_admin_ui.layout.loading'|trans }}" />
 </body>
 </html>
 {% endblock %}

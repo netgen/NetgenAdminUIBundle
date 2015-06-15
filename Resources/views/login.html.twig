@@ -7,9 +7,9 @@
                 <h2><span class="time">[{{ 'now'|date( 'd.m.Y H:i' ) }}]</span> {{ error.message|trans }}</h2>
 
                 <ul>
-                    <li>{{ 'Make sure that the username and password is correct.'|trans }}</li>
-                    <li>{{ 'All letters must be entered in the correct case.'|trans }}</li>
-                    <li>{{ 'Please try again or contact the site administrator.'|trans }}</li>
+                    <li>{{ 'ngmore_admin_ui.login.message.username_password'|trans }}</li>
+                    <li>{{ 'ngmore_admin_ui.login.message.letter_case'|trans }}</li>
+                    <li>{{ 'ngmore_admin_ui.login.message.contact_admin'|trans }}</li>
                 </ul>
             </div>
         {% endif %}
@@ -21,14 +21,14 @@
                         <div class="block">
                             <div class="login-input-wrapper">
                                 <div id="icon-login"></div>
-                                <input class="halfbox" type="text" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'Username'|trans }}" tabindex="1" title="{{ 'Enter a valid username in this field.'|trans }}" />
+                                <input class="halfbox" type="text" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'ngmore_admin_ui.login.username.title'|trans }}" tabindex="1" title="{{ 'ngmore_admin_ui.login.username.title'|trans }}" />
                             </div>
                         </div>
 
                         <div class="block">
                             <div class="login-input-wrapper">
                                 <div id="icon-password"></div>
-                                <input class="halfbox" type="password" size="10" name="_password" id="passwordtext" placeholder="{{ 'Password'|trans }}" tabindex="2" title="{{ 'Enter a valid password in this field.'|trans }}" />
+                                <input class="halfbox" type="password" size="10" name="_password" id="passwordtext" placeholder="{{ 'ngmore_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'ngmore_admin_ui.login.password.title'|trans }}" />
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                             <div class="box-ml">
                                 <div class="block">
                                     <div class="login-input-wrapper">
-                                        <input class="defaultbutton" type="submit" id="loginbutton" value="{{ 'Log in'|trans }}" tabindex="3" title="{{ 'Click here to log in using the username/password combination entered in the fields above.'|trans }}" />
+                                        <input class="defaultbutton" type="submit" id="loginbutton" value="{{ 'ngmore_admin_ui.login.submit'|trans }}" tabindex="3" title="{{ 'ngmore_admin_ui.login.submit.title'|trans }}" />
                                     </div>
                                 </div>
                             </div>
