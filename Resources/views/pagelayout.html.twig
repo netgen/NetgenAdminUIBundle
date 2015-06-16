@@ -144,6 +144,8 @@
         {# The popup menu include must be outside all divs. It is hidden by default. #}
         {% include 'design:popupmenu/popup_menu.tpl' %}
 
+        {# TODO: Extract the following javascript from template #}
+
         <script type="text/javascript">
             document.getElementById('header-usermenu-logout').innerHTML += '<span class="header-usermenu-name">{{ app.user.APIUser.login }}<\/span>';
 
