@@ -90,7 +90,7 @@
             <div id="canvas-top"></div>
 
             <div id="rightmenu">
-                {% include 'design:page_rightmenu.tpl' %}
+                {% include 'design:page_rightmenu.tpl' with { current_user: app.user.APIUser } %}
             </div>
 
             <div id="maincolumn">
