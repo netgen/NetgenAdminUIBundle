@@ -55,7 +55,7 @@
 </head>
 
 <body>
-    <div id="page" class="{{ module_result.navigation_part }} section_id_{{ module_result.section_id|default( '0' ) }}">
+    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }}">
         <div id="header">
             <div id="header-design" class="float-break">
                 <div id="header-logo">
@@ -70,7 +70,7 @@
                     <a href="{{ path( 'logout' ) }}" title="{{ 'ngmore_admin_ui.layout.logout.title'|trans }}" id="header-usermenu-logout">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
                 </div>
 
-                {% include 'design:page_topmenu.tpl' with { navigation_part: { identifier: module_result.navigation_part } } %}
+                {% include 'design:page_topmenu.tpl' with { navigation_part: { identifier: module_result.navigation_part|default( 'ezcontentnavigationpart' ) } } %}
             </div>
         </div>
 
