@@ -97,7 +97,7 @@
                 <hr class="hide" />
 
                 {% if not hide_left_menu %}
-                    {% include 'design:page_leftmenu.tpl' %}
+                    {% include 'design:page_leftmenu.tpl' with { uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' ) } %}
 
                     <div id="maincontent">
                         <div id="maincontent-design" class="float-break">
