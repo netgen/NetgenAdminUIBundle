@@ -33,7 +33,7 @@
                         </div>
                     </div>
 
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
 
                     {#
                         If you want to control the URL the user
