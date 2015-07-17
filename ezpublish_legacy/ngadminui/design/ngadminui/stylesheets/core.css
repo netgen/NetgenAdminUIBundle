@@ -323,38 +323,6 @@ optgroup
     font-style: normal;
 }
 
-input.button, button, input.defaultbutton, input.button-disabled
-{
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    font-size: 0.9em;
-    font-weight: normal;
-    padding-left: 0.25em;
-    padding-right: 0.25em;
-}
-
-input.defaultbutton
-{
-    font-weight: bold;
-    padding-left: 0.45em;
-    padding-right: 0.45em;
-    color: #094564;
-}
-
-input.button-disabled, input.button[disabled="disabled"]
-{
-    cursor: default;
-    color: #888;
-}
-
-input.disabled[type="image"]
-{
-	opacity: 0.7;
-	cursor: default;
-}
-
 input.box, textarea.box
 {
     width: 100%;
@@ -370,13 +338,6 @@ td input.halfbox, td textarea.halfbox
     width: 98%;
 }
 
-fieldset
-{
-    border: 1px solid #CACACA;
-    background-color: #F8F8F8;
-    padding: 0.7em;
-    margin: 0em;
-}
 
 fieldset.block
 {

@@ -64,13 +64,13 @@
     {/if}
 
     {if $has_access}
-        {* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
-        {if $menu_name}<h4>{if is_set( $i18n_hash[ $menu_name ] )}{$i18n_hash[ $menu_name ]|wash}{else}{$menu_name|d18n($i18n_section)}{/if}</h4>{/if}
-        {* DESIGN: Header END *}</div></div>
+        {* DESIGN: Header START *}
+        {if $menu_name}<h4 class="leftmenu-hl">{if is_set( $i18n_hash[ $menu_name ] )}{$i18n_hash[ $menu_name ]|wash}{else}{$menu_name|d18n($i18n_section)}{/if}</h4>{/if}
+        {* DESIGN: Header END *}
 
-        {* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
+        {* DESIGN: Content START *}
 
-        <ul class="leftmenu-items">
+        <ul class="leftmenu-items-list">
         {foreach $url_list as $link_key => $link_url}
             {if is_set( $name_list[ $link_key ] )}
                 {set $item_name = $name_list[$link_key]|d18n($i18n_section)}
@@ -113,16 +113,16 @@
                 {/if}
             {/if}
             {if $disabled}
-                <li><div><span class="disabled">{$item_name}</span></div></li>
+                <li><span class="disabled">{$item_name}</span></li>
             {elseif $has_access}
-                <li{if $current_uri_string|begins_with( $link_url )} class="current"{/if}><div><a href={$link_url|ezurl}>{$item_name}</a></div></li>
+                <li{if $current_uri_string|begins_with( $link_url )} class="current"{/if}><a href={$link_url|ezurl}>{$item_name}</a></li>
             {else}
-                <li class="disabled-no-access"><div><span class="disabled">{$item_name}</span></div></li>
+                <li class="disabled-no-access"><span class="disabled">{$item_name}</span></li>
             {/if}
         {/foreach}
         </ul>
 
-        {* DESIGN: Content END *}</div></div></div>
+        {* DESIGN: Content END *}
     {/if}
     {undef $url_list $menu_name $check $has_access}
 {/if}

@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="loginpage">
+<body>
 
 <div id="page" class="{$navigation_part.identifier} section_id_{first_set( $module_result.section_id, 0 )}">
 <div id="header">

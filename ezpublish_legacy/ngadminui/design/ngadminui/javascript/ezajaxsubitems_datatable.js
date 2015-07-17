@@ -30,7 +30,7 @@ var sortableSubitems = function () {
 
     function initDataTable(){
         var formatName = function(cell, record, column, data) {
-            cell.innerHTML =  '<a href="' + record.getData('url') + '" title="' + data + '">' + record.getData('class_icon') + '</a>' + '&nbsp;' + '<a href="' + record.getData('url') + '" title="' + data + '">' + data + '</a>';
+            cell.innerHTML =  '<a href="' + record.getData('url') + '" title="' + data + '">' + data + '</a>';
         }
 
         var customCheckbox = function(cell, record, column, data) {
@@ -53,7 +53,7 @@ var sortableSubitems = function () {
                                                                    '%classList%': confObj.classesString}, rec.getData('name'), rec.getData('node_id'), createhereMenu );
             });
             var div = new YAHOO.util.Element(document.createElement('div'));
-            div.addClass('crankfield');
+            div.set('innerHTML', rec.getData('class_icon'));
             div.appendTo(a);
 
             a.appendTo(cell);
@@ -107,7 +107,7 @@ var sortableSubitems = function () {
 
         var columnDefs = [
             {key:"checkbox", label:"", formatter:customCheckbox, resizeable:false},
-            {key:"crank", label:"", sortable:false, formatter:customMenu, resizeable:false},
+            {key:"crank", label:labelsObj.DATA_TABLE_COLS.crank, sortable:false, formatter:customMenu, resizeable:false},
             {key:"thumbnail", label:labelsObj.DATA_TABLE_COLS.thumbnail, sortable:false, formatter:thumbView, resizeable:false},
             {key:"name", label:labelsObj.DATA_TABLE_COLS.name, sortable:true, resizeable:true, formatter:formatName},
             {key:"hidden_status_string", label: labelsObj.DATA_TABLE_COLS.visibility, sortable:true, resizeable:true},

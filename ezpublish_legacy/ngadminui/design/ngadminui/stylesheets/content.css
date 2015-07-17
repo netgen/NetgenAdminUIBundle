@@ -75,7 +75,7 @@ table.special th
     border-top: 1px solid #ccc;
 }
 
-table.list tr.bgdark, table.list tr.bgdark th
+table.list tr.bgdark
 {
     background-color: #f5f5f5;
 }

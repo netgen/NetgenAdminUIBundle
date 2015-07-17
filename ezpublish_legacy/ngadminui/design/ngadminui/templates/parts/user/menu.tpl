@@ -1,47 +1,47 @@
 {if eq( $ui_context, 'edit' )}
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
+{* DESIGN: Header START *}
 
-<h4>{'Role information'|i18n( 'design/admin/parts/user/menu' )}</h4>
+<h4 class="leftmenu-hl">{'Role information'|i18n( 'design/admin/parts/user/menu' )}</h4>
 
-{* DESIGN: Header END *}</div></div>
+{* DESIGN: Header END *}
 
-{* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
+{* DESIGN: Content START *}
 
 <p>
-<label>{'Name'|i18n( 'design/admin/parts/user/menu' )}:</label>
-{$role.name|wash}
+	<label>{'Name'|i18n( 'design/admin/parts/user/menu' )}:</label>
+	{$role.name|wash}
 </p>
 
 <p>
-<label>{'ID'|i18n( 'design/admin/parts/user/menu' )}:</label>
-{$role.id|wash}
+	<label>{'ID'|i18n( 'design/admin/parts/user/menu' )}:</label>
+	{$role.id|wash}
 </p>
 
-{* DESIGN: Content END *}</div></div></div>
+{* DESIGN: Content END *}
 
 {else}
 
 <div id="content-tree">
 
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
-<h4>{'User accounts'|i18n( 'design/admin/parts/user/menu' )}</h4>
-{* DESIGN: Header END *}</div></div>
+	{* DESIGN: Header START *}
+	<h4 class="leftmenu-hl">{'User accounts'|i18n( 'design/admin/parts/user/menu' )}</h4>
+	{* DESIGN: Header END *}
 
-{* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
+	{* DESIGN: Content START *}
 
-{* Treemenu. *}
-<div id="contentstructure">
-    {include uri='design:contentstructuremenu/content_structure_menu_dynamic.tpl' custom_root_node_id=ezini( 'NodeSettings', 'UserRootNode', 'content.ini')}
-</div>
+	{* Treemenu. *}
+	<div id="contentstructure">
+	    {include uri='design:contentstructuremenu/content_structure_menu_dynamic.tpl' custom_root_node_id=ezini( 'NodeSettings', 'UserRootNode', 'content.ini')}
+	</div>
 
-{* trashcan. *}
-{if ne( $ui_context, 'browse')}
-<div id="trash">
-<a class="image-text" href={concat( '/content/trash/', ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )|ezurl} title="{'View and manage the contents of the trash bin.'|i18n( 'design/admin/parts/user/menu' )}"><img src={'trash-icon-16x16.gif'|ezimage} width="16" height="16" alt="Trash" />&nbsp;<span>{'Trash'|i18n( 'design/admin/parts/user/menu' )}</span></a>
-</div>
-{/if}
+	{* trashcan. *}
+	{if ne( $ui_context, 'browse')}
+	<div id="trash">
+		<a class="image-text" href={concat( '/content/trash/', ezini( 'NodeSettings', 'RootNode', 'content.ini' ) )|ezurl} title="{'View and manage the contents of the trash bin.'|i18n( 'design/admin/parts/user/menu' )}"><i class="fa fa-trash-o"></i>&nbsp;<span>{'Trash'|i18n( 'design/admin/parts/user/menu' )}</span></a>
+	</div>
+	{/if}
 
-{* DESIGN: Content END *}</div></div></div>
+	{* DESIGN: Content END *}
 </div>
 
 {* Roles & policies *}
@@ -51,41 +51,5 @@
     'roles_and_policies', 'Roles and policies'|i18n( 'design/admin/parts/user/menu' ),
     'unactivated',        'Unactivated users'|i18n( 'design/admin/parts/user/menu' ),
 )}
-
-{* Left menu width control. *}
-<div id="widthcontrol-links" class="widthcontrol">
-<p>
-{switch match=ezpreference( 'admin_left_menu_size' )}
-    {case match='medium'}
-    <a href={'/user/preferences/set/admin_left_menu_size/small'|ezurl} title="{'Change the left menu width to small size.'|i18n( 'design/admin/parts/user/menu' )}">{'Small'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <span class="current">{'Medium'|i18n( 'design/admin/parts/user/menu' )}</span>
-    <a href={'/user/preferences/set/admin_left_menu_size/large'|ezurl} title="{'Change the left menu width to large size.'|i18n( 'design/admin/parts/user/menu' )}">{'Large'|i18n( 'design/admin/parts/user/menu' )}</a>
-    {/case}
-
-    {case match='large'}
-    <a href={'/user/preferences/set/admin_left_menu_size/small'|ezurl} title="{'Change the left menu width to small size.'|i18n( 'design/admin/parts/user/menu' )}">{'Small'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <a href={'/user/preferences/set/admin_left_menu_size/medium'|ezurl} title="{'Change the left menu width to medium size.'|i18n( 'design/admin/parts/user/menu' )}">{'Medium'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <span class="current">{'Large'|i18n( 'design/admin/parts/user/menu' )}</span>
-    {/case}
-
-    {case in=array( 'small', '' )}
-    <span class="current">{'Small'|i18n( 'design/admin/parts/user/menu' )}</span>
-    <a href={'/user/preferences/set/admin_left_menu_size/medium'|ezurl} title="{'Change the left menu width to medium size.'|i18n( 'design/admin/parts/user/menu' )}">{'Medium'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <a href={'/user/preferences/set/admin_left_menu_size/large'|ezurl} title="{'Change the left menu width to large size.'|i18n( 'design/admin/parts/user/menu' )}">{'Large'|i18n( 'design/admin/parts/user/menu' )}</a>
-    {/case}
-
-    {case}
-    <a href={'/user/preferences/set/admin_left_menu_size/small'|ezurl} title="{'Change the left menu width to small size.'|i18n( 'design/admin/parts/user/menu' )}">{'Small'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <a href={'/user/preferences/set/admin_left_menu_size/medium'|ezurl} title="{'Change the left menu width to medium size.'|i18n( 'design/admin/parts/user/menu' )}">{'Medium'|i18n( 'design/admin/parts/user/menu' )}</a>
-    <a href={'/user/preferences/set/admin_left_menu_size/large'|ezurl} title="{'Change the left menu width to large size.'|i18n( 'design/admin/parts/user/menu' )}">{'Large'|i18n( 'design/admin/parts/user/menu' )}</a>
-    {/case}
-{/switch}
-</p>
-</div>
-
-{* This is the border placed to the left for draging width, js will handle disabling the one above and enabling this *}
-<div id="widthcontrol-handler" class="hide">
-<div class="widthcontrol-grippy"></div>
-</div>
 
 {/if}{* if ne( $ui_context, 'edit' ) *}

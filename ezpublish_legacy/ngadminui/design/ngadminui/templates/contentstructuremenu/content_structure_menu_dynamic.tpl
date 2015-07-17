@@ -133,7 +133,7 @@ var treeMenu;
 
     treeMenu = new ContentStructureMenu( params, i18n );
 
-    document.writeln( '<ul id="content_tree_menu">' );
+    document.writeln( '<ul id="content-tree-menu">' );
     document.writeln( treeMenu.generateEntry( rootNode, false, true ) );
     document.writeln( '<\/ul>' );
 

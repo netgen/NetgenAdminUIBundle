@@ -1,39 +1,35 @@
 <form name="GroupEdit" method="post" action={concat( $module.functions.groupedit.uri, '/', $classgroup.id )|ezurl}>
 
-<div class="context-block">
+	{* DESIGN: Header START *}<div class="title-wrapper">
+		<span class="title-edit">{$classgroup.name|wash|classgroup_icon( normal, $classgroup.name|wash )}</span>
+		<h1 class="context-title">{'Edit %group_name [Class group]'|i18n( 'design/admin/class/groupedit',, hash( '%group_name', $classgroup.name ) )|wash}</h1>
 
-{* DESIGN: Header START *}<div class="box-header">
+		{* DESIGN: Mainline *}<div class="header-mainline"></div>
 
-<h1 class="context-title">{$classgroup.name|wash|classgroup_icon( normal, $classgroup.name|wash )}&nbsp;{'Edit <%group_name> [Class group]'|i18n( 'design/admin/class/groupedit',, hash( '%group_name', $classgroup.name ) )|wash}</h1>
+	{* DESIGN: Header END *}
+	</div>
 
-{* DESIGN: Mainline *}<div class="header-mainline"></div>
+	{* DESIGN: Content START *}
+	<div class="panel">
 
-{* DESIGN: Header END *}</div>
+		{* Name. *}
+		<div class="row">
+			<div class="form-group col-md-6 col-sm-12">
+			    <label for="classGroupName">{'Name'|i18n( 'design/admin/class/groupedit' )}:</label>
+			    <input class="form-control" id="classGroupName" name="Group_name" value="{$classgroup.name|wash}" />
+			</div>
+		</div>
 
-{* DESIGN: Content START *}<div class="box-content">
-<div class="context-attributes">
+		{* DESIGN: Content END *}
 
-{* Name. *}
-<div class="block">
-    <label for="classGroupName">{'Name'|i18n( 'design/admin/class/groupedit' )}:</label>
-    <input class="halfbox" id="classGroupName" name="Group_name" value="{$classgroup.name|wash}" />
-</div>
-</div>
+		<div class="controlbar">
+			{* DESIGN: Control bar START *}
+			<input class="btn btn-primary" type="submit" name="StoreButton" value="{'OK'|i18n( 'design/admin/class/groupedit' )}" />
+			<input class="btn btn-default" type="submit" name="DiscardButton" value="{'Cancel'|i18n( 'design/admin/class/groupedit' )}" />
+			{* DESIGN: Control bar END *}
+		</div>
 
-{* DESIGN: Content END *}</div>
-
-<div class="block">
-<div class="controlbar">
-{* DESIGN: Control bar START *}<div class="box-bc">
-<div class="block">
-<input class="defaultbutton" type="submit" name="StoreButton" value="{'OK'|i18n( 'design/admin/class/groupedit' )}" />
-<input class="button" type="submit" name="DiscardButton" value="{'Cancel'|i18n( 'design/admin/class/groupedit' )}" />
-</div>
-{* DESIGN: Control bar END *}</div>
-</div>
-</div>
-
-</div>
+	</div>
 
 </form>
 

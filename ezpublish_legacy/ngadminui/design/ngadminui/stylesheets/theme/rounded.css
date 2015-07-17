@@ -101,19 +101,7 @@
     text-decoration: none;
 }
 
-ul.tabs li a, ul.tabs li span.disabled
-{
-    color: #005b7f;
-    font-size: 1.1em;
-    text-decoration: underline;
-}
-
-ul.tabs li a:hover
-{
-    color:black;
-}
-
-#header-topmenu ul li.selected a, ul.tabs li.selected a
+#header-topmenu ul li.selected a
 {
     background: #444 none;
     border-radius: 5px;
@@ -121,11 +109,6 @@ ul.tabs li a:hover
     text-decoration: none;
 }
 
-.tab-content
-{
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-}
 
 .tabs-content.disabled
 {
@@ -187,11 +170,6 @@ a.show-hide-tabs:hover
 /*    border-color: white;*/
 }
 
-.tab-block
-{
-    padding-top: 0.8em;
-    border-top: 1px dashed #ddd;
-}
 
 .tab-block .button-left
 {

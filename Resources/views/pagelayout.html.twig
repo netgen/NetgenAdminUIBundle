@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&amp;subset=latin,latin-ext" />
+
     {% set ui_context = module_result.ui_context|default( 'navigation' ) %}
     {% set ui_component = module_result.ui_component|default( 'content' ) %}
 
@@ -52,85 +54,61 @@
 
     {% include 'design:page_head_style.tpl' %}
     {% include 'design:page_head_script.tpl' %}
+    {% include 'NetgenMoreAdminUIBundle::page_head_style.html.twig' %}
+    {% include 'NetgenMoreAdminUIBundle::page_head_script.html.twig' %}
+
 </head>
 
 <body>
-    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }}">
-        <div id="header">
-            <div id="header-design" class="float-break">
-                <div id="header-logo">
-                    <a href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ siteName }}"></a>
-                </div>
+    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if not ezpreference( 'admin_aside_fold_control' ) %}aside-folded{% endif %}">
+        <header id="header">
+            <div class="header-nav">
+                <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ siteName }}"></a>
+            </div>
+            <div class="header-search">
+                {% include 'design:page_search.tpl' %}
+            </div>
+        </header>
 
-                <div id="header-search">
-                    {% include 'design:page_search.tpl' %}
-                </div>
-
-                <div id="header-usermenu">
+        <aside id="aside">
+            <div class="aside-wrap">
+                {% include 'design:page_sidemenu.tpl' %}
+                <div id="aside-usermenu">
                     <a href="{{ path( 'logout' ) }}" title="{{ 'ngmore_admin_ui.layout.logout.title'|trans }}" id="header-usermenu-logout">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
                 </div>
-
-                {% include 'design:page_topmenu.tpl' with { navigation_part: { identifier: module_result.navigation_part|default( 'ezcontentnavigationpart' ) } } %}
             </div>
-        </div>
+        </aside>
 
-        <hr class="hide" />
+        <div id="content">
+            <div class="content-body">
+                <div id="columns">
 
-        <div id="columns"{% if hide_right_menu %} class="hide-rightmenu"{% endif %}>
-            <div id="left-panels-separator">
-                <div class="panels-separator-top"></div>
-                <div class="panels-separator-bottom"></div>
-            </div>
-
-            <div id="right-panels-separator">
-                <div class="panels-separator-top"></div>
-                <div class="panels-separator-bottom"></div>
-            </div>
-
-            <div id="canvas-top"></div>
-
-            <div id="rightmenu">
-                {% include 'design:page_rightmenu.tpl' with { current_user: app.user.APIUser } %}
-            </div>
-
-            <div id="maincolumn">
-                <hr class="hide" />
-
-                {% if not hide_left_menu %}
                     {% include 'design:page_leftmenu.tpl' with { uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' ) } %}
 
-                    <div id="maincontent">
-                        <div id="maincontent-design" class="float-break">
-                            <div id="fix">
-                                <div id="path">
-                                    <div id="path-design">
-                                        {% include 'design:page_toppath.tpl' %}
+                    <div id="main-column" class="main-column layout-column">
+                        <div class="layout-column-inner">
+                            <div class="inner-cell">
+                                <div class="inner-wrapper">
+
+                                    <div id="path">
+                                        <div id="path-design">
+                                            {% include 'design:page_toppath.tpl' %}
+                                        </div>
+                                    </div>
+
+                                    <div class="main-content">
+                                        {% block content %}{% endblock %}
                                     </div>
                                 </div>
-                {% endif %}
-
-                                <div class="span main-content">
-                                    {% block content %}{% endblock %}
-                                </div>
-
-                {% if not hide_left_menu %}
                             </div>
-
-                            <div class="break"></div>
                         </div>
                     </div>
-                {% endif %}
+                </div>
             </div>
-
-            <div class="break"></div>
-
-            <div id="canvas-bottom"></div>
-
         </div>
 
-        <hr class="hide" />
 
-        <div id="footer" class="float-break">
+        <div id="footer">
             <div id="footer-design">
                 <p>
                     Powered by <span class="edition-info">eZ Publish</span>.<br />

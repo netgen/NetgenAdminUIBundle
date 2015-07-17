@@ -2,6 +2,13 @@
     $visible_columns  = ezini('SubItems', 'VisibleColumns', 'admininterface.ini')
     $locales          = fetch( 'content', 'translation_list' ) }
 
+{def $iconInfo      = icon_info('class')
+    $classIconsSize = ezini('TreeMenu','ClassIconsSize','contentstructuremenu.ini')
+    $wwwDirPrefix = concat(ezsys('wwwdir'), "/", $iconInfo.theme_path, "/", $iconInfo.size_path_list[$classIconsSize], "/")
+    $crankIcon = concat($wwwDirPrefix, "crank")
+}
+
+
 {literal}
 <script type="text/javascript">
 (function() {
@@ -72,6 +79,7 @@ var labelsObj = {ldelim}
     DATA_TABLE_COLS: {ldelim}
 
                         thumbnail: "{'Thumbnail'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
+                        crank: '<i class="fa fa-cog"></i>',
                         name: "{'Name'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         visibility: "{'Visibility'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         type: "{'Type'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",

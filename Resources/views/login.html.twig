@@ -3,7 +3,7 @@
 {% block content %}
     {% block login_content %}
         {% if error %}
-            <div class="message-warning">
+            <div class="alert alert-warning" role="alert">
                 <h2><span class="time">[{{ 'now'|date( 'd.m.Y H:i' ) }}]</span> {{ error.message|trans }}</h2>
 
                 <ul>
@@ -13,23 +13,21 @@
                 </ul>
             </div>
         {% endif %}
+        <div class="login-container">
+            <header class="login-header">
+                <a href="#" class="logo"></a>
+                <h3>Sign in to Netgen More UI</h3>
+            </header>
 
-        <div class="context-block">
             <form name="loginform" method="post" action="{{ path( 'login_check' ) }}">
                 {% block login_fields %}
-                    <div class="login-inputs context-attributes">
-                        <div class="block">
-                            <div class="login-input-wrapper">
-                                <div id="icon-login"></div>
-                                <input class="halfbox" type="text" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'ngmore_admin_ui.login.username'|trans }}" tabindex="1" title="{{ 'ngmore_admin_ui.login.username.title'|trans }}" />
-                            </div>
+                    <div class="list-group list-group-sm">
+                        <div class="list-group-item">
+                            <input type="text" class="form-control no-border" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'ngmore_admin_ui.login.username'|trans }}" tabindex="1" title="{{ 'ngmore_admin_ui.login.username.title'|trans }}">
                         </div>
 
-                        <div class="block">
-                            <div class="login-input-wrapper">
-                                <div id="icon-password"></div>
-                                <input class="halfbox" type="password" size="10" name="_password" id="passwordtext" placeholder="{{ 'ngmore_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'ngmore_admin_ui.login.password.title'|trans }}" />
-                            </div>
+                        <div class="list-group-item">
+                            <input type="password" class="form-control no-border" size="10" name="_password" id="passwordtext" placeholder="{{ 'ngmore_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'ngmore_admin_ui.login.password.title'|trans }}">
                         </div>
                     </div>
 
@@ -41,17 +39,7 @@
                         <input type="hidden" name="_target_path" value="/account" />
                     #}
 
-                    <div class="controlbar">
-                        <div class="box-bc">
-                            <div class="box-ml">
-                                <div class="block">
-                                    <div class="login-input-wrapper">
-                                        <input class="defaultbutton" type="submit" id="loginbutton" value="{{ 'ngmore_admin_ui.login.submit'|trans }}" tabindex="3" title="{{ 'ngmore_admin_ui.login.submit.title'|trans }}" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="btn btn-lg btn-info btn-block" type="submit" id="loginbutton" name="LoginButton" tabindex="3" title="{{ 'ngmore_admin_ui.login.submit.title'|trans }}">{{ 'ngmore_admin_ui.login.submit'|trans }}</button>
                 {% endblock %}
             </form>
         </div>

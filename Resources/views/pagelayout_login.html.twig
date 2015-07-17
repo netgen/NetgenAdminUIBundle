@@ -7,46 +7,18 @@
     <title>{{ siteName }}</title>
     <meta name="generator" content="{{ 'ngmore_admin_ui.layout.generator'|trans }}" />
 
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&amp;subset=latin,latin-ext" />
+
     {% include 'design:page_head_style.tpl' %}
     {% include 'design:page_head_script.tpl' %}
+    {% include 'NetgenMoreAdminUIBundle::page_head_style.html.twig' %}
+    {% include 'NetgenMoreAdminUIBundle::page_head_script.html.twig' %}
 </head>
 <body class="loginpage">
-    <div id="page">
-        <div id="header">
-            <div id="header-design" class="float-break">
-            </div>
-        </div>
-
-        <hr class="hide" />
-
-        <div id="columns">
-            <div id="maincolumn">
-                <div id="maincontent">
-                    <div id="maincontent-design" class="float-break">
-                        <div id="fix">
-                            <div class="span main-content">
-                                {% block content %}{% endblock %}
-                            </div>
-                        </div>
-
-                        <div class="break"></div>
-                    </div>
-                </div>
-
-                <div class="break"></div>
-            </div>
-        </div>
-
-        <hr class="hide" />
-
-        <div id="footer">
-            <div id="footer-design">
-                <p>
-                    <a href="http://ez.no/ezpublish">eZ Publish</a> Copyright &copy; 1999-2015 <a href="http://ez.no">eZ Systems AS</a> and others.
-                </p>
-
-                <div class="break"></div>
-            </div>
+    {% block content %}{% endblock %}
+    <div class="login-container">
+        <div class="login-footer">
+            <p><a href="http://ez.no/ezpublish">eZ Publish</a> Copyright &copy; 1999-2015 <a href="http://ez.no">eZ Systems AS</a> and others.</p>
         </div>
     </div>
 </body>

@@ -2,102 +2,93 @@
 {if $message}
 
 {if or( $oldPasswordNotValid, $newPasswordNotMatch, $newPasswordTooShort )}
-    <div class="message-warning">
-    <h2><span class="time">[{currentdate()|l10n( shortdatetime )}]</span> {'The password could not be changed.'|i18n( 'design/admin/user/password' )}</h2>
-    {if $oldPasswordNotValid}
-        <ul>
-            <li>{'The old password was either missing or incorrect.'|i18n( 'design/admin/user/password' )}</li>
-            <li>{'Please retype the old password and try again.'|i18n( 'design/admin/user/password' )}</li>
-        <ul>
-    {/if}
-    {if $newPasswordNotMatch}
-        <ul>
-            <li>{'The new passwords did not match.'|i18n( 'design/admin/user/password' )}</li>
-            <li>{'Please retype the new passwords and try again.'|i18n( 'design/admin/user/password' )}</li>
-        </ul>
-    {/if}
-    {if $newPasswordTooShort}
-        <ul>
-            <li>{'The password must be at least %1 characters long.'|i18n( 'design/admin/user/password','',array( ezini('UserSettings','MinPasswordLength') ) )}</li>
-            <li>{'Please retype the new passwords and try again.'|i18n( 'design/admin/user/password' )}</li>
-        </ul>
-    {/if}
+    <div class="alert alert-warning" role="alert">
+        <h2><span class="time">[{currentdate()|l10n( shortdatetime )}]</span> {'The password could not be changed.'|i18n( 'design/admin/user/password' )}</h2>
+        {if $oldPasswordNotValid}
+            <ul>
+                <li>{'The old password was either missing or incorrect.'|i18n( 'design/admin/user/password' )}</li>
+                <li>{'Please retype the old password and try again.'|i18n( 'design/admin/user/password' )}</li>
+            <ul>
+        {/if}
+        {if $newPasswordNotMatch}
+            <ul>
+                <li>{'The new passwords did not match.'|i18n( 'design/admin/user/password' )}</li>
+                <li>{'Please retype the new passwords and try again.'|i18n( 'design/admin/user/password' )}</li>
+            </ul>
+        {/if}
+        {if $newPasswordTooShort}
+            <ul>
+                <li>{'The password must be at least %1 characters long.'|i18n( 'design/admin/user/password','',array( ezini('UserSettings','MinPasswordLength') ) )}</li>
+                <li>{'Please retype the new passwords and try again.'|i18n( 'design/admin/user/password' )}</li>
+            </ul>
+        {/if}
     </div>
 {else}
-    <div class="message-feedback">
+    <div class="alert alert-success" role="alert">
         <h2><span class="time">[{currentdate()|l10n( shortdatetime )}]</span> {'The password was successfully changed.'|i18n( 'design/admin/user/password' )}</h2>
     </div>
 {/if}
 {/if}
 
 
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel">
+            <form name="Password" method="post" action={concat( $module.functions.password.uri, '/', $userID )|ezurl}>
 
+                {* DESIGN: Header START *}
+                <div class="panel-hl">
+                    <h3>{'Change password for %username'|i18n( 'design/admin/user/password',, hash( '%username', $userAccount.login ) )|wash}</h3>
+                </div>
 
-<form name="Password" method="post" action={concat( $module.functions.password.uri, '/', $userID )|ezurl}>
+                {* DESIGN: Mainline *}
+                {* DESIGN: Header END *}
+                {* DESIGN: Content START *}
 
-<div class="context-block">
+                {* Username. *}
+                <div class="form-group">
+                    <label>{'Username'|i18n( 'design/admin/user/password' )}:</label>
+                    {$userAccount.login}
+                </div>
 
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
+                {* Old password. *}
+                <div class="form-group">
+                    <label>{'Old password'|i18n( 'design/admin/user/password' )}:</label>
+                    <input class="form-control" id="pass" type="password" name="oldPassword" value="{$oldPassword|wash}" />
+                </div>
 
-<h1 class="context-title">{'Change password for <%username>'|i18n( 'design/admin/user/password',, hash( '%username', $userAccount.login ) )|wash}</h1>
+                {* New password. *}
+                <div class="form-group">
+                    <label>{'New password'|i18n( 'design/admin/user/password' )}:</label>
+                    <input class="form-control" type="password" name="newPassword" value="{$newPassword|wash}" />
+                </div>
 
-{* DESIGN: Mainline *}<div class="header-mainline"></div>
+                {* Confirm new password. *}
+                <div class="form-group">
+                    <label>{'Confirm new password'|i18n( 'design/admin/user/password' )}:</label>
+                    <input class="form-control" type="password" name="confirmPassword" value="{$confirmPassword|wash}" />
+                </div>
 
-{* DESIGN: Header END *}</div></div>
+                {* DESIGN: Content END *}
 
-{* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
-
-<div class="context-attributes">
-
-{* Username. *}
-<div class="block">
-<label>{'Username'|i18n( 'design/admin/user/password' )}:</label>
-{$userAccount.login}
+                <div class="controlbar">
+                    {* DESIGN: Control bar START *}
+                    <div class="block">
+                        <input class="btn btn-primary" type="submit" name="OKButton" value="{'OK'|i18n( 'design/admin/user/password' )}" />
+                        <input class="btn btn-default" type="submit" name="CancelButton" value="{'Cancel'|i18n( 'design/admin/user/password' )}" />
+                    </div>
+                </div>
+                {* DESIGN: Control bar END *}
+            </form>
+        </div>
+    </div>
 </div>
-
-{* Old password. *}
-<div class="block">
-<label>{'Old password'|i18n( 'design/admin/user/password' )}:</label>
-<input class="halfbox" id="pass" type="password" name="oldPassword" value="{$oldPassword|wash}" />
-</div>
-
-{* New password. *}
-<div class="block">
-<label>{'New password'|i18n( 'design/admin/user/password' )}:</label>
-<input class="halfbox" type="password" name="newPassword" value="{$newPassword|wash}" />
-</div>
-
-{* Confirm new password. *}
-<div class="block">
-<label>{'Confirm new password'|i18n( 'design/admin/user/password' )}:</label>
-<input class="halfbox" type="password" name="confirmPassword" value="{$confirmPassword|wash}" />
-</div>
-
-</div>
-
-{* DESIGN: Content END *}</div></div></div>
-
-<div class="controlbar">
-{* DESIGN: Control bar START *}<div class="box-bc"><div class="box-ml">
-<div class="block">
-<input class="defaultbutton" type="submit" name="OKButton" value="{'OK'|i18n( 'design/admin/user/password' )}" />
-<input class="button" type="submit" name="CancelButton" value="{'Cancel'|i18n( 'design/admin/user/password' )}" />
-</div>
-{* DESIGN: Control bar END *}</div></div>
-</div>
-
-</div>
-
-</form>
-
-
-
 
 {literal}
 <script type="text/javascript">
-jQuery(function( $ )//called on document.ready
-{
-    document.getElementById('pass').focus();
-});
+    jQuery(function( $ )//called on document.ready
+    {
+        document.getElementById('pass').focus();
+    });
 </script>
 {/literal}
