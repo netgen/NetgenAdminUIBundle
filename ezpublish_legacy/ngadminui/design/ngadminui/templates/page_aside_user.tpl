@@ -7,7 +7,7 @@
         {def $fold_control_href='/user/preferences/set/admin_aside_fold_control/1'}
     {/if}
 
-    <a href={$fold_control_href|ezurl} class="aside-fold-trigger">{*ui-toggle="app-aside-folded" target=".app"*}
+    <a href={$fold_control_href|ezurl} class="aside-fold-trigger">
         {if ezpreference( 'admin_aside_fold_control' )}
             <i class="fa fa-dedent"></i>
         {else}

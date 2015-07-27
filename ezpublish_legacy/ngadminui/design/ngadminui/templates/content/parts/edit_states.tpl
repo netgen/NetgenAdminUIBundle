@@ -2,38 +2,34 @@
 
 {def $enable_StateEditButton = false()}
 
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
+{* DESIGN: Header START *}
 
-<h4 class="context-title">{'States'|i18n('design/admin/content/edit')}</h4>
+<h3>{'States'|i18n('design/admin/content/edit')}</h3>
 
-{* DESIGN: Header END *}</div></div>
+{* DESIGN: Header END *}
 
 {* DESIGN: Content START *}
-<div class="box-bc"><div class="box-ml"><div class="box-mr"><div class="box-bl"><div class="box-br"><div class="box-content">
+<div class="box-content">
 
-{foreach $object.allowed_assign_state_list as $allowed_assign_state_info}
-<div class="block">
-    <label for="SelectedStateIDList">{$allowed_assign_state_info.group.current_translation.name|wash}</label>
-    <select id="SelectedStateIDList" name="SelectedStateIDList[]"{if or( $allowed_assign_state_info.states|count|eq(1), $object_is_draft|not() )} disabled="disabled"{/if}>
-    {if $allowed_assign_state_info.states}
-        {set $enable_StateEditButton = true()}
-    {/if}
-    {foreach $allowed_assign_state_info.states as $state}
-        <option value="{$state.id}" {if $object.state_id_array|contains($state.id)}selected="selected"{/if}>{$state.current_translation.name|wash}</option>
+    {foreach $object.allowed_assign_state_list as $allowed_assign_state_info}
+        <label for="SelectedStateIDList">{$allowed_assign_state_info.group.current_translation.name|wash}</label>
+        <select class="form-control input-sm" id="SelectedStateIDList" name="SelectedStateIDList[]"{if or( $allowed_assign_state_info.states|count|eq(1), $object_is_draft|not() )} disabled="disabled"{/if}>
+        {if $allowed_assign_state_info.states}
+            {set $enable_StateEditButton = true()}
+        {/if}
+        {foreach $allowed_assign_state_info.states as $state}
+            <option value="{$state.id}" {if $object.state_id_array|contains($state.id)}selected="selected"{/if}>{$state.current_translation.name|wash}</option>
+        {/foreach}
+        </select>
     {/foreach}
-    </select>
-</div>
-{/foreach}
 
 
-<div class="block">
-{if $object_is_draft|not()}
-    <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="button-disabled" disabled="disabled" title="{'This action is not available in edit view when content object is published!'|i18n('design/admin/content/edit')}" />
-{elseif $enable_StateEditButton}
-    <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="button" />
-{else}
-    <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="button-disabled" disabled="disabled" title="{'No content object state is configured.'|i18n('design/admin/content/edit')}" />
-{/if}
+    {if $object_is_draft|not()}
+        <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="btn btn-default btn-sm" disabled="disabled" title="{'This action is not available in edit view when content object is published!'|i18n('design/admin/content/edit')}" />
+    {elseif $enable_StateEditButton}
+        <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="btn btn-default btn-sm" />
+    {else}
+        <input type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="StateEditButton" class="btn btn-default btn-sm" disabled="disabled" title="{'No content object state is configured.'|i18n('design/admin/content/edit')}" />
+    {/if}
 </div>
-</div></div></div></div></div></div>
 {* DESIGN: Content END *}

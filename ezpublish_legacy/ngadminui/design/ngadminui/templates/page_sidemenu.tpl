@@ -67,7 +67,7 @@
             {undef $liclass $icon}
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle"  data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" title="Cache and quick settings"  data-toggle="dropdown">
                     <i class="fa fa-refresh"></i>
                     <span>Cache</span>
                     <span class="caret"></span>
@@ -146,8 +146,10 @@
 
             <li>
                 {if $ui_context_edit}
-                    <i class="fa fa-sign-out"></i>
-                    <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled">Logout</span></li>
+                    <span class="nolink">
+                        <i class="fa fa-sign-out"></i>
+                        <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled">Logout</span></li>
+                    </span>
                 {else}
                     <a href={'/user/logout'|ezurl} title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}">
                         <i class="fa fa-sign-out"></i>
