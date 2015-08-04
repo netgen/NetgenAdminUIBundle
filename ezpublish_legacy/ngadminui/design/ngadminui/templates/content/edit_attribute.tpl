@@ -3,80 +3,101 @@
          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
 {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
-{if $attribute_group|ne( $attribute_default_category )}
-    <fieldset class="ezcca-collapsible ezcca-attributes-group-{$attribute_group|wash}">
-    <legend><a href="JavaScript:void(0);">{$attribute_categorys[$attribute_group]}</a></legend>
-    <div class="ezcca-collapsible-fieldset-content">
-{/if}
-{foreach $content_attributes_grouped as $attribute_identifier => $attribute}
-{def $contentclass_attribute = $attribute.contentclass_attribute}
-<div class="block ezcca-edit-datatype-{$attribute.data_type_string} ezcca-edit-{$attribute_identifier}">
-{* Show view GUI if we can't edit, otherwise: show edit GUI. *}
-{if and( eq( $attribute.can_translate, 0 ), ne( $object.initial_language_code, $attribute.language_code ) )}
-    <label>{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-        {if $attribute.can_translate|not} <span class="nontranslatable">({'not translatable'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
-        {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
-    </label>
-    {if $is_translating_content}
-        <div class="original">
-        {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-        </div>
-    {else}
-        {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-    {/if}
-{else}
-    {if $is_translating_content}
-        <label{if $attribute.has_validation_error} class="message-error"{/if}>{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-            {if $attribute.is_required} <span class="required">({'required'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
-            {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
-            {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
-        </label>
-        <div class="original">
-        {attribute_view_gui attribute_base=$attribute_base attribute=$from_content_attributes_grouped_data_map[$attribute_group][$attribute_identifier] view_parameters=$view_parameters}
-        </div>
-        <div class="translation">
-        {if $attribute.display_info.edit.grouped_input}
-            <fieldset>
-            {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-            <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-            </fieldset>
-        {else}
-            {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-            <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-        {/if}
-        </div>
-    {else}
-        {if $attribute.display_info.edit.grouped_input}
-            <fieldset>
-            <legend{if $attribute.has_validation_error} class="message-error"{/if}><span class="long-legend-wrap">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-                {if $attribute.is_required} <span class="required">({'required'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
-                {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
-                {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
-                </span>
-            </legend>
-            {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-            <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-            </fieldset>
-        {else}
-            <label{if $attribute.has_validation_error} class="message-error"{/if}>{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}
-                {if $attribute.is_required} <span class="required">({'required'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
-                {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
-                {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
-            </label>
-            {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
-            <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
-        {/if}
-    {/if}
-{/if}
-</div>
-{undef $contentclass_attribute}
-{/foreach}
-{if $attribute_group|ne( $attribute_default_category )}
+    <div class="tab panel">
+        <h3 class="panel-hl">{$attribute_categorys[$attribute_group]}</h3>
+        {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
+            {def $contentclass_attribute = $attribute.contentclass_attribute}
+            <div class="block ezcca-edit-datatype-{$attribute.data_type_string} ezcca-edit-{$attribute_identifier}">
+                <div class="row">
+                    {* Show view GUI if we can't edit, otherwise: show edit GUI. *}
+                    {if and( eq( $attribute.can_translate, 0 ), ne( $object.initial_language_code, $attribute.language_code ) )}
+                        <div class="col-sm-3">
+                            <label class="attribute-label">
+                                <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
+                                {if $attribute.can_translate|not} <span class="nontranslatable">({'not translatable'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
+                                {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
+                            </label>
+                        </div>
+                        <div class="col-sm-9">
+                            {if $is_translating_content}
+                                <div class="attribute-block float-break">
+                                    <div class="original">
+                                    {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                    <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                                    </div>
+                                </div>
+                            {else}
+                                {attribute_view_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                            {/if}
+                        </div>
+                    {else}
+                        {if $is_translating_content}
+                            <div class="col-sm-3">
+                                <label class="attribute-label{if $attribute.has_validation_error} message-error{/if}">
+                                    <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
+                                    {if $attribute.is_required} <span class="required">*</span>{/if}
+                                    {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:
+                                    {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
+                                </label>
+                            </div>
+                            <div class="col-sm-9">                                
+                                <div class="attribute-block float-break">
+                                    <div class="original">
+                                    {attribute_view_gui attribute_base=$attribute_base attribute=$from_content_attributes_grouped_data_map[$attribute_group][$attribute_identifier] view_parameters=$view_parameters}
+                                    </div>
+                                    <div class="translation">
+                                    {if $attribute.display_info.edit.grouped_input}
+                                        <fieldset class="attribute-fieldset">
+                                        {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                                        </fieldset>
+                                    {else}
+                                        {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                                    {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        {else}
+                            {if $attribute.display_info.edit.grouped_input}
+                                <div class="col-sm-3 text-right">
+                                    <label class="attribute-label {if $attribute.has_validation_error} message-error{/if}">
+                                        <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
+                                        {if $attribute.is_required} <span class="required">*</span>{/if}
+                                        {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
+                                        {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
+                                    </label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="attribute-block float-break">
+                                        {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                                    </div>
+                                </div>
+                            {else}
+                                <div class="col-sm-3 text-right">
+                                    <label class="attribute-label{if $attribute.has_validation_error} message-error{/if}">
+                                        <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
+                                        {if $attribute.is_required} <span class="required">*</span>{/if}
+                                        {if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}
+                                        {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
+                                    </label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="attribute-block float-break">
+                                        {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
+                                        <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
+                                    </div>
+                                </div>
+                            {/if}
+                        {/if}
+                    {/if}
+                </div>
+            </div>
+            {undef $contentclass_attribute}
+        {/foreach}
     </div>
-    </fieldset>
-{/if}
 {/foreach}
 {run-once}
 {* if is_set( $content_attributes_grouped_data_map[1] ) *}

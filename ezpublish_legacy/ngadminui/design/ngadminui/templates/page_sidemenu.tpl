@@ -36,13 +36,13 @@
                         {set $icon='fa fa-cog'}
                     {/case}
                     {case match='ezfind/elevate'}
-                        {set $icon='fa fa-cubes'}
+                        {set $icon='fa fa-database'}
                     {/case}
                     {case match='tags/dashboard'}
                         {set $icon='fa fa-tags'}
                     {/case}
                     {case}
-                        {set $icon='fa fa-file'}
+                        {set $icon='fa fa-cubes'}
                     {/case}
 
                 {/switch}
@@ -59,7 +59,7 @@
                         <a href="#">
                     {/if}
                         <i class="{$icon}"></i>
-                        <span{if $index|lt(3)} class="font-bold"{/if}>{$menu_item.name|wash}</span>
+                        <span class="tt{if $index|lt(3)} font-bold{/if}">{$menu_item.name|wash}</span>
                     </a>
                 </li>
 
@@ -69,7 +69,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" title="Cache and quick settings"  data-toggle="dropdown">
                     <i class="fa fa-refresh"></i>
-                    <span>Cache</span>
+                    <span class="tt">Cache</span>
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-cache">
@@ -88,17 +88,17 @@
             <li>
                 <a href="ui_chart.html">
                     <i class="fa fa-credit-card"></i>
-                    <span>Sylius E-Commerce</span>
+                    <span class="tt">Sylius E-Commerce</span>
                 </a>
             </li>
 
-            <li>
+            {* <li>
                 <a href="" class="auto">
                     <span class="pull-right">
                         <i class="fa fa-fw fa-angle-right"></i>
                     </span>
                     <i class="fa fa-th"></i>
-                    <span>Blocks</span>
+                    <span class="tt">Blocks</span>
                 </a>
             </li>
             <li>
@@ -107,53 +107,60 @@
                         <i class="fa fa-fw fa-angle-right"></i>
                     </span>
                     <i class="fa fa-columns icon"></i>
-                    <span>Zones Builder</span>
+                    <span class="tt">Zones Builder</span>
                 </a>
             </li>
 
             <li>
                 <a href="ui_chart.html">
                     <i class="fa fa-bar-chart"></i>
-                    <span>Social Stats</span>
+                    <span class="tt">Social Stats</span>
                 </a>
-            </li>
+            </li> *}
 
             <li class="hidden-folded text-only">
                 <span>Your Stuff</span>
             </li>
-            <li>
-                <a href="page_profile.html">
+            <li class="dropdown">
+                <a class="dropdown-toggle" title="Bookmarks"  data-toggle="dropdown">
                     <i class="fa fa-bookmark"></i>
-                    <span>Bookmarks</span>
+                    <span class="tt">Bookmarks</span>
+                    <span class="caret"></span>
                 </a>
+                <ul class="dropdown-menu dropdown-cache">
+                    <li>
+                        {include uri='design:toolbar/full/admin_bookmarks.tpl'}
+                    </li>
+                </ul>
             </li>
-            <li>
+
+            {* <li>
                 <a href="page_profile.html">
                     <i class="fa fa-comments text-success-lter"></i>
                     <b class="badge bg-success pull-right">7</b>
-                    <span>Activity</span>
+                    <span class="tt">Activity</span>
                 </a>
-            </li>
+            </li> *}
 
             <li class="divider hidden-folded"></li>
 
-            <li>
+            {* <li>
                 <a href="">
                     <i class="fa fa-question-circle"></i>
-                    <span>Documentation</span>
+                    <span class="tt">Documentation</span>
                 </a>
-            </li>
+            </li> *}
 
             <li>
                 {if $ui_context_edit}
                     <span class="nolink">
                         <i class="fa fa-sign-out"></i>
-                        <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled">Logout</span></li>
+                        <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled tt">Logout</span></li>
                     </span>
                 {else}
                     <a href={'/user/logout'|ezurl} title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}">
                         <i class="fa fa-sign-out"></i>
-                        <span>Logout</span>
+                        <span class="tt">Logout</span>
                     </a>
                 {/if}
             </li>

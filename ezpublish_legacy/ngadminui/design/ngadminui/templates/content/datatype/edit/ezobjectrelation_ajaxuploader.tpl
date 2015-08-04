@@ -2,7 +2,7 @@
 {if ezmodule( 'ezjscore' )}
     <input type="submit" value="{'Upload a file'|i18n( 'design/admin/content/datatype' )}"
             name="RelationUploadNew{$attribute.id}-{$attribute.version}"
-            class="button simple-relation-upload-new hide"
+            class="btn btn-default simple-relation-upload-new hide"
             {cond( $enabled, '', 'disabled="disabled"' )}
             title="{'Upload a file to create a new object and add it to the relation'|i18n( 'design/admin/content/datatype' )}" />
 

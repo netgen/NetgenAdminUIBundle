@@ -56,8 +56,8 @@
 
         <div id="controlbar-top" class="controlbar controlbar-fixed">
             {* DESIGN: Control bar START *}
+            <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" /> 
             <div class="btn-group">
-                <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" />
                 <input class="btn btn-default" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/admin/content/edit' )}" title="{'Store the contents of the draft that is being edited and continue editing. Use this button to periodically save your work while editing.'|i18n( 'design/admin/content/edit' )}" />
                 <input class="btn btn-default" type="submit" name="StoreExitButton" value="{'Store draft and exit'|i18n( 'design/admin/content/edit' )}" title="{'Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.'|i18n( 'design/admin/content/edit' )}" />
                 <input class="btn btn-default" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )|wash(javascript)}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
@@ -122,43 +122,62 @@
             </div>
 
             {* DESIGN: Content START *}
-            <div class="box-content panel">
 
-                <div class="context-information">
-                    <div class="break"></div>
-                </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="list-group edit-tab-control">
+                        {default $view_parameters            = array()
+                                 $attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
+                                 $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
-                {if $is_translating_content}
-                <div class="content-translation">
-                {/if}
+                        {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
+                            <a href="#" class="list-group-item">{$attribute_categorys[$attribute_group]}</a>
+                        {/foreach}
 
-                    {foreach ezini( 'EditSettings', 'AdditionalTemplates', 'content.ini' ) as $additional_tpl}
-                        {include uri=concat( 'design:', $additional_tpl )}
-                    {/foreach}
-
-                    <div class="context-attributes">
-                        {include uri='design:content/edit_attribute.tpl' view_parameters=$view_parameters}
+                        {/default}
                     </div>
-
-                {if $is_translating_content}
                 </div>
-                {/if}
+                <div class="col-sm-10">
 
-            {* DESIGN: Content END *}
-            </div>
-            <div class="controlbar">
-            {* DESIGN: Control bar START *}
-                <div class="btn-group">
-                    {if ezpreference( 'admin_edit_show_re_edit' )}
-                        <input type="checkbox" name="BackToEdit" />{'Back to edit'|i18n( 'design/admin/content/edit' )}
-                    {/if}
-                    <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" />
-                    <input class="btn btn-default" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/admin/content/edit' )}" title="{'Store the contents of the draft that is being edited and continue editing. Use this button to periodically save your work while editing.'|i18n( 'design/admin/content/edit' )}" />
-                    <input class="btn btn-default" type="submit" name="StoreExitButton" value="{'Store draft and exit'|i18n( 'design/admin/content/edit' )}" title="{'Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.'|i18n( 'design/admin/content/edit' )}" />
-                    <input class="btn btn-default" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )|wash(javascript)}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
+                    <div class="box-content">
+
+                        {* <div class="context-information">
+                            <div class="break"></div>
+                        </div> *}
+
+                        {if $is_translating_content}
+                        <div class="content-translation">
+                        {/if}
+
+                            {foreach ezini( 'EditSettings', 'AdditionalTemplates', 'content.ini' ) as $additional_tpl}
+                                {include uri=concat( 'design:', $additional_tpl )}
+                            {/foreach}
+
+                            <div class="context-attributes edit-tabs">
+                                {include uri='design:content/edit_attribute.tpl' view_parameters=$view_parameters}
+                            </div>
+
+                        {if $is_translating_content}
+                        </div>
+                        {/if}
+
+                    {* DESIGN: Content END *}
+                    </div>
+                    <div class="controlbar">
+                    {* DESIGN: Control bar START *}
+                        {if ezpreference( 'admin_edit_show_re_edit' )}
+                            <input type="checkbox" name="BackToEdit" />{'Back to edit'|i18n( 'design/admin/content/edit' )}
+                        {/if}
+                        <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" /> 
+                        <div class="btn-group">
+                            <input class="btn btn-default" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/admin/content/edit' )}" title="{'Store the contents of the draft that is being edited and continue editing. Use this button to periodically save your work while editing.'|i18n( 'design/admin/content/edit' )}" />
+                            <input class="btn btn-default" type="submit" name="StoreExitButton" value="{'Store draft and exit'|i18n( 'design/admin/content/edit' )}" title="{'Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.'|i18n( 'design/admin/content/edit' )}" />
+                            <input class="btn btn-default" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )|wash(javascript)}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
+                        </div>
+                        <input type="hidden" name="DiscardConfirm" value="1" />
+                    {* DESIGN: Control bar END *}
+                    </div>
                 </div>
-                <input type="hidden" name="DiscardConfirm" value="1" />
-            {* DESIGN: Control bar END *}
             </div>
 
         </div>

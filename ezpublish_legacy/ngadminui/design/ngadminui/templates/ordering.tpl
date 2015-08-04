@@ -1,5 +1,32 @@
 <div class="panel">
 
+    {* Children window.*}
+    <div id="content-view-children">
+    {if $node.is_container}
+        {include uri='design:children.tpl'}
+    {else}
+        {include uri='design:no_children.tpl'}
+    {/if}
+    </div>
+
+    {* Highlight "SetSorting" button on change *}
+    {literal}
+    <script type="text/javascript">
+    jQuery('#ezasi-sort-field, #ezasi-sort-order').each( function(){
+        jQuery( this ).attr( 'initial', this.value );
+    } ).change(function(){
+        var t = $(this), o = $(this.id === 'ezasi-sort-field' ? '#ezasi-sort-order' : '#ezasi-sort-field'), s = $('#ezasi-sort-set');
+        // signal in gui if user needs to save this or not
+        if ( t.val() === t.attr('initial') && o.val() === o.attr('initial') )
+            s.removeClass('defaultbutton').addClass('button');
+        else
+            s.removeClass('button').addClass('defaultbutton');
+    });
+    </script>
+    {/literal}
+</div>
+<div class="panel">
+
     {* Ordering windows. *}
     <form name="ordering" method="post" action={'content/action'|ezurl}>
         <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
@@ -43,31 +70,4 @@
             {undef}
         </fieldset>
     </form>
-</div>
-<div class="panel">
-
-    {* Children window.*}
-    <div id="content-view-children">
-    {if $node.is_container}
-        {include uri='design:children.tpl'}
-    {else}
-        {include uri='design:no_children.tpl'}
-    {/if}
-    </div>
-
-    {* Highlight "SetSorting" button on change *}
-    {literal}
-    <script type="text/javascript">
-    jQuery('#ezasi-sort-field, #ezasi-sort-order').each( function(){
-        jQuery( this ).attr( 'initial', this.value );
-    } ).change(function(){
-        var t = $(this), o = $(this.id === 'ezasi-sort-field' ? '#ezasi-sort-order' : '#ezasi-sort-field'), s = $('#ezasi-sort-set');
-        // signal in gui if user needs to save this or not
-        if ( t.val() === t.attr('initial') && o.val() === o.attr('initial') )
-            s.removeClass('defaultbutton').addClass('button');
-        else
-            s.removeClass('button').addClass('defaultbutton');
-    });
-    </script>
-    {/literal}
 </div>

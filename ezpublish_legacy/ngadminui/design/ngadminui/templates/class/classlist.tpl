@@ -37,8 +37,8 @@
     <input type="hidden" name="DeleteIDArray[]" value="{$group.id}" />
     <input type="hidden" name="EditGroupID" value="{$group.id}" />
     <div class="btn-group">
-        <input class="btn btn-default" type="submit" name="EditGroupButton" value="{'Edit'|i18n( 'design/admin/class/classlist' )}" title="{'Edit this class group.'|i18n( 'design/admin/class/classlist' )}" />
-        <input class="btn btn-default" type="submit" name="RemoveGroupButton" value="{'Remove'|i18n( 'design/admin/class/classlist' )}" title="{'Remove this class group.'|i18n( 'design/admin/class/classlist' )}" />
+        <button class="btn btn-primary" type="submit" name="EditGroupButton" title="{'Edit this class group.'|i18n( 'design/admin/class/classlist' )}"><i class="fa fa-pencil-square-o"></i>&nbsp; {'Edit'|i18n( 'design/admin/class/classlist' )}</button>
+        <button class="btn btn-default" type="submit" name="RemoveGroupButton" title="{'Remove this class group.'|i18n( 'design/admin/class/classlist' )}">{'Remove'|i18n( 'design/admin/class/classlist' )}</button>
     </div>
 </form>
 {* DESIGN: Control bar END *}

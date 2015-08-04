@@ -44,7 +44,7 @@
 
 {* DESIGN: Header END *}</div></div>
 
-{* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
+{* DESIGN: Content START *}<div class="box-content">
 
 <div class="block">
 
@@ -53,171 +53,168 @@
 
 </div>
 
-{* DESIGN: Content END *}</div></div></div>
+{* DESIGN: Content END *}</div>
 
 </div>
 
 {/if}
+<div class="panel">
+    <form name="browse" method="post" action={$browse.from_page|ezurl}>
 
-<form name="browse" method="post" action={$browse.from_page|ezurl}>
+    {section show=or(eq($browse.action_name,"SelectLinkNodeID"),eq($browse.action_name,"SelectLinkObjectID"),eq($browse.action_name,"AddRelatedObjectToOE"))}
+    <div class="context-block">
 
-{section show=or(eq($browse.action_name,"SelectLinkNodeID"),eq($browse.action_name,"SelectLinkObjectID"),eq($browse.action_name,"AddRelatedObjectToOE"))}
-<div class="context-block">
+    {* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
+    <h2 class="context-title">{'Bookmarks'|i18n( 'design/admin/content/browse' )}</h2>
+    {* DESIGN: Header END *}</div></div>
 
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
-<h2 class="context-title">{'Bookmarks'|i18n( 'design/admin/content/browse' )}</h2>
-{* DESIGN: Header END *}</div></div>
-
-{* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
-<ul class="oe-bookmarks">
-{section var=Nodes loop=$bookmark_list show=$bookmark_list}
-  <li>
-  {if $browse.ignore_nodes_select|contains($Nodes.item.node_id)|not()}
-     {if is_array($browse.class_array)}
-         {if $browse.class_array|contains($Nodes.item.node.class_identifier)}
-             <input type="{$select_type}" name="{$select_name}[]" value="{$Nodes.item.node[$select_attribute]}" />
+    {* DESIGN: Content START *}<div class="box-bc"><div class="box-ml"><div class="box-content">
+    <ul class="oe-bookmarks">
+    {section var=Nodes loop=$bookmark_list show=$bookmark_list}
+      <li>
+      {if $browse.ignore_nodes_select|contains($Nodes.item.node_id)|not()}
+         {if is_array($browse.class_array)}
+             {if $browse.class_array|contains($Nodes.item.node.class_identifier)}
+                 <input type="{$select_type}" name="{$select_name}[]" value="{$Nodes.item.node[$select_attribute]}" />
+             {else}
+                 &nbsp;
+             {/if}
          {else}
-             &nbsp;
+             <input type="{$select_type}" name="{$select_name}[]" value="{$Nodes.item.node[$select_attribute]}" />
          {/if}
-     {else}
-         <input type="{$select_type}" name="{$select_name}[]" value="{$Nodes.item.node[$select_attribute]}" />
-     {/if}
-  {else}
-      &nbsp;
-  {/if}
+      {else}
+          &nbsp;
+      {/if}
 
-   {if $browse.ignore_nodes_click|contains( $Nodes.item.node_id )|not}
-        {if $Nodes.item.node.is_container}
-            {$Nodes.item.node.class_identifier|class_icon( small, $Nodes.item.node.class_name )}&nbsp;<a href={concat( '/content/browse/', $Nodes.item.node_id )|ezurl}>{$Nodes.item.name|wash}</a>
+       {if $browse.ignore_nodes_click|contains( $Nodes.item.node_id )|not}
+            {if $Nodes.item.node.is_container}
+                {$Nodes.item.node.class_identifier|class_icon( small, $Nodes.item.node.class_name )}&nbsp;<a href={concat( '/content/browse/', $Nodes.item.node_id )|ezurl}>{$Nodes.item.name|wash}</a>
+            {else}
+                {$Nodes.item.node.class_identifier|class_icon( small, $Nodes.item.node.class_name )}&nbsp;{$Nodes.item.name|wash}
+            {/if}
         {else}
             {$Nodes.item.node.class_identifier|class_icon( small, $Nodes.item.node.class_name )}&nbsp;{$Nodes.item.name|wash}
         {/if}
+        </li>
+    {/section}
+    </ul>
+    {* DESIGN: Content END *}</div></div></div>
+    </div>
+    {/section}
+
+    <div class="context-block">
+    {* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
+    {if is_unset( $node_list )}
+        {let current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
+        {if $browse.start_node|gt( 1 )}
+            <h2 class="context-title">
+            <a href={concat( '/content/browse/', $main_node.parent_node_id, '/' )|ezurl}><i class="fa fa-arrow-up"></i></a>&nbsp;{$current_node.name|wash}&nbsp;[{$browse_list_count}]</h2>
+        {else}
+        <h2 class="context-title">{'Top level'|i18n( 'design/admin/content/browse' )}&nbsp;[{$current_node.children_count}]</h2>
+        {/if}
+        {/let}
     {else}
-        {$Nodes.item.node.class_identifier|class_icon( small, $Nodes.item.node.class_name )}&nbsp;{$Nodes.item.name|wash}
+     <h2 class="context-title">{'Search result'|i18n( 'design/admin/content/browse' )}&nbsp;[{$browse_list_count}]</h2>
+
     {/if}
-    </li>
-{/section}
-</ul>
-{* DESIGN: Content END *}</div></div></div>
-</div>
-{/section}
 
-<div class="context-block">
-{* DESIGN: Header START *}<div class="box-header"><div class="box-ml">
-{if is_unset( $node_list )}
-    {let current_node=fetch( content, node, hash( node_id, $browse.start_node ) )}
-    {if $browse.start_node|gt( 1 )}
-        <h2 class="context-title">
-        <a href={concat( '/content/browse/', $main_node.parent_node_id, '/' )|ezurl}><img src={'up-16x16-grey.png'|ezimage} width="16" height="16" alt="{'Back'|i18n( 'design/admin/content/browse' )}" /></a>
-        {$current_node.class_identifier|class_icon( original, $current_node.class_name|wash )}&nbsp;{$current_node.name|wash}&nbsp;[{$browse_list_count}]</h2>
-    {else}
-    <h2 class="context-title"><img src={'up-16x16-grey.png'|ezimage} width="16" height="16" alt="Back" /> {'folder'|class_icon( small, $current_node.class_name|wash )}&nbsp;{'Top level'|i18n( 'design/admin/content/browse' )}&nbsp;[{$current_node.children_count}]</h2>
+
+    {* DESIGN: Header END *}</div></div>
+
+    {* DESIGN: Content START *}<div class="box-content">
+
+    {* Items per page and view mode selector. *}
+    <div class="context-toolbar">
+    {if is_unset( $node_list )}{* changing limit while browsing search results not supported (search uses BrowsePageLimit GET parameter) *}
+    <div class="button-left">
+        <p class="btn-group">
+        {switch match=$number_of_items}
+        {case match=25}
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/1'|ezurl}>10</a>
+            <span class="btn btn-default btn-sm active">25</span>
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/3'|ezurl}>50</a>
+
+            {/case}
+
+            {case match=50}
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/1'|ezurl}>10</a>
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/2'|ezurl}>25</a>
+            <span class="btn btn-default btn-sm active">50</span>
+            {/case}
+
+            {case}
+            <span class="btn btn-default btn-sm active">10</span>
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/2'|ezurl}>25</a>
+            <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_list_limit/3'|ezurl}>50</a>
+            {/case}
+
+            {/switch}
+        </p>
+    </div>
     {/if}
-    {/let}
-{else}
- <h2 class="context-title"><img src={'up-16x16-grey.png'|ezimage} width="16" height="16" alt="Back" /> {'folder'|class_icon( small)}&nbsp;{'Search result'|i18n( 'design/admin/content/browse' )}&nbsp;[{$browse_list_count}]</h2>
-
-{/if}
-
-
-{* DESIGN: Header END *}</div></div>
-
-{* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
-
-{* Items per page and view mode selector. *}
-<div class="context-toolbar">
-{if is_unset( $node_list )}{* changing limit while browsing search results not supported (search uses BrowsePageLimit GET parameter) *}
-<div class="button-left">
-    <p class="table-preferences">
-    {switch match=$number_of_items}
-    {case match=25}
-        <a href={'/user/preferences/set/admin_list_limit/1'|ezurl}>10</a>
-        <span class="current">25</span>
-        <a href={'/user/preferences/set/admin_list_limit/3'|ezurl}>50</a>
-
+    <div class="button-right">
+        <p class="btn-group">
+        {switch match=ezpreference( 'admin_children_browsemode' )}
+        {case match='thumbnail'}
+          <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_children_browsemode/list'|ezurl} title="{'Display sub items using a simple list.'|i18n( 'design/admin/content/browse' )}">{'List'|i18n( 'design/admin/content/browse' )}</a>
+          <span class="btn btn-default btn-sm active">{'Thumbnail'|i18n( 'design/admin/content/browse' )}</span>
         {/case}
-
-        {case match=50}
-        <a href={'/user/preferences/set/admin_list_limit/1'|ezurl}>10</a>
-        <a href={'/user/preferences/set/admin_list_limit/2'|ezurl}>25</a>
-        <span class="current">50</span>
-        {/case}
-
         {case}
-        <span class="current">10</span>
-        <a href={'/user/preferences/set/admin_list_limit/2'|ezurl}>25</a>
-        <a href={'/user/preferences/set/admin_list_limit/3'|ezurl}>50</a>
+          <span class="btn btn-default btn-sm active">{'List'|i18n( 'design/admin/content/browse' )}</span>
+          <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_children_browsemode/thumbnail'|ezurl} title="{'Display sub items as thumbnails.'|i18n( 'design/admin/content/browse' )}">{'Thumbnail'|i18n( 'design/admin/content/browse' )}</a>
         {/case}
-
         {/switch}
-    </p>
-</div>
-{/if}
-<div class="button-right">
-    <p class="table-preferences">
+        </p>
+    </div>
+
+    {include name=navigator
+             uri='design:navigator/alphabetical.tpl'
+             page_uri=$page_uri
+             page_uri_suffix=$page_uri_suffix
+             item_count=$browse_list_count
+             view_parameters=$view_parameters
+             node_id=$node_id
+             item_limit=$number_of_items
+             show_google_navigator=true()}
+
+    <div class="float-break"></div>
+    </div>
+
+    {* Display the actual list of nodes. *}
     {switch match=ezpreference( 'admin_children_browsemode' )}
-    {case match='thumbnail'}
-      <a href={'/user/preferences/set/admin_children_browsemode/list'|ezurl} title="{'Display sub items using a simple list.'|i18n( 'design/admin/content/browse' )}">{'List'|i18n( 'design/admin/content/browse' )}</a>
-      <span class="current">{'Thumbnail'|i18n( 'design/admin/content/browse' )}</span>
-    {/case}
-    {case}
-      <span class="current">{'List'|i18n( 'design/admin/content/browse' )}</span>
-      <a href={'/user/preferences/set/admin_children_browsemode/thumbnail'|ezurl} title="{'Display sub items as thumbnails.'|i18n( 'design/admin/content/browse' )}">{'Thumbnail'|i18n( 'design/admin/content/browse' )}</a>
-    {/case}
+        {case match='thumbnail'}
+            {include uri='design:content/browse_mode_thumbnail.tpl'}
+        {/case}
+        {case}
+            {include uri='design:content/browse_mode_list.tpl'}
+        {/case}
     {/switch}
-    </p>
+
+
+    {section var=PersistentData show=$browse.persistent_data loop=$browse.persistent_data}
+        <input type="hidden" name="{$PersistentData.key|wash}" value="{$PersistentData.item|wash}" />
+    {/section}
+
+    <input type="hidden" name="BrowseActionName" value="{$browse.action_name}" />
+    {if $browse.browse_custom_action}
+        <input type="hidden" name="{$browse.browse_custom_action.name}" value="{$browse.browse_custom_action.value}" />
+    {/if}
+
+    {if $cancel_action}
+    <input type="hidden" name="BrowseCancelURI" value="{$cancel_action|wash}" />
+    {/if}
+
+    {* DESIGN: Content END *}</div>
+
+    <div class="controlbar">
+    {* DESIGN: Control bar START *}
+        <input class="btn btn-primary" type="submit" name="SelectButton" value="{'Select'|i18n( 'design/admin/content/browse' )}" />
+        <input class="btn btn-default" type="submit" name="BrowseCancelButton" value="{'Cancel'|i18n( 'design/admin/content/browse' )}" />
+    {* DESIGN: Control bar END *}
+    </div>
+
+    </div>
+
+    </form>
 </div>
-
-{include name=navigator
-         uri='design:navigator/alphabetical.tpl'
-         page_uri=$page_uri
-         page_uri_suffix=$page_uri_suffix
-         item_count=$browse_list_count
-         view_parameters=$view_parameters
-         node_id=$node_id
-         item_limit=$number_of_items
-         show_google_navigator=true()}
-
-<div class="float-break"></div>
-</div>
-
-{* Display the actual list of nodes. *}
-{switch match=ezpreference( 'admin_children_browsemode' )}
-    {case match='thumbnail'}
-        {include uri='design:content/browse_mode_thumbnail.tpl'}
-    {/case}
-    {case}
-        {include uri='design:content/browse_mode_list.tpl'}
-    {/case}
-{/switch}
-
-
-{section var=PersistentData show=$browse.persistent_data loop=$browse.persistent_data}
-    <input type="hidden" name="{$PersistentData.key|wash}" value="{$PersistentData.item|wash}" />
-{/section}
-
-<input type="hidden" name="BrowseActionName" value="{$browse.action_name}" />
-{if $browse.browse_custom_action}
-    <input type="hidden" name="{$browse.browse_custom_action.name}" value="{$browse.browse_custom_action.value}" />
-{/if}
-
-{if $cancel_action}
-<input type="hidden" name="BrowseCancelURI" value="{$cancel_action|wash}" />
-{/if}
-
-{* DESIGN: Content END *}</div></div></div>
-
-<div class="controlbar">
-{* DESIGN: Control bar START *}<div class="box-bc"><div class="box-ml">
-<div class="block">
-    <input class="button" type="submit" name="SelectButton" value="{'Select'|i18n( 'design/admin/content/browse' )}" />
-    <input class="button" type="submit" name="BrowseCancelButton" value="{'Cancel'|i18n( 'design/admin/content/browse' )}" />
-</div>
-{* DESIGN: Control bar END *}</div></div>
-</div>
-
-</div>
-
-</form>
-
 {/let}

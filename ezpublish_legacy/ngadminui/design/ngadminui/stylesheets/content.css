@@ -261,9 +261,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed legend a
 
 .ezcca-edit-datatype-ezobjectrelationlist h4, .ezcca-edit-datatype-ezobjectrelation h4
 {
-    padding-bottom:2px;
-    border-bottom: 1px solid #cacaca;
-    margin-bottom:1em;
+    margin:0 0 1em;
     color:#333;
     font-size:1.1em;
 }

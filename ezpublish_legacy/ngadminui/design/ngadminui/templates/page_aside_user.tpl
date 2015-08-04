@@ -7,19 +7,19 @@
         {def $fold_control_href='/user/preferences/set/admin_aside_fold_control/1'}
     {/if}
 
+    <a href="#" class="user-dropdown-toggle dropdown-toggle" data-toggle="dropdown">
+        <span class="user-avatar">
+            <img src={'a0.jpg'|ezimage} alt="...">
+        </span>
+        <span class="user-name hidden-folded">{$current_user.contentobject.name|wash}</span>
+    </a>
+
     <a href={$fold_control_href|ezurl} class="aside-fold-trigger">
         {if ezpreference( 'admin_aside_fold_control' )}
             <i class="fa fa-dedent"></i>
         {else}
             <i class="fa fa-indent"></i>
         {/if}
-    </a>
-
-    <a href="#" class="user-dropdown-toggle dropdown-toggle hidden-folded" data-toggle="dropdown">
-        <span class="user-avatar">
-            <img src={'a0.jpg'|ezimage} alt="...">
-        </span>
-        <span class="user-name">{$current_user.contentobject.name|wash}</span>
     </a>
 
     <!-- dropdown -->

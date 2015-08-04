@@ -60,13 +60,10 @@
 </head>
 
 <body>
-    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if not ezpreference( 'admin_aside_fold_control' ) %}aside-folded{% endif %}">
+    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if not ezpreference( 'admin_aside_fold_control' ) or content_edit or ui_context_edit %}aside-folded{% endif %}{% if content_edit or ui_context_edit %} content-edit{% endif %}">
         <header id="header">
             <div class="header-nav">
                 <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ siteName }}"></a>
-            </div>
-            <div class="header-search">
-                {% include 'design:page_search.tpl' %}
             </div>
         </header>
 
@@ -82,8 +79,9 @@
         <div id="content">
             <div class="content-body">
                 <div id="columns">
-
-                    {% include 'design:page_leftmenu.tpl' with { uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' ) } %}
+                    {% if not content_edit %}
+                        {% include 'design:page_leftmenu.tpl' with { uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' ) } %}
+                    {% endif %}
 
                     <div id="main-column" class="main-column layout-column">
                         <div class="layout-column-inner">
@@ -108,14 +106,14 @@
         </div>
 
 
-        <div id="footer">
+        {# <div id="footer">
             <div id="footer-design">
                 <p>
                     Powered by <span class="edition-info">eZ Publish</span>.<br />
                     <a href="http://ez.no/ezpublish">eZ Publish</a> Copyright &copy; 1999-2015 <a href="http://ez.no">eZ Systems AS</a> and others.
                 </p>
             </div>
-        </div>
+        </div> #}
 
         <div class="break"></div>
 

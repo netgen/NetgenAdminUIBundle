@@ -22,7 +22,7 @@
 {else}
 
 <div id="content-tree">
-
+	{include uri='design:page_search.tpl'}
 	{* DESIGN: Header START *}
 	<h4 class="leftmenu-hl">{'User accounts'|i18n( 'design/admin/parts/user/menu' )}</h4>
 	{* DESIGN: Header END *}

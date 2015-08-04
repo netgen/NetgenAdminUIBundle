@@ -219,25 +219,28 @@
     {* DESIGN: Content END *}
     <div class="controlbar">
         {* DESIGN: Control bar START *}
-            <form action={concat( '/class/edit/', $class.id )|ezurl} method="post">
-
-                {def $languages=$class.prioritized_languages
-                     $availableLanguages = fetch( 'content', 'prioritized_languages' )}
-                {if and( eq( $availableLanguages|count, 1 ), eq( $languages|count, 1 ), is_set( $languages[$availableLanguages[0].locale] ) )}
-                    <input type="hidden" name="EditLanguage" value="{$availableLanguages[0].locale|wash()}" />
-                {else}
-                    <select class="form-control inline input-sm" name="EditLanguage" title="{'Use this menu to select the language you want to use for editing then click the "Edit" button.'|i18n( 'design/admin/class/view' )|wash()}">
-                        {foreach $languages as $language}
-                            <option value="{$language.locale|wash()}">{$language.name|wash()}</option>
-                        {/foreach}
-                        {if gt( $class.can_create_languages|count, 0 )}
-                            <option value="">{'Another language'|i18n( 'design/admin/class/view')}</option>
-                        {/if}
-                    </select>
-                {/if}
-                {undef $languages $availableLanguages}
-                <input class="btn btn-default btn-sm" type="submit" name="_DefaultButton" value="{'Edit'|i18n( 'design/admin/class/view' )}" title="{'Edit this class.'|i18n( 'design/admin/class/view' )}" />
-                {* <input class="btn btn-default btn-sm" type="submit" name="_DefaultButton" value="{'Remove'|i18n( 'design/admin/class/view' )}" /> *}
+            <form class="form-inline" action={concat( '/class/edit/', $class.id )|ezurl} method="post">
+                <div class="input-group">
+                    {def $languages=$class.prioritized_languages
+                         $availableLanguages = fetch( 'content', 'prioritized_languages' )}
+                    {if and( eq( $availableLanguages|count, 1 ), eq( $languages|count, 1 ), is_set( $languages[$availableLanguages[0].locale] ) )}
+                        <input type="hidden" name="EditLanguage" value="{$availableLanguages[0].locale|wash()}" />
+                    {else}
+                        <select class="form-control" name="EditLanguage" title="{'Use this menu to select the language you want to use for editing then click the "Edit" button.'|i18n( 'design/admin/class/view' )|wash()}">
+                            {foreach $languages as $language}
+                                <option value="{$language.locale|wash()}">{$language.name|wash()}</option>
+                            {/foreach}
+                            {if gt( $class.can_create_languages|count, 0 )}
+                                <option value="">{'Another language'|i18n( 'design/admin/class/view')}</option>
+                            {/if}
+                        </select>
+                    {/if}
+                    {undef $languages $availableLanguages}
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" name="_DefaultButton" title="{'Edit this class.'|i18n( 'design/admin/class/view' )}"><i class="fa fa-pencil-square-o"></i>&nbsp; {'Edit'|i18n( 'design/admin/class/view' )}</button>
+                        {* <input class="btn btn-primary" type="submit" name="_DefaultButton" value="{'Remove'|i18n( 'design/admin/class/view' )}" /> *}
+                    </div>
+                </div>
             </form>
         {* DESIGN: Control bar END *}
     </div>

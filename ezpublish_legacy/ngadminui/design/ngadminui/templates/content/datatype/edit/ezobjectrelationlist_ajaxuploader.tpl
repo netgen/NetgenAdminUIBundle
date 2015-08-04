@@ -7,7 +7,7 @@
         or( $allowed_class_list|count()|eq( 0 ), $merge_count|gt( $merge_unique_count ) ) )}
     <input type="submit" value="{'Upload a file'|i18n( 'design/admin/content/datatype' )}"
             name="RelationUploadNew{$attribute.id}-{$attribute.version}"
-            class="button relation-upload-new hide"
+            class="btn btn-default relation-upload-new hide"
             title="{'Upload a file to create a new object and add it to the relation'|i18n( 'design/admin/content/datatype' )}" />
 
     {run-once}
