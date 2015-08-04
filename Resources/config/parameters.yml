@@ -1,2 +1,3 @@
 parameters:
     ngmore.administration_group.pagelayout: 'NetgenMoreAdminUIBundle::pagelayout.html.twig'
+    eztags.administration_group.tag_view.template: 'NetgenMoreAdminUIBundle:tag:view.html.twig'

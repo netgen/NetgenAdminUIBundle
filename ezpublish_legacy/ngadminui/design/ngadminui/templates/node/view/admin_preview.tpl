@@ -14,16 +14,24 @@ $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory'
         <div class="ezcca-collapsible-fieldset-content">
     {/if*}
     {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
-        <div class="block">
-        {if $attribute.display_info.view.grouped_input}
-        <fieldset>
-            <legend>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}</legend>
-            {attribute_view_gui attribute=$attribute}
-        </fieldset>
-        {else}
-            <label>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:</label>
-            {attribute_view_gui attribute=$attribute}
-        {/if}
+        <div class="row">
+            {if $attribute.display_info.view.grouped_input}
+            <fieldset>
+                <div class="col-sm-3 text-right">
+                    <legend>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}</legend>
+                </div>
+                <div class="col-sm-9">
+                    {attribute_view_gui attribute=$attribute}
+                </div>
+            </fieldset>
+            {else}
+                <div class="col-sm-3 text-right">
+                    <label>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:</label>
+                </div>
+                <div class="col-sm-9">
+                    {attribute_view_gui attribute=$attribute}
+                </div>
+            {/if}
         </div>
     {/foreach}
     {*if $attribute_group|ne( $attribute_default_category )}

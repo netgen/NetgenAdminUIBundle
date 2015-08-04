@@ -1,0 +1,47 @@
+{% extends "NetgenMoreBundle::pagelayout_resolver.html.twig" %}
+
+{% set prioritizedLanguages = ezpublish.configResolver.parameter( 'languages' ) %}
+
+{% set tagKeyword = tag.keywords[prioritizedLanguages[0]] is defined ?
+    tag.keywords[prioritizedLanguages[0]] :
+    tag.keyword
+%}
+
+{% block page_head %}
+    {% set title = tagKeyword %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <section class="content-view-full">
+        <div class="row">
+            <div class="span8">
+                <div class="attribute-header">
+                    <h1>{{ tagKeyword }}</h1>
+                </div>
+
+                {% if pager|length > 0 %}
+                    <section class="content-view-children">
+                        {% for pagerItem in pager %}
+                            {{ render(
+                                controller(
+                                    "ez_content:viewLocation",
+                                    {
+                                        "locationId": pagerItem.contentInfo.mainLocationId,
+                                        "viewType": "line"
+                                    }
+                                )
+                            ) }}
+                        {% endfor %}
+                    </section>
+
+                    {% if pager.haveToPaginate() %}
+                        <div class="pagination-centered">
+                            {{ pagerfanta( pager, 'twitter_bootstrap_translated' ) }}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

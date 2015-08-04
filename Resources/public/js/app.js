@@ -87,12 +87,31 @@ $(document).ready(function(){
 			i = 0;
 		trigger.eq(0).addClass('active');
 		tab.not(tab.eq(0)).hide();
-		trigger.on('click', function(){
+		trigger.on('click', function(e){
 			i = $(this).index();
 			trigger.removeClass('active');
 			$(this).addClass('active');
 			tab.eq(i).fadeIn().siblings().hide();
+			e.preventDefault();
 		})
 	})();
 	/* */
+
+	/* file upload */
+	$('.btn-file').on('change', ':file', function() {
+	    var input = $(this),
+	        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+	    input.trigger('fileselect', [numFiles, label]);
+	});
+	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+    });
+    /* */
 });

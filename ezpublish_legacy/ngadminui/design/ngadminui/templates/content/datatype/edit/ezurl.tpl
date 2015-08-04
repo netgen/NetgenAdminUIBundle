@@ -10,13 +10,13 @@
 {* URL. *}
 <div class="block">
     <label for="{$id_base}_url">{'URL'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input id="{$id_base}_url" class="box ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="text" size="70" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )}" />
+    <input id="{$id_base}_url" class="form-control ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="text" size="70" name="{$attribute_base}_ezurl_url_{$attribute.id}" value="{$attribute.content|wash( xhtml )}" />
 </div>
 
 {* Text. *}
 <div class="block">
     <label for="{$id_base}_text">{'Text'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input id="{$id_base}_text" class="box ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="text" size="70" name="{$attribute_base}_ezurl_text_{$attribute.id}" value="{$attribute.data_text|wash( xhtml )}" />
+    <input id="{$id_base}_text" class="form-control ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="text" size="70" name="{$attribute_base}_ezurl_text_{$attribute.id}" value="{$attribute.data_text|wash( xhtml )}" />
 </div>
 
 {/default}
