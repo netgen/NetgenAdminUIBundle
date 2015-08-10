@@ -2,15 +2,15 @@
 {let content=$class_attribute.content
      country_list=$content.default_countries
      all_country_list=fetch( 'content', 'country_list' )}
-<div class="block">
-    <input type="checkbox" name="ContentClass_ezcountry_ismultiple_value_{$class_attribute.id}" {if $content.multiple_choice}checked="checked"{/if}/>
-    <b>{'Multiple choice'|i18n( 'design/standard/class/datatype' )}</b>
+<div class="checkbox">
+    <label><input type="checkbox" name="ContentClass_ezcountry_ismultiple_value_{$class_attribute.id}" {if $content.multiple_choice}checked="checked"{/if}/>
+    <strong>{'Multiple choice'|i18n( 'design/standard/class/datatype' )}</strong></label>
     <input type="hidden" name="ContentClass_ezcountry_multiple_choice_value_{$class_attribute.id}_exists" value="1" />
 </div>
 
-<div class="block">
+<div class="block form-inline">
     <label for="default_selection_{$class_attribute.id}">{'Default selection'|i18n( 'design/standard/class/datatype' )}:</label>
-    <select id="default_selection_{$class_attribute.id}" name="ContentClass_ezcountry_default_country_list_{$class_attribute.id}[]" multiple="multiple" title="{'Select which countries by default'|i18n( 'design/standard/class/datatype' )}">
+    <select class="form-control form-control-multiple" id="default_selection_{$class_attribute.id}" name="ContentClass_ezcountry_default_country_list_{$class_attribute.id}[]" multiple="multiple" title="{'Select which countries by default'|i18n( 'design/standard/class/datatype' )}" size="8">
     {def $alpha_2 = ''}
     {foreach $all_country_list as $country}
          {set $alpha_2 = $country.Alpha2}

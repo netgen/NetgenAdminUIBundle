@@ -347,7 +347,6 @@ fieldset.block
 legend
 {
     font-weight: bold;
-    color: #000000;
     padding: 0 0.35em 0 0.35em;
     font-size:1.1em;
 }
@@ -371,7 +370,6 @@ legend span.long-legend-wrap
 
 fieldset label
 {
-    color: #000000;
     font-size:1em;
 }
 

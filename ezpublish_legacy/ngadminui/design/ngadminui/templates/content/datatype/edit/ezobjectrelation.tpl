@@ -90,7 +90,7 @@
 {case match=1}
 {let parent_node=fetch( content, node, hash( node_id, $class_content.default_selection_node ) )}
 
-<select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}" class="ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" name="{$attribute_base}_data_object_relation_id_{$attribute.id}">
+<select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}" class="form-control inline ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" name="{$attribute_base}_data_object_relation_id_{$attribute.id}">
 {if $attribute.contentclass_attribute.is_required|not}
 <option value="" {if eq( $attribute.data_int, '' )}selected="selected"{/if}>{'No relation'|i18n( 'design/standard/content/datatype' )}</option>
 {/if}
