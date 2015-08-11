@@ -3,9 +3,9 @@
 {let package_attr_name=$attribute.data_text
      package_list=fetch( package, list,
                          hash( filter_array, array( array( type, $attribute.contentclass_attribute.data_text1 ) ) ) )}
-<div class="block">
+<div class="block form-inline">
 <label for="ezpackage_data_text_{$attribute.id}_siteaccess">{'Siteaccess'|i18n( 'design/standard/edit/' )}:</label>
-<select id="ezpackage_data_text_{$attribute.id}_siteaccess" name="CurrentSiteAccess">
+<select class="form-control" id="ezpackage_data_text_{$attribute.id}_siteaccess" name="CurrentSiteAccess">
     <option value="Global">{'Global (override)'|i18n( 'design/standard/edit/' )}</option>
     {section name=SiteAccess loop=ezini('SiteAccessSettings','AvailableSiteAccessList')}
         <option value="{$SiteAccess:item}"

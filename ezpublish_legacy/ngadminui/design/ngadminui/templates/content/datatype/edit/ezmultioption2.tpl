@@ -7,11 +7,11 @@
 {/section}
 
 <div class="toolbar">
-    <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_new-group]" value="{'Add group'|i18n('design/standard/content/datatype')}" title="{'Add a new group.'|i18n('design/standard/content/datatype')}" />
+    <input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_new-group]" value="{'Add group'|i18n('design/standard/content/datatype')}" title="{'Add a new group.'|i18n('design/standard/content/datatype')}" />
 </div>
 
 <div class="block">
-<input class="button" type="submit" name="CustomActionButton[{$attribute.id}_switch-mode_rules]" value="{'Rules'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
+<input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_switch-mode_rules]" value="{'Rules'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
 <input type="hidden" name = "{$attribute_base}_data_edit_mode_{$attribute.id}" value="options" />
 </div>
 {/default}

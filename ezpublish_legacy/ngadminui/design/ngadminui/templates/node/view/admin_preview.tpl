@@ -14,7 +14,7 @@ $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory'
         <div class="ezcca-collapsible-fieldset-content">
     {/if*}
     {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
-        <div class="row">
+        <div class="row preview-row">
             {if $attribute.display_info.view.grouped_input}
             <fieldset>
                 <div class="col-sm-3 text-right">

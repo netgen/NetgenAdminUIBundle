@@ -10,8 +10,8 @@
 </div>
 {/section}
 <div class="block">
-<input class="button" type="submit" name="CustomActionButton[{$attribute.id}_switch-mode_options]" value="{'Options'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
-<input class="button" type="submit" name="CustomActionButton[{$attribute.id}_reset-rules]" value="{'Reset rules'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
+<input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_switch-mode_options]" value="{'Options'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
+<input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_reset-rules]" value="{'Reset rules'|i18n('design/standard/content/datatype')}" title="{'Set rules'|i18n('design/standard/content/datatype')}" />
 <input type="hidden" name = "{$attribute_base}_data_edit_mode_{$attribute.id}" value="rules" />
 </div>
 {/default}

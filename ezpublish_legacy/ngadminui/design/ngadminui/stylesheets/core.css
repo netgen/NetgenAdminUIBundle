@@ -693,7 +693,7 @@ table.multioption input.box
 .multioption label
 {
     font-weight: bold;
-    padding: 0.5em 0;
+    /*padding: 0.5em 0;*/
 }
 
 .multioption .toolbar

@@ -2,9 +2,9 @@
 {default attribute_base='ContentObjectAttribute'}
 
 {* Type. *}
-<div class="block">
+<div class="block form-inline">
     <label>{'Type'|i18n( 'design/standard/content/datatype' )}:</label>
-    <p>
+    <span>
     {switch name=mediaType match=$attribute.contentclass_attribute.data_text1}
     {case match=flash}{'Flash'|i18n( 'design/standard/content/datatype' )}{/case}
     {case match=quick_time}{'QuickTime'|i18n( 'design/standard/content/datatype' )}{/case}
@@ -15,38 +15,33 @@
     {case match='html5_audio'}{'Html5 Audio'|i18n( 'design/standard/content/datatype' )}{/case}
     {case}{'Unknown'|i18n( 'design/standard/content/datatype' )}{/case}
     {/switch}
-    </p>
+    </span>
 </div>
 
 {* Current file. *}
-<div class="block">
-<label>{'Current file'|i18n( 'design/standard/content/datatype' )}:</label>
 {if $attribute.content.filename}
-<table class="list" cellspacing="0">
-<tr>
-    <th>{'Filename'|i18n( 'design/standard/content/datatype' )}</th>
-    <th>{'MIME type'|i18n( 'design/standard/content/datatype' )}</th>
-    <th>{'Size'|i18n( 'design/standard/content/datatype' )}</th>
-</tr>
-<tr>
-    <td>{$attribute.content.original_filename}</td>
-    <td>{$attribute.content.mime_type}</td>
-    <td>{$attribute.content.filesize|si( byte )}</td>
-</tr>
-</table>
+  <div class="block">
+    <label>{'Current file'|i18n( 'design/standard/content/datatype' )}:</label>
+    <table class="list" cellspacing="0">
+    <tr>
+        <th>{'Filename'|i18n( 'design/standard/content/datatype' )}</th>
+        <th>{'MIME type'|i18n( 'design/standard/content/datatype' )}</th>
+        <th>{'Size'|i18n( 'design/standard/content/datatype' )}</th>
+    </tr>
+    <tr>
+        <td>{$attribute.content.original_filename}</td>
+        <td>{$attribute.content.mime_type}</td>
+        <td>{$attribute.content.filesize|si( byte )}</td>
+    </tr>
+    </table>
+    {* Remove button. *}
+    <input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_delete_media]" value="{'Remove'|i18n('design/standard/content/datatype')}" title="{'Remove the file from this draft.'|i18n( 'design/standard/content/datatype' )}" />
+  </div>
 {else}
-<p>{'There is no file.'|i18n( 'design/standard/content/datatype' )}</p>
+  <div class="block">
+    <p>{'There is no file.'|i18n( 'design/standard/content/datatype' )}</p>
+  </div>
 {/if}
-</div>
-
-{* Remove button. *}
-{if $attribute.content.filename}
-    <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_delete_media]" value="{'Remove'|i18n('design/standard/content/datatype')}" title="{'Remove the file from this draft.'|i18n( 'design/standard/content/datatype' )}" />
-{else}
-    <input class="button-disabled" type="submit" name="CustomActionButton[{$attribute.id}_delete_media]" value="{'Remove'|i18n('design/standard/content/datatype')}" disabled="disabled" />
-{/if}
-
-
 
 
 {switch name=mediaType match=$attribute.contentclass_attribute.data_text1}
@@ -54,90 +49,101 @@
 {* Flash. *}
 {case match=flash}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
-<div class="element">
-    <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
-</div>
+  <div class="element">
+      <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
+      <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+  </div>
 
-<div class="element">
-    <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
-    &nbsp;
-    &nbsp;
-    &nbsp;
-</div>
+  <div class="element">
+      <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
+      <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
+      &nbsp;
+      &nbsp;
+      &nbsp;
+  </div>
 
-<div class="element">
-<label for="{$attribute_base}_media_{$attribute.id}_quality">{'Quality'|i18n( 'design/standard/content/datatype' )}:</label>
-<select id="{$attribute_base}_media_{$attribute.id}_quality" name="{$attribute_base}_data_media_quality_{$attribute.id}">
-{switch name=Sw match=$attribute.content.quality}
-{case match=high}
-  <option value="high" selected="selected">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{case match=best}
-  <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best" selected="selected">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{case match=low}
-  <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low" selected="selected">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{case match=autohigh}
-  <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh" selected="selected">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{case match=autolow}
-  <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow" selected="selected">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{case}
-  <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
-  <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
-{/case}
-{/switch}
-</select>
-&nbsp;
-&nbsp;
-&nbsp;
-</div>
+  <div class="element">
+  <label for="{$attribute_base}_media_{$attribute.id}_quality">{'Quality'|i18n( 'design/standard/content/datatype' )}:</label>
+  <select class="form-control" id="{$attribute_base}_media_{$attribute.id}_quality" name="{$attribute_base}_data_media_quality_{$attribute.id}">
+  {switch name=Sw match=$attribute.content.quality}
+  {case match=high}
+    <option value="high" selected="selected">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {case match=best}
+    <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best" selected="selected">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {case match=low}
+    <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low" selected="selected">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {case match=autohigh}
+    <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh" selected="selected">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {case match=autolow}
+    <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow" selected="selected">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {case}
+    <option value="high">{'High'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="best">{'Best'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="low">{'Low'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autohigh">{'Autohigh'|i18n( 'design/standard/content/datatype' )}</option>
+    <option value="autolow">{'Autolow'|i18n( 'design/standard/content/datatype' )}</option>
+  {/case}
+  {/switch}
+  </select>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  </div>
+  <div class="break"></div>
+  <div class="element">
+      <label for="{$attribute_base}_media_{$attribute.id}_autoplay">{'Autoplay'|i18n( 'design/standard/content/datatype' )}:</label>
+      <input type="checkbox" id="{$attribute_base}_media_{$attribute.id}_autoplay" name="{$attribute_base}_data_media_is_autoplay_{$attribute.id}" value="1" {if $attribute.content.is_autoplay}checked="checked"{/if} />
+  </div>
 
-<div class="element">
-    <label for="{$attribute_base}_media_{$attribute.id}_autoplay">{'Autoplay'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="checkbox" id="{$attribute_base}_media_{$attribute.id}_autoplay" name="{$attribute_base}_data_media_is_autoplay_{$attribute.id}" value="1" {if $attribute.content.is_autoplay}checked="checked"{/if} />
-</div>
+  <div class="element">
+      <label for="{$attribute_base}_media_{$attribute.id}_loop">{'Loop'|i18n( 'design/standard/content/datatype' )}:</label>
+      <input type="checkbox" id="{$attribute_base}_media_{$attribute.id}_loop" name="{$attribute_base}_data_media_is_loop_{$attribute.id}" value="1" {if $attribute.content.is_loop}checked="checked"{/if} />
+  </div>
 
-<div class="element">
-    <label for="{$attribute_base}_media_{$attribute.id}_loop">{'Loop'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="checkbox" id="{$attribute_base}_media_{$attribute.id}_loop" name="{$attribute_base}_data_media_is_loop_{$attribute.id}" value="1" {if $attribute.content.is_loop}checked="checked"{/if} />
-</div>
-
-<div class="break"></div>
+  <div class="break"></div>
 </div>
 {/case}
 
@@ -145,26 +151,36 @@
 {* Quicktime. *}
 {case match=quick_time}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
 </div>
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
-    &nbsp;
-    &nbsp;
-    &nbsp;
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
 </div>
-
+<div class="break"></div>
+</div>
+<div class="block">
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_controller">{'Controller'|i18n( 'design/standard/content/datatype' )}:</label>
     <input id="{$attribute_base}_media_{$attribute.id}_controller" type="checkbox" name="{$attribute_base}_data_media_has_controller_{$attribute.id}" value="1" {if $attribute.content.has_controller}checked="checked"{/if} />
@@ -189,21 +205,32 @@
 {* Real player. *}
 {case match=real_player}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
 </div>
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
     &nbsp;
     &nbsp;
     &nbsp;
@@ -211,7 +238,7 @@
 
 <div class="element">
 <label for="{$attribute_base}_media_{$attribute.id}_controls">{'Controls'|i18n( 'design/standard/content/datatype' )}:</label>
-<select id="{$attribute_base}_media_{$attribute.id}_controls" name="{$attribute_base}_data_media_controls_{$attribute.id}" >
+<select class="form-control" id="{$attribute_base}_media_{$attribute.id}_controls" name="{$attribute_base}_data_media_controls_{$attribute.id}" >
 {switch name=Sw match=$attribute.content.controls}
 {case match=imagewindow}
   <option value="imagewindow" selected="selected">{'ImageWindow'|i18n( 'design/standard/content/datatype' )}</option>
@@ -257,11 +284,8 @@
     {/case}
 {/switch}
 </select>
-&nbsp;
-&nbsp;
-&nbsp;
 </div>
-
+<div class="break"></div>
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_autoplay">{'Autoplay'|i18n( 'design/standard/content/datatype' )}:</label>
     <input type="checkbox" id="{$attribute_base}_media_{$attribute.id}_autoplay" name="{$attribute_base}_data_media_is_autoplay_{$attribute.id}" value="1" {if $attribute.content.is_autoplay}checked="checked"{/if} />
@@ -274,21 +298,32 @@
 {* Silverlight media. *}
 {case match=silverlight}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
 </div>
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
 </div>
 
 <div class="break"></div>
@@ -299,26 +334,36 @@
 {* Windows media. *}
 {case match=windows_media_player}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
 </div>
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
-    &nbsp;
-    &nbsp;
-    &nbsp;
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
 </div>
-
+<div class="break"></div>
+</div>
+<div class="block">
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_controller">{'Controller'|i18n( 'design/standard/content/datatype' )}:</label>
     <input id="{$attribute_base}_media_{$attribute.id}_controller" type="checkbox" name="{$attribute_base}_data_media_has_controller_{$attribute.id}" value="1" {if $attribute.content.has_controller}checked="checked"{/if} />
@@ -336,26 +381,36 @@
 {* HTML5 Video *}
 {case match=html5_video}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_width">{'Width'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_width" name="{$attribute_base}_data_media_width_{$attribute.id}" size="5" value="{$attribute.content.width|wash}" />
 </div>
 
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_height">{'Height'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input type="text" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
-    &nbsp;
-    &nbsp;
-    &nbsp;
+    <input type="text" class="form-control" id="{$attribute_base}_media_{$attribute.id}_height" name="{$attribute_base}_data_media_height_{$attribute.id}" size="5" value="{$attribute.content.height|wash}" />
 </div>
-
+<div class="break"></div>
+</div>
+<div class="block">
 <div class="element">
     <label for="{$attribute_base}_media_{$attribute.id}_controller">{'Controller'|i18n( 'design/standard/content/datatype' )}:</label>
     <input id="{$attribute_base}_media_{$attribute.id}_controller" type="checkbox" name="{$attribute_base}_data_media_has_controller_{$attribute.id}" value="1" {if $attribute.content.has_controller}checked="checked"{/if} />
@@ -378,9 +433,20 @@
 {* HTML5 Audio *}
 {case match=html5_audio}
 <div class="block">
-    <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
-    <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
-    <input class="box" id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1|mul( 1024, 1024 )}" />
+      <label for="{$attribute_base}_media_{$attribute.id}_file">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse&hellip; <input id="{$attribute_base}_media_{$attribute.id}_file" name="{$attribute_base}_data_mediafilename_{$attribute.id}" type="file" />
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="block">

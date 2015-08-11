@@ -4,7 +4,7 @@
      class_content=$attribute.class_content}
 
 {def $country = $attribute.content.value}
-<select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}" class="ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" name="{$attribute_base}_country_{$attribute.id}[]" {if $class_content.multiple_choice}multiple="multiple"{/if}>
+<select id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}" class="form-control inline ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" name="{$attribute_base}_country_{$attribute.id}[]" {if $class_content.multiple_choice}multiple="multiple"{/if}>
      {if $class_content.multiple_choice|not}
         <option  value="">{'Not specified'|i18n( 'design/standard/content/datatype' )}</option>
      {/if}

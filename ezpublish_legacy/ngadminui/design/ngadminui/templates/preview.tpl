@@ -19,6 +19,7 @@
                             <input class="btn btn-default" type="submit" name="{$custom_action.action}" value="{$custom_action.name}" />
                         {/foreach}
                     </div>
+                    <div class="break"></div>
                 </form>
             {/if}
         </div>

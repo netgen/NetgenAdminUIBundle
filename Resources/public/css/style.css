@@ -315,6 +315,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 .content-edit .aside-fold-trigger {display:none !important;}
 
 .controlbar-fixed {-moz-box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05); -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05); box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05);}
+.controlbar .btn-group {margin-left:16px;}
 
 .preview-content label, table.list.preview label {color:#98a6ad; display:block; font-size:13px; font-weight:normal; margin:0;}
 .preview-content p {margin:0 0 6px;}
@@ -340,15 +341,16 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 #diffview .btn-group {margin:0 0 12px;}
 
 .content-preview {padding:0 15px;}
-.content-preview > .row {color:#444; padding:16px 0;}
+.content-preview .row.preview-row {color:#444; padding:16px 0;}
 .content-preview label,
 .content-preview legend {font-size:13px; color:#999; margin:0; line-height:20px; display:block; border:none;}
-.content-preview > .row + .row {border-top:1px solid rgba(0,0,0,.05);}
+.content-preview .row.preview-row + .row.preview-row {border-top:1px solid rgba(0,0,0,.05);}
 .content-preview p {margin:0; line-height:1.42857;}
 .content-preview fieldset th,
 .content-preview fieldset td {text-align:left; vertical-align:bottom; padding:0 0 6px;}
 .content-preview fieldset th {font-weight:400; font-size:12px; color:#98a6ad; width:1%; white-space:nowrap;}
 .content-preview fieldset td {padding-left:6px;}
+.content-preview .button-right {margin-bottom:15px;}
 
 .node-info-list {list-style-type:none; padding:0; background:#EBEFF0;}
 .node-info-list > li {padding:8px 20px; border-top:1px solid rgba(255,255,255,.4); word-wrap:break-word;}
@@ -377,6 +379,16 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 
 .classattribute-description {display:block; padding:0; margin:0 0 1em; color:#999; font-size:0.8em;}
 .attribute-label .required {color:#333; font-weight:700;}
+
+.yui-calcontainer {z-index:10;}
+.datepicker-icon .fa {font-size:20px;}
+.full-screen .fa {color:#333; font-size:18px;}
+
+.multioption button {background:transparent; border:none;}
+table.multioption th {background:#575c6b; color:#fff;}
+table.multioption th, table.multioption td {border:1px solid rgba(255,255,255,0.25);}
+table.multioption table.options-list th {background:#a5a9b5; font-weight:normal;}
+table.multioption table.options-list th, table.multioption table.options-list td {border:1px solid rgba(255,255,255,0.25);}
 
 #bookmarks ul {margin:8px 0 14px; padding:0; list-style-type:none;}
 #bookmarks ul a {display:inline-block; padding:0; color:#333; background:transparent;}
