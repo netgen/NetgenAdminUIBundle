@@ -32,7 +32,9 @@
 
 {* Buttons. *}
 {if $matrix.rows.sequential}
+<div class="block">
     <input id="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}_remove_selected" class="btn btn-default ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="submit" name="CustomActionButton[{$attribute.id}_remove_selected]" value="{'Remove selected'|i18n( 'design/standard/content/datatype' )}" title="{'Remove selected rows from the matrix.'|i18n( 'design/standard/content/datatype' )}" />
+</div>
 {/if}
 {let row_count=sub( 40, count( $matrix.rows.sequential ) ) index_var=0}
 {if $row_count|lt( 1 )}

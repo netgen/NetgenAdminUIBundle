@@ -343,7 +343,9 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 .content-preview {padding:0 15px;}
 .content-preview .row.preview-row {color:#444; padding:16px 0;}
 .content-preview label,
-.content-preview legend {font-size:13px; color:#999; margin:0; line-height:20px; display:block; border:none;}
+.content-preview legend {font-size:13px; color:#999; line-height:20px; border:none;}
+.content-preview .text-right label,
+.content-preview .text-right legend {margin:0; padding:0;}
 .content-preview .row.preview-row + .row.preview-row {border-top:1px solid rgba(0,0,0,.05);}
 .content-preview p {margin:0; line-height:1.42857;}
 .content-preview fieldset th,
@@ -389,6 +391,13 @@ table.multioption th {background:#575c6b; color:#fff;}
 table.multioption th, table.multioption td {border:1px solid rgba(255,255,255,0.25);}
 table.multioption table.options-list th {background:#a5a9b5; font-weight:normal;}
 table.multioption table.options-list th, table.multioption table.options-list td {border:1px solid rgba(255,255,255,0.25);}
+
+.multioption-list,
+.ezsr-star-rating {list-style-type:none; margin:0; padding:0;}
+.multioption-list > li,
+.ezsr-star-rating > li {margin:0 0 8px;}
+.ezsr-star-rating {margin:10px 0;}
+.ezsr-star-rating > li {width:auto !important;}
 
 #bookmarks ul {margin:8px 0 14px; padding:0; list-style-type:none;}
 #bookmarks ul a {display:inline-block; padding:0; color:#333; background:transparent;}
