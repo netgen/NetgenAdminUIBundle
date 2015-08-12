@@ -56,22 +56,23 @@
             </li>
             <li>
                 <label>{'Section'|i18n( 'design/admin/node/view/full' )}</label>
-                <form name="changesection" class="input-group" id="changesection" method="post" action={concat( 'content/edit/', $node.object.id )|ezurl}>
+                <form name="changesection" id="changesection" method="post" action={concat( 'content/edit/', $node.object.id )|ezurl}>
                     <input type="hidden" name="RedirectRelativeURI" value="{$node.url_alias|wash}" />
                     <input type="hidden" name="ChangeSectionOnly" value="1" />
-
-                    <select id="selected-section-id" class="form-control input-sm" name="SelectedSectionId">
-                    {foreach $node.object.allowed_assign_section_list as $allowed_assign_section}
-                        {if eq( $allowed_assign_section.id, $node.object.section_id )}
-                        <option value="{$allowed_assign_section.id}" selected="selected">{$allowed_assign_section.name|wash}</option>
-                        {else}
-                        <option value="{$allowed_assign_section.id}">{$allowed_assign_section.name|wash}</option>
-                        {/if}
-                    {/foreach}
-                    </select>
-                    <span class="input-group-btn">
-                        <input id="tab-details-set-section" type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="SectionEditButton" class="btn btn-default btn-sm" />
-                    </span>
+                    <div class="input-group">
+                        <select id="selected-section-id" class="form-control input-sm" name="SelectedSectionId">
+                        {foreach $node.object.allowed_assign_section_list as $allowed_assign_section}
+                            {if eq( $allowed_assign_section.id, $node.object.section_id )}
+                            <option value="{$allowed_assign_section.id}" selected="selected">{$allowed_assign_section.name|wash}</option>
+                            {else}
+                            <option value="{$allowed_assign_section.id}">{$allowed_assign_section.name|wash}</option>
+                            {/if}
+                        {/foreach}
+                        </select>
+                        <span class="input-group-btn">
+                            <input id="tab-details-set-section" type="submit" value="{'Set'|i18n( 'design/admin/node/view/full' )}" name="SectionEditButton" class="btn btn-default btn-sm" />
+                        </span>
+                    </div>
                 </form>
             </li>
             <li>

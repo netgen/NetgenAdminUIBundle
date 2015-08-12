@@ -114,4 +114,32 @@ $(document).ready(function(){
         }
     });
     /* */
+
+    $('#page-datatype-container').on( 'click', 'a.show-hide-advanced-attributes', function(e){
+        e.preventDefault();
+        var blockId = $(this).data('block-id');
+
+        if(localStorage.getItem('NgMoreAdvancedAttributesShown-' + blockId) !== null) {
+            $('#id_' + blockId + ' .advanced').hide();
+            localStorage.removeItem('NgMoreAdvancedAttributesShown-' + blockId);
+            $(this).text($(this).data('show-text'));
+        }
+        else {
+            $('#id_' + blockId + ' .advanced').show();
+            localStorage.setItem('NgMoreAdvancedAttributesShown-' + blockId, '1');
+            $(this).text($(this).data('hide-text'));
+        }
+    });
 });
+
+var initBlockAttributesState = function(){
+    $('.block-container').each(function(){
+        var blockId = $(this).prop('id').replace('id_', '');
+        var toggler = $('#id_' + blockId + ' .show-hide-advanced-attributes');
+
+        if(localStorage.getItem('NgMoreAdvancedAttributesShown-' + blockId) !== null) {
+            $('#id_' + blockId + ' .advanced').show();
+            toggler.text(toggler.data('hide-text'));
+        }
+    });
+};
