@@ -4,13 +4,13 @@
 {* Group Display all the attributes using their default template. *}
 
 {default
-$attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
+$attribute_categories        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
 $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
 {foreach group_data_map($node.object.contentobject_attributes) as $attribute_group => $content_attributes_grouped}
     {*if $attribute_group|ne( $attribute_default_category )}
     <fieldset class="ezcca-collapsible ezcca-attributes-group-{$attribute_group|wash}">
-        <legend><a href="JavaScript:void(0);">{$attribute_categorys[$attribute_group]}</a></legend>
+        <legend><a href="JavaScript:void(0);">{$attribute_categories[$attribute_group]}</a></legend>
         <div class="ezcca-collapsible-fieldset-content">
     {/if*}
     {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
