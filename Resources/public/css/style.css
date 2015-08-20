@@ -208,7 +208,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed legend a:before {content:"\f0fe";}
 .alert ul {margin-left:1.5em;}
 
 table.list {margin:0 0 14px;}
-table.list th {border-bottom:none; background:#575c6b; border-left:1px solid rgba(255,255,255,0.25); color:#fff; font-size:15px; font-weight:400;}
+table.list th {background:#575c6b; border:1px solid rgba(255,255,255,0.25); color:#fff; font-size:15px; font-weight:400; border-top:none;}
 table.list tr td:first-child {border-left:none;}
 table.list td {font-size:1em;}
 table.list table.list th {background:#a5a9b5;}
