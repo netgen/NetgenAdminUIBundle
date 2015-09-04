@@ -10,9 +10,6 @@
     <!-- nav -->
     <nav class="aside-nav">
         <ul class="nav dark">
-            <li class="hidden-folded text-only">
-                <span>Navigation</span>
-            </li>
 
             {def $liclass='unselected '}
             {def $icon='unselected '}
@@ -81,10 +78,6 @@
         </ul>
 
         <ul class="nav">
-            <li class="hidden-folded text-only">
-                <span>Netgen More Components</span>
-            </li>
-
             <li>
                 <a href="ui_chart.html">
                     <i class="fa fa-credit-card"></i>
@@ -118,9 +111,6 @@
                 </a>
             </li> *}
 
-            <li class="hidden-folded text-only">
-                <span>Your Stuff</span>
-            </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" title="Bookmarks"  data-toggle="dropdown">
                     <i class="fa fa-bookmark"></i>

@@ -11,16 +11,16 @@
         <span class="user-avatar">
             <img src={'a0.jpg'|ezimage} alt="...">
         </span>
-        <span class="user-name hidden-folded">{$current_user.contentobject.name|wash}</span>
+        {* <span class="user-name hidden-folded">{$current_user.contentobject.name|wash}</span> *}
     </a>
 
-    <a href={$fold_control_href|ezurl} class="aside-fold-trigger">
+    {* <a href={$fold_control_href|ezurl} class="aside-fold-trigger">
         {if ezpreference( 'admin_aside_fold_control' )}
             <i class="fa fa-dedent"></i>
         {else}
             <i class="fa fa-indent"></i>
         {/if}
-    </a>
+    </a> *}
 
     <!-- dropdown -->
     <ul class="dropdown-menu user-dropdown">
