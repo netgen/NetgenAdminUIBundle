@@ -378,7 +378,7 @@ function _substituteString( replaceString, substituteValues )
 function _moveTopLevelOnScreen( menuID, mousePos )
 {
     var menuElement = document.getElementById( menuID ), screenData = _getScreenProperties();
-    var newX = 0; var newY = 0;
+    var newX = 0, newY = 0;
 
     // compensate if we are below the screen
     if ( (screenData.ScrollY + screenData.Height) < ( mousePos.y + EZPOPMENU_OFFSET + menuElement.offsetHeight ) )
@@ -398,6 +398,9 @@ function _moveTopLevelOnScreen( menuID, mousePos )
     else
         newX = mousePos.x + EZPOPMENU_OFFSET;
     // reposition menu
+    if(newY<=0){
+        newY = 4;
+    }
     menuElement.style.left = newX + "px";
     menuElement.style.top = newY + "px";
 }
@@ -425,7 +428,7 @@ function _mouseHandler( e )
 function _moveSubLevelOnScreen( menuID, alignItem )
 {
     var menuElement = document.getElementById( menuID ), screenData = _getScreenProperties();
-    var newX = 0; var newY = 0;
+    var newX = 0, newY = 0, newBottom = '', windowH = window.innerHeight, elementH = menuElement.offsetHeight;
 
     alignElement = document.getElementById( alignItem );
     parentElement = document.getElementById( VisibleMenus[menuArray[menuID]['depth'] - 1] );
@@ -436,8 +439,8 @@ function _moveSubLevelOnScreen( menuID, alignItem )
         newY = parseInt( parentElement.style.top ) + alignElement.offsetTop + EZPOPMENU_SUBTOPOFFSET;
     }
     // compensate if we are below the screen
-    if ( ( screenData.ScrollY + screenData.Height ) < ( newY + menuElement.offsetHeight ) )
-        newY = screenData.ScrollY + screenData.Height - menuElement.offsetHeight;
+    if ( ( screenData.ScrollY + windowH ) < ( newY + elementH ) )
+        newY = screenData.ScrollY + windowH - elementH;
     // compensate if above the screen
     else if ( screenData.ScrollY > newY )
         newY = screenData.ScrollY;
@@ -448,10 +451,18 @@ function _moveSubLevelOnScreen( menuID, alignItem )
         newX = parseInt( parentElement.style.left ) + EZPOPMENU_SUBOFFSET - menuElement.offsetWidth;
     }
     // to the left is impossible
-
+    if(newY <= 3){
+        newY = 4;
+    }
     // reposition menu
-    menuElement.style.left = newX + "px";
-    menuElement.style.top = newY + "px";
+
+    // if bigger than screen
+    if (windowH < elementH) {
+        newY = 4;
+        newBottom = 4;
+    }
+    $(menuElement).css({'top': newY, 'left': newX, 'bottom': newBottom});
+
 }
 
 /*!

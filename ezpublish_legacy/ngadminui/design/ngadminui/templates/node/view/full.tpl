@@ -1,5 +1,24 @@
 <div class="content-view-full class-{$node.class_identifier}">
 
+    <div class="node-top-switch">
+        <div class="dropdown language-switch">
+            <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><a href="#">Croatian (Hrvatska)</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">+ Add new translation</a></li>
+            </ul>
+        </div>
+        <ul class="node-view-switch">
+            <li class="active"><a href=""><i class="fa fa-file-text-o"></i> Content</a></li>
+            <li><a href=""><i class="fa fa-th-large"></i> Layout</a></li>
+            <li><a href=""><i class="fa fa-globe"></i> Preview</a></li>
+        </ul>
+    </div>
+
     {include uri='design:infocollection_validation.tpl'}
 
     <div class="content-navigation">

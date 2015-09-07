@@ -387,7 +387,7 @@ var sortableSubitems = function () {
                                                      label: labelsObj.ACTION_BUTTONS.create_new,
                                                      name: "create-new-button",
                                                      menu: createOptions,
-                                                     container:"action-controls"});
+                                                     container:"action-controls-new"});
 
         // Disable button if user has no available content classes to create objects of
         if (createGroups.length === 0) createNewBtn.set('disabled',true);
@@ -445,7 +445,7 @@ var sortableSubitems = function () {
 
         var tableOptionsBtn = new YAHOO.widget.Button({label: labelsObj.ACTION_BUTTONS.table_options,
                                                         id:"ezbtn-options",
-                                                        container:"action-controls",
+                                                        container:"action-controls-options",
                                                         onclick: {fn: showTblOptsDialog, obj: this, scope: true}});
 
     return subItemsTable;

@@ -190,8 +190,10 @@ YUILoader.insert(options, 'js');
 </script>
 
 <div id="action-controls-container">
+    <div id="action-controls-new"></div>
     <div id="action-controls"></div>
     <div id="tpg"></div>
+    <div id="action-controls-options"></div>
 </div>
 <div id="content-sub-items-list" class="content-navigation-childlist"></div>
 <div id="bpg"></div>
