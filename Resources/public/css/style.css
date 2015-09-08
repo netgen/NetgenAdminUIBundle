@@ -1307,6 +1307,8 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
     margin: 0 6px 0 0; }
   .node-controlbar .btn {
     padding: 9px 14px; }
+  .node-controlbar .form-control {
+    height: 40px; }
 
 #controlbar-top {
   position: fixed;

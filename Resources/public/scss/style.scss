@@ -652,6 +652,9 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	.btn {
 		padding:9px 14px;
 	}
+	.form-control {
+		height:40px;
+	}
 }
 #controlbar-top {
 	position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter;

@@ -218,7 +218,7 @@
     </table>
 
     {* DESIGN: Content END *}
-    <div class="controlbar">
+    <div id="controlbar-top" class="node-controlbar">
         {* DESIGN: Control bar START *}
             <form class="form-inline" action={concat( '/class/edit/', $class.id )|ezurl} method="post">
                 <div class="input-group">
