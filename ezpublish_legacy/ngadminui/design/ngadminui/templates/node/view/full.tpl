@@ -1,3 +1,4 @@
+{def $disableContainer='true'}
 <div class="content-view-full class-{$node.class_identifier}">
 
     <div class="node-top-switch">

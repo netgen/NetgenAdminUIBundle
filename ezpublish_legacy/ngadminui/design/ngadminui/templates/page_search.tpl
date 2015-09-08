@@ -14,7 +14,7 @@
         {if $search_node_id|gt( 1 )}
             {set $search_title = "Search in '%node'"|i18n( 'design/admin/pagelayout',, hash( '%node', fetch( 'content', 'node', hash( 'node_id', $search_node_id ) ).name ) )}
         {/if}
-        <input id="searchText" name="searchText" class="search-input" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" />
+        <input id="searchText" name="searchText" class="search-input" type="text" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" placeholder="Search content..." />
         <button id="searchButton" name="SearchButton" type="submit" class="search-btn"><i class="fa fa-search"></i></button>
         {if eq( $ui_context, 'browse' ) }
             <input name="Mode" type="hidden" value="browse" />

@@ -1,14 +1,14 @@
-{* Published ordering window *}
-<div id="node-tab-ordering-content" class="tab-content{if $node_tab_index|ne('ordering')} hide{else} selected{/if}">
-    {include uri='design:ordering.tpl'}
-<div class="break"></div>
-</div>
-
 {* (Pre)view window *}
 <div id="node-tab-view-content" class="tab-content{if $node_tab_index|ne('view')} hide{else} selected{/if}">
     <div class="wrapper clearfix">
     {include uri='design:preview.tpl'}
     </div>
+</div>
+
+{* Subitems window *}
+<div id="node-tab-subitems-content" class="tab-content{if $node_tab_index|ne('subitems')} hide{else} selected{/if}">
+    {include uri='design:subitems.tpl'}
+<div class="break"></div>
 </div>
 
 {* Translations window *}

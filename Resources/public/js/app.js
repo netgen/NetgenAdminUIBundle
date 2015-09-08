@@ -3,9 +3,11 @@ $(document).ready(function(){
 	(function(){
 		var colw = sessionStorage.getItem('lcw'),
 			leftColumn = $('#left-column');
-		leftColumn.width(colw);
+		//leftColumn.width(colw);
+		//$('.search-form').width(colw);
 		leftColumn.resizable({
-			handles: 'e'
+			handles: 'e',
+			alsoResize: '.search-form'
 		});
 		$('.ui-resizable-e').on('mouseup', function(){
 			colw = leftColumn.width();

@@ -110,7 +110,7 @@ var labelsObj = {ldelim}
                         select_sav: "{'Select all visible'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         select_sn: "{'Select none'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         select_inv: "{'Invert selection'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
-                        create_new: "{'Create new'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
+                        create_new: "{'Create new subitem'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         more_actions: "{'More actions'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         more_actions_rs: "{'Remove selected'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
                         more_actions_ms: "{'Move selected'|i18n( 'design/admin/node/view/full' )|wash('javascript')}",
@@ -190,8 +190,8 @@ YUILoader.insert(options, 'js');
 </script>
 
 <div id="action-controls-container">
-    <div id="action-controls-new"></div>
     <div id="action-controls"></div>
+    <div id="action-controls-new"></div>
     <div id="tpg"></div>
     <div id="action-controls-options"></div>
 </div>

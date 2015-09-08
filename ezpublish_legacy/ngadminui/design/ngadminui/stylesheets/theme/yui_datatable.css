@@ -239,7 +239,7 @@ th.yui-dt-sortable .yui-dt-liner:after {border-top:6px solid; margin-top:1px;}
 th.yui-dt-sortable .yui-dt-liner:before {border-bottom:6px solid; margin-top:-6px;}
 th.yui-dt-sortable.yui-dt-asc .yui-dt-liner:after,
 th.yui-dt-sortable.yui-dt-desc .yui-dt-liner:before {color:rgba(255,255,255,0.15);}
-th.yui-dt-asc, th.yui-dt-desc {background:#1c2b36 !important;}
+th.yui-dt-asc, th.yui-dt-desc {background:#1c2b36;}
 
 tbody .yui-dt-editable {
     cursor: pointer;

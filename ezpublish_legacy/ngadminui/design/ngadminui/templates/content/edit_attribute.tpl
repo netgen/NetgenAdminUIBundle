@@ -3,8 +3,7 @@
          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
 {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
-    <div class="tab panel">
-        <h3 class="panel-hl">{$attribute_categorys[$attribute_group]}</h3>
+    <div class="tab">
         {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
             {def $contentclass_attribute = $attribute.contentclass_attribute}
             <div class="block ezcca-edit-datatype-{$attribute.data_type_string} ezcca-edit-{$attribute_identifier}">

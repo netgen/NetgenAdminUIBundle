@@ -86,17 +86,14 @@
                     <div id="main-column" class="main-column layout-column">
                         <div class="layout-column-inner">
                             <div class="inner-cell">
-                                <div class="inner-wrapper">
-
-                                    <div id="path">
-                                        <div id="path-design">
-                                            {% include 'design:page_toppath.tpl' %}
-                                        </div>
+                                <div id="path">
+                                    <div id="path-design">
+                                        {% include 'design:page_toppath.tpl' %}
                                     </div>
+                                </div>
 
-                                    <div class="main-content">
-                                        {% block content %}{% endblock %}
-                                    </div>
+                                <div class="main-content">
+                                    {% block content %}{% endblock %}
                                 </div>
                             </div>
                         </div>

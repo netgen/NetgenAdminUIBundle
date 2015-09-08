@@ -1,12 +1,4 @@
-<div id="window-controls" class="tab-block">
-    {include uri='design:class/window_controls.tpl'}
-    
-    <div class="clearfix">
-        <div class="tabs-content">
-            {include uri='design:class/windows.tpl'}
-        </div>
-    </div>
-</div>
+
 
 {section show=$validation.processed}
 {section show=$validation.groups}
@@ -53,7 +45,16 @@
 
 {* DESIGN: Content START *}
 
-
+<div id="window-controls" class="tab-block">
+    <div class="window-controls-tabs">
+        {include uri='design:class/window_controls.tpl'}
+    </div>
+    <div class="clearfix">
+        <div class="tabs-content">
+            {include uri='design:class/windows.tpl'}
+        </div>
+    </div>
+</div>
 <div class="panel preview-content">
     <div class="row">
         <div class="col-md-6">
