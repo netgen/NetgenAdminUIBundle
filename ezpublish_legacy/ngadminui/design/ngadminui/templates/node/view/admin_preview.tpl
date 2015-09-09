@@ -12,7 +12,7 @@
         <div class="row preview-row">
             {if $attribute.display_info.view.grouped_input}
             <fieldset>
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3 label-preview">
                     <legend>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}</legend>
                 </div>
                 <div class="col-sm-9">
@@ -20,7 +20,7 @@
                 </div>
             </fieldset>
             {else}
-                <div class="col-sm-3 text-right">
+                <div class="col-sm-3 label-preview">
                     <label>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:</label>
                 </div>
                 <div class="col-sm-9">

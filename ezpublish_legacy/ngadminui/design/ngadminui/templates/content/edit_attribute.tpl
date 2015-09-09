@@ -60,7 +60,7 @@
                             </div>
                         {else}
                             {if $attribute.display_info.edit.grouped_input}
-                                <div class="col-sm-3 text-right">
+                                <div class="col-sm-3 label-edit">
                                     <label class="attribute-label {if $attribute.has_validation_error} message-error{/if}">
                                         <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
                                         {if $attribute.is_required} <span class="required">*</span>{/if}
@@ -68,14 +68,14 @@
                                         {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
                                     </label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 attribute-edit">
                                     <div class="attribute-block float-break">
                                         {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
                                         <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />
                                     </div>
                                 </div>
                             {else}
-                                <div class="col-sm-3 text-right">
+                                <div class="col-sm-3 label-edit">
                                     <label class="attribute-label{if $attribute.has_validation_error} message-error{/if}">
                                         <span class="classattribute-name">{first_set( $contentclass_attribute.nameList[$content_language], $contentclass_attribute.name )|wash}</span>
                                         {if $attribute.is_required} <span class="required">*</span>{/if}
@@ -83,7 +83,7 @@
                                         {if $contentclass_attribute.description} <span class="classattribute-description">{first_set( $contentclass_attribute.descriptionList[$content_language], $contentclass_attribute.description)|wash}</span>{/if}
                                     </label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 attribute-edit">
                                     <div class="attribute-block float-break">
                                         {attribute_edit_gui attribute_base=$attribute_base attribute=$attribute view_parameters=$view_parameters}
                                         <input type="hidden" name="ContentObjectAttribute_id[]" value="{$attribute.id}" />

@@ -487,7 +487,6 @@ ul.leftmenu-items li.current a
 div#contentstructure
 {
     overflow: hidden;
-    padding-top: 0.5em;
 }
 
 div#contentstructure ul#content_tree_menu
@@ -546,7 +545,6 @@ div#contentstructure a.nodeicon
 div#contentstructure li span.node-name-normal
 {
     font-weight: normal;
-    font-size:1.05em;
 }
 
 div#contentstructure li.currentnode > a.image-text span.node-name-normal, div#contentstructure li.currentnode > a.image-text span.node-name-hidden, div#contentstructure li.currentnode > a.image-text span.node-name-hiddenbyparent /* Highlighting of current node */

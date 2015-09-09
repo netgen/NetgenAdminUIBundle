@@ -23,7 +23,6 @@ body /* These becomes the initial settings for most other elements */
 
 h1, h2, h3, h4, h5, h6 /* Set general styles for all headings; some may be overridden later */
 {
-    font-family: Helvetica, Arial, sans-serif;
     margin: 0.5em 0 0.2em 0;
     padding: 0;
 }
@@ -255,7 +254,6 @@ li
 {
     margin: 0 0 0.3em 0;
     padding: 0;
-    line-height: 1.25em;
 }
 
 /* DEFINITION LISTS */
@@ -297,7 +295,6 @@ label
     padding-right: 0.5em;
     display: block;
     white-space: nowrap;
-    font-size:1.1em;
 }
 
 input, select

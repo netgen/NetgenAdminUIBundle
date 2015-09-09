@@ -56,7 +56,7 @@
             <a href={concat( '/class/view/', $node.object.contentclass_id )|ezurl} onclick="ezpopmenu_showTopLevel( event, 'ClassMenu', ez_createAArray( new Array( '%classID%', {$node.object.contentclass_id}, '%objectID%', {$node.contentobject_id}, '%nodeID%', {$node.node_id}, '%currentURL%', '{$node.url|wash( javascript )}', '%languages%', {$js_class_languages} ) ), '{$node.class_name|wash(javascript)}', {$disabled_sub_menu}, {$disable_another_language} ); return false;" class="title-edit">{$node.class_identifier|class_icon( normal, $node.class_name )}</a>
 
             <h1 class="context-title">
-                {$node.name|wash}&nbsp;[{$node.class_name|wash}]&nbsp;{$hide_status}
+                {$node.name|wash}&nbsp;<span class="type">[{$node.class_name|wash}]</span> {$hide_status}
 
                 {undef $js_class_languages $disable_another_language $disabled_sub_menu $hide_status}
             </h1>
