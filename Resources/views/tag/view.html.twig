@@ -1,47 +1,27 @@
 {% extends "NetgenMoreAdminUIBundle::pagelayout.html.twig" %}
 
-{% set prioritizedLanguages = ezpublish.configResolver.parameter( 'languages' ) %}
+{% set siteTitle = netgen_tags_tag_keyword( tag ) %}
 
-{% set tagKeyword = tag.keywords[prioritizedLanguages[0]] is defined ?
-    tag.keywords[prioritizedLanguages[0]] :
-    tag.keyword
-%}
+{% set tagPathArray = tag.pathString|trim( '/' )|split( '/' ) %}
+{% set pathArray = [] %}
 
-{% block page_head %}
-    {% set title = tagKeyword %}
-    {{ parent() }}
-{% endblock %}
+{% for tagPathItem in tagPathArray %}
+    {% set pathArray = pathArray|merge( [ {
+        tag_id: tagPathItem,
+        url: tagPathItem != tag.id ? path( '_eztagsTag', { 'tagId': tagPathItem } ) : false,
+        text: netgen_tags_tag_keyword( tagPathItem )
+    } ] ) %}
+{% endfor %}
+
+{% set module_result = {
+    'path': pathArray,
+    'navigation_part': 'eztagsnavigationpart',
+    'ui_context': 'navigation'
+} %}
 
 {% block content %}
-    <section class="content-view-full">
-        <div class="row">
-            <div class="span8">
-                <div class="attribute-header">
-                    <h1>{{ tagKeyword }}</h1>
-                </div>
-
-                {% if pager|length > 0 %}
-                    <section class="content-view-children">
-                        {% for pagerItem in pager %}
-                            {{ render(
-                                controller(
-                                    "ez_content:viewLocation",
-                                    {
-                                        "locationId": pagerItem.contentInfo.mainLocationId,
-                                        "viewType": "line"
-                                    }
-                                )
-                            ) }}
-                        {% endfor %}
-                    </section>
-
-                    {% if pager.haveToPaginate() %}
-                        <div class="pagination-centered">
-                            {{ pagerfanta( pager, 'twitter_bootstrap_translated' ) }}
-                        </div>
-                    {% endif %}
-                {% endif %}
-            </div>
-        </div>
-    </section>
+    {% include 'design:tags/view.tpl' with {
+        'tag': tag,
+        'show_reindex_message': false
+    } %}
 {% endblock %}

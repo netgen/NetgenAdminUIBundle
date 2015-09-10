@@ -1,5 +1,6 @@
 parameters:
     ngmore_admin_ui.templating.twig.extension.class: Netgen\Bundle\MoreAdminUIBundle\Templating\Twig\Extension\NetgenMoreAdminUIExtension
+    ngmore_admin_ui.templating.converter.tag.class: Netgen\Bundle\MoreAdminUIBundle\Templating\Converter\TagConverter
 
 services:
     ngmore_admin_ui.templating.twig.extension:
@@ -8,3 +9,10 @@ services:
             - @ezpublish_legacy.kernel
         tags:
             - { name: twig.extension }
+
+    ngmore_admin_ui.templating.converter.tag:
+        class: %ngmore_admin_ui.templating.converter.tag.class%
+        arguments:
+            - @ezpublish_legacy.kernel
+        tags:
+            - {name: ezpublish_legacy.templating.converter, for: Netgen\TagsBundle\API\Repository\Values\Tags\Tag}
