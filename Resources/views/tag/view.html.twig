@@ -1,17 +1,22 @@
 {% extends "NetgenMoreAdminUIBundle::pagelayout.html.twig" %}
 
-{% set siteTitle = netgen_tags_tag_keyword( tag ) %}
-
-{% set tagPathArray = tag.pathString|trim( '/' )|split( '/' ) %}
 {% set pathArray = [] %}
+{% set siteTitleArray = [] %}
+{% set tagPathArray = tag.pathString|trim( '/' )|split( '/' ) %}
 
-{% for tagPathItem in tagPathArray %}
+{% for tagId in tagPathArray %}
+    {% set tagKeyword = netgen_tags_tag_keyword( tagId ) %}
+
     {% set pathArray = pathArray|merge( [ {
-        tag_id: tagPathItem,
-        url: tagPathItem != tag.id ? path( '_eztagsTag', { 'tagId': tagPathItem } ) : false,
-        text: netgen_tags_tag_keyword( tagPathItem )
+        tag_id: tagId,
+        url: tagId != tag.id ? '/tags/id/' ~ tagId : false,
+        text: tagKeyword
     } ] ) %}
+
+    {% set siteTitleArray = siteTitleArray|merge( [tagKeyword] ) %}
 {% endfor %}
+
+{% set siteTitle = siteTitleArray|reverse|join( ' / ' ) %}
 
 {% set module_result = {
     'path': pathArray,
