@@ -4,4 +4,14 @@
 
 {% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
 
+{# PATH ARRAY #}
+
+{% if pathArray is not defined %}
+    {% if content is defined and location is defined and not location.isDraft %}
+        {% set pathArray = ngmore_location_path( location.id ) %}
+    {% else %}
+        {% set pathArray = [] %}
+    {% endif %}
+{% endif %}
+
 {% endspaceless %}{% block pagelayout_content %}{% endblock %}
