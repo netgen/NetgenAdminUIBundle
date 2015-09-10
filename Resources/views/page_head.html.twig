@@ -7,10 +7,10 @@
         {% endfor %}
     {% endif %}
 
-    {% set siteTitle = siteTitleArray|join( ' / ' ) ~ ' - ' ~ siteName %}
+    {% set siteTitle = siteTitleArray|join( ' / ' ) %}
 {% endif %}
 
-<title>{{ siteTitle }}</title>
+<title>{{ siteTitle ~ ' - ' ~ siteName }}</title>
 <meta name="generator" content="{{ 'ngmore_admin_ui.layout.generator'|trans }}" />
 
 {#
