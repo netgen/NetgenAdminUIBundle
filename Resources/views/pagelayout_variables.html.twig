@@ -9,6 +9,8 @@
 {% if pathArray is not defined %}
     {% if content is defined and location is defined and not location.isDraft %}
         {% set pathArray = ngmore_location_path( location.id, true ) %}
+    {% elseif module_result.node_id is defined %}
+        {% set pathArray = ngmore_location_path( module_result.node_id, true ) %}
     {% else %}
         {% set pathArray = [] %}
     {% endif %}
