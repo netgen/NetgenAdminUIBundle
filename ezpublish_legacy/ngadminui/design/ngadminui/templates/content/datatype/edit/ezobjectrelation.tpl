@@ -22,7 +22,7 @@
         {if $attribute.content}
 
             {* Name *}
-            <td>{$attribute.content.name|wash()}</td>
+            <td><a href={$attribute.content.url|ezurl} target="_blank">{$attribute.content.name|wash()}</a></td>
 
             {* Type *}
             <td>{$attribute.content.class_name|wash()}</td>

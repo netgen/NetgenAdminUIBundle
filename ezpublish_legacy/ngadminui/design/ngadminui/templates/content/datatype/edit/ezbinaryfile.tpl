@@ -2,21 +2,13 @@
 {default attribute_base=ContentObjectAttribute}
 
 {* Current file. *}
-<div class="block">
+<div class="block file-attribute">
 	{if $attribute.content}
-	<label>{'Current file'|i18n( 'design/standard/content/datatype' )}:</label>
-	<table class="list" cellspacing="0">
-		<tr>
-			<th>{'Filename'|i18n( 'design/standard/content/datatype' )}</th>
-			<th>{'MIME type'|i18n( 'design/standard/content/datatype' )}</th>
-			<th>{'Size'|i18n( 'design/standard/content/datatype' )}</th>
-		</tr>
-		<tr>
-			<td>{$attribute.content.original_filename|wash( xhtml )}</td>
-			<td>{$attribute.content.mime_type|wash( xhtml )}</td>
-			<td>{$attribute.content.filesize|si( byte )}</td>
-		</tr>
-	</table>
+        <ul class="details">
+            <li><label>{'Current file'|i18n( 'design/standard/content/datatype' )}:</label><span><a href={concat( 'content/download/', $attribute.contentobject_id, '/', $attribute.id,'/version/', $attribute.version , '/file/', $attribute.content.original_filename|urlencode )|ezurl} target="_blank">{$attribute.content.original_filename|wash( xhtml )}</a></span></li>
+            <li><label>{'MIME type'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.mime_type|wash( xhtml )}</span></li>
+            <li><label>{'Size'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.filesize|si( byte )}</span></li>
+        </ul>
 	{else}
 		<p>{'There is no file.'|i18n( 'design/standard/content/datatype' )}</p>
 	{/if}

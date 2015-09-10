@@ -1,7 +1,7 @@
 {if fetch( 'user', 'has_access_to', hash( 'module', 'content', 'function', 'bookmark' ) )}
 
 <div id="bookmarks">
-    {* DESIGN: Header START *}<div class="box-header">
+    {* DESIGN: Header START *}
         {if and( ne( $ui_context, 'edit' ), ne( $ui_context, 'browse' ) )}
             <h4>{'Bookmarks'|i18n( 'design/admin/pagelayout' )}</h4>
         {else}
@@ -12,7 +12,7 @@
          {/if}
         {/if}
 
-    {* DESIGN: Header END *}</div>
+    {* DESIGN: Header END *}
 
     {* DESIGN: Content START *}
     <div class="box-content">

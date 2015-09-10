@@ -69,11 +69,9 @@
                     <span class="tt">Cache</span>
                     <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu dropdown-cache">
-                    <li>
-                        {tool_bar name='admin_developer' view='full'}
-                    </li>
-                </ul>
+                <div class="dropdown-menu dropdown-cache">
+                    {tool_bar name='admin_developer' view='full'}
+                </div>
             </li>
         </ul>
 
@@ -117,11 +115,9 @@
                     <span class="tt">Bookmarks</span>
                     <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu dropdown-cache">
-                    <li>
-                        {include uri='design:toolbar/full/admin_bookmarks.tpl'}
-                    </li>
-                </ul>
+                <div class="dropdown-menu dropdown-cache">
+                    {include uri='design:toolbar/full/admin_bookmarks.tpl'}
+                </div>
             </li>
 
             {* <li>

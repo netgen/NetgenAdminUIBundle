@@ -3,24 +3,21 @@
 {let attribute_content=$attribute.content}
 
 {* Current image. *}
-<div class="block">
+<div class="block file-attribute">
     {if $attribute_content.original.is_valid}
-    <label>{'Current image'|i18n( 'design/standard/content/datatype' )}:</label>
-
-    <table class="list" cellspacing="0">
-        <tr>
-            <th class="tight">{'Preview'|i18n( 'design/standard/content/datatype' )}</th>
-            <th>{'Filename'|i18n( 'design/standard/content/datatype' )}</th>
-            <th>{'MIME type'|i18n( 'design/standard/content/datatype' )}</th>
-            <th>{'Size'|i18n( 'design/standard/content/datatype' )}</th>
-        </tr>
-        <tr>
-            <td>{attribute_view_gui image_class=ezini( 'ImageSettings', 'DefaultEditAlias', 'content.ini' ) attribute=$attribute}</td>
-            <td>{$attribute.content.original.original_filename|wash( xhtml )}</td>
-            <td>{$attribute.content.original.mime_type|wash( xhtml )}</td>
-            <td>{$attribute.content.original.filesize|si( byte )}</td>
-        </tr>
-    </table>
+        <div class="table">
+            <div class="cell cell-image">
+                {attribute_view_gui image_class=ezini( 'ImageSettings', 'DefaultEditAlias', 'content.ini' ) attribute=$attribute}
+            </div>
+            <div class="cell">
+                <ul class="details">
+                    <li><label>{'Current image'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.original_filename|wash( xhtml )}</span></li>
+                    <li><label>{'MIME type'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.mime_type|wash( xhtml )}</span></li>
+                    <li><label>{'Size'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.filesize|si( byte )}</span></li>
+                    <li><label>{'Dimensions'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.width} x {$attribute.content.original.height} px</span></li>
+                </ul>
+            </div>
+        </div>
     {else}
         <p>{'There is no image file.'|i18n( 'design/standard/content/datatype' )}</p>
     {/if}

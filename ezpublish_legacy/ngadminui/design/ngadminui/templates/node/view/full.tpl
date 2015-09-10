@@ -1,18 +1,33 @@
-{def $disableContainer='true'}
 <div class="content-view-full class-{$node.class_identifier}">
 
     <div class="node-top-switch">
-        <div class="dropdown language-switch">
+        <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
+            {def $can_create_languages = $node.object.can_create_languages
+                        $languages            = fetch( 'content', 'prioritized_languages' )}
+            <input type="hidden" name="TopLevelNode" value="{$node.object.main_node_id}" />
+            <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+            <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
+            <input name="ContentObjectLanguageCode" value="" type="hidden" />
             <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                <li><a href="#">Croatian (Hrvatska)</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">+ Add new translation</a></li>
+                {foreach $node.object.can_edit_languages as $language}
+                    {if $language.locale|eq($node.object.current_language)|not}
+                        <li class="with-edit">
+                            <a href={concat( $node.url, '/(language)/', $language.locale )|ezurl} title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">{$language.name|wash}</a>
+                            <a href={concat( 'content/edit/', $node.object.id, '/f/', $language.locale )|ezurl} class="edit-icon" title="{'Edit in %language.name.'|i18n( 'design/admin/node/view/full',, hash( '%language.name', $language.locale_object.intl_language_name ) )|wash}"><i class="fa fa-edit"></i></a>
+                        </li>
+                    {/if}
+                {/foreach}
+                {if gt( $can_create_languages|count, 0 )}
+                    <li role="separator" class="divider"></li>
+                    <li><button type="submit" name="EditButton">+ Add new translation</button></li>
+                {/if}
             </ul>
-        </div>
+            {undef $can_create_languages}
+        </form>
         <ul class="node-view-switch">
             <li class="active"><a href=""><i class="fa fa-file-text-o"></i> Content</a></li>
             <li><a href=""><i class="fa fa-th-large"></i> Layout</a></li>

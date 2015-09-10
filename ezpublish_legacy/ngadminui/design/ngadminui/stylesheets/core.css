@@ -462,14 +462,14 @@ label.message-error, legend.message-error
 
 /* POSITION CONTROL */
 
-div.block /* Used around groups of objects which are connected in some way, and requires extra margins to the surroundings */
+.block /* Used around groups of objects which are connected in some way, and requires extra margins to the surroundings */
 {
     margin: 0.5em 0 0.5em 0;
     padding: 0;
     clear: both;
 }
 
-div.block div.element, div.block div.halfelement /* Used if several objects are to be stacked horizontally within the same block */
+.block div.element, .block div.halfelement /* Used if several objects are to be stacked horizontally within the same block */
 {
     padding-right: 1em;
     float: left;
@@ -480,14 +480,14 @@ div.halfelement
     width: 48%;
 }
 
-div.block div.left /* Floats elements to the left in a block */
+.block div.left /* Floats elements to the left in a block */
 {
     width: 48%;
     float: left;
     clear: left;
 }
 
-div.block div.right /* Floats elements to the right in a block */
+.block div.right /* Floats elements to the right in a block */
 {
     width: 48%;
     float: right;
@@ -677,7 +677,7 @@ table.multioption table.options-list th
     background-color: #eee;
 }
 
-table.multioption div.controlbar div.block
+table.multioption div.controlbar .block
 {
     padding: 0;
 }

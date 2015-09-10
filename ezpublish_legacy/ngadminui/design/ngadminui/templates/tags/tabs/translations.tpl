@@ -7,7 +7,7 @@
         <tbody>
             <tr>
                 {if $has_edit_access}
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'extension/eztags/tags/view' )}" onclick="ezjs_toggleCheckboxes( document.translationsform, 'Locale[]' ); return false;"/></th>
+                    <th class="tight"><i class="fa fa-check-square-o" title="{'Invert selection.'|i18n( 'extension/eztags/tags/view' )}" onclick="ezjs_toggleCheckboxes( document.translationsform, 'Locale[]' ); return false;"></i></th>
                 {/if}
                 <th>{'Language'|i18n( 'extension/eztags/tags/view' )}</th>
                 <th>{'Translation'|i18n( 'extension/eztags/tags/view' )}</th>
