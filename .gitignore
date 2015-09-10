@@ -1,0 +1,12 @@
+.idea/
+.sass-cache/
+.tmp/
+CodeCoverage/
+node_modules/
+vendor/
+composer.phar
+composer.lock
+grunt.lock
+phpunit.phar
+.php_cs.cache
+
