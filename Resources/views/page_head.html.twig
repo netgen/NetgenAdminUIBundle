@@ -1,5 +1,6 @@
 {% if siteTitle is not defined %}
     {% set siteTitleArray = [] %}
+
     {% if pathArray is not empty %}
         {% for pathItem in pathArray|reverse %}
             {% set siteTitleArray = siteTitleArray|merge( [pathItem.text] ) %}
