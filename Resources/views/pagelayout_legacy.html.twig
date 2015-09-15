@@ -22,7 +22,9 @@
 
 {# SHOWING OR HIDING SIDE MENU #}
 
-{% if persistent_variable.hide_side_menu is defined and persistent_variable.hide_side_menu %}
+{% set semantic_path_info = app.request.attributes.get('semanticPathinfo') %}
+
+{% if semantic_path_info starts with '/content/versionview' %}
     {% set showSideMenu = false %}
 {% endif %}
 

@@ -119,7 +119,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 }
 
 #header {
-	border:none; position:fixed; top:0; left:0; height:$headerHeight; z-index:9;
+	border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:1;
 }
 #header-logo {
 	background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
@@ -131,7 +131,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 .header-search:after {clear:both; display:table; content:"";}
 
 .search-form {
-	position:fixed; padding:0; background:#fafafa; top:0; height:$headerHeight; width:$leftColumnWidth; overflow:hidden;
+	position:fixed; padding:0; background:#fafafa; top:0; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; z-index:4;
 	.search-input {
 		width:100%; border:none; background:transparent; height:30px; line-height:30px; padding:0 $gutter 0 45px; margin:20px 0 0; font:inherit;
 		&:focus {
@@ -170,14 +170,14 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 }
 
 .navi-wrap {
-	position:relative; width:100%; height:100%; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch; padding-bottom:50px;
+	position:relative; width:$asideWidth; height:100%; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch; padding-bottom:70px;
 	.dropdown-menu {
 		background:$asideBg; border:none; color:$asideColor; position:fixed; top:50%; z-index:1000; right:auto; width:200px; left:51px; overflow-y:scroll; @include rounded(0); min-width:0;
 	}
 }
 
 .aside-footer {
-	position:absolute; bottom:0; left:0; z-index:1000; width:100%;
+	position:absolute; bottom:0; left:0; z-index:1000; width:100%; background:$asideBg;
 	> a {
 		display:block;
 	}
@@ -729,7 +729,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 }
 
 .node-top-switch {
-	position:fixed;	top:0; height:$headerHeight; padding-left:$gutter;
+	position:fixed;	top:0; height:$headerHeight; padding-left:$gutter; z-index:5;
 	.language-switch {
 		float:left; margin:12px 12px 0 0;
 		.btn {
@@ -786,7 +786,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	}
 }
 #controlbar-top {
-	position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter;
+	position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter; z-index:5;
 	.translation {
 		margin-top:14px; color:#999;
 	}
@@ -1027,6 +1027,13 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	}
 }
 
+.preview-page {
+	background:#272A2F; padding:2em 0;
+}
+#preview-frame {
+	border:none; margin:0 auto; width:1200px; max-width:96%; height:768px; display:block;
+}
+
 .badge {text-shadow:0 1px 0 rgba(0,0,0,0.2);}
 .text-success-lter {color:#43d967;}
 .bg-success {color:#fff; background-color:#27c24c;}
@@ -1034,6 +1041,15 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 .bg-info {background-color:#5bc0de;}
 .bg-warning {background-color:#f0ad4e;}
 .bg-danger {background-color:#d9534f;}
+
+.hide-side-menu {
+	#content {
+		margin-left:0;
+	}
+	.node-top-switch {
+		left:$asideWidth;
+	}
+}
 
 @media (min-width: 768px) {
 	.form-inline .form-group {margin-right:10px;}

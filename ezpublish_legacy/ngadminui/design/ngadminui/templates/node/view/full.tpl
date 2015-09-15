@@ -31,7 +31,7 @@
         <ul class="node-view-switch">
             <li class="active"><a href=""><i class="fa fa-file-text-o"></i> Content</a></li>
             <li><a href=""><i class="fa fa-th-large"></i> Layout</a></li>
-            <li><a href=""><i class="fa fa-globe"></i> Preview</a></li>
+            <li><a href={concat('/content/versionview/', $node.object.id, '/', $node.object.current_version)|ezurl}><i class="fa fa-globe"></i> Preview</a></li>
         </ul>
     </div>
 

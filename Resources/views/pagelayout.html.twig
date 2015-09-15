@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if not ezpreference( 'admin_aside_fold_control' ) or content_edit or ui_context_edit %}aside-folded{% endif %}{% if content_edit or ui_context_edit %} content-edit{% endif %}">
+    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if content_edit or ui_context_edit %} content-edit{% endif %}{% if not showSideMenu %} hide-side-menu{% endif %}">
         <header id="header">
             <div class="header-nav">
                 <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ siteName }}"></a>

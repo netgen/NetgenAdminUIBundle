@@ -145,8 +145,9 @@ fieldset[disabled] .btn-primary.active {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   height: 70px;
-  z-index: 9; }
+  z-index: 1; }
 
 #header-logo {
   background: #f3590a url("../images/ez-logo-w.svg") 50% no-repeat;
@@ -182,7 +183,8 @@ fieldset[disabled] .btn-primary.active {
   top: 0;
   height: 70px;
   width: 240px;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 4; }
   .search-form .search-input {
     width: 100%;
     border: none;
@@ -245,12 +247,12 @@ fieldset[disabled] .btn-primary.active {
 
 .navi-wrap {
   position: relative;
-  width: 100%;
+  width: 100px;
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 50px; }
+  padding-bottom: 70px; }
   .navi-wrap .dropdown-menu {
     background: #06203b;
     border: none;
@@ -272,7 +274,8 @@ fieldset[disabled] .btn-primary.active {
   bottom: 0;
   left: 0;
   z-index: 1000;
-  width: 100%; }
+  width: 100%;
+  background: #06203b; }
   .aside-footer > a {
     display: block; }
 
@@ -1244,7 +1247,8 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
   position: fixed;
   top: 0;
   height: 70px;
-  padding-left: 15px; }
+  padding-left: 15px;
+  z-index: 5; }
   .node-top-switch .language-switch {
     float: left;
     margin: 12px 12px 0 0; }
@@ -1336,7 +1340,8 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
   height: 70px;
   left: 100px;
   right: 0;
-  padding: 14px 20px 0 15px; }
+  padding: 14px 20px 0 15px;
+  z-index: 5; }
   #controlbar-top .translation {
     margin-top: 14px;
     color: #999; }
@@ -1753,6 +1758,18 @@ input.tagssuggestfield {
   -webkit-filter: invert(0.8);
   filter: invert(0.8); }
 
+.preview-page {
+  background: #272A2F;
+  padding: 2em 0; }
+
+#preview-frame {
+  border: none;
+  margin: 0 auto;
+  width: 1200px;
+  max-width: 96%;
+  height: 768px;
+  display: block; }
+
 .badge {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
 
@@ -1774,6 +1791,11 @@ input.tagssuggestfield {
 
 .bg-danger {
   background-color: #d9534f; }
+
+.hide-side-menu #content {
+  margin-left: 0; }
+.hide-side-menu .node-top-switch {
+  left: 100px; }
 
 @media (min-width: 768px) {
   .form-inline .form-group {
