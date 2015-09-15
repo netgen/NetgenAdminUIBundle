@@ -1,0 +1,14 @@
+parameters:
+    ngmore_admin_ui.event_listener.security.class: Netgen\Bundle\MoreAdminUIBundle\EventListener\Security
+
+services:
+    ngmore_admin_ui.event_listener.security:
+        class: %ngmore_admin_ui.event_listener.security.class%
+        arguments:
+            - @request_stack
+            - @ezpublish.api.repository
+            - @ezpublish.config.resolver
+            - @security.token_storage
+            - @security.authorization_checker
+        tags:
+            - { name: kernel.event_subscriber }
