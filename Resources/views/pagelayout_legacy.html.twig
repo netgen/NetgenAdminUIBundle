@@ -4,6 +4,28 @@
     {% set module_result = ezpublish.legacy.all %}
 {% endif %}
 
+{# PERSISTENT VARIABLE #}
+
+{% set content_info = null %}
+{% if ezpublish.legacy.has( 'content_info' ) %}
+    {% set content_info = ezpublish.legacy.get( 'content_info' ) %}
+{% endif %}
+
+{% if module_result.content_info is defined %}
+    {% set content_info = module_result.content_info %}
+{% endif %}
+
+{% set persistent_variable = null %}
+{% if content_info.persistent_variable is defined %}
+    {% set persistent_variable = content_info.persistent_variable %}
+{% endif %}
+
+{# SHOWING OR HIDING SIDE MENU #}
+
+{% if persistent_variable.hide_side_menu is defined and persistent_variable.hide_side_menu %}
+    {% set showSideMenu = false %}
+{% endif %}
+
 {% block content %}
     {{ module_result.content|raw }}
 {% endblock %}

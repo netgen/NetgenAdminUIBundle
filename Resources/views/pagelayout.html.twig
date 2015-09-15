@@ -29,14 +29,16 @@
             </div>
         </header>
 
-        <aside id="aside">
-            <div class="aside-wrap">
-                {% include 'design:page_sidemenu.tpl' %}
-                <div id="aside-usermenu">
-                    <a href="{{ path( 'logout' ) }}" title="{{ 'ngmore_admin_ui.layout.logout.title'|trans }}" id="header-usermenu-logout">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
+        {% if showSideMenu %}
+            <aside id="aside">
+                <div class="aside-wrap">
+                    {% include 'design:page_sidemenu.tpl' %}
+                    <div id="aside-usermenu">
+                        <a href="{{ path( 'logout' ) }}" title="{{ 'ngmore_admin_ui.layout.logout.title'|trans }}" id="header-usermenu-logout">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
+                    </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
+        {% endif %}
 
         <div id="content">
             <div class="content-body">

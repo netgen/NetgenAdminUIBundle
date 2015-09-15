@@ -4,6 +4,12 @@
 
 {% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
 
+{# SIDE MENU #}
+
+{% if showSideMenu is not defined %}
+    {% set showSideMenu = true %}
+{% endif %}
+
 {# PATH ARRAY #}
 
 {% if pathArray is not defined %}
