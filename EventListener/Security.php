@@ -94,15 +94,17 @@ class Security implements EventSubscriberInterface
             return;
         }
 
-        # Siteaccesses running with legacy_mode=false and RequireUserLogin=true have issues with
-        # login redirects when protected legacy views are accessed via URL before the user is logged in.
-        # This is because RequireUserLogin specific code in legacy kernel checks for existence of
-        # 'eZUserLoggedInID' DURING the legacy kernel initialization process. Since 'eZUserLoggedInID'
-        # session variable can only be set AFTER the legacy kernel is built and initialized,
-        # via runCallback method, the code always fails, causing repeated login screens.
+        /*
+        Siteaccesses running with legacy_mode=false and RequireUserLogin=true have issues with
+        login redirects when protected legacy views are accessed via URL before the user is logged in.
+        This is because RequireUserLogin specific code in legacy kernel checks for existence of
+        'eZUserLoggedInID' DURING the legacy kernel initialization process. Since 'eZUserLoggedInID'
+        session variable can only be set AFTER the legacy kernel is built and initialized,
+        via runCallback method, the code always fails, causing repeated login screens.
 
-        # This is a workaround to set the session variable after the kernel is built, but before
-        # it's initialized, so the RequireUserLogin code should work fine.
+        This is a workaround to set the session variable after the kernel is built, but before
+        it's initialized, so the RequireUserLogin code should work fine.
+        */
 
         $currentRequest->getSession()->set(
             'eZUserLoggedInID',
