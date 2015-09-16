@@ -131,8 +131,8 @@
         (function(){
             var frame = $('#preview-frame'),
                 container = $('.preview-frame-container'),
-                initialW = sessionStorage.getItem('previewIframeW'),
-                initialH = sessionStorage.getItem('previewIframeH'),
+                initialW = localStorage.getItem('previewIframeW'),
+                initialH = localStorage.getItem('previewIframeH'),
                 control = $('.iframe-control'),
                 sizes = [],
                 screenW = $(document).width(),
@@ -144,7 +144,6 @@
             control.children('.btn').each(function(){
                 sizes.push($(this).attr('data-width'));
             });
-            console.log(initialW);
             if(initialW == undefined) {
                 var i = Math.max.apply(Math, sizes.filter(function(x){return x <= screenW})),
                     initialTrigger = $('.btn[data-width=' + i + ']');
@@ -158,8 +157,8 @@
                 var trigger = $(this),
                     frameW = trigger.attr('data-width'),
                     frameH = trigger.attr('data-height');
-                sessionStorage.setItem('previewIframeW', frameW);
-                sessionStorage.setItem('previewIframeH', frameH);
+                localStorage.setItem('previewIframeW', frameW);
+                localStorage.setItem('previewIframeH', frameH);
                 sizing(trigger, frameW, frameH);
             });
         })();
