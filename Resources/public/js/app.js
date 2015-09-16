@@ -132,6 +132,20 @@ $(document).ready(function(){
             $(this).text($(this).data('hide-text'));
         }
     });
+
+    $('.form-siteaccess').on('change', 'input[type=radio]', function() {
+	    $(this).closest('form').submit();
+	});
+
+	$('.iframe-control').on('click', '.btn', function(){
+		var trigger = $(this),
+			frame = $('#preview-frame'),
+			frameWidth = trigger.attr('data-width'),
+			frameHeight = trigger.attr('data-height');
+		trigger.addClass('active').siblings().removeClass('active');
+		frame.width(frameWidth).height(frameHeight);
+	});
+
 });
 
 var initBlockAttributesState = function(){
