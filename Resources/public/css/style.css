@@ -463,8 +463,12 @@ fieldset[disabled] .btn-primary.active {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
-  left: 0; }
+  left: 0;
+  bottom: 0; }
+  .layout-column .inner-cell.contentPreview {
+    background: #272A2F;
+    bottom: auto;
+    min-height: 100%; }
 
 .layout-column .inner-wrapper {
   padding: 15px; }
@@ -1759,16 +1763,19 @@ input.tagssuggestfield {
   filter: invert(0.8); }
 
 .preview-page {
-  background: #272A2F;
   padding: 2em 0; }
 
-#preview-frame {
-  border: none;
+.preview-frame-container {
   margin: 0 auto;
   width: 1200px;
-  max-width: 96%;
   height: 768px;
-  display: block; }
+  max-width: 98%;
+  overflow-y: scroll; }
+  .preview-frame-container #preview-frame {
+    border: none;
+    width: 1200px;
+    height: 768px;
+    display: block; }
 
 .iframe-control .btn.active {
   background: #434343;

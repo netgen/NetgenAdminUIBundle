@@ -16,7 +16,7 @@
                 {set $locale_object = $locale_code|locale()}
                 {if eq( $locale_code, $object_languagecode )|not}
                     <li>
-                        <a href="" title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">{$locale_object.intl_language_name|shorten( 16 )}</a>
+                        <a href="" title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">{$locale_object.intl_language_name2}</a>
                     </li>
                 {/endif}
             {/foreach}
@@ -58,28 +58,20 @@
             <button type="button" class="btn btn-default" data-width="480" data-height="320">480px</button>
             <button type="button" class="btn btn-default" data-width="768" data-height="1024">768px</button>
             <button type="button" class="btn btn-default" data-width="1024" data-height="768">1024px</button>
-            <button type="button" class="btn btn-default active" data-width="1200" data-height="768">1200px</button>
+            <button type="button" class="btn btn-default" data-width="1200" data-height="768">1200px</button>
         </div>
         <div class="btn-group" role="group">
             <form class="dropdown pull-left form-siteaccess" method="post" action={concat( 'content/versionview/', $object.id, '/', $version.version, '/', $language, '/', $from_language )|ezurl}>
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownSiteaccess" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    {'Siteaccess'|i18n( 'design/admin/content/view/versionview' )} <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu dropdown-radio" aria-labelledby="dropdownSiteaccess">
+                <select class="form-control" name="SelectedSiteAccess">
                     {if $site_access_locale_map|count|gt( 1 )}
                         {foreach $site_access_locale_map as $related_site_access => $related_site_access_locale}
-                            <div class="radio">
-                                <input type="radio" name="SelectedSiteAccess" id="{$related_site_access}" value="{$related_site_access}" {if eq( $related_site_access, $siteaccess )}checked="checked"{/if} />
-                                <label for="{$related_site_access}">{$related_site_access|wash}</label>
-                            </div>
+                            <option id="{$related_site_access}" value="{$related_site_access}" {if eq( $related_site_access, $siteaccess )}selected{/if}>{$related_site_access|wash}</option>
                         {/foreach}
                     {else}
-                        <div class="radio">
-                            <input type="radio" name="SelectedSiteAccess" id="{$site_designs[0]}" value="{$site_designs[0]}" checked="checked" disabled="disabled" />
-                            <label for="{$site_designs[0]}">{$site_designs[0]|wash}</label>
-                        </div>
+                        <option id="{$site_designs[0]}" value="{$site_designs[0]}">{$site_designs[0]|wash}</option>
                     {/if}
-                </div>
+                </select>
+                <input class="btn btn-default btn-sm" type="hidden" name="ChangeSettingsButton" />
             </form>
         </div>
     </div>
@@ -100,7 +92,7 @@
     {/if}
 
     {* Content preview in content window. *}
-    <div class="mainobject-window">
+    <div class="preview-frame-container">
 
         <iframe src={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess )|ezurl} id="preview-frame">
             Your browser does not support iframes. Please see this <a href={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess)|ezurl}>link</a> instead.
@@ -129,3 +121,49 @@
     </div> *}
 
 </div>
+
+{literal}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.inner-cell').addClass('contentPreview');
+
+        /* preview iframe resizing */
+        (function(){
+            var frame = $('#preview-frame'),
+                container = $('.preview-frame-container'),
+                initialW = sessionStorage.getItem('previewIframeW'),
+                initialH = sessionStorage.getItem('previewIframeH'),
+                control = $('.iframe-control'),
+                sizes = [],
+                screenW = $(document).width(),
+                sizing = function(el, w, h){
+                    el.addClass('active').siblings().removeClass('active');
+                    container.width(w).height(h);
+                    frame.width(w).height(h);               
+                };
+            control.children('.btn').each(function(){
+                sizes.push($(this).attr('data-width'));
+            });
+            console.log(initialW);
+            if(initialW == undefined) {
+                var i = Math.max.apply(Math, sizes.filter(function(x){return x <= screenW})),
+                    initialTrigger = $('.btn[data-width=' + i + ']');
+                initialW = initialTrigger.attr('data-width');
+                initialH = initialTrigger.attr('data-height');
+            } else {
+                var initialTrigger = $('.btn[data-width=' + initialW + ']');
+            }
+            sizing(initialTrigger, initialW, initialH);
+            control.on('click', '.btn', function(){
+                var trigger = $(this),
+                    frameW = trigger.attr('data-width'),
+                    frameH = trigger.attr('data-height');
+                sessionStorage.setItem('previewIframeW', frameW);
+                sessionStorage.setItem('previewIframeH', frameH);
+                sizing(trigger, frameW, frameH);
+            });
+        })();
+
+    });
+</script>
+{/literal}
