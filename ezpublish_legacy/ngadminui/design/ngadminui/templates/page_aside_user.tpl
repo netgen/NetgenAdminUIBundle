@@ -25,6 +25,15 @@
     <!-- dropdown -->
     <ul class="dropdown-menu user-dropdown">
 
+        <li>
+            <div class="user-avatar">
+                <img src={'a0.jpg'|ezimage} alt="...">
+            </div>
+            <h4 class="user-name">Steven Segal</h4>
+            <p class="user-role">Administrator</p>
+        </li>
+
+        <li class="divider"></li>
 
         {if and( ne( $ui_context, 'edit' ), ne( $ui_context, 'browse' ) )}
             {def $user_node = $current_user.contentobject.main_node
@@ -42,13 +51,14 @@
                 <a href={'/user/password/'|ezurl} title="Change password">{'Change password'|i18n( 'design/admin/pagelayout' )}</a>
             </li>
         {else}
-            <li><span class="disabled">{'Change user info'|i18n( 'design/admin/pagelayout' )}</span></li>
+            <li><span class="disabled">View profile</span></li>
+            <li><span class="disabled">{'Change information'|i18n( 'design/admin/pagelayout' )}</span></li>
             <li><span class="disabled">{'Change password'|i18n( 'design/admin/pagelayout' )}</span></li>
         {/if}
 
         <li class="divider"></li>
 
-        {if and( ne( $ui_context, 'edit' ), ne( $ui_context, 'browse' ))}
+        {* {if and( ne( $ui_context, 'edit' ), ne( $ui_context, 'browse' ))}
 
             {if ezpreference( 'admin_edit_show_locations' )}
                 <li class="hidden-folded">
@@ -79,8 +89,15 @@
                 </li>
             {/if}
 
-        {/if}
+        {/if} *}
 
+        <li>
+            {if $ui_context_edit}
+                <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled">Logout</span>
+            {else}
+                <a href={'/user/logout'|ezurl} title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}">Logout</a>
+            {/if}
+        </li>
 
     </ul>
     <!-- / dropdown -->

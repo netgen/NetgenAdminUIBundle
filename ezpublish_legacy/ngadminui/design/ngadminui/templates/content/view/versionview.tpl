@@ -92,14 +92,15 @@
     {/if}
 
     {* Content preview in content window. *}
-    <div class="preview-frame-container">
+    <div class="container-design">
+        <div class="preview-frame-container">
 
-        <iframe src={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess )|ezurl} id="preview-frame">
-            Your browser does not support iframes. Please see this <a href={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess)|ezurl}>link</a> instead.
-        </iframe>
+            <iframe src={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess )|ezurl} id="preview-frame">
+                Your browser does not support iframes. Please see this <a href={concat("content/versionview/",$object.id,"/",$view_version.version,"/",$language, "/site_access/", $siteaccess)|ezurl}>link</a> instead.
+            </iframe>
 
+        </div>
     </div>
-
 
     {* DESIGN: Content END *}
 
@@ -131,14 +132,33 @@
         (function(){
             var frame = $('#preview-frame'),
                 container = $('.preview-frame-container'),
+                containerDesign = $('.container-design'),
                 initialW = localStorage.getItem('previewIframeW'),
                 initialH = localStorage.getItem('previewIframeH'),
                 control = $('.iframe-control'),
                 sizes = [],
                 screenW = $(document).width(),
                 sizing = function(el, w, h){
+                    containerDesign.attr('class', 'container-design');
+                    switch (w) {
+                        case '320':
+                            containerDesign.addClass('mobile-vertical');
+                            break;
+                        case '480':
+                            containerDesign.addClass('mobile-horizontal');
+                            break;
+                        case '768':
+                            containerDesign.addClass('tablet-vertical');
+                            break;
+                        case '1024':
+                            containerDesign.addClass('tablet-horizontal');
+                            break;
+                        default:
+                            containerDesign.addClass('desktop');
+                    }
                     el.addClass('active').siblings().removeClass('active');
                     container.width(w).height(h);
+                    containerDesign.width(w).height(h);
                     frame.width(w).height(h);               
                 };
             control.children('.btn').each(function(){

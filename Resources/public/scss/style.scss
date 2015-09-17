@@ -11,6 +11,7 @@ $activeColor: #F3590A;
 $leftColumnWidth: 240px;
 $headerHeight: 70px;
 $gutter: 15px;
+$darkBg: #272A2F;
 
 $btnPrimary: #4A90E2;
 $btnBorder: #e4e4e4;
@@ -200,30 +201,6 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 	}
 }
 
-.user-dropdown {
-	bottom:100%; top:auto; margin:0 0 4px;
-	&.open {
-		display:block;
-	}
-	li {
-		> a {
-			display:block; padding:5px 15px; font-weight:normal; line-height:1.42857143; color:#333; white-space:nowrap;
-			&:hover {
-				background:#edf1f2; color:#333;
-			}
-		}
-		> span {
-			display:block; padding:5px 15px; color:#5c798f; font-size:12px;
-		}
-	}
-	.divider {
-		height:1px; margin:9px 0; overflow:hidden; background-color:#e5e5e5;
-	}
-	&:after {
-		display:block; content:""; position:absolute; top:100%; left:21px; border:8px solid transparent; border-top:8px solid #fff; border-bottom-width:0;
-	}
-}
-
 .dropdown-cache {
 	margin:0; color:#333;
 	> div {
@@ -299,7 +276,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 	.inner-cell {
 		position:absolute; top:0; right:0; left:0; bottom:0;
 		&.contentPreview {
-			background:#272A2F; bottom:auto; min-height:100%;
+			background:$darkBg; bottom:auto; min-height:100%;
 		}
 	}
 }
@@ -954,6 +931,46 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 		}
 	}
 }
+.user-dropdown {
+	position:fixed; top:0; bottom:0; left:$asideWidth; right:auto; min-width:0; width:280px; @include rounded(0); border:none; background:#04182C; padding:20px; text-align:center; color:#fff; font-size:18px; font-weight:300;
+	&.open {
+		display:block;
+	}
+	li {
+		margin:4px 0;
+		> a {
+			display:block; font:inherit; color:inherit; white-space:nowrap; padding:4px 0;
+			&:hover {
+				color:#536D88;
+			}
+		}
+		> span {
+			display:block; cursor:default; color:#536D88; padding:4px 0;
+		}
+		&:hover {
+			background:transparent;
+		}
+	}
+	.divider {
+		height:1px; margin:16px 0; overflow:hidden; background-color:#2C4056;
+	}
+	&:after {
+		display:block; content:""; position:absolute; bottom:28px; left:-10px; border:8px solid transparent; border-right:10px solid #04182C; border-left-width:0;
+	}
+	.user-avatar {
+		width:70%; height:auto; @include rounded(50%); overflow:hidden; margin:24px auto;
+		img {
+			width:100%;
+		}
+	}
+	h4.user-name {
+		font-size:24px; font-weight:700; margin:0 0 16px;
+	}
+	p.user-role {
+		color:#536D88; font-size:16px;
+	}
+}
+
 .dropdown-menu-right {right:0; left:auto;}
 
 .attribute-label .required {color:#333; font-weight:700;}
@@ -1038,11 +1055,63 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	padding:2em 0;
 }
 .preview-frame-container {
-	margin:0 auto; width:1200px; height:768px; max-width:98%; overflow-y:scroll;
+	overflow-y:scroll; max-width:100%;
 	#preview-frame {
-		border:none; width:1200px; height:768px; display:block;
+		border:none; width:1200px; height:768px; display:block; background:$darkBg;
 	}
 }
+.container-design {
+	border:0 solid #4b4b4b; position:relative; margin:0 auto; max-width:98%;
+	&:before, &:after {
+		content:''; position:absolute; display:block; @include rounded(50%);
+	}
+	&.desktop {
+		border-top-width:20px; @include rounded(6px 6px 0 0);
+		&:before, &:after {
+			width:10px; height:10px; background:rgba(#fff,.2); top:-15px; left:10px;
+		}
+		&:after {
+			left:24px;
+		}
+	}
+	&.tablet-horizontal, &.tablet-vertical, &.mobile-horizontal, &.mobile-vertical {
+		background:#4b4b4b; @include rounded(10px);
+		&:after {
+			width:30px; height:30px; border:2px solid $darkBg; background:transparent; right:-40px; top:50%; margin-top:-15px;
+		}
+	}
+	&.tablet-horizontal, &.tablet-vertical {
+		border-width:8px 50px 8px 8px; 
+		#preview-frame {
+			@include rounded(5px);
+		}
+	}
+	&.tablet-vertical {
+		border-width:8px 8px 50px 8px;
+		&:after {
+			left:50%; right:auto; top:auto; bottom:-40px; margin:0 0 0 -15px;
+		}
+	}
+	&.mobile-horizontal, &.mobile-vertical {
+		border-width:4px 50px 4px 30px;
+		&:before {
+			width:5px; height:40px; @include rounded(4px); background:$darkBg; left:-17px; top:50%; margin-top:-20px;
+		}
+		#preview-frame {
+			@include rounded(3px);
+		}
+	}
+	&.mobile-vertical {
+		border-width:30px 4px 50px 4px;
+		&:after {
+			left:50%; right:auto; top:auto; bottom:-40px; margin:0 0 0 -15px;
+		}
+		&:before {
+			height:5px; width:40px; left:50%; top:-17px; margin:0 0 0 -20px;
+		}
+	}
+}
+
 .iframe-control {
 	.btn {
 		&.active {

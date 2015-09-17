@@ -137,20 +137,6 @@
                 </a>
             </li> *}
 
-            <li>
-                {if $ui_context_edit}
-                    <span class="nolink">
-                        <i class="fa fa-sign-out"></i>
-                        <span title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}" class="disabled tt">Logout</span></li>
-                    </span>
-                {else}
-                    <a href={'/user/logout'|ezurl} title="{'Logout from the system.'|i18n( 'design/admin/pagelayout' )}">
-                        <i class="fa fa-sign-out"></i>
-                        <span class="tt">Logout</span>
-                    </a>
-                {/if}
-            </li>
-
         </ul>
     </nav>
     <!-- nav -->

@@ -309,42 +309,6 @@ fieldset[disabled] .btn-primary.active {
     background: #153556;
     color: #fff; }
 
-.user-dropdown {
-  bottom: 100%;
-  top: auto;
-  margin: 0 0 4px; }
-  .user-dropdown.open {
-    display: block; }
-  .user-dropdown li > a {
-    display: block;
-    padding: 5px 15px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap; }
-    .user-dropdown li > a:hover {
-      background: #edf1f2;
-      color: #333; }
-  .user-dropdown li > span {
-    display: block;
-    padding: 5px 15px;
-    color: #5c798f;
-    font-size: 12px; }
-  .user-dropdown .divider {
-    height: 1px;
-    margin: 9px 0;
-    overflow: hidden;
-    background-color: #e5e5e5; }
-  .user-dropdown:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 21px;
-    border: 8px solid transparent;
-    border-top: 8px solid #fff;
-    border-bottom-width: 0; }
-
 .dropdown-cache {
   margin: 0;
   color: #333; }
@@ -466,7 +430,7 @@ fieldset[disabled] .btn-primary.active {
   left: 0;
   bottom: 0; }
   .layout-column .inner-cell.contentPreview {
-    background: #272A2F;
+    background: #272a2f;
     bottom: auto;
     min-height: 100%; }
 
@@ -1624,6 +1588,75 @@ fieldset legend {
       .dropdown-menu .with-edit .edit-icon:hover {
         color: #337ab7; }
 
+.user-dropdown {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  right: auto;
+  min-width: 0;
+  width: 280px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background: #04182C;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300; }
+  .user-dropdown.open {
+    display: block; }
+  .user-dropdown li {
+    margin: 4px 0; }
+    .user-dropdown li > a {
+      display: block;
+      font: inherit;
+      color: inherit;
+      white-space: nowrap;
+      padding: 4px 0; }
+      .user-dropdown li > a:hover {
+        color: #536D88; }
+    .user-dropdown li > span {
+      display: block;
+      cursor: default;
+      color: #536D88;
+      padding: 4px 0; }
+    .user-dropdown li:hover {
+      background: transparent; }
+  .user-dropdown .divider {
+    height: 1px;
+    margin: 16px 0;
+    overflow: hidden;
+    background-color: #2C4056; }
+  .user-dropdown:after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 28px;
+    left: -10px;
+    border: 8px solid transparent;
+    border-right: 10px solid #04182C;
+    border-left-width: 0; }
+  .user-dropdown .user-avatar {
+    width: 70%;
+    height: auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 24px auto; }
+    .user-dropdown .user-avatar img {
+      width: 100%; }
+  .user-dropdown h4.user-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 16px; }
+  .user-dropdown p.user-role {
+    color: #536D88;
+    font-size: 16px; }
+
 .dropdown-menu-right {
   right: 0;
   left: auto; }
@@ -1766,16 +1799,97 @@ input.tagssuggestfield {
   padding: 2em 0; }
 
 .preview-frame-container {
-  margin: 0 auto;
-  width: 1200px;
-  height: 768px;
-  max-width: 98%;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  max-width: 100%; }
   .preview-frame-container #preview-frame {
     border: none;
     width: 1200px;
     height: 768px;
-    display: block; }
+    display: block;
+    background: #272a2f; }
+
+.container-design {
+  border: 0 solid #4b4b4b;
+  position: relative;
+  margin: 0 auto;
+  max-width: 98%; }
+  .container-design:before, .container-design:after {
+    content: '';
+    position: absolute;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%; }
+  .container-design.desktop {
+    border-top-width: 20px;
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0; }
+    .container-design.desktop:before, .container-design.desktop:after {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      top: -15px;
+      left: 10px; }
+    .container-design.desktop:after {
+      left: 24px; }
+  .container-design.tablet-horizontal, .container-design.tablet-vertical, .container-design.mobile-horizontal, .container-design.mobile-vertical {
+    background: #4b4b4b;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
+    .container-design.tablet-horizontal:after, .container-design.tablet-vertical:after, .container-design.mobile-horizontal:after, .container-design.mobile-vertical:after {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #272a2f;
+      background: transparent;
+      right: -40px;
+      top: 50%;
+      margin-top: -15px; }
+  .container-design.tablet-horizontal, .container-design.tablet-vertical {
+    border-width: 8px 50px 8px 8px; }
+    .container-design.tablet-horizontal #preview-frame, .container-design.tablet-vertical #preview-frame {
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; }
+  .container-design.tablet-vertical {
+    border-width: 8px 8px 50px 8px; }
+    .container-design.tablet-vertical:after {
+      left: 50%;
+      right: auto;
+      top: auto;
+      bottom: -40px;
+      margin: 0 0 0 -15px; }
+  .container-design.mobile-horizontal, .container-design.mobile-vertical {
+    border-width: 4px 50px 4px 30px; }
+    .container-design.mobile-horizontal:before, .container-design.mobile-vertical:before {
+      width: 5px;
+      height: 40px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      background: #272a2f;
+      left: -17px;
+      top: 50%;
+      margin-top: -20px; }
+    .container-design.mobile-horizontal #preview-frame, .container-design.mobile-vertical #preview-frame {
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px; }
+  .container-design.mobile-vertical {
+    border-width: 30px 4px 50px 4px; }
+    .container-design.mobile-vertical:after {
+      left: 50%;
+      right: auto;
+      top: auto;
+      bottom: -40px;
+      margin: 0 0 0 -15px; }
+    .container-design.mobile-vertical:before {
+      height: 5px;
+      width: 40px;
+      left: 50%;
+      top: -17px;
+      margin: 0 0 0 -20px; }
 
 .iframe-control .btn.active {
   background: #434343;
