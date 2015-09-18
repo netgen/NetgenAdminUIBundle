@@ -1419,9 +1419,12 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
   .node-info-list p {
     margin: 0;
     font-size: 13px; }
-  .node-info-list label {
+  .node-info-list label, .node-info-list table.list label {
     font-size: 12px;
     color: #888; }
+  .node-info-list table.list td {
+    padding-left: 0;
+    padding-right: 0; }
 
 .box-header {
   border: none;

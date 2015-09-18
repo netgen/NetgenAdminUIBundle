@@ -24,6 +24,8 @@ $btnBorder: #e4e4e4;
 	-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box;
 }
 
+::-webkit-scrollbar {display:none;}
+
 body {
 	font-family:$baseFont; font-size:$fontSize; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height:1.42857143; color:#333;
 }
@@ -175,9 +177,12 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 }
 
 .navi-wrap {
-	position:relative; width:$asideWidth; height:100%; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch; padding-bottom:70px;
+	position:relative; width:$asideWidth; height:100%; overflow:hidden; padding-bottom:70px;
 	.dropdown-menu {
 		background:$asideBg; border:none; color:$asideColor; position:fixed; top:50%; z-index:1000; right:auto; width:200px; left:51px; overflow-y:scroll; @include rounded(0); min-width:0;
+	}
+	.aside-nav {
+		height:100%; width:$asideWidth + 15px; padding-right:15px; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch;
 	}
 }
 
@@ -935,7 +940,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 }
 
 .node-info-list {
-	list-style-type:none; padding:0; background:#EBEFF0; margin:0; position:absolute; right:0; top:0; min-height:100%; width:200px;
+	list-style-type:none; padding:0; border-left:3px solid $lightBg; margin:0; position:absolute; right:0; top:0; min-height:100%; width:200px;
 	 > li {
 	 	padding:8px 20px; border-top:1px solid rgba(255,255,255,.4); word-wrap:break-word;
 		&:first-child {
@@ -943,10 +948,15 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 		}
 	}
 	p {
-		margin:0;
+		margin:0; font-size:13px;
 	}
-	label {
+	label, table.list label {
 		font-size:12px; color:#888;
+	}
+	table.list {
+		td {
+			padding-left:0; padding-right:0;
+		}
 	}
 }
 
@@ -1037,7 +1047,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 	}
 }
 .user-dropdown {
-	position:fixed; top:0; bottom:0; left:$asideWidth; right:auto; min-width:0; width:280px; @include rounded(0); border:none; background:#04182C; padding:20px; text-align:center; color:#fff; font-size:18px; font-weight:300;
+	position:fixed; top:0; bottom:0; left:$asideWidth; right:auto; min-width:0; width:280px; @include rounded(0); border:none; background:#04182C; padding:20px; text-align:center; color:#fff; font-size:14px; font-weight:300;
 	&.open {
 		display:block;
 	}
@@ -1069,10 +1079,10 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 		}
 	}
 	h4.user-name {
-		font-size:24px; font-weight:700; margin:0 0 16px;
+		font-size:20px; font-weight:700; margin:0 0 16px;
 	}
 	p.user-role {
-		color:#536D88; font-size:16px;
+		color:#536D88; font-size:14px;
 	}
 }
 
@@ -1273,41 +1283,3 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 @media (min-width: 768px) {
 	.form-inline .form-group {margin-right:10px;}
 }
-
-/* tinyMCE skin */
-/*.o2k7SkinSilver .mceToolbar .mceToolbarStart span, .o2k7SkinSilver .mceButton, .o2k7SkinSilver .mceSplitButton, .o2k7SkinSilver .mceSeparator, .o2k7SkinSilver .mceSplitButton a.mceOpen {
-	background-image:none !important; cursor:pointer !important;
-}
-.o2k7Skin a span {
-	cursor:pointer !important;
-}
-.o2k7SkinSilver .mceExternalToolbar, .o2k7SkinSilver .mceListBox .mceText, .o2k7SkinSilver div.mceMenu, .o2k7SkinSilver table.mceLayout, .o2k7SkinSilver .mceMenuItemTitle a, .o2k7SkinSilver table.mceLayout tr.mceFirst td, .o2k7SkinSilver table.mceLayout, .o2k7SkinSilver .mceMenuItemTitle a, .o2k7SkinSilver table.mceLayout tr.mceLast td, .o2k7SkinSilver .mceIframeContainer {
-	border-color:#dbdbdb !important;
-}
-.o2k7SkinSilver td.mceToolbar, .o2k7SkinSilver td.mceStatusbar, .o2k7SkinSilver .mceMenuItemTitle a {
-	background:#f1f1f1 !important;
-}
-.o2k7SkinSilver table.mceLayout tr.mceFirst td {
-	padding:3px;
-}
-.o2k7SkinSilver .mceSeparator {
-	border-left:1px solid #dbdbdb; width:1px !important; margin:2px; height:24px !important;
-}
-.o2k7Skin .mceToolbar .mceToolbarEnd span {
-	display:none !important;
-}
-.o2k7Skin .mceButton {
-	padding:3px; width:26px !important; height:28px !important;
-}
-.o2k7Skin div.mceToolbar span.mceToolbarElement {
-	height:28px !important;
-}
-.o2k7Skin div.mceToolbar div.mceToolbarGroupingElement {
-	height:28px !important;
-}
-.o2k7Skin .mceListBox .mceText {
-	height:24px !important; line-height:22px !important; margin:2px 0;
-}
-.o2k7Skin .mceListBox .mceOpen {
-	background-image:none !important; width:16px !important; height:24px !important; border:1px solid #dbdbdb; margin-right:3px;
-}*/

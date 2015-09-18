@@ -29,8 +29,8 @@
             <div class="user-avatar">
                 <img src={'a0.jpg'|ezimage} alt="...">
             </div>
-            <h4 class="user-name">Steven Segal</h4>
-            <p class="user-role">Administrator</p>
+            <h4 class="user-name">{$current_user.contentobject.name|wash}</h4>
+            <p class="user-role">{$current_user.login|wash}</p>
         </li>
 
         <li class="divider"></li>
