@@ -1,6 +1,6 @@
 /* Reset */
-.o2k7Skin table, .o2k7Skin tbody, .o2k7Skin a, .o2k7Skin img, .o2k7Skin tr, .o2k7Skin div, .o2k7Skin td, .o2k7Skin iframe, .o2k7Skin span, .o2k7Skin *, .o2k7Skin .mceText {border:0; margin:0; padding:0; background:transparent; white-space:nowrap; text-decoration:none; font-weight:normal; cursor:default; color:#000; vertical-align:baseline; width:auto; border-collapse:separate; text-align:left}
-.o2k7Skin a:hover, .o2k7Skin a:link, .o2k7Skin a:visited, .o2k7Skin a:active {text-decoration:none; font-weight:normal; cursor:default; color:#000}
+.o2k7Skin table, .o2k7Skin tbody, .o2k7Skin a, .o2k7Skin img, .o2k7Skin tr, .o2k7Skin div, .o2k7Skin td, .o2k7Skin iframe, .o2k7Skin span, .o2k7Skin *, .o2k7Skin .mceText {border:0; margin:0; padding:0; background:transparent; white-space:nowrap; text-decoration:none; font-weight:normal; cursor:default; color:#333; vertical-align:baseline; width:auto; border-collapse:separate;}
+.o2k7Skin a:hover, .o2k7Skin a:link, .o2k7Skin a:visited, .o2k7Skin a:active {text-decoration:none; font-weight:normal; cursor:default; color:#333}
 .o2k7Skin table td {vertical-align:middle}
 
 /* Containers */
@@ -20,7 +20,7 @@
 .o2k7Skin table.mceToolbar, .o2k7Skin tr.mceFirst .mceToolbar tr td, .o2k7Skin tr.mceLast .mceToolbar tr td {border:0; margin:0; padding:0}
 .o2k7Skin .mceIframeContainer {border-top:1px solid #ABC6DD; border-bottom:1px solid #ABC6DD}
 .o2k7Skin td.mceToolbar{background:#E5EFFD}
-.o2k7Skin .mceStatusbar {background:#E5EFFD; display:block; font-family:'MS Sans Serif',sans-serif,Verdana,Arial; font-size:9pt; line-height:16px; overflow:visible; color:#000; height:20px}
+.o2k7Skin .mceStatusbar {background:#E5EFFD; display:block; font-family:'MS Sans Serif',sans-serif,Verdana,Arial; font-size:9pt; line-height:16px; overflow:visible; color:#333; height:20px}
 .o2k7Skin .mceStatusbar div {float:left; padding:2px}
 .o2k7Skin .mceStatusbar a.mceResize {display:block; float:right; background:url(../../../javascript/themes/ez/img/icons.png) -800px 0; width:18px; height:20px; cursor:se-resize; outline:0}
 .o2k7Skin .mceStatusbar a {text-decoration: underline; padding: 0 1px 1px 1px; }
@@ -30,8 +30,8 @@
 .o2k7Skin .mceToolbar td.mceFirst span {margin:0}
 .o2k7Skin .mceToolbar .mceToolbarEnd span {display:block; background:url(img/button_bg.png) -22px 0; width:1px; height:22px}
 .o2k7Skin .mceToolbar .mceToolbarEndListBox span, .o2k7Skin .mceToolbar .mceToolbarStartListBox span {display:none}
-.o2k7Skin span.mceIcon, .o2k7Skin img.mceIcon {display:block; width:20px; height:20px}
-.o2k7Skin .mceIcon {background:url(../../../javascript/themes/ez/img/icons.png) no-repeat 20px 20px}
+.o2k7Skin span.mceIcon, .o2k7Skin img.mceIcon {display:block; width:100%;}
+.o2k7Skin .mceIcon {background:transparent; width:100%; height:100%;}
 .o2k7Skin td.mceCenter {text-align:center;}
 .o2k7Skin td.mceCenter table {margin:0 auto; text-align:left;}
 .o2k7Skin td.mceRight table {margin:0 0 0 auto;}
@@ -40,8 +40,8 @@
 .o2k7Skin table.mceLayout tr.mceLast td.mceStatusbar * { white-space: normal !important; }
 
 /* Button */
-.o2k7Skin .mceButton {display:block; background:url(img/button_bg.png); width:22px; height:22px}
-.o2k7Skin a.mceButton span, .o2k7Skin a.mceButton img {margin-left:1px}
+.o2k7Skin .mceButton {display:block; background:url(img/button_bg.png); padding:0; width:32px; height:28px; line-height:20px; padding:4px; text-align:center;}
+.o2k7Skin a.mceButton span, .o2k7Skin a.mceButton img {margin:0}
 .o2k7Skin .mceOldBoxModel a.mceButton span, .o2k7Skin .mceOldBoxModel a.mceButton img {margin:0 0 0 1px}
 .o2k7Skin a.mceButtonEnabled:hover {background-color:#B2BBD0; background-position:0 -22px}
 .o2k7Skin a.mceButtonActive, .o2k7Skin a.mceButtonSelected {background-position:0 -44px}
@@ -52,8 +52,8 @@
 .o2k7Skin .mceButtonDisabled .mceButtonLabel {color:#888}
 
 .o2k7Skin div.mceToolBarFlow { white-space: normal; }
-.o2k7Skin div.mceToolbar div.mceToolbarGroupingElement { float: left; height: 26px; clear: none; }
-.o2k7Skin div.mceToolbar span.mceToolbarElement { float: left; height: 26px; clear: none; }
+.o2k7Skin div.mceToolbar div.mceToolbarGroupingElement { float: left; height: 28px; margin:2px 0; clear: none; }
+.o2k7Skin div.mceToolbar span.mceToolbarElement { float: left; height: auto; clear: none; }
 .o2k7Skin .mceRight div.mceToolbar div.mceToolbarGroupingElement {float: right;}
 .o2k7Skin .mceRight div.mceToolbar span.mceToolbarElement {float: right;}
 
@@ -70,7 +70,8 @@
 .o2k7Skin .mceListBox  {padding-left: 3px}
 .o2k7Skin .mceListBox, .o2k7Skin .mceListBox a {display:block}
 .o2k7Skin .mceListBox .mceText {padding-left:4px; text-align:left; width:70px; border:1px solid #b3c7e1; border-right:0; background:#eaf2fb; font-family:Tahoma,Verdana,Arial,Helvetica; font-size:11px; height:20px; line-height:20px; overflow:hidden}
-.o2k7Skin .mceListBox .mceOpen {width:14px; height:22px; background:url(img/button_bg.png) -66px 0}
+.o2k7Skin .mceListBox .mceOpen {background-image:none !important; width:20px; height:24px; border:1px solid #dbdbdb; margin-right:3px; font-size:12px; padding:1px 0; text-align:center;}
+.o2k7Skin .mceListBox .mceOpen:before {content:"\f0d7";}
 .o2k7Skin table.mceListBoxEnabled:hover .mceText, .o2k7Skin .mceListBoxHover .mceText, .o2k7Skin .mceListBoxSelected .mceText {background:#FFF}
 .o2k7Skin table.mceListBoxEnabled:hover .mceOpen, .o2k7Skin .mceListBoxHover .mceOpen, .o2k7Skin .mceListBoxSelected .mceOpen {background-position:-66px -22px}
 .o2k7Skin .mceListBoxDisabled .mceText {color:gray}
@@ -109,14 +110,14 @@
 .o2k7Skin .mceMenu a, .o2k7Skin .mceMenu span, .o2k7Skin .mceMenu {display:block}
 .o2k7Skin .mceMenu td {height:20px}
 .o2k7Skin .mceMenu a {position:relative;padding:3px 0 4px 0}
-.o2k7Skin .mceMenu .mceText {position:relative; display:block; font-family:Tahoma,Verdana,Arial,Helvetica; color:#000; cursor:default; margin:0; padding:0 25px 0 25px; display:block}
+.o2k7Skin .mceMenu .mceText {position:relative; display:block; font-family:Tahoma,Verdana,Arial,Helvetica; color:#333; cursor:default; margin:0; padding:0 25px 0 25px; display:block}
 .o2k7Skin .mceMenu span.mceText, .o2k7Skin .mceMenu .mcePreview {font-size:11px}
 .o2k7Skin .mceMenu pre.mceText {font-family:Monospace}
 .o2k7Skin .mceMenu .mceIcon {position:absolute; top:0; left:0; width:22px;}
 .o2k7Skin .mceMenu .mceMenuItemEnabled a:hover, .o2k7Skin .mceMenu .mceMenuItemActive {background-color:#dbecf3}
 .o2k7Skin td.mceMenuItemSeparator {background:#DDD; height:1px}
 .o2k7Skin .mceMenuItemTitle a {border:0; background:#E5EFFD; border-bottom:1px solid #ABC6DD}
-.o2k7Skin .mceMenuItemTitle span.mceText {color:#000; font-weight:bold; padding-left:4px}
+.o2k7Skin .mceMenuItemTitle span.mceText {color:#333; font-weight:bold; padding-left:4px}
 .o2k7Skin .mceMenuItemDisabled .mceText {color:#888}
 .o2k7Skin .mceMenuItemSelected .mceIcon {background:url(../default/img/menu_check.gif)}
 .o2k7Skin .mceNoIcons .mceMenuItemSelected a {background:url(../default/img/menu_arrow.gif) no-repeat -6px center}
@@ -145,50 +146,53 @@
 .o2k7Skin .mce_h6 span.mceText {font-weight: normal; font-size: 1em}
 
 /* Theme */
-.o2k7Skin span.mce_bold {background-position:0 0}
-.o2k7Skin span.mce_italic {background-position:-60px 0}
-.o2k7Skin span.mce_underline {background-position:-140px 0}
-.o2k7Skin span.mce_strikethrough {background-position:-120px 0}
-.o2k7Skin span.mce_undo {background-position:-160px 0}
-.o2k7Skin span.mce_redo {background-position:-100px 0}
-.o2k7Skin span.mce_cleanup {background-position:-40px 0}
-.o2k7Skin span.mce_bullist {background-position:-20px 0}
-.o2k7Skin span.mce_numlist {background-position:-80px 0}
-.o2k7Skin span.mce_justifyleft {background-position:-460px 0}
-.o2k7Skin span.mce_justifyright {background-position:-480px 0}
-.o2k7Skin span.mce_justifycenter {background-position:-420px 0}
-.o2k7Skin span.mce_justifyfull {background-position:-440px 0}
-.o2k7Skin span.mce_anchor {background-position:-200px 0}
-.o2k7Skin span.mce_indent {background-position:-400px 0}
-.o2k7Skin span.mce_outdent {background-position:-540px 0}
-.o2k7Skin span.mce_link {background-position:-500px 0}
-.o2k7Skin span.mce_unlink {background-position:-640px 0}
-.o2k7Skin span.mce_sub {background-position:-600px 0}
-.o2k7Skin span.mce_sup {background-position:-620px 0}
-.o2k7Skin span.mce_removeformat {background-position:-580px 0}
-.o2k7Skin span.mce_newdocument {background-position:-520px 0}
-.o2k7Skin span.mce_image {background-position:-380px 0}
-.o2k7Skin span.mce_help {background-position:-340px 0}
-.o2k7Skin span.mce_code {background-position:-260px 0}
-.o2k7Skin span.mce_hr {background-position:-360px 0}
-.o2k7Skin span.mce_visualaid {background-position:-660px 0}
-.o2k7Skin span.mce_charmap {background-position:-240px 0}
-.o2k7Skin span.mce_paste {background-position:-560px 0}
-.o2k7Skin span.mce_copy {background-position:-700px 0}
-.o2k7Skin span.mce_cut {background-position:-680px 0}
-.o2k7Skin span.mce_blockquote {background-position:-220px 0}
-.o2k7Skin .mce_forecolor span.mceAction {background-position:-720px 0}
-.o2k7Skin .mce_backcolor span.mceAction {background-position:-760px 0}
-.o2k7Skin span.mce_forecolorpicker {background-position:-720px 0}
-.o2k7Skin span.mce_backcolorpicker {background-position:-760px 0}
-.o2k7Skin span.mce_object {background-position:-380px -40px}
-.o2k7Skin span.mce_file {background-position:-520px -40px}
-.o2k7Skin span.mce_custom {background-position:-400px -40px}
-.o2k7Skin span.mce_literal {background-position:-420px -40px}
-.o2k7Skin span.mce_disable {background-position:-460px -40px}
-.o2k7Skin span.mce_discard {background-position:-460px -20px}
-.o2k7Skin span.mce_store {background-position:-540px -40px}
-.o2k7Skin span.mce_publish {background-position:-480px -20px}
+.o2k7Skin .mceIcon:before, .o2k7Skin .mceIcon:after, .o2k7Skin .mceListBox .mceOpen:before {display:inline-block; font:normal normal normal 14px/20px FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);}
+.o2k7Skin .mceIcon:after {font-family:'icomoon';}
+
+.o2k7Skin span.mce_bold:before {content:"\f032";}
+.o2k7Skin span.mce_italic:before {content:"\f033";}
+.o2k7Skin span.mce_underline:before {content:"\f0cd";}
+.o2k7Skin span.mce_strikethrough:before {content:"\f0cc";}
+.o2k7Skin span.mce_undo:before {content:"\f0e2";}
+.o2k7Skin span.mce_redo:before {content:"\f01e";}
+.o2k7Skin span.mce_cleanup:before {content:}
+.o2k7Skin span.mce_bullist:before {content:"\f0ca";}
+.o2k7Skin span.mce_numlist:before {content:"\f0cb";}
+.o2k7Skin span.mce_justifyleft:before {content:"\f036";}
+.o2k7Skin span.mce_justifyright:before {content:"\f038";}
+.o2k7Skin span.mce_justifycenter:before {content:"\f037";}
+.o2k7Skin span.mce_justifyfull:before {content:"\f039";}
+.o2k7Skin span.mce_anchor:before {content:"\f13d";}
+.o2k7Skin span.mce_indent:before {content:"\f03c";}
+.o2k7Skin span.mce_outdent:before {content:"\f03b";}
+.o2k7Skin span.mce_link:before {content:"\f0c1";}
+.o2k7Skin span.mce_unlink:before {content:"\f127";}
+.o2k7Skin span.mce_sub:before {content:"\f12c";}
+.o2k7Skin span.mce_sup:before {content:"\f12b";}
+.o2k7Skin span.mce_removeformat:before {content:}
+.o2k7Skin span.mce_newdocument:before {content:}
+.o2k7Skin span.mce_image:before {content:"\f03e";}
+.o2k7Skin span.mce_help:before {content:"\f059";}
+.o2k7Skin span.mce_code:before {content:}
+.o2k7Skin span.mce_hr:before {content:}
+.o2k7Skin span.mce_visualaid:before {content:}
+.o2k7Skin span.mce_charmap:before {content:"\f155";}
+.o2k7Skin span.mce_paste:before {content:}
+.o2k7Skin span.mce_copy:before {content:}
+.o2k7Skin span.mce_cut:before {content:}
+.o2k7Skin span.mce_blockquote:before {content:}
+.o2k7Skin .mce_forecolor span.mceAction {content:}
+.o2k7Skin .mce_backcolor span.mceAction {content:}
+.o2k7Skin span.mce_forecolorpicker:before {content:}
+.o2k7Skin span.mce_backcolorpicker:before {content:}
+.o2k7Skin span.mce_object:before {content:"\f0c6";}
+.o2k7Skin span.mce_file:before {content:}
+.o2k7Skin span.mce_custom:before {content:"\f121";}
+.o2k7Skin span.mce_literal:before {content:"\f0f6";}
+.o2k7Skin span.mce_disable:before {content:"\f05e";}
+.o2k7Skin span.mce_discard:before {content:}
+.o2k7Skin span.mce_store:before {content:}
+.o2k7Skin span.mce_publish:before {content:}
 
 /* Plugins */
 .o2k7Skin span.mce_advhr {background-position:-0px -20px}
@@ -196,7 +200,7 @@
 .o2k7Skin span.mce_rtl {background-position:-40px -20px}
 .o2k7Skin span.mce_emotions {background-position:-60px -20px}
 .o2k7Skin span.mce_fullpage {background-position:-80px -20px}
-.o2k7Skin span.mce_fullscreen {background-position:-100px -20px}
+.o2k7Skin span.mce_fullscreen:before {content:"\f0b2";}
 .o2k7Skin span.mce_iespell {background-position:-120px -20px}
 .o2k7Skin span.mce_insertdate {background-position:-140px -20px}
 .o2k7Skin span.mce_inserttime {background-position:-160px -20px}
@@ -219,19 +223,19 @@
 .o2k7Skin span.mce_replace {background-position:-500px -20px}
 .o2k7Skin span.mce_search {background-position:-520px -20px}
 .o2k7Skin span.mce_styleprops {background-position:-560px -20px}
-.o2k7Skin span.mce_table, .o2k7Skin .mce_tablemenu span.mceAction {background-position:-580px -20px}
+.o2k7Skin span.mce_table:before, .o2k7Skin .mce_tablemenu span.mceAction:before {content:"\f0ce";}
 .o2k7Skin span.mce_cell_props {background-position:-600px -20px}
-.o2k7Skin span.mce_delete_table {background-position:-620px -20px}
-.o2k7Skin span.mce_delete_col {background-position:-640px -20px}
-.o2k7Skin span.mce_delete_row {background-position:-660px -20px}
-.o2k7Skin span.mce_col_after {background-position:-680px -20px}
-.o2k7Skin span.mce_col_before {background-position:-700px -20px}
-.o2k7Skin span.mce_row_after {background-position:-720px -20px}
-.o2k7Skin span.mce_row_before {background-position:-740px -20px}
-.o2k7Skin span.mce_merge_cells {background-position:-760px -20px}
+.o2k7Skin span.mce_delete_table:after {content:"\e614";}
+.o2k7Skin span.mce_delete_col:after {content:"\e60e";}
+.o2k7Skin span.mce_delete_row:after {content:"\e611";}
+.o2k7Skin span.mce_col_after:after {content:"\e607";}
+.o2k7Skin span.mce_col_before:after {content:"\e604";}
+.o2k7Skin span.mce_row_after:after {content:"\e601";}
+.o2k7Skin span.mce_row_before:after {content:"\e60a";}
+.o2k7Skin span.mce_merge_cells:after {content:"\e60c";}
 .o2k7Skin span.mce_table_props {background-position:-980px -20px}
 .o2k7Skin span.mce_row_props {background-position:-780px -20px}
-.o2k7Skin span.mce_split_cells {background-position:-800px -20px}
+.o2k7Skin span.mce_split_cells:after {content:"\e613";}
 .o2k7Skin span.mce_template {background-position:-820px -20px}
 .o2k7Skin span.mce_visualchars {background-position:-840px -20px}
 .o2k7Skin span.mce_abbr {background-position:-860px -20px}
@@ -246,8 +250,9 @@
 .o2k7Skin span.mce_visualblocks {background-position: -40px -40px}
 .o2k7Skin span.mce_AtD {background-position:-360px -40px}
 
+/* override */
 .o2k7SkinSilver .mceToolbar .mceToolbarStart span, .o2k7SkinSilver .mceButton, .o2k7SkinSilver .mceSplitButton, .o2k7SkinSilver .mceSeparator, .o2k7SkinSilver .mceSplitButton a.mceOpen {
-	background-image:none !important; cursor:pointer !important;
+	background-image:none !important; cursor:pointer;
 }
 .o2k7Skin a span {
 	cursor:pointer !important;
@@ -258,7 +263,7 @@
 .o2k7SkinSilver td.mceToolbar, .o2k7SkinSilver td.mceStatusbar, .o2k7SkinSilver .mceMenuItemTitle a {
 	background:#f1f1f1 !important;
 }
-.o2k7SkinSilver table.mceLayout tr.mceFirst td {
+.o2k7SkinSilver table.mceLayout tr.mceFirst > td {
 	padding:3px;
 }
 .o2k7SkinSilver .mceSeparator {
@@ -267,18 +272,16 @@
 .o2k7Skin .mceToolbar .mceToolbarEnd span {
 	display:none !important;
 }
-.o2k7Skin .mceButton {
-	padding:3px; width:26px !important; height:28px !important;
-}
-.o2k7Skin div.mceToolbar span.mceToolbarElement {
-	height:28px !important;
-}
-.o2k7Skin div.mceToolbar div.mceToolbarGroupingElement {
-	height:28px !important;
-}
 .o2k7Skin .mceListBox .mceText {
 	height:24px !important; line-height:22px !important; margin:2px 0;
 }
-.o2k7Skin .mceListBox .mceOpen {
-	background-image:none !important; width:16px !important; height:24px !important; border:1px solid #dbdbdb; margin-right:3px;
+
+.o2k7Skin td.mceStatusbar {
+	padding:3px 5px; height:auto; position:relative;
+}
+.o2k7Skin .mceStatusbar div {
+	float:none; padding-right:18px;
+}
+.o2k7Skin .mceStatusbar a.mceResize {
+	float:none; position:absolute; right:0; bottom:0;
 }
