@@ -22,7 +22,8 @@
 .o2k7Skin td.mceToolbar{background:#E5EFFD}
 .o2k7Skin .mceStatusbar {background:#E5EFFD; display:block; font-family:'MS Sans Serif',sans-serif,Verdana,Arial; font-size:9pt; line-height:16px; overflow:visible; color:#333; height:20px}
 .o2k7Skin .mceStatusbar div {float:left; padding:2px}
-.o2k7Skin .mceStatusbar a.mceResize {display:block; float:right; background:url(../../../javascript/themes/ez/img/icons.png) -800px 0; width:18px; height:20px; cursor:se-resize; outline:0}
+.o2k7Skin .mceStatusbar a.mceResize {display:block; float:none; background:transparent; width:20px; height:20px; cursor:se-resize; outline:0; position:absolute; right:1px; bottom:1px; overflow:hidden; padding:0;}
+.o2k7Skin .mceStatusbar a.mceResize:after {display:block; width:20px; height:20px; content:""; background:rgba(0,0,0,.2); -moz-transform:rotate(45deg); -webkit-transform:rotate(45deg); -o-transform:rotate(45deg); -ms-transform:rotate(45deg); transform:rotate(45deg); position:absolute; left:50%; top:50%;}
 .o2k7Skin .mceStatusbar a {text-decoration: underline; padding: 0 1px 1px 1px; }
 .o2k7Skin .mceStatusbar a:hover { cursor: pointer; /*background: url(img/button_bg.png) 0 -81px;*/ }
 .o2k7Skin table.mceToolbar, .o2k7Skin div.mceToolbar { margin-left:1px; margin-top:1px }
@@ -281,7 +282,4 @@
 }
 .o2k7Skin .mceStatusbar div {
 	float:none; padding-right:18px;
-}
-.o2k7Skin .mceStatusbar a.mceResize {
-	float:none; position:absolute; right:0; bottom:0;
 }
