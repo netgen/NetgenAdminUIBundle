@@ -22,24 +22,13 @@
     {/if}
     <ul class="node-info-list">
         <li>
-            <label>{'Creator'|i18n( 'design/admin/node/view/full' )}</label>
-            <p><a href={$node.object.owner.main_node.url_alias|ezurl}>{$node.object.owner.name|wash}</a></p>
-        </li>
-        <li>
             <label>{'Created'|i18n( 'design/admin/node/view/full' )}</label>
-            <p>{$node.object.published|l10n( shortdatetime )}</p>
+            <p>{$node.object.published|l10n( shortdatetime )}<br />
+            <a href={$node.object.owner.main_node.url_alias|ezurl}>{$node.object.owner.name|wash}</a></p>
         </li>
         <li>
             <label>{'Last modified'|i18n( 'design/admin/node/view/full' )}</label>
-            <p>{$node.object.modified|l10n(shortdatetime)} <br /><a href={$node.object.current.creator.main_node.url_alias|ezurl}>{$node.object.current.creator.name|wash}</a></p>
-        </li>
-        <li>
-            <label>{'Versions'|i18n( 'design/admin/node/view/full' )}</label>
-            <p>{$node.object.versions|count()}</p>
-        </li>
-        <li>
-            <label>{'Translations'|i18n( 'design/admin/node/view/full' )}</label>
-            <p>{$node.contentobject_version_object.language_list|count}</p>
+            <p>{$node.object.modified|l10n(shortdatetime)} <br /><a href={$node.object.current.creator.main_node.url_alias|ezurl}>{$node.object.current.creator.name|wash}</a><br />{'Versions'|i18n( 'design/admin/node/view/full' )} {$node.object.versions|count()}</p>
         </li>
         <li>
             <label>{'Node ID'|i18n( 'design/admin/node/view/full' )}</label>
