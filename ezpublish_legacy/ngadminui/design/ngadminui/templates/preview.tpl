@@ -22,24 +22,24 @@
     {/if}
     <ul class="node-info-list">
         <li>
-            <label>{'Created'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Created'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.object.published|l10n( shortdatetime )}<br />
             <a href={$node.object.owner.main_node.url_alias|ezurl}>{$node.object.owner.name|wash}</a></p>
         </li>
         <li>
-            <label>{'Last modified'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Last modified'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.object.modified|l10n(shortdatetime)} <br /><a href={$node.object.current.creator.main_node.url_alias|ezurl}>{$node.object.current.creator.name|wash}</a><br />{'Versions'|i18n( 'design/admin/node/view/full' )} {$node.object.versions|count()}</p>
         </li>
         <li>
-            <label>{'Node ID'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Node ID'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.node_id}</p>
         </li>
         <li>
-            <label>{'Object ID'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Object ID'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.object.id}</p>
         </li>
         <li>
-            <label>{'Section'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Section'|i18n( 'design/admin/node/view/full' )}:</label>
             <form name="changesection" id="changesection" method="post" action={concat( 'content/edit/', $node.object.id )|ezurl}>
                 <input type="hidden" name="RedirectRelativeURI" value="{$node.url_alias|wash}" />
                 <input type="hidden" name="ChangeSectionOnly" value="1" />
@@ -60,11 +60,11 @@
             </form>
         </li>
         <li>
-            <label>{'Node Remote ID'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Node Remote ID'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.remote_id|wash}</p>
         </li>
         <li>
-            <label>{'Object Remote ID'|i18n( 'design/admin/node/view/full' )}</label>
+            <label>{'Object Remote ID'|i18n( 'design/admin/node/view/full' )}:</label>
             <p>{$node.object.remote_id|wash}</p>
         </li>
         {if $states_count}
