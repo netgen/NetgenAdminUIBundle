@@ -1423,6 +1423,8 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
     margin-bottom: 15px; }
   .content-preview .label-preview {
     text-align: right; }
+  .content-preview .file-attribute label {
+    display: block; }
 
 .node-info-list {
   list-style-type: none;

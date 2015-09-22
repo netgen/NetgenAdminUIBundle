@@ -957,6 +957,11 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	.label-preview {
 		text-align:right;
 	}
+	.file-attribute {
+		label {
+			display:block;
+		}
+	}
 }
 
 .node-info-list {

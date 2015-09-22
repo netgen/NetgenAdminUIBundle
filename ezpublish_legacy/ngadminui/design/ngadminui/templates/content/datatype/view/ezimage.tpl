@@ -28,64 +28,77 @@ Input:
 {let image_content = $attribute.content}
 
 {if $image_content.is_valid}
+    <div class="file-attribute">
+        <div class="table">
+            <div class="cell cell-image">
+                {let image        = $image_content[$image_class]
+                     inline_style = ''}
 
-    {let image        = $image_content[$image_class]
-         inline_style = ''}
+                {if $link_to_image}
+                    {set href = $image_content['original'].url|ezroot}
+                {/if}
+                {switch match=$alignment}
+                {case match='left'}
+                    <div class="imageleft">
+                {/case}
+                {case match='right'}
+                    <div class="imageright">
+                {/case}
+                {case/}
+                {/switch}
 
-    {if $link_to_image}
-        {set href = $image_content['original'].url|ezroot}
-    {/if}
-    {switch match=$alignment}
-    {case match='left'}
-        <div class="imageleft">
-    {/case}
-    {case match='right'}
-        <div class="imageright">
-    {/case}
-    {case/}
-    {/switch}
+                {if $css_class}
+                    <div class="{$css_class|wash}">
+                {/if}
 
-    {if $css_class}
-        <div class="{$css_class|wash}">
-    {/if}
+                {if and( is_set( $image ), $image )}
+                    {if $alt_text|not}
+                        {if $image.text}
+                            {set $alt_text = $image.text}
+                        {else}
+                            {set $alt_text = $attribute.object.name}
+                        {/if}
+                    {/if}
+                    {if $title|not}
+                        {set $title = $alt_text}
+                    {/if}
+                    {if $border_size|trim|ne('')}
+                        {set $inline_style = concat( $inline_style, 'border: ', $border_size, 'px ', $border_style, ' ', $border_color, ';' )}
+                    {/if}
+                    {if $margin_size|trim|ne('')}
+                        {set $inline_style = concat( $inline_style, 'margin: ', $margin_size, 'px;' )}
+                    {/if}
+                    {if $href}<a href={$href}{if and( is_set( $link_class ), $link_class )} class="{$link_class}"{/if}{if and( is_set( $link_id ), $link_id )} id="{$link_id}"{/if}{if $target} target="{$target}"{/if}{if and( is_set( $link_title ), $link_title )} title="{$link_title|wash}"{/if}>{/if}
+                    <img src={$image.url|ezroot} width="{$image.width}" height="{$image.height}" {if $hspace}hspace="{$hspace}"{/if} style="{$inline_style}" alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}" />
 
-    {if and( is_set( $image ), $image )}
-        {if $alt_text|not}
-            {if $image.text}
-                {set $alt_text = $image.text}
-            {else}
-                {set $alt_text = $attribute.object.name}
-            {/if}
-        {/if}
-        {if $title|not}
-            {set $title = $alt_text}
-        {/if}
-        {if $border_size|trim|ne('')}
-            {set $inline_style = concat( $inline_style, 'border: ', $border_size, 'px ', $border_style, ' ', $border_color, ';' )}
-        {/if}
-        {if $margin_size|trim|ne('')}
-            {set $inline_style = concat( $inline_style, 'margin: ', $margin_size, 'px;' )}
-        {/if}
-        {if $href}<a href={$href}{if and( is_set( $link_class ), $link_class )} class="{$link_class}"{/if}{if and( is_set( $link_id ), $link_id )} id="{$link_id}"{/if}{if $target} target="{$target}"{/if}{if and( is_set( $link_title ), $link_title )} title="{$link_title|wash}"{/if}>{/if}
-        <img src={$image.url|ezroot} width="{$image.width}" height="{$image.height}" {if $hspace}hspace="{$hspace}"{/if} style="{$inline_style}" alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}" />
-        {if $href}</a>{/if}
-    {/if}
+                    {if $href}</a>{/if}
+                {/if}
 
-    {if $css_class}
+                {if $css_class}
+                    </div>
+                {/if}
+
+                {switch match=$alignment}
+                {case match='left'}
+                    </div>
+                {/case}
+                {case match='right'}
+                    </div>
+                {/case}
+                {case/}
+                {/switch}
+
+                {/let}
+            </div>
+            <div class="cell">
+                <ul class="details">
+                    <li><label>{'Image name'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.original_filename|wash( xhtml )}</span></li>
+                    <li><label>{'Size'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.filesize|si( byte )}</span></li>
+                    <li><label>{'Dimensions'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.original.width} x {$attribute.content.original.height} px</span></li>
+                </ul>
+            </div>
         </div>
-    {/if}
-
-    {switch match=$alignment}
-    {case match='left'}
-        </div>
-    {/case}
-    {case match='right'}
-        </div>
-    {/case}
-    {case/}
-    {/switch}
-
-    {/let}
+    </div>
 
 {/if}
 
