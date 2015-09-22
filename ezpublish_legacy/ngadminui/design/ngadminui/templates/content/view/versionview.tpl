@@ -54,11 +54,11 @@
 
     <div class="btn-toolbar" role="toolbar" id="preview-control">
         <div class="btn-group iframe-control" role="group">
-            <button type="button" class="btn btn-default" data-width="320" data-height="480">320px</button>
-            <button type="button" class="btn btn-default" data-width="480" data-height="320">480px</button>
-            <button type="button" class="btn btn-default" data-width="768" data-height="1024">768px</button>
-            <button type="button" class="btn btn-default" data-width="1024" data-height="768">1024px</button>
-            <button type="button" class="btn btn-default" data-width="1200" data-height="768">1200px</button>
+            <button type="button" class="btn btn-default" data-width="320" data-height="480"><span class="icon-mobile-vertical"></span> 320px</button>
+            <button type="button" class="btn btn-default" data-width="480" data-height="320"><span class="icon-mobile-horizontal"></span> 480px</button>
+            <button type="button" class="btn btn-default" data-width="768" data-height="1024"><span class="icon-tablet-vertical"></span> 768px</button>
+            <button type="button" class="btn btn-default" data-width="1024" data-height="768"><span class="icon-tablet-horizontal"></span> 1024px</button>
+            <button type="button" class="btn btn-default" data-width="1200" data-height="768"><span class="icon-desktop"></span> 1200px</button>
         </div>
         <div class="btn-group" role="group">
             <form class="dropdown pull-left form-siteaccess" method="post" action={concat( 'content/versionview/', $object.id, '/', $version.version, '/', $language, '/', $from_language )|ezurl}>

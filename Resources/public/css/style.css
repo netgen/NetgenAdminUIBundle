@@ -1214,14 +1214,15 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
         display: block;
         float: left;
         height: 70px;
-        line-height: 70px;
-        padding: 0 16px;
+        padding: 25px 16px;
         font-weight: 600;
         color: #5b5b5b;
         text-decoration: none; }
         .node-top-switch .node-view-switch li a i {
           color: #bfbfbf;
-          margin-right: 4px; }
+          margin-right: 8px;
+          float: left;
+          font-size: 20px; }
         .node-top-switch .node-view-switch li a:hover {
           background: #f9f9f9; }
       .node-top-switch .node-view-switch li.active a {
@@ -1858,14 +1859,24 @@ input.tagssuggestfield {
       top: -17px;
       margin: 0 0 0 -20px; }
 
-.iframe-control .btn.active {
-  background: #434343;
-  border-color: #434343;
-  color: #fff;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  outline: none; }
+.iframe-control .btn {
+  font-size: 12px;
+  line-height: 20px; }
+  .iframe-control .btn [class^="icon-"], .iframe-control .btn [class*=" icon-"] {
+    color: #9b9b9b;
+    font-size: 18px;
+    float: left;
+    margin-right: 6px; }
+  .iframe-control .btn.active {
+    background: #434343;
+    border-color: #434343;
+    color: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none; }
+    .iframe-control .btn.active [class^="icon-"], .iframe-control .btn.active [class*=" icon-"] {
+      color: #fff; }
 
 .dropdown-radio .radio {
   margin: 4px 0; }

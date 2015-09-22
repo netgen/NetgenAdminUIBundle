@@ -812,9 +812,9 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 		li {
 			float:left; margin:0; padding:0;
 			a {
-				display:block; float:left; height:$headerHeight; line-height:$headerHeight; padding:0 16px; font-weight:600; color:#5b5b5b; text-decoration:none;
+				display:block; float:left; height:$headerHeight; padding:(($headerHeight - 20)/2) 16px; font-weight:600; color:#5b5b5b; text-decoration:none;
 				i {
-					color:#bfbfbf; margin-right:4px;
+					color:#bfbfbf; margin-right:8px; float:left; font-size:20px;
 				}
 				&:hover {
 					background:#f9f9f9;
@@ -1239,8 +1239,15 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 
 .iframe-control {
 	.btn {
+		font-size:12px; line-height:20px;
+		[class^="icon-"], [class*=" icon-"] {
+			color:#9b9b9b; font-size:18px; float:left; margin-right:6px;
+		}
 		&.active {
 			background:#434343; border-color:#434343; color:#fff; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; outline:none;
+			[class^="icon-"], [class*=" icon-"] {
+				color:#fff;
+			}
 		}
 	}
 }

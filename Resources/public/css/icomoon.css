@@ -23,6 +23,21 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-desktop:before {
+	content: "\e615";
+}
+.icon-mobile-horizontal:before {
+	content: "\e616";
+}
+.icon-mobile-vertical:before {
+	content: "\e617";
+}
+.icon-tablet-horizontal:before {
+	content: "\e618";
+}
+.icon-tablet-vertical:before {
+	content: "\e619";
+}
 .icon-add-bottom-b:before {
 	content: "\e600";
 }
