@@ -678,8 +678,8 @@ fieldset[disabled] .btn-primary.active {
     left: 0;
     margin-top: -15px;
     font-size: 12px;
-    background: #c6c8c8;
-    color: #666;
+    background: #969898;
+    color: #fff;
     padding-right: 2px;
     -moz-border-radius: 0 6px 6px 0;
     -webkit-border-radius: 0 6px 6px 0;
@@ -689,8 +689,7 @@ fieldset[disabled] .btn-primary.active {
   .rightmenu.closed .show-hide-control:before {
     content: "\f048"; }
   .rightmenu .show-hide-control:hover, .rightmenu .show-hide-control:focus, .rightmenu .show-hide-control:active {
-    background: #969898;
-    color: #fff; }
+    background: #888; }
 
 fieldset.ezcca-collapsible legend {
   font-weight: normal; }
@@ -713,7 +712,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
     content: "\f0fe"; }
 
 #rightmenu-design {
-  background: #ebeff0;
+  background: whitesmoke;
   padding: 20px 20px 20px 26px;
   margin: 0;
   overflow: auto;
@@ -889,6 +888,30 @@ table.list {
     vertical-align: top; }
   table.list.special label + p {
     margin: 0 0 14px; }
+  table.list .related-thumbnail {
+    text-align: center;
+    width: 1px; }
+    table.list .related-thumbnail i {
+      cursor: pointer;
+      font-size: 17px; }
+    table.list .related-thumbnail .thumbnail-tt {
+      position: relative; }
+      table.list .related-thumbnail .thumbnail-tt .thumbnail-tt-box {
+        display: none;
+        position: absolute;
+        background: #fff;
+        padding: 4px;
+        margin: 4px 0 0;
+        z-index: 10;
+        -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+        table.list .related-thumbnail .thumbnail-tt .thumbnail-tt-box .dimensions {
+          font-size: 13px;
+          display: block;
+          margin: 4px 0 0; }
+      table.list .related-thumbnail .thumbnail-tt:hover .thumbnail-tt-box {
+        display: block; }
 
 .form-group label {
   font-weight: 400;

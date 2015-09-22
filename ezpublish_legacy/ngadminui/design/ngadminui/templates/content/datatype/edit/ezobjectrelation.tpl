@@ -12,6 +12,7 @@
         <thead>
         <tr>
             <th>{'Name'|i18n( 'design/standard/content/datatype' )}</th>
+            <th></th>
             <th>{'Type'|i18n( 'design/standard/content/datatype' )}</th>
             <th>{'Section'|i18n( 'design/standard/content/datatype' )}</th>
             <th>{'Published'|i18n( 'design/standard/content/datatype' )}</th>
@@ -22,7 +23,20 @@
         {if $attribute.content}
 
             {* Name *}
-            <td><a href={$attribute.content.url|ezurl} target="_blank">{$attribute.content.name|wash()}</a></td>
+            <td><a href={$attribute.content.main_node.url|ezurl} target="_blank">{$attribute.content.name|wash()}</a></td>
+
+            {* Image thumbnail *}
+            <td class="related-thumbnail">
+                {if eq($attribute.content.class_name, 'Image')}
+                    <div class="thumbnail-tt">
+                        <i class="fa fa-picture-o"></i>
+                        <div class="thumbnail-tt-box">
+                            {attribute_view_gui image_class='large' attribute=$attribute.content.data_map.image}
+                            <span class="dimensions">{$attribute.content.current.contentobject.main_node.data_map.image.content.original.width} x {$attribute.content.current.contentobject.main_node.data_map.image.content.original.height} px</span>
+                        </div>
+                    </div>
+                {/if}
+            </td>
 
             {* Type *}
             <td>{$attribute.content.class_name|wash()}</td>
@@ -43,6 +57,8 @@
             <td>--section-name--</td>
             <td>--published--</td>
         {/if}
+
+
         </tr>
         </tbody>
     </table>

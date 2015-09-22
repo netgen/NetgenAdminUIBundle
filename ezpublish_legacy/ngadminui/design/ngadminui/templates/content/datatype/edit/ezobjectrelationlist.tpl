@@ -347,8 +347,9 @@
         <table class="list{if $attribute.content.relation_list|not} hide{/if}" cellspacing="0">
             <thead>
             <tr>
-                <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} alt="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" onclick="ezjs_toggleCheckboxes( document.editform, '{$attribute_base}_selection[{$attribute.id}][]' ); return false;" title="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" /></th>
+                <th class="tight"><i onclick="ezjs_toggleCheckboxes( document.editform, '{$attribute_base}_selection[{$attribute.id}][]' ); return false;" title="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" class="fa fa-check-square-o"></i></th>
                 <th>{'Name'|i18n( 'design/standard/content/datatype' )}</th>
+                <th></th>
                 <th>{'Type'|i18n( 'design/standard/content/datatype' )}</th>
                 <th>{'Section'|i18n( 'design/standard/content/datatype' )}</th>
                 <th>{'Published'|i18n( 'design/standard/content/datatype' )}</th>
@@ -365,7 +366,21 @@
                     <input type="hidden" name="{$attribute_base}_data_object_relation_list_{$attribute.id}[]" value="{$item.contentobject_id}" /></td>
 
                     {* Name *}
-                    <td>{$object.name|wash()}</td>
+                    <td><a href={$object.main_node.url|ezurl} target="_blank">{$object.name|wash()}</a>
+                    </td>
+
+                    {* Image thumbnail *}
+                    <td class="related-thumbnail">
+                      {if eq($object.class_name, 'Image')}
+                        <div class="thumbnail-tt">
+                          <i class="fa fa-picture-o"></i>
+                          <div class="thumbnail-tt-box">
+                            {attribute_view_gui image_class='large' attribute=$object.data_map.image}
+                            <span class="dimensions">{$object.current.contentobject.main_node.data_map.image.content.original.width} x {$object.current.contentobject.main_node.data_map.image.content.original.height} px</span>
+                          </div>
+                        </div>
+                      {/if}
+                    </td>
 
                     {* Type *}
                     <td>{$object.class_name|wash()}</td>
@@ -380,11 +395,10 @@
                             {'Yes'|i18n( 'design/standard/content/datatype' )}
                         {/if}
                     </td>
-
                     {* Order. *}
                     <td><input size="2" class="form-control input-sm" type="text" name="{$attribute_base}_priority[{$attribute.id}][]" value="{$item.priority}" /></td>
-
                   </tr>
+
                   {undef $object}
                 {/foreach}
             {else}
