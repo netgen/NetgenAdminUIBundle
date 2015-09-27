@@ -2,7 +2,7 @@
 
 {# SITE NAME #}
 
-{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+{% set siteName = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
 
 {# SIDE MENU #}
 
