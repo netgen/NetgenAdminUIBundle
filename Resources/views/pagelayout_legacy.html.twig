@@ -25,7 +25,7 @@
 {% set semantic_path_info = app.request.attributes.get('semanticPathinfo') %}
 
 {% if semantic_path_info starts with '/content/versionview' %}
-    {% set showSideMenu = false %}
+    {% set show_side_menu = false %}
 {% endif %}
 
 {% block content %}

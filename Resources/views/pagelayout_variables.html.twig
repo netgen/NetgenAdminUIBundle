@@ -2,23 +2,23 @@
 
 {# SITE NAME #}
 
-{% set siteName = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
+{% set site_name = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
 
 {# SIDE MENU #}
 
-{% if showSideMenu is not defined %}
-    {% set showSideMenu = true %}
+{% if show_side_menu is not defined %}
+    {% set show_side_menu = true %}
 {% endif %}
 
 {# PATH ARRAY #}
 
-{% if pathArray is not defined %}
+{% if path_array is not defined %}
     {% if content is defined and location is defined and not location.isDraft %}
-        {% set pathArray = ngmore_location_path( location.id, true ) %}
+        {% set path_array = ngmore_location_path( location.id, true ) %}
     {% elseif module_result.node_id is defined %}
-        {% set pathArray = ngmore_location_path( module_result.node_id, true ) %}
+        {% set path_array = ngmore_location_path( module_result.node_id, true ) %}
     {% else %}
-        {% set pathArray = [] %}
+        {% set path_array = [] %}
     {% endif %}
 {% endif %}
 

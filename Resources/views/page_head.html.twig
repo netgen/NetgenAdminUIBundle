@@ -1,16 +1,16 @@
-{% if siteTitle is not defined %}
-    {% set siteTitleArray = [] %}
+{% if site_title is not defined %}
+    {% set site_title_array = [] %}
 
-    {% if pathArray is not empty %}
-        {% for pathItem in pathArray|reverse %}
-            {% set siteTitleArray = siteTitleArray|merge( [pathItem.text] ) %}
+    {% if path_array is not empty %}
+        {% for path_item in path_array|reverse %}
+            {% set site_title_array = site_title_array|merge( [path_item.text] ) %}
         {% endfor %}
     {% endif %}
 
-    {% set siteTitle = siteTitleArray|join( ' / ' ) %}
+    {% set site_title = site_title_array|join( ' / ' ) %}
 {% endif %}
 
-<title>{{ siteTitle ~ ' - ' ~ siteName }}</title>
+<title>{{ site_title ~ ' - ' ~ site_name }}</title>
 <meta name="generator" content="{{ 'ngmore_admin_ui.layout.generator'|trans }}" />
 
 {#

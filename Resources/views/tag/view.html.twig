@@ -1,25 +1,25 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
-{% set pathArray = [] %}
-{% set siteTitleArray = [] %}
-{% set tagPathArray = tag.pathString|trim( '/' )|split( '/' ) %}
+{% set path_array = [] %}
+{% set site_title_array = [] %}
+{% set tag_path_array = tag.pathString|trim( '/' )|split( '/' ) %}
 
-{% for tagId in tagPathArray %}
-    {% set tagKeyword = netgen_tags_tag_keyword( tagId ) %}
+{% for tag_id in tag_path_array %}
+    {% set tag_keyword = netgen_tags_tag_keyword( tag_id ) %}
 
-    {% set pathArray = pathArray|merge( [ {
-        tag_id: tagId,
-        url: tagId != tag.id ? '/tags/id/' ~ tagId : false,
-        text: tagKeyword
+    {% set path_array = path_array|merge( [ {
+        tag_id: tag_id,
+        url: tag_id != tag.id ? '/tags/id/' ~ tag_id : false,
+        text: tag_keyword
     } ] ) %}
 
-    {% set siteTitleArray = siteTitleArray|merge( [tagKeyword] ) %}
+    {% set site_title_array = site_title_array|merge( [tag_keyword] ) %}
 {% endfor %}
 
-{% set siteTitle = siteTitleArray|reverse|join( ' / ' ) %}
+{% set site_title = site_title_array|reverse|join( ' / ' ) %}
 
 {% set module_result = {
-    'path': pathArray,
+    'path': path_array,
     'navigation_part': 'eztagsnavigationpart',
     'ui_context': 'navigation'
 } %}
