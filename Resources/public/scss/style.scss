@@ -323,7 +323,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 			}
 		}
 		&.current > a {
-			background:#23b7e5; color:#fff;
+			background:#fff; color:$activeColor;
 		}
 	}
 }
@@ -929,10 +929,16 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 
 .content-preview {
 	position:relative; padding-right:200px + $gutter;
-	.row.preview-row {
-		color:#444; padding:12px 0; margin:0;
-		+ .row.preview-row {
+	.preview-row {
+		color:#444; padding:12px 0; margin:0; display:table; width:100%; table-layout:fixed;
+		+ .preview-row {
 			border-top:2px solid $lightBg;
+		}
+		.label-preview {
+			text-align:right; width:200px; padding-right:30px; display:table-cell;
+		}
+		.attribute-preview {
+			display:table-cell;
 		}
 	}
 	label, legend {
@@ -957,9 +963,6 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	}
 	.button-right {
 		margin-bottom:15px;
-	}
-	.label-preview {
-		text-align:right;
 	}
 	.file-attribute {
 		label {
@@ -1118,19 +1121,24 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 .dropdown-menu-right {right:0; left:auto;}
 
 .attribute-label .required {color:#333; font-weight:700;}
-.label-edit {
-	label {
-		padding:0; margin:0;
-	}
-	text-align:right;
-	.classattribute-description {
-		display:block; padding:0; margin:0 0 1em; color:#999; font-size:0.715em;
-	}
+.edit-row {
+	display:table; table-layout:fixed; width:100%;
+	.label-edit {
+		display:table-cell; padding-right:30px; width:250px; vertical-align:top;
+		label {
+			padding:0; margin:0;
+		}
+		text-align:right;
+		.classattribute-description {
+			display:block; padding:0; margin:0 0 1em; color:#999; font-size:0.715em;
+		}
 
-}
-.attribute-edit {
-	label {
-		font-size:0.928em;
+	}
+	.attribute-edit {
+		display:table-cell; vertical-align:top;
+		label {
+			font-size:0.928em;
+		}
 	}
 }
 
@@ -1373,7 +1381,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 		margin-left:0;
 	}
 	.node-top-switch {
-		left:$asideWidth;
+		left:$asideWidth + $leftColumnWidth;
 	}
 }
 

@@ -471,8 +471,8 @@ fieldset[disabled] .btn-primary.active {
     .leftmenu-items-list > li > a:hover {
       background: rgba(0, 0, 0, 0.025); }
     .leftmenu-items-list > li.current > a {
-      background: #23b7e5;
-      color: #fff; }
+      background: #fff;
+      color: #f3590a; }
 
 #content-tree-menu {
   list-style-type: none;
@@ -1388,12 +1388,22 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
 .content-preview {
   position: relative;
   padding-right: 215px; }
-  .content-preview .row.preview-row {
+  .content-preview .preview-row {
     color: #444;
     padding: 12px 0;
-    margin: 0; }
-    .content-preview .row.preview-row + .row.preview-row {
+    margin: 0;
+    display: table;
+    width: 100%;
+    table-layout: fixed; }
+    .content-preview .preview-row + .preview-row {
       border-top: 2px solid whitesmoke; }
+    .content-preview .preview-row .label-preview {
+      text-align: right;
+      width: 200px;
+      padding-right: 30px;
+      display: table-cell; }
+    .content-preview .preview-row .attribute-preview {
+      display: table-cell; }
   .content-preview label, .content-preview legend {
     font-size: 13px;
     color: #999;
@@ -1421,8 +1431,6 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
     padding-left: 6px; }
   .content-preview .button-right {
     margin-bottom: 15px; }
-  .content-preview .label-preview {
-    text-align: right; }
   .content-preview .file-attribute label {
     display: block; }
 
@@ -1661,20 +1669,30 @@ fieldset legend {
   color: #333;
   font-weight: 700; }
 
-.label-edit {
-  text-align: right; }
-  .label-edit label {
-    padding: 0;
-    margin: 0; }
-  .label-edit .classattribute-description {
-    display: block;
-    padding: 0;
-    margin: 0 0 1em;
-    color: #999;
-    font-size: 0.715em; }
-
-.attribute-edit label {
-  font-size: 0.928em; }
+.edit-row {
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+  .edit-row .label-edit {
+    display: table-cell;
+    padding-right: 30px;
+    width: 250px;
+    vertical-align: top;
+    text-align: right; }
+    .edit-row .label-edit label {
+      padding: 0;
+      margin: 0; }
+    .edit-row .label-edit .classattribute-description {
+      display: block;
+      padding: 0;
+      margin: 0 0 1em;
+      color: #999;
+      font-size: 0.715em; }
+  .edit-row .attribute-edit {
+    display: table-cell;
+    vertical-align: top; }
+    .edit-row .attribute-edit label {
+      font-size: 0.928em; }
 
 .file-attribute {
   color: #333;
@@ -2026,7 +2044,7 @@ input.tagssuggestfield {
 .hide-side-menu #content {
   margin-left: 0; }
 .hide-side-menu .node-top-switch {
-  left: 100px; }
+  left: 340px; }
 
 @media (min-width: 768px) {
   .form-inline .form-group {
