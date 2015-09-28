@@ -138,6 +138,11 @@
                 control = $('.iframe-control'),
                 sizes = [],
                 screenW = $(document).width(),
+                contHeight = function(){
+                    var fContainer = $('.preview-page'),
+                        fContainerH = $(document).height() - fContainer.offset().top - (parseInt(fContainer.css('padding-top'), 10) * 2) - 20;
+                    return fContainerH;
+                },
                 sizing = function(el, w, h){
                     containerDesign.attr('class', 'container-design');
                     switch (w) {
@@ -155,6 +160,7 @@
                             break;
                         default:
                             containerDesign.addClass('desktop');
+                            h = contHeight();
                     }
                     el.addClass('active').siblings().removeClass('active');
                     container.width(w).height(h);
