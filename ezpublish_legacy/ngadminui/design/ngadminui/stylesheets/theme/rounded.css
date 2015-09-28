@@ -538,34 +538,6 @@ table.list th, table.special th
     font-weight: bold;
 }
 
-
-/* YUI 2 calendar (uses #page to force override) */
-#page .yui-calendar
-{
-font-size:0.9em;
-}
-
-#page .yui-calendar .calweekdaycell
-{
-    padding: 0.15em;
-}
-
-#page .yui-calcontainer
-{
-    border-color: #CCCCC3;
-}
-
-#page .datepicker-icon
-{
-    margin-bottom: -2px;
-    padding-top: 9px;
-}
-
-#page .yui-calcontainer .title
-{
-position:absolute;
-}
-
 /* asynchronous publishing queued page */
 .ezap-placeholder h1 {
     margin-bottom: 0.8em;

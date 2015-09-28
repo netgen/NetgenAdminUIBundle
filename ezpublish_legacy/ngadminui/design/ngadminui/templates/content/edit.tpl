@@ -90,7 +90,7 @@
                 <input class="btn btn-default" type="submit" name="StoreExitButton" value="{'Store draft and exit'|i18n( 'design/admin/content/edit' )}" title="{'Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.'|i18n( 'design/admin/content/edit' )}" />
                 <input class="btn btn-default" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )|wash(javascript)}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
             </div>
-            <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" /> 
+            <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" />
             {* DESIGN: Control bar END *}
         </div>
 
@@ -133,6 +133,8 @@
             </div>
             <div class="box-content">
 
+                {include uri='design:page_toppath_content.tpl' node=$object.main_node}
+
                 {* <div class="context-information">
                     <div class="break"></div>
                 </div> *}
@@ -166,15 +168,15 @@
                         <input class="btn btn-default" type="submit" name="StoreExitButton" value="{'Store draft and exit'|i18n( 'design/admin/content/edit' )}" title="{'Store the draft that is being edited and exit from edit mode. Use when you need to exit your work and return later to continue.'|i18n( 'design/admin/content/edit' )}" />
                         <input class="btn btn-default" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/admin/content/edit' )}" onclick="return confirmDiscard( '{'Are you sure you want to discard the draft?'|i18n( 'design/admin/content/edit' )|wash(javascript)}' );" title="{'Discard the draft that is being edited. This will also remove the translations that belong to the draft (if any).'|i18n( 'design/admin/content/edit' ) }" />
                     </div>
-                    <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" /> 
+                    <input class="btn btn-primary" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" title="{'Publish the contents of the draft that is being edited. The draft will become the published version of the object.'|i18n( 'design/admin/content/edit' )}" />
                     <input type="hidden" name="DiscardConfirm" value="1" />
                 {* DESIGN: Control bar END *}
                 </div>
             </div>
-            {include uri='design:content/edit_relations.tpl'}
+            {*include uri='design:content/edit_relations.tpl'*}
         </div>
 
-        
+
 
 
         {* Locations window. *}
@@ -209,6 +211,16 @@ function confirmDiscard( question )
 
     // Ask user if she really wants do it, return this to the handler.
     return confirm( question );
+
 }
+
+$(document).ready(function(){
+    $('#editform').bind('keypress keydown keyup', function(e){
+        if(e.keyCode == 13) { 
+            e.preventDefault();
+        }
+    });
+});
+
 </script>
 {/literal}
