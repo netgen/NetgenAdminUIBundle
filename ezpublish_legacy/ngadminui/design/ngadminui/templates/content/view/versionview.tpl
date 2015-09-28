@@ -143,7 +143,12 @@
                         fContainerH = $(document).height() - fContainer.offset().top - (parseInt(fContainer.css('padding-top'), 10) * 2) - 20;
                     return fContainerH;
                 },
-                sizing = function(el, w, h){
+                sizing = function(w, h){
+                    container.width(w).height(h);
+                    containerDesign.width(w).height(h);
+                    frame.width(w).height(h);                    
+                }
+                switching = function(el, w, h){
                     containerDesign.attr('class', 'container-design');
                     switch (w) {
                         case '320':
@@ -163,9 +168,7 @@
                             h = contHeight();
                     }
                     el.addClass('active').siblings().removeClass('active');
-                    container.width(w).height(h);
-                    containerDesign.width(w).height(h);
-                    frame.width(w).height(h);               
+                    sizing(w, h);               
                 };
             control.children('.btn').each(function(){
                 sizes.push($(this).attr('data-width'));
@@ -178,14 +181,20 @@
             } else {
                 var initialTrigger = $('.btn[data-width=' + initialW + ']');
             }
-            sizing(initialTrigger, initialW, initialH);
+            switching(initialTrigger, initialW, initialH);
             control.on('click', '.btn', function(){
                 var trigger = $(this),
                     frameW = trigger.attr('data-width'),
                     frameH = trigger.attr('data-height');
                 localStorage.setItem('previewIframeW', frameW);
                 localStorage.setItem('previewIframeH', frameH);
-                sizing(trigger, frameW, frameH);
+                switching(trigger, frameW, frameH);
+            });
+            $(window).resize(function(){
+                if(containerDesign.hasClass('desktop')) {
+                    var contW = containerDesign.width();
+                    sizing(contW, contHeight());
+                }
             });
         })();
 
