@@ -191,7 +191,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 }
 
 .aside-footer {
-	position:absolute; bottom:0; left:0; z-index:1000; width:100%; background:$asideBg;
+	position:absolute; bottom:0; left:0; z-index:10; width:100%; background:$asideBg;
 	> a {
 		display:block;
 	}
@@ -868,8 +868,19 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 
 #footer {margin-left:200px; height:50px; position:absolute; bottom:0; left:0; right:0; z-index:2; border-top:1px solid #e5e5e5;}
 
-.content-edit .content-body {top:$headerHeight;}
-.content-edit .aside-fold-trigger {display:none !important;}
+.content-edit {
+	.content-body {
+		top:$headerHeight;
+	}
+	.aside-fold-trigger {
+		display:none !important;
+	}
+	.aside-wrap {
+		&:before {
+			display:block; content:""; position:absolute; left:0; right:0; top:0; bottom:0; z-index:100; background:rgba($asideBg, .5);
+		}
+	}
+}
 
 .node-controlbar {
 	text-align:right;
@@ -1364,6 +1375,14 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 			&:checked + label {
 				background:$btnPrimary; color:#fff;
 			}
+		}
+	}
+}
+
+.zones {
+	.zone-thumbnail {
+		img {
+			width:72px;
 		}
 	}
 }

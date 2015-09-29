@@ -280,7 +280,7 @@ fieldset[disabled] .btn-primary.active {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   background: #06203b; }
   .aside-footer > a {
@@ -1293,9 +1293,18 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
 
 .content-edit .content-body {
   top: 70px; }
-
 .content-edit .aside-fold-trigger {
   display: none !important; }
+.content-edit .aside-wrap:before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(6, 32, 59, 0.5); }
 
 .node-controlbar {
   text-align: right; }
@@ -2018,6 +2027,9 @@ input.tagssuggestfield {
     .dropdown-radio .radio input[type=radio]:checked + label {
       background: #4a90e2;
       color: #fff; }
+
+.zones .zone-thumbnail img {
+  width: 72px; }
 
 .badge {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
