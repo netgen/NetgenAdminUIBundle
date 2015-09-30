@@ -450,10 +450,10 @@ fieldset[disabled] .btn-primary.active {
   cursor: col-resize; }
 
 .leftmenu-hl {
-  padding: 15px;
+  padding: 12px 15px;
   margin: 0;
   font-weight: 400;
-  font-size: 16px; }
+  font-size: 14px; }
 
 .leftmenu-items-list {
   list-style-type: none;
@@ -1943,12 +1943,16 @@ input.tagssuggestfield {
   z-index: 4; }
   .preview-box-header .btn-toolbar {
     float: left;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-right: 10px; }
   .preview-box-header .path-edit-container {
-    float: left;
     min-height: 40px; }
-  .preview-box-header #path {
-    padding: 12px 15px; }
+    .preview-box-header .path-edit-container #path {
+      padding: 12px 15px; }
+      .preview-box-header .path-edit-container #path p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
 
 .preview-page {
   padding: 2em 0; }

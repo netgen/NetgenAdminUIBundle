@@ -212,7 +212,7 @@ function confirmDiscard( question )
 }
 
 $(document).ready(function(){
-    $('#editform').bind('keypress keydown keyup', function(e){
+    $('#editform').on('keypress keydown keyup', ':input:not(textarea)', function(e){
         if(e.keyCode == 13) {
             e.preventDefault();
         }

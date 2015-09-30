@@ -306,7 +306,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 
 .ui-resizable-handle.ui-resizable-e {top:0; bottom:0; position:absolute; right:0; width:4px; cursor:col-resize;}
 
-.leftmenu-hl {padding:$gutter; margin:0; font-weight:400; font-size:16px;}
+.leftmenu-hl {padding:12px $gutter; margin:0; font-weight:400; font-size:14px;}
 .leftmenu-items-list {
 	list-style-type:none; margin:0 0 15px; padding:0;
 	> li {
@@ -1312,13 +1312,16 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 .preview-box-header {
 	padding:10px; position:fixed; top:$headerHeight; z-index:4;
 	.btn-toolbar {
-		float:left; margin-bottom:0;
+		float:left; margin-bottom:0; margin-right:10px;
 	}
 	.path-edit-container {
-		float:left; min-height:40px;
-	}
-	#path {
-		padding:12px $gutter;
+		min-height:40px;
+		#path {
+			padding:12px $gutter;
+			p {
+				white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+			}
+		}
 	}
 }
 .preview-page {
