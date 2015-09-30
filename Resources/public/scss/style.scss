@@ -294,7 +294,7 @@ fieldset[disabled] .btn-primary.active {background:desaturate(darken($btnPrimary
 	.inner-cell {
 		position:absolute; top:0; right:0; left:0; bottom:0;
 		&.contentPreview {
-			background:$darkBg; bottom:auto; min-height:100%;
+			background:$darkBg; bottom:auto; min-height:100%; padding-top:60px;
 		}
 	}
 	.inner-wrapper {
@@ -862,6 +862,12 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	.path-here-text {
 		color:#98a6ad;
 	}
+	&.path-edit {
+		display:none;
+	}
+}
+.path-edit-container {
+	min-height:45px; background:$lightBg;
 }
 
 #trash {padding:10px $gutter;}
@@ -1012,13 +1018,22 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 
 .list-group {margin:0 0 20px;}
 
-.node-edit-container {
-	position:relative; padding-left:200px;
+#maincontent.node-edit-container {
+	position:absolute; padding-left:200px; left:0; right:0; top:0; bottom:0;
+	.box-content {
+		overflow-y:scroll; position:absolute; top:45px; left:200px; right:0; bottom:0;
+	}
 	.edit-tab-control {
-		position:absolute; left:0; top:0; bottom:0; width:200px; background:#e9e9e9;
+		position:fixed; left:$asideWidth; top:$headerHeight; bottom:0; width:200px; background:#e9e9e9;
 		margin-right:-5px; -moz-box-shadow:0 1px 1px 0 rgba(0,0,0,0.05); -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.05); box-shadow:0 1px 1px 0 rgba(0,0,0,0.05);
+		h4 {
+			font-size:9px; line-height:21px; text-transform:uppercase; color:#ccc; padding:12px $gutter; margin:0;
+		}
 		a {
 			display:block; padding:10px $gutter; text-decoration:none; color:#666;
+			&:hover {
+				color:$activeColor; background:rgba(255,255,255,.2);
+			}
 			&:first-child {
 				border-top:none;
 			}
@@ -1285,6 +1300,27 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	}
 }
 
+.list-thumbnails {
+	margin:1em 0 1.5em;
+	td {
+		text-align:center; padding:0 15px 10px 0;
+	}
+	p {
+		margin:0 0 1em;
+	}
+}
+.preview-box-header {
+	padding:10px; position:fixed; top:$headerHeight; z-index:4;
+	.btn-toolbar {
+		float:left; margin-bottom:0;
+	}
+	.path-edit-container {
+		float:left; min-height:40px;
+	}
+	#path {
+		padding:12px $gutter;
+	}
+}
 .preview-page {
 	padding:2em 0;
 }

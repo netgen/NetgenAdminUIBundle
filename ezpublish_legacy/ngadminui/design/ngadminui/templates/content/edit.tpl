@@ -52,8 +52,8 @@
     </div>
 
 
-    <div id="maincontent"{if $edit_menu_collapsed} style="margin-right:18px"{/if} class="clearfix">
-
+    <div id="maincontent"{if $edit_menu_collapsed} style="margin-right:18px"{/if} class="clearfix node-edit-container">
+        <div class="path-edit-container"></div>
         <div id="controlbar-top" class="node-controlbar">
             <span class="pull-left translation small">
                 {let language_index=0
@@ -118,9 +118,9 @@
 
 
         {* DESIGN: Content START *}
-        <div class="node-edit-container">
-
-            <div class="edit-tab-control">
+        <div class="edit-tab-control">
+            <h4>Sub menu</h4>
+            <div class="edit-tab-triggers">
                 {default $view_parameters            = array()
                          $attribute_categorys        = ezini( 'ClassAttributeSettings', 'CategoryList', 'content.ini' )
                          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
@@ -131,32 +131,28 @@
 
                 {/default}
             </div>
-            <div class="box-content">
+        </div>
+        <div class="box-content">
 
-                {include uri='design:page_toppath_content.tpl' node=$object.main_node}
+            {*include uri='design:page_toppath_content.tpl' node=$object.main_node*}
 
-                {* <div class="context-information">
-                    <div class="break"></div>
-                </div> *}
+            {if $is_translating_content}
+            <div class="content-translation">
+            {/if}
 
-                {if $is_translating_content}
-                <div class="content-translation">
-                {/if}
+                {foreach ezini( 'EditSettings', 'AdditionalTemplates', 'content.ini' ) as $additional_tpl}
+                    {include uri=concat( 'design:', $additional_tpl )}
+                {/foreach}
 
-                    {foreach ezini( 'EditSettings', 'AdditionalTemplates', 'content.ini' ) as $additional_tpl}
-                        {include uri=concat( 'design:', $additional_tpl )}
-                    {/foreach}
-
-                    <div class="context-attributes edit-tabs panel">
-                        {include uri='design:content/edit_attribute.tpl' view_parameters=$view_parameters}
-                    </div>
-
-                {if $is_translating_content}
+                <div class="context-attributes edit-tabs panel">
+                    {include uri='design:content/edit_attribute.tpl' view_parameters=$view_parameters}
                 </div>
-                {/if}
 
-            {* DESIGN: Content END *}
+            {if $is_translating_content}
             </div>
+            {/if}
+
+        {* DESIGN: Content END *}
             <div class="panel">
                 <div class="node-controlbar">
                 {* DESIGN: Control bar START *}
@@ -173,8 +169,9 @@
                 {* DESIGN: Control bar END *}
                 </div>
             </div>
-            {*include uri='design:content/edit_relations.tpl'*}
         </div>
+        {*include uri='design:content/edit_relations.tpl'*}
+
 
 
 
@@ -216,10 +213,11 @@ function confirmDiscard( question )
 
 $(document).ready(function(){
     $('#editform').bind('keypress keydown keyup', function(e){
-        if(e.keyCode == 13) { 
+        if(e.keyCode == 13) {
             e.preventDefault();
         }
     });
+
 });
 
 </script>

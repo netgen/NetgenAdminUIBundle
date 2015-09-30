@@ -50,7 +50,7 @@
                     <div id="main-column" class="main-column layout-column">
                         <div class="layout-column-inner">
                             <div class="inner-cell">
-                                <div id="path">
+                                <div id="path" {% if content_edit %}class="path-edit"{% endif %}>
                                     <div id="path-design">
                                         {% include 'design:page_toppath.tpl' %}
                                     </div>

@@ -35,7 +35,7 @@
 
 {def $page_limit   = 30
      $list_count   = fetch( 'content', 'version_count', hash( 'contentobject', $object ))}
-
+<div class="path-edit-container"></div>
 <form name="versionsform" action={concat( '/content/history/', $object.id, '/' )|ezurl} method="post">
 
     <div class="panel content-history">

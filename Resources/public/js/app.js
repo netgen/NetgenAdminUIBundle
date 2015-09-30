@@ -137,6 +137,12 @@ $(document).ready(function(){
 	    $(this).closest('form').submit();
 	});
 
+	/* edit path move */
+	var breadcrumbDiv = $('#path');
+	if(breadcrumbDiv.hasClass('path-edit')) {
+		breadcrumbDiv.appendTo('.path-edit-container').fadeIn('fast');
+	}
+
 });
 
 var initBlockAttributesState = function(){

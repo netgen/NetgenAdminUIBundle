@@ -15,7 +15,7 @@
 
 <!-- Maincontent START -->
 
-
+<div class="path-edit-container"></div>
 <form action={concat('content/edit/',$object.id)|ezurl} method="post">
 
 
