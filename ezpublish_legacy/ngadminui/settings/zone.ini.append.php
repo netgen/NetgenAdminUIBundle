@@ -1,7 +1,6 @@
 <?php /* #?ini charset="utf-8"?
 
 [1ZonesA]
-
 ZoneThumbnail=1_zones_a.png
 
 [4ZonesA]
@@ -18,5 +17,4 @@ ZoneThumbnail=6_zones_a.png
 
 [NGRegionLayout]
 ZoneThumbnail=ngmoreregionlayout.png
-
 */ ?>
