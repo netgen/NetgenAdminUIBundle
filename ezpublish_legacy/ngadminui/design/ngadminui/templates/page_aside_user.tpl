@@ -8,10 +8,7 @@
     {/if}
 
     <a href="#" class="user-dropdown-toggle dropdown-toggle" data-toggle="dropdown">
-        <span class="user-avatar">
-            <img src={'a0.jpg'|ezimage} alt="...">
-        </span>
-        {* <span class="user-name hidden-folded">{$current_user.contentobject.name|wash}</span> *}
+        <span class="user-avatar" style="background-image:url({if $current_user.contentobject.data_map.image.has_content}{$current_user.contentobject.data_map.image.content['medium'].url|ezroot('no')}{else}{'a0.jpg'|ezimage('no')}{/if})"></span>
     </a>
 
     {* <a href={$fold_control_href|ezurl} class="aside-fold-trigger">
@@ -26,8 +23,7 @@
     <ul class="dropdown-menu user-dropdown">
 
         <li>
-            <div class="user-avatar">
-                <img src={'a0.jpg'|ezimage} alt="...">
+            <div class="user-avatar" style="background-image:url({if $current_user.contentobject.data_map.image.has_content}{$current_user.contentobject.data_map.image.content['medium'].url|ezroot('no')}{else}{'a0.jpg'|ezimage('no')}{/if})">
             </div>
             <h4 class="user-name">{$current_user.contentobject.name|wash}</h4>
             <p class="user-role">{$current_user.login|wash}</p>
