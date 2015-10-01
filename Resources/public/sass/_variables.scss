@@ -1,0 +1,25 @@
+$asideWidth: 100px;
+$asideBg: #06203B;
+$asideHover: #153556;
+$asideColor: #8aa0b7;
+$lightBg: #f5f5f5;
+$thBg: #a7a7a7;
+//$baseFont: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+$baseFont: 'Open Sans',Helvetica,Arial,sans-serif;
+$fontSize: 14px;
+$activeColor: #F3590A;
+$leftColumnWidth: 240px;
+$headerHeight: 70px;
+$gutter: 15px;
+$darkBg: #272A2F;
+
+$btnPrimary: #4A90E2;
+$btnBorder: #e4e4e4;
+
+@mixin rounded($x:50%) {
+	-moz-border-radius:$x; -webkit-border-radius:$x; border-radius:$x;
+}
+
+@mixin overlayShadow() {
+	-moz-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); -webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15);
+}

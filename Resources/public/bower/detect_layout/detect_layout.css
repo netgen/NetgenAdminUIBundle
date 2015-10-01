@@ -1,0 +1,9 @@
+/*copy and edit this file*/
+/* http://getbootstrap.com/css/#grid */
+
+@media(max-width: 480px)  { html { z-index: 480; }  } /*xxs*/
+@media(min-width: 481px)  { html { z-index: 481; }  } /*xs*/
+@media(min-width: 768px)  { html { z-index: 768; }  } /*sm*/
+@media(min-width: 992px)  { html { z-index: 992; }  } /*md*/
+@media(min-width: 1200px) { html { z-index: 1200; } } /*lg*/
+/*@media(min-width: 1600px) { html { z-index: 1600; } }*/ /*xlg - custom example*/
