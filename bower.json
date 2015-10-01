@@ -1,0 +1,14 @@
+{
+  "name": "Netgen More",
+  "homepage": "http://www.netgenlabs.com",
+  "authors": [
+    "Marko Žabčić <marko@effectiva.hr>"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "html5shiv": "~3.7.3",
+    "jquery": "2.x",
+    "respond": "~1.4.2",
+    "detect_layout": "https://bitbucket.org/effectiva/jquery_detect_layout.git#~1.x"
+  }
+}
