@@ -9,7 +9,7 @@
 
     {% set path_array = path_array|merge( [ {
         tag_id: tag_id,
-        url: tag_id != tag.id ? '/tags/id/' ~ tag_id : false,
+        url: tag_id != tag.id ? path( 'ez_legacy', { 'module_uri': '/tags/id/' ~ tag_id } ) : false,
         text: tag_keyword
     } ] ) %}
 

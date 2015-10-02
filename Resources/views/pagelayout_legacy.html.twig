@@ -28,6 +28,22 @@
     {% set show_side_menu = false %}
 {% endif %}
 
+{# LEGACY PATH #}
+
+{% set legacy_path_array = ezpublish.legacy.has( 'path' ) ? ezpublish.legacy.get( 'path' ) : [] %}
+{% set root_location_path = path( ezpublish.rootLocation ) %}
+{% set path_array = [] %}
+
+{% for legacy_path_item in legacy_path_array %}
+    {% set path_array = path_array|merge( [ {
+        url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
+            root_location_path ~ legacy_path_item.url_alias :
+            false,
+        url: legacy_path_item.url ? path( 'ez_legacy', { 'module_uri': legacy_path_item.url } ) : false,
+        text: legacy_path_item.text
+    } ] ) %}
+{% endfor %}
+
 {% block content %}
     {{ module_result.content|raw }}
 {% endblock %}
