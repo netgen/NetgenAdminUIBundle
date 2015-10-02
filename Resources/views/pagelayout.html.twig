@@ -44,7 +44,7 @@
             <div class="content-body">
                 <div id="columns">
                     {% if not content_edit %}
-                        {% include 'design:page_leftmenu.tpl' with { uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' ) } %}
+                        {% include 'NetgenMoreAdminUIBundle::page_leftmenu.html.twig' %}
                     {% endif %}
 
                     <div id="main-column" class="main-column layout-column">

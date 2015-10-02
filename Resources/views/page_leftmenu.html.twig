@@ -1,0 +1,17 @@
+{% set left_menu %}{% spaceless %}
+    {% include 'design:parts/' ~ navigation_part[2:-14] ~ '/menu.tpl' ignore missing
+        with {
+            uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' )
+        }
+    %}
+{% endspaceless %}{% endset %}
+
+{% if left_menu is not empty %}
+    <div id="left-column" class="left-column layout-column">
+        <div class="layout-column-inner">
+            <div class="inner-cell">
+                {{ left_menu|raw }}
+            </div>
+        </div>
+    </div>
+{% endif %}
