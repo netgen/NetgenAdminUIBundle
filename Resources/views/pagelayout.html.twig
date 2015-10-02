@@ -12,6 +12,9 @@
     {% set ui_context_edit = ui_context == 'edit' %}
     {% set content_edit = ui_context_edit and ui_component == 'content' %}
 
+    {% set navigation_part = module_result.navigation_part|default( 'ezcontentnavigationpart' ) %}
+    {% set section_id = module_result.section_id|default( '0' ) %}
+
     {% include 'NetgenMoreAdminUIBundle::page_head.html.twig' %}
 
     {% include 'design:page_head_style.tpl' %}
@@ -22,7 +25,7 @@
 </head>
 
 <body>
-    <div id="page" class="{{ module_result.navigation_part|default( 'ezcontentnavigationpart' ) }} section_id_{{ module_result.section_id|default( '0' ) }} {% if content_edit or ui_context_edit %} content-edit{% endif %}{% if not show_side_menu %} hide-side-menu{% endif %}">
+    <div id="page" class="{{ navigation_part }} section_id_{{ section_id }} {% if content_edit or ui_context_edit %} content-edit{% endif %}{% if not show_side_menu %} hide-side-menu{% endif %}">
         <header id="header">
             <div class="header-nav">
                 <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.configResolver.parameter( 'content.tree_root.location_id' ) } ) }}" title="{{ site_name }}"></a>
