@@ -82,12 +82,8 @@
         <table class="list" width="100%" cellspacing="0" cellpadding="0" border="0">
     {section var=Blocks loop=$settings}
             <tr>
-                <th class="tight">&nbsp;</th>
                     <th width="50%">
-                    {$Blocks.key} ({$Blocks.item.count})&nbsp;&nbsp;&nbsp;
-                    {if $Blocks.item.editable}
-                         <a href={concat( '/settings/edit/', $current_siteaccess, '/', $ini_file, '/', $Blocks.key)|ezurl}>{'[add setting]'|i18n('design/admin/settings')}</a>
-                    {/if}
+                    {$Blocks.key} ({$Blocks.item.count})
                     </th>
                 <th class="tight">
                     {'Placement'|i18n( 'design/admin/settings' )}
@@ -99,13 +95,6 @@
             </tr>
             {section var=Settings loop=$Blocks.item.content sequence=array( 'bgdark', 'bglight' )}
                 <tr valign="top" class="{$Settings.sequence}">
-                    <td width="1">
-                    {if $Settings.item.removeable}
-                        <input type="checkbox" name="RemoveSettingsArray[]" value="{$Blocks.key}:{$Settings.key|wash}"/>
-                    {else}
-                        <input type="checkbox" disabled="disabled" />
-                    {/if}
-                    </td>
                     <td width="50%">
                         {$Settings.key|wash}
                     </td>
@@ -147,18 +136,7 @@
                         {/switch}
                     </td>
                     <td align="right" width="1">
-                        {if $Settings.item.editable}
-                        {switch match=$Settings.item.type}
-                            {case match='array'}
-                                <a href={concat('settings/edit/', $current_siteaccess, '/', $ini_file, '/', $Blocks.key, '/', $Settings.key, '/', 'siteaccess')|ezurl}>
-                                <img src={"edit.gif"|ezimage} alt="{'Edit'|i18n('design/admin/settings')}" /></a>
-                            {/case}
-                            {case}
-                                <a href={concat('settings/edit/', $current_siteaccess, '/', $ini_file, '/', $Blocks.key, '/', $Settings.key, '/', $Settings.item.placement)|ezurl}>
-                                <img src={"edit.gif"|ezimage} alt="{'Edit'|i18n('design/admin/settings')}" /></a>
-                            {/case}
-                        {/switch}
-                        {/if}
+                        &nbsp;
                     </td>
                 </tr>
             {/section}
@@ -166,12 +144,6 @@
         </table>
 
     {* DESIGN: Content END *}
-
-        <div class="controlbar">
-        {* DESIGN: Control bar START *}
-            <input class="btn btn-default" type="submit" name="RemoveButton" value="{'Remove selected'|i18n('design/admin/settings')}" />
-        </div>
-        {* DESIGN: Control bar END *}
     </div>
 
 </form>
