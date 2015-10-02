@@ -1,10 +1,6 @@
 {* set scope=global persistent_variable=hash('extra_menu', false()) *}
 
 <div class="context-block content-dashboard">
-    <div class="panel">
-        {include uri='design:dashboard/maintenance.tpl' }
-    </div>
-
     {* DESIGN: Content START *}
 
     <div class="row">
@@ -12,7 +8,7 @@
 
         <div class="col-lg-6">
             {foreach $blocks as $block sequence array( 'left', 'right' ) as $position}
-      
+
                 {if $position|eq('left')}
                     <div class="panel">
                         {if $block.template}
