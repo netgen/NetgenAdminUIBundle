@@ -26,13 +26,13 @@
         {section show=$available_extension_array}
         <table class="list" cellspacing="0">
             <tr>
-                <th class="tight"><i class="fa fa-check-square-o" title="{'Toggle all.'|i18n( 'design/admin/content/translations' )}" onclick="ezjs_toggleCheckboxes( document.extensionform, 'ActiveExtensionList[]' ); return false;"></i></th>
+                <th class="tight">&nbsp;</th>
                 <th>{'Name'|i18n( 'design/admin/setup/extensions' )}</th>
             </tr>
             {section var=Extensions loop=$available_extension_array sequence=array( bglight, bgdark )}
             <tr class="{$Extensions.sequence}">
                 {* Status. *}
-                <td><input type="checkbox" name="ActiveExtensionList[]" value="{$Extensions.item}" {if $selected_extension_array|contains($Extensions.item)}checked="checked"{/if} title="{'Activate or deactivate extension. Use the "Update" button to apply the changes.'|i18n( 'design/admin/setup/extensions' )|wash}" /></td>
+                <td><input type="checkbox" disabled="disabled "name="ActiveExtensionList[]" value="{$Extensions.item}" {if $selected_extension_array|contains($Extensions.item)}checked="checked"{/if} /></td>
                 {* Name. *}
                 <td>{$Extensions.item}</td>
             </tr>
@@ -49,41 +49,10 @@
         <div class="controlbar">
             {* DESIGN: Control bar START *}
             <div class="block">
-                {if $available_extension_array}
-                    <input class="button" type="submit" name="ActivateExtensionsButton" value="{'Update'|i18n( 'design/admin/setup/extensions' )}" title="{'Click this button to store changes if you have modified the status of the checkboxes above.'|i18n( 'design/admin/setup/extensions' )}" />
-                {else}
-                    <input class="button-disabled" type="submit" name="ActivateExtensionsButton" value="{'Update'|i18n( 'design/admin/setup/extensions' )}" disabled="disabled" />
-                {/if}
-                    <input class="button" type="submit" name="GenerateAutoloadArraysButton" value="{'Regenerate autoload arrays for extensions'|i18n( 'design/admin/setup/extensions' )}" title="{'Click this button to regenerate the autoload arrays used by the system for extensions.'|i18n( 'design/admin/setup/extensions' )}" />
+                <input class="button" type="submit" name="GenerateAutoloadArraysButton" value="{'Regenerate autoload arrays for extensions'|i18n( 'design/admin/setup/extensions' )}" title="{'Click this button to regenerate the autoload arrays used by the system for extensions.'|i18n( 'design/admin/setup/extensions' )}" />
             </div>
             {* DESIGN: Control bar END *}
         </div>
     </div>
 
 </form>
-
-{* Highlight "Update" button on changes *}
-{literal}
-<script type="text/javascript">
-$(document).ready(function() {
-    var initialExtensionSettings = {};
-    var extensionChecks = jQuery('[name=extensionform] :checkbox');
-
-    function styleUpdateButton() {
-        var b = jQuery('[name=ActivateExtensionsButton]:first');
-        jQuery(extensionChecks).each( function(){
-            if (initialExtensionSettings[this.value] !== this.checked) {
-                b.removeClass('button').addClass('defaultbutton');
-                return false;
-            } else {
-                b.removeClass('defaultbutton').addClass('button');
-            }
-        });
-    }
-
-    jQuery(extensionChecks).each( function(){
-        initialExtensionSettings[this.value] = this.checked;
-    }).change(function(){styleUpdateButton();});
-});
-</script>
-{/literal}
