@@ -1,2 +1,3 @@
 parameters:
     eztags.administration_group.tag_view.template: 'NetgenMoreAdminUIBundle:tag:view.html.twig'
+    ezsettings.administration_group.treemenu.http_cache: false
