@@ -153,6 +153,9 @@ var initBlockAttributesState = function(){
         if(localStorage.getItem('NgMoreAdvancedAttributesShown-' + blockId) !== null) {
             $('#id_' + blockId + ' .advanced').show();
             toggler.text(toggler.data('hide-text'));
-        }
+        } else {
+            $('#id_' + blockId + ' .advanced').hide();
+            toggler.text(toggler.data('show-text'));
+		}
     });
 };
