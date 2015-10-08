@@ -156,6 +156,6 @@ var initBlockAttributesState = function(){
         } else {
             $('#id_' + blockId + ' .advanced').hide();
             toggler.text(toggler.data('show-text'));
-		}
+        }
     });
 };
