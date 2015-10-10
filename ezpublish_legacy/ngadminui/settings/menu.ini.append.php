@@ -1,5 +1,14 @@
 <?php /* #?ini charset="utf-8"?
 
+[Topmenu_content]
+URL[default]=
+
+[Topmenu_media]
+URL[default]=Media
+
+[Topmenu_users]
+URL[default]=Users
+
 [Leftmenu_setup]
 Links[]
 Links[cache]=setup/cache
