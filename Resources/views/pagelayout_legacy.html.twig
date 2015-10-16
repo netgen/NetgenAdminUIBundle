@@ -31,18 +31,23 @@
 {# LEGACY PATH #}
 
 {% set legacy_path_array = ezpublish.legacy.has( 'path' ) ? ezpublish.legacy.get( 'path' ) : [] %}
-{% set root_location_path = path( ezpublish.rootLocation ) %}
-{% set path_array = [] %}
 
-{% for legacy_path_item in legacy_path_array %}
-    {% set path_array = path_array|merge( [ {
-        url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
-            root_location_path ~ legacy_path_item.url_alias :
-            false,
-        url: legacy_path_item.url ? path( 'ez_legacy', { 'module_uri': legacy_path_item.url } ) : false,
-        text: legacy_path_item.text
-    } ] ) %}
-{% endfor %}
+{% if legacy_path_array is not empty %}
+    {% set path_array = [] %}
+    {% set root_location_path = path( ezpublish.rootLocation ) %}
+
+    {% for legacy_path_item in legacy_path_array %}
+        {% set path_array = path_array|merge( [ {
+            url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
+                root_location_path ~ legacy_path_item.url_alias :
+                false,
+            url: legacy_path_item.url ? path( 'ez_legacy', { 'module_uri': legacy_path_item.url } ) : false,
+            text: legacy_path_item.text
+        } ] ) %}
+    {% endfor %}
+{% elseif module_result is defined and module_result['node_id'] is defined and module_result['node_id'] is not empty %}
+    {% set path_array = ngmore_location_path( module_result['node_id'], true ) %}
+{% endif %}
 
 {% block content %}
     {{ module_result.content|raw }}
