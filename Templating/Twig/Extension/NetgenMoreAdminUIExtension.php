@@ -2,6 +2,7 @@
 
 namespace Netgen\Bundle\MoreAdminUIBundle\Templating\Twig\Extension;
 
+use Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper;
 use Closure;
 use Twig_Extension;
 use Twig_SimpleFunction;
@@ -15,13 +16,20 @@ class NetgenMoreAdminUIExtension extends Twig_Extension
     protected $legacyKernel;
 
     /**
+     * @var \Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper
+     */
+    protected $globalHelper;
+
+    /**
      * Constructor
      *
      * @param \Closure $legacyKernel
+     * @param \Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper $globalHelper
      */
-    public function __construct( Closure $legacyKernel )
+    public function __construct( Closure $legacyKernel, GlobalHelper $globalHelper )
     {
         $this->legacyKernel = $legacyKernel;
+        $this->globalHelper = $globalHelper;
     }
 
     /**
@@ -64,5 +72,15 @@ class NetgenMoreAdminUIExtension extends Twig_Extension
                 return eZPreferences::value( $name );
             }
         );
+    }
+
+    /**
+     * Returns a list of global variables to add to the existing list.
+     *
+     * @return array An array of global variables
+     */
+    public function getGlobals()
+    {
+        return array( 'ngmore_admin_ui' => $this->globalHelper );
     }
 }

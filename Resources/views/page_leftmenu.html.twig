@@ -1,12 +1,10 @@
 {% set left_menu %}{% spaceless %}
-    {% include 'design:parts/' ~ navigation_part[2:-14] ~ '/menu.tpl' ignore missing
-        with {
-            uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' )
-        }
-    %}
+    {% if current_menu_plugin != false %}
+        {% include menu_plugins[current_menu_plugin].leftTemplate ignore missing %}
+    {% endif %}
 {% endspaceless %}{% endset %}
 
-{% if left_menu is not empty %}
+{% if left_menu|striptags|trim is not empty %}
     <div id="left-column" class="left-column layout-column">
         <div class="layout-column-inner">
             <div class="inner-cell">

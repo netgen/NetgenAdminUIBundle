@@ -32,10 +32,28 @@
             </div>
         </header>
 
+        {% set menu_plugins = ngmore_admin_ui.menuPlugins %}
+        {% set current_menu_plugin = ngmore_admin_ui.currentMenuPlugin %}
+
         {% if show_side_menu %}
             <aside id="aside">
                 <div class="aside-wrap">
-                    {% include 'design:page_sidemenu.tpl' %}
+                    {% include 'design:page_aside_user.tpl' %}
+
+                    <div class="navi-wrap">
+                        <div class="clearfix hidden-xs text-center hide" id="aside-user"></div>
+
+                        <nav class="aside-nav">
+                            <ul class="nav">
+                                {% for menu_plugin_identifier, menu_plugin in menu_plugins %}
+                                    {% include menu_plugin.asideTemplate with {
+                                        plugin: menu_plugin,
+                                        active: menu_plugin.identifier == current_menu_plugin
+                                    } %}
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </aside>
         {% endif %}
