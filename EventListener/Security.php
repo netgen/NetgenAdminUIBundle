@@ -3,7 +3,7 @@
 namespace Netgen\Bundle\MoreAdminUIBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -31,9 +31,9 @@ class Security implements EventSubscriberInterface
     protected $configResolver;
 
     /**
-     * @var \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface
+     * @var \Symfony\Component\Security\Core\SecurityContextInterface
      */
-    protected $tokenStorage;
+    protected $securityContext;
 
     /**
      * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
@@ -46,21 +46,21 @@ class Security implements EventSubscriberInterface
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param \eZ\Publish\API\Repository\Repository $repository
      * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
-     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     * @param \Symfony\Component\Security\Core\SecurityContextInterface $securityContext
      * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authChecker
      */
     public function __construct(
         RequestStack $requestStack,
         Repository $repository,
         ConfigResolverInterface $configResolver,
-        TokenStorageInterface $tokenStorage,
+        SecurityContextInterface $securityContext,
         AuthorizationCheckerInterface $authChecker
     )
     {
         $this->requestStack = $requestStack;
         $this->repository = $repository;
         $this->configResolver = $configResolver;
-        $this->tokenStorage = $tokenStorage;
+        $this->securityContext = $securityContext;
         $this->authChecker = $authChecker;
     }
 
@@ -121,7 +121,7 @@ class Security implements EventSubscriberInterface
         // User can be either authenticated by providing credentials during current session
         // or by "remember me" if available.
         return
-            $this->tokenStorage->getToken() instanceof TokenInterface
+            $this->securityContext->getToken() instanceof TokenInterface
             && $this->authChecker->isGranted( 'IS_AUTHENTICATED_REMEMBERED' );
     }
 }
