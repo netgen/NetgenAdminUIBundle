@@ -13,7 +13,6 @@ services:
             - @ezpublish.api.repository
             - @ezpublish.config.resolver
             - @security.context
-            - @security.authorization_checker
         tags:
             - { name: kernel.event_subscriber }
 

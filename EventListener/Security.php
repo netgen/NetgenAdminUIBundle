@@ -5,7 +5,6 @@ namespace Netgen\Bundle\MoreAdminUIBundle\EventListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
@@ -36,32 +35,24 @@ class Security implements EventSubscriberInterface
     protected $securityContext;
 
     /**
-     * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
-     */
-    protected $authChecker;
-
-    /**
      * Constructor
      *
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param \eZ\Publish\API\Repository\Repository $repository
      * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
      * @param \Symfony\Component\Security\Core\SecurityContextInterface $securityContext
-     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authChecker
      */
     public function __construct(
         RequestStack $requestStack,
         Repository $repository,
         ConfigResolverInterface $configResolver,
-        SecurityContextInterface $securityContext,
-        AuthorizationCheckerInterface $authChecker
+        SecurityContextInterface $securityContext
     )
     {
         $this->requestStack = $requestStack;
         $this->repository = $repository;
         $this->configResolver = $configResolver;
         $this->securityContext = $securityContext;
-        $this->authChecker = $authChecker;
     }
 
     /**
@@ -122,6 +113,6 @@ class Security implements EventSubscriberInterface
         // or by "remember me" if available.
         return
             $this->securityContext->getToken() instanceof TokenInterface
-            && $this->authChecker->isGranted( 'IS_AUTHENTICATED_REMEMBERED' );
+            && $this->securityContext->isGranted( 'IS_AUTHENTICATED_REMEMBERED' );
     }
 }
