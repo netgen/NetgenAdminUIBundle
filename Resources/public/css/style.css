@@ -4541,6 +4541,9 @@ table.list {
           margin: 4px 0 0; }
       table.list .related-thumbnail .thumbnail-tt:hover .thumbnail-tt-box {
         display: block; }
+  table.list.lowercase th {
+    text-transform: none;
+    font-size: 13px; }
 
 .form-group label {
   font-weight: 400;

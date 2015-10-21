@@ -586,6 +586,11 @@ table.list {
 			}
 		}
 	}
+	&.lowercase {
+		th {
+			text-transform:none; font-size:13px;
+		}
+	}
 }
 
 .form-group label {font-weight:400; font-size:1em;}
