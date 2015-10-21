@@ -79,7 +79,7 @@
     {* DESIGN: Content START *}
     <div class="box-content panel">
 
-        <table class="list" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <table class="list lowercase" width="100%" cellspacing="0" cellpadding="0" border="0">
     {section var=Blocks loop=$settings}
             <tr>
                     <th width="50%">
