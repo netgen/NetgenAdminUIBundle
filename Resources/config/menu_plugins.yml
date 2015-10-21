@@ -1,0 +1,24 @@
+parameters:
+    ngmore_admin_ui.menu_plugin.registry.class: Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginRegistry
+    ngmore_admin_ui.menu_plugin.legacy_top_menu.class: Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\LegacyTopMenuPlugin
+    ngmore_admin_ui.menu_plugin.legacy_cache.class: Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\LegacyCachePlugin
+    ngmore_admin_ui.menu_plugin.legacy_bookmarks.class: Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\LegacyBookmarksPlugin
+
+services:
+    ngmore_admin_ui.menu_plugin.registry:
+        class: %ngmore_admin_ui.menu_plugin.registry.class%
+
+    ngmore_admin_ui.menu_plugin.legacy_top_menu:
+        class: %ngmore_admin_ui.menu_plugin.legacy_top_menu.class%
+        tags:
+            - { name: 'ngmore_admin_ui.menu_plugin', priority: 0 }
+
+    ngmore_admin_ui.menu_plugin.legacy_cache:
+        class: %ngmore_admin_ui.menu_plugin.legacy_cache.class%
+        tags:
+            - { name: 'ngmore_admin_ui.menu_plugin', priority: -10 }
+
+    ngmore_admin_ui.menu_plugin.legacy_bookmarks:
+        class: %ngmore_admin_ui.menu_plugin.legacy_bookmarks.class%
+        tags:
+            - { name: 'ngmore_admin_ui.menu_plugin', priority: -20 }
