@@ -132,13 +132,13 @@ Theme=kp
 Size=normal
 
 # Default icon if there is no misc match
-#Default=mimetypes/empty.png
+Default=Document.png
 IconMap[]
 IconMap[role]=Users--alt.png
-IconMap[section]=actions/view_tree.png
-IconMap[translation]=apps/locale.png
+IconMap[section]=Ordered-listb.png
+IconMap[translation]=Flag-alt.png
 IconMap[pdfexport]=Document.png
-IconMap[url]=apps/package_network.png
+IconMap[url]=Globe.png
 
 [FlagIcons]
 Repository=extension/ngadminui/design/ngadminui/images/icons
