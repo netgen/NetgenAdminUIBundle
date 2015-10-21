@@ -79,7 +79,9 @@
                                 </div>
 
                                 <div class="main-content">
+                                    {% block pre_content %}{% endblock %}
                                     {% block content %}{% endblock %}
+                                    {% block post_content %}{% endblock %}
                                 </div>
                             </div>
                         </div>
