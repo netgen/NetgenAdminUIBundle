@@ -2,20 +2,19 @@
 
 [IconSettings]
 Repository=extension/ngadminui/design/ngadminui/images/icons
+Theme=kp
+Size=normal
 
 Sizes[huge]=128x128
 Sizes[large]=48x48
 Sizes[normal]=32x32
 Sizes[small]=16x16
 
-Sizes[whiteLarge]=48x48;48x48/white
-Sizes[whiteNormal]=32x32;32x32/white
-Sizes[whiteSmall]=16x16;16x16/white
+Sizes[large_white]=48x48;48x48/white
+Sizes[normal_white]=32x32;32x32/white
+Sizes[small_white]=16x16;16x16/white
 
 [MimeIcons]
-Theme=kp
-Size=normal
-
 Default=mimetypes/binary.png
 MimeMap[]
 MimeMap[text]=mimetypes/ascii.png
@@ -37,9 +36,6 @@ MimeMap[video/quicktime]=mimetypes/quicktime.png
 MimeMap[video/video/vnd.rn-realvideo]=mimetypes/real_doc.png
 
 [ClassIcons]
-Theme=kp
-Size=normal
-
 Default=Document.png
 ClassMap[]
 ClassMap[article]=Article.png
@@ -92,9 +88,6 @@ ClassMap[ng_video]=Movie-alt.png
 ClassMap[ng_video_external]=Movie-alt.png
 
 [ClassGroupIcons]
-Theme=kp
-Size=normal
-
 Default=Folder.png
 ClassGroupMap[]
 ClassGroupMap[content]=Folder.png
@@ -103,9 +96,6 @@ ClassGroupMap[media]=Playlist.png
 ClassGroupMap[setup]=Tools.png
 
 [Icons]
-Theme=kp
-Size=normal
-
 Default=Document.png
 IconMap[]
 IconMap[role]=Users--alt.png
@@ -117,5 +107,4 @@ IconMap[url]=Globe.png
 [FlagIcons]
 Repository=extension/ngadminui/design/ngadminui/images/icons
 Theme=flags-flat
-IconFormat=gif
 */ ?>
