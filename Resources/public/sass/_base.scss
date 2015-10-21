@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 	.nav {
 		list-style-type:none; margin:0; padding:0; color:$asideColor;
 		.caret {
-			display:inline-block; width:0; height:0; margin-left:2px; vertical-align:middle; border-top:4px solid; border-right:4px solid transparent; border-left:4px solid transparent; border-top-color:#869fb1; border-bottom-color:#869fb1;
+			display:inline-block; width:0; height:0; margin-left:0; vertical-align:middle; border-top:4px solid; border-right:4px solid transparent; border-left:4px solid transparent; border-top-color:#869fb1; border-bottom-color:#869fb1;
 		}
 		li {
 			line-height:1.42857143; margin:0;
@@ -899,14 +899,14 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 			border-top:2px solid $lightBg;
 		}
 		.label-preview {
-			text-align:right; width:200px; padding-right:30px; display:table-cell;
+			text-align:right; width:200px; padding-right:30px; display:table-cell; vertical-align:top;
 		}
 		.attribute-preview {
-			display:table-cell;
+			display:table-cell; vertical-align:top;
 		}
 	}
 	label, legend {
-		font-size:13px; color:#999; line-height:20px; border:none; margin:0; padding:0;
+		font-size:13px; color:#999; line-height:20px; border:none; margin:0; padding:0; white-space:initial;
 		.text-right & {
 			margin:0; padding:0;
 		}
@@ -961,6 +961,9 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 	h1 {
 		margin:0 0 20px; font-size:23px; color:#333;
 	}
+	.panel & {
+		background:#fff; padding:0;
+	}
 }
 
 .list-group {margin:0 0 20px;}
@@ -1010,8 +1013,8 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 
 fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 
-#action-filter-input {border:1px solid #cccccc; height:34px; padding:6px 20px 6px 12px;
-	@include rounded(4px);
+#action-filter-input {
+	border:1px solid #cccccc; height:34px; padding:6px 20px 6px 12px; @include rounded(4px); margin:3px 0.25em;
 }
 
 .node-control-toolbar {
@@ -1384,6 +1387,48 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	}
 	.node-top-switch {
 		left:$asideWidth + $leftColumnWidth;
+	}
+}
+
+/* custom extensions styling */
+.classlists, .ezfindnavigationpart, .ezbccienavigationpart {
+	.context-block {
+		padding:0 $gutter;
+		.box-header {
+			background:#fff; padding:0;
+			h1.context-title {
+				margin-top:10px;
+			}
+		}
+	}
+	p.table-preferences {
+		background:#fff; @extend .clearfix; border:1px solid #ccc;
+		a, span {
+			display:inline-block; float:left; padding:4px 10px; color:#444; border-width:0 0 0 1px;
+			&:hover {
+				background:#eee;
+			}
+			&.current {
+				-moz-box-shadow:inset 0 3px 5px rgba(0,0,0,.125); -webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125); box-shadow:inset 0 3px 5px rgba(0,0,0,.125); background:#eee; font-weight:normal;
+			}
+		}
+		> *:first-child {
+			border:none;
+		}
+	}
+	.menu-block {
+		padding:1em $gutter;
+		ul {
+			@extend .clearfix;
+			li {
+				a {
+					color:#444; font-size:12px; padding:4px 10px; border:1px solid #ccc;
+					&:hover {
+						background:#eee;
+					}
+				}
+			}
+		}
 	}
 }
 

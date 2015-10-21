@@ -3451,10 +3451,10 @@ button.list-group-item-danger {
     border-left-color: white;
     bottom: -10px; }
 
-.clearfix:before, .clearfix:after {
+.clearfix:before, .classlists p.table-preferences:before, .ezfindnavigationpart p.table-preferences:before, .ezbccienavigationpart p.table-preferences:before, .classlists .menu-block ul:before, .ezfindnavigationpart .menu-block ul:before, .ezbccienavigationpart .menu-block ul:before, .clearfix:after, .classlists p.table-preferences:after, .ezfindnavigationpart p.table-preferences:after, .ezbccienavigationpart p.table-preferences:after, .classlists .menu-block ul:after, .ezfindnavigationpart .menu-block ul:after, .ezbccienavigationpart .menu-block ul:after {
   content: " ";
   display: table; }
-.clearfix:after {
+.clearfix:after, .classlists p.table-preferences:after, .ezfindnavigationpart p.table-preferences:after, .ezbccienavigationpart p.table-preferences:after, .classlists .menu-block ul:after, .ezfindnavigationpart .menu-block ul:after, .ezbccienavigationpart .menu-block ul:after {
   clear: both; }
 
 .center-block {
@@ -3972,7 +3972,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     width: 0;
     height: 0;
-    margin-left: 2px;
+    margin-left: 0;
     vertical-align: middle;
     border-top: 4px solid;
     border-right: 4px solid transparent;
@@ -5050,16 +5050,19 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
       text-align: right;
       width: 200px;
       padding-right: 30px;
-      display: table-cell; }
+      display: table-cell;
+      vertical-align: top; }
     .content-preview .preview-row .attribute-preview {
-      display: table-cell; }
+      display: table-cell;
+      vertical-align: top; }
   .content-preview label, .content-preview legend {
     font-size: 13px;
     color: #999;
     line-height: 20px;
     border: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    white-space: initial; }
     .text-right .content-preview label, .text-right .content-preview legend {
       margin: 0;
       padding: 0; }
@@ -5122,6 +5125,9 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
     margin: 0 0 20px;
     font-size: 23px;
     color: #333; }
+  .panel .box-header {
+    background: #fff;
+    padding: 0; }
 
 .list-group {
   margin: 0 0 20px; }
@@ -5210,7 +5216,8 @@ fieldset legend {
   padding: 6px 20px 6px 12px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  margin: 3px 0.25em; }
 
 .node-control-toolbar {
   float: right; }
@@ -5744,6 +5751,43 @@ input.tagssuggestfield {
   margin-left: 0; }
 .hide-side-menu .node-top-switch {
   left: 340px; }
+
+/* custom extensions styling */
+.classlists .context-block, .ezfindnavigationpart .context-block, .ezbccienavigationpart .context-block {
+  padding: 0 15px; }
+  .classlists .context-block .box-header, .ezfindnavigationpart .context-block .box-header, .ezbccienavigationpart .context-block .box-header {
+    background: #fff;
+    padding: 0; }
+    .classlists .context-block .box-header h1.context-title, .ezfindnavigationpart .context-block .box-header h1.context-title, .ezbccienavigationpart .context-block .box-header h1.context-title {
+      margin-top: 10px; }
+.classlists p.table-preferences, .ezfindnavigationpart p.table-preferences, .ezbccienavigationpart p.table-preferences {
+  background: #fff;
+  border: 1px solid #ccc; }
+  .classlists p.table-preferences a, .classlists p.table-preferences span, .ezfindnavigationpart p.table-preferences a, .ezfindnavigationpart p.table-preferences span, .ezbccienavigationpart p.table-preferences a, .ezbccienavigationpart p.table-preferences span {
+    display: inline-block;
+    float: left;
+    padding: 4px 10px;
+    color: #444;
+    border-width: 0 0 0 1px; }
+    .classlists p.table-preferences a:hover, .classlists p.table-preferences span:hover, .ezfindnavigationpart p.table-preferences a:hover, .ezfindnavigationpart p.table-preferences span:hover, .ezbccienavigationpart p.table-preferences a:hover, .ezbccienavigationpart p.table-preferences span:hover {
+      background: #eee; }
+    .classlists p.table-preferences a.current, .classlists p.table-preferences span.current, .ezfindnavigationpart p.table-preferences a.current, .ezfindnavigationpart p.table-preferences span.current, .ezbccienavigationpart p.table-preferences a.current, .ezbccienavigationpart p.table-preferences span.current {
+      -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      background: #eee;
+      font-weight: normal; }
+  .classlists p.table-preferences > *:first-child, .ezfindnavigationpart p.table-preferences > *:first-child, .ezbccienavigationpart p.table-preferences > *:first-child {
+    border: none; }
+.classlists .menu-block, .ezfindnavigationpart .menu-block, .ezbccienavigationpart .menu-block {
+  padding: 1em 15px; }
+  .classlists .menu-block ul li a, .ezfindnavigationpart .menu-block ul li a, .ezbccienavigationpart .menu-block ul li a {
+    color: #444;
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid #ccc; }
+    .classlists .menu-block ul li a:hover, .ezfindnavigationpart .menu-block ul li a:hover, .ezbccienavigationpart .menu-block ul li a:hover {
+      background: #eee; }
 
 @media (min-width: 768px) {
   .form-inline .form-group {
