@@ -19,31 +19,28 @@
         {section show=$object_array}
         {* Items per page selector. *}
         <div class="context-toolbar">
-            <div class="button-left">
-                <p class="table-preferences">
-                    {switch match=$number_of_items}
-                    {case match=25}
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/1'|ezurl}>10</a>
-                    <span class="current">25</span>
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/3'|ezurl}>50</a>
-                    {/case}
+            <p class="btn-group">
+                {switch match=$number_of_items}
+                {case match=25}
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/1'|ezurl}>10</a>
+                <span class="btn btn-default btn-sm active">25</span>
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/3'|ezurl}>50</a>
+                {/case}
 
-                    {case match=50}
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/1'|ezurl}>10</a>
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/2'|ezurl}>25</a>
-                    <span class="current">50</span>
-                    {/case}
+                {case match=50}
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/1'|ezurl}>10</a>
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/2'|ezurl}>25</a>
+                <span class="btn btn-default btn-sm active">50</span>
+                {/case}
 
-                    {case}
-                    <span class="current">10</span>
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/2'|ezurl}>25</a>
-                    <a href={'/user/preferences/set/admin_infocollector_list_limit/3'|ezurl}>50</a>
-                    {/case}
+                {case}
+                <span class="btn btn-default btn-sm active">10</span>
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/2'|ezurl}>25</a>
+                <a class="btn btn-default btn-sm" href={'/user/preferences/set/admin_infocollector_list_limit/3'|ezurl}>50</a>
+                {/case}
 
-                    {/switch}
-                </p>
-            </div>
-            <div class="float-break"></div>
+                {/switch}
+            </p>
         </div>
 
         {* Object table. *}
