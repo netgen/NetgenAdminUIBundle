@@ -2,6 +2,8 @@
 
 namespace Netgen\Bundle\MoreAdminUIBundle\MenuPlugin;
 
+use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
+use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Symfony\Component\HttpFoundation\Request;
 
 class LegacyTopMenuPlugin implements MenuPluginInterface
@@ -45,8 +47,9 @@ class LegacyTopMenuPlugin implements MenuPluginInterface
      */
     public function matches( Request $request )
     {
-        $currentRoute = $request->attributes->get( '_route' );
-
-        return $currentRoute == 'ez_legacy' || $currentRoute == 'ez_urlalias';
+        return in_array(
+            $request->attributes->get( '_route' ),
+            array( FallbackRouter::ROUTE_NAME, UrlAliasRouter::URL_ALIAS_ROUTE_NAME )
+        );
     }
 }
