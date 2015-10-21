@@ -22,7 +22,9 @@
                     {/if}
                 {/foreach}
                 {if gt( $can_create_languages|count, 0 )}
-                    <li role="separator" class="divider"></li>
+                    {if $node.object.can_edit_languages|count|gt( 1 )}
+                        <li role="separator" class="divider"></li>
+                    {/if}
                     <li><button type="submit" name="EditButton">+ Add new translation</button></li>
                 {/if}
             </ul>

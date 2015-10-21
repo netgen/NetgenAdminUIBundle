@@ -10,7 +10,7 @@
             <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
             <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        <ul {if $translation_list|count|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
             {def $locale_object = false}
             {foreach $translation_list as $locale_code}
                 {set $locale_object = $locale_code|locale()}
@@ -21,21 +21,6 @@
                 {/endif}
             {/foreach}
         </ul>
-
-        {* <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-            {foreach $node.object.can_edit_languages as $language}
-                {if $language.locale|eq($node.object.current_language)|not}
-                    <li class="with-edit">
-                        <a href={concat( $node.url, '/(language)/', $language.locale )|ezurl} title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">{$language.name|wash}</a>
-                        <a href={concat( 'content/edit/', $node.object.id, '/f/', $language.locale )|ezurl} class="edit-icon" title="{'Edit in %language.name.'|i18n( 'design/admin/node/view/full',, hash( '%language.name', $language.locale_object.intl_language_name ) )|wash}"><i class="fa fa-edit"></i></a>
-                    </li>
-                {/if}
-            {/foreach}
-            {if gt( $can_create_languages|count, 0 )}
-                <li role="separator" class="divider"></li>
-                <li><button type="submit" name="EditButton">+ Add new translation</button></li>
-            {/if}
-        </ul> *}
         {undef $can_create_languages}
     </form>
     <ul class="node-view-switch">
@@ -145,7 +130,7 @@
                 sizing = function(w, h){
                     container.width(w).height(h);
                     containerDesign.width(w).height(h);
-                    frame.width(w).height(h);                    
+                    frame.width(w).height(h);
                 }
                 switching = function(el, w, h){
                     containerDesign.attr('class', 'container-design');
@@ -167,7 +152,7 @@
                             h = contHeight();
                     }
                     el.addClass('active').siblings().removeClass('active');
-                    sizing(w, h);               
+                    sizing(w, h);
                 };
             control.children('.btn').each(function(){
                 sizes.push($(this).attr('data-width'));
