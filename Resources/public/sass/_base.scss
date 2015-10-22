@@ -1390,6 +1390,72 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	}
 }
 
+/* ez flow layout */
+.content-edit {
+	.yui-skin-ezflow {
+		.yui-navset {
+			.yui-content {
+				background:$lightBg; border:none;
+				.textfield, select {
+					height:34px; padding:6px 12px; color:#555; border:1px solid #e8e8e8; background:#fff; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025);
+				}
+				.block-container {
+					background:#fff; margin-top:8px;
+				}
+				.block-header {
+					border:none; background:transparent;
+				}
+				.block-content {
+					border:none; background:transparent;
+					.controls {
+						.textfield, select {
+							width:100%; max-width:500px;
+						}
+					}
+				}
+				.block-controls {
+					margin:0 0 12px;
+				}
+				label {
+					font-size:13px; color:#4b4b4b; margin:14px 0 4px; display:block;
+				}
+				.block-add-item {
+					margin:12px 0;
+				}
+				.trigger {
+					border:none; color:#337ab7; text-decoration:underline; background-color:transparent;
+				}
+				input[type="radio"], input[type="checkbox"] {
+					margin:0;
+				}
+			}
+			.yui-nav {
+				border-color:#445464;
+				.selected {
+					margin-bottom:0;
+				}
+				a {
+					border:none; -moz-border-radius:2px 2px 0 0; -webkit-border-radius:2px 2px 0 0; border-radius:2px 2px 0 0; background:#CDD2D7; color:#333;
+					&:hover {
+						background:lighten(#CDD2D7, 5%); color:#333;
+					}
+					em {
+						background:transparent !important; border:none;
+					}
+				}
+				.selected {
+					a {
+						background:#445464; border-color:#445464; color:#fff; cursor:default;
+						&:hover {
+							background:#445464;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 /* custom extensions styling */
 .classlists, .ezfindnavigationpart, .ezbccienavigationpart {
 	.context-block {

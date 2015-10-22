@@ -5752,6 +5752,75 @@ input.tagssuggestfield {
 .hide-side-menu .node-top-switch {
   left: 340px; }
 
+/* ez flow layout */
+.content-edit .yui-skin-ezflow .yui-navset .yui-content {
+  background: whitesmoke;
+  border: none; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .textfield, .content-edit .yui-skin-ezflow .yui-navset .yui-content select {
+    height: 34px;
+    padding: 6px 12px;
+    color: #555;
+    border: 1px solid #e8e8e8;
+    background: #fff;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.025);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.025);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.025); }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-container {
+    background: #fff;
+    margin-top: 8px; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header {
+    border: none;
+    background: transparent; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-content {
+    border: none;
+    background: transparent; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-content .controls .textfield, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-content .controls select {
+      width: 100%;
+      max-width: 500px; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-controls {
+    margin: 0 0 12px; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content label {
+    font-size: 13px;
+    color: #4b4b4b;
+    margin: 14px 0 4px;
+    display: block; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-add-item {
+    margin: 12px 0; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content .trigger {
+    border: none;
+    color: #337ab7;
+    text-decoration: underline;
+    background-color: transparent; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content input[type="radio"], .content-edit .yui-skin-ezflow .yui-navset .yui-content input[type="checkbox"] {
+    margin: 0; }
+.content-edit .yui-skin-ezflow .yui-navset .yui-nav {
+  border-color: #445464; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected {
+    margin-bottom: 0; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-nav a {
+    border: none;
+    -moz-border-radius: 2px 2px 0 0;
+    -webkit-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    background: #CDD2D7;
+    color: #333; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-nav a:hover {
+      background: #dbdfe2;
+      color: #333; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-nav a em {
+      background: transparent !important;
+      border: none; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected a {
+    background: #445464;
+    border-color: #445464;
+    color: #fff;
+    cursor: default; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected a:hover {
+      background: #445464; }
+
 /* custom extensions styling */
 .classlists .context-block, .ezfindnavigationpart .context-block, .ezbccienavigationpart .context-block {
   padding: 0 15px; }
