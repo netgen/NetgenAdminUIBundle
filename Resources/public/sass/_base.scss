@@ -1403,18 +1403,34 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 					background:#fff; margin-top:8px;
 				}
 				.block-header {
-					border:none; background:transparent;
+					border:none; background:rgba(6, 32, 59, 0.5); color:#fff;
 				}
 				.block-content {
-					border:none; background:transparent;
-					.controls {
-						.textfield, select {
-							width:100%; max-width:500px;
+					border:1px solid rgba(6, 32, 59, 0.2); border-top:none; background:transparent;
+					.group {
+						display:table; table-layout:fixed; width:100%; border-bottom:1px solid #f3f3f3;
+						&:after {
+							display:none;
+						}
+						label {
+							display:table-cell; width:240px; padding:12px 10px; text-align:right;
+						}
+						.controls {
+							display:table-cell; padding:12px 10px 12px 0;
+							.textfield {
+								width:100%;
+							}
 						}
 					}
 				}
+				.block-name {
+					background:#f5f5f5;
+				}
 				.block-controls {
-					margin:0 0 12px;
+					margin:0 0 12px; text-align:right;
+					.left {
+						text-align:left;
+					}
 				}
 				label {
 					font-size:13px; color:#4b4b4b; margin:14px 0 4px; display:block;
