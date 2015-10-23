@@ -6,7 +6,7 @@ use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
 use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Symfony\Component\HttpFoundation\Request;
 
-class LegacyTopMenuPlugin implements MenuPluginInterface
+class LegacyMenuPlugin implements MenuPluginInterface
 {
     /**
      * Returns plugin identifier
@@ -15,7 +15,7 @@ class LegacyTopMenuPlugin implements MenuPluginInterface
      */
     public function getIdentifier()
     {
-        return 'legacy_top_menu';
+        return 'legacy';
     }
 
     /**
@@ -25,7 +25,7 @@ class LegacyTopMenuPlugin implements MenuPluginInterface
      */
     public function getAsideTemplate()
     {
-        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy_top_menu:aside.html.twig';
+        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig';
     }
 
     /**
@@ -35,7 +35,7 @@ class LegacyTopMenuPlugin implements MenuPluginInterface
      */
     public function getLeftTemplate()
     {
-        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy_top_menu:left.html.twig';
+        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig';
     }
 
     /**
