@@ -107,5 +107,6 @@ IconMap[url]=Globe.png
 [FlagIcons]
 Repository=extension/ngadminui/design/ngadminui/images/icons
 Theme=flags-flat
+IconFormat=gif
 DefaultIcon=unknown
 */ ?>
