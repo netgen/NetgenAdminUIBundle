@@ -4578,7 +4578,7 @@ select.input-sm, .input-group-sm > select.form-control,
   margin-left: -1px; }
 
 /* subitems yui control */
-#action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
+.fontawesome, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon:before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger:before, #action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
   display: inline-block;
   font: normal normal normal 14px FontAwesome;
   font-size: inherit;
@@ -5774,7 +5774,59 @@ input.tagssuggestfield {
   .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header {
     border: none;
     background: rgba(6, 32, 59, 0.5);
-    color: #fff; }
+    color: #fff;
+    cursor: move; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon {
+      display: inline-block;
+      position: relative;
+      background: rgba(255, 255, 255, 0.15);
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      height: 26px; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon + .block-control-icon {
+        margin-left: 4px; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon input {
+        border: none;
+        width: 26px;
+        height: 26px;
+        background: transparent;
+        position: relative; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon:before {
+        position: absolute;
+        display: block;
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        color: #fff; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon.block-control-up:before {
+        content: "\f062"; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon.block-control-down:before {
+        content: "\f063"; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon.block-control-remove:before {
+        content: "\f014"; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon:hover {
+        background: rgba(255, 255, 255, 0.25); }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .button-left {
+      line-height: 26px; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger {
+      width: 26px;
+      height: 26px;
+      margin: 0 6px 0 0;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      text-align: center;
+      line-height: 26px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger:before {
+        content: "\f103"; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger.collapse:before {
+        content: "\f102"; }
+      .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger:hover {
+        background: rgba(255, 255, 255, 0.25); }
   .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-content {
     border: 1px solid rgba(6, 32, 59, 0.2);
     border-top: none;
@@ -5828,6 +5880,8 @@ input.tagssuggestfield {
     border-radius: 2px 2px 0 0;
     background: #CDD2D7;
     color: #333; }
+    .content-edit .yui-skin-ezflow .yui-navset .yui-nav a:focus {
+      background: #CDD2D7; }
     .content-edit .yui-skin-ezflow .yui-navset .yui-nav a:hover {
       background: #dbdfe2;
       color: #333; }
@@ -5839,7 +5893,7 @@ input.tagssuggestfield {
     border-color: #445464;
     color: #fff;
     cursor: default; }
-    .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected a:hover {
+    .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected a:hover, .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected a:focus {
       background: #445464; }
 
 /* custom extensions styling */

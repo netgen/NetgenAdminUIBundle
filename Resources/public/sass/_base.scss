@@ -611,7 +611,9 @@ select.input-sm {line-height:1.5;}
 .node-control-toolbar .input-group .form-control {margin-left:-1px;}
 
 /* subitems yui control */
-#action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {display:inline-block; font:normal normal normal $fontSize/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);}
+.fontawesome, #action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
+		display:inline-block; font:normal normal normal $fontSize/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);
+	}
 
 #action-controls-container {
 	margin:5px 0 15px;
@@ -1391,6 +1393,8 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 }
 
 /* ez flow layout */
+$yuiInputHeight: 26px;
+
 .content-edit {
 	.yui-skin-ezflow {
 		.yui-navset {
@@ -1403,7 +1407,46 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 					background:#fff; margin-top:8px;
 				}
 				.block-header {
-					border:none; background:rgba(6, 32, 59, 0.5); color:#fff;
+					border:none; background:rgba(6, 32, 59, 0.5); color:#fff; cursor:move;
+					.block-control-icon {
+						display:inline-block; position:relative; background:rgba(#fff,.15); -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; height:$yuiInputHeight;
+						+ .block-control-icon {
+							margin-left:4px;
+						}
+						input {
+							border:none; width:$yuiInputHeight; height:$yuiInputHeight; background:transparent; position:relative;
+						}
+						&:before {
+							@extend .fontawesome; position:absolute; display:block; width:$yuiInputHeight; height:$yuiInputHeight; text-align:center; line-height:$yuiInputHeight; color:#fff;
+						}
+						&.block-control-up:before {
+							content:"\f062";
+						}
+						&.block-control-down:before {
+							content:"\f063";
+						}
+						&.block-control-remove:before {
+							content:"\f014";
+						}
+						&:hover {
+							background:rgba(#fff,.25);
+						}
+					}
+					.button-left {
+						line-height:$yuiInputHeight;
+					}
+					.trigger {
+						width:$yuiInputHeight; height:$yuiInputHeight; margin:0 6px 0 0; background:rgba(#fff, .15); color:#fff; text-align:center; line-height:$yuiInputHeight; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;
+						&:before {
+							@extend .fontawesome; content:"\f103";
+						}
+						&.collapse:before {
+							content:"\f102";
+						}
+						&:hover {
+							background:rgba(#fff,.25);
+						}
+					}
 				}
 				.block-content {
 					border:1px solid rgba(6, 32, 59, 0.2); border-top:none; background:transparent;
@@ -1452,6 +1495,9 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 				}
 				a {
 					border:none; -moz-border-radius:2px 2px 0 0; -webkit-border-radius:2px 2px 0 0; border-radius:2px 2px 0 0; background:#CDD2D7; color:#333;
+					&:focus {
+						background:#CDD2D7;
+					}
 					&:hover {
 						background:lighten(#CDD2D7, 5%); color:#333;
 					}
@@ -1462,7 +1508,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 				.selected {
 					a {
 						background:#445464; border-color:#445464; color:#fff; cursor:default;
-						&:hover {
+						&:hover, &:focus {
 							background:#445464;
 						}
 					}
