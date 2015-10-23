@@ -10,13 +10,16 @@
             <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
             <span class="caret"></span>
         </button>
+
         <ul {if $translation_list|count|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
             {def $locale_object = false}
             {foreach $translation_list as $locale_code}
                 {set $locale_object = $locale_code|locale()}
                 {if eq( $locale_code, $object_languagecode )|not}
                     <li>
-                        <a href="" title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">{$locale_object.intl_language_name2}</a>
+                        <a href="" title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">
+                            <img src="{$locale_code|flag_icon}" width="18" height="12" alt="{$locale_code|wash}" style="vertical-align: middle;" /> {$locale_object.intl_language_name}
+                        </a>
                     </li>
                 {/endif}
             {/foreach}
