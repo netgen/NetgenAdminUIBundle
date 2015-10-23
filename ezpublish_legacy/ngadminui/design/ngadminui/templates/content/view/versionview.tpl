@@ -21,7 +21,7 @@
                             <img src="{$locale_code|flag_icon}" width="18" height="12" alt="{$locale_code|wash}" style="vertical-align: middle;" /> {$locale_object.intl_language_name}
                         </a>
                     </li>
-                {/endif}
+                {/if}
             {/foreach}
         </ul>
         {undef $can_create_languages}
