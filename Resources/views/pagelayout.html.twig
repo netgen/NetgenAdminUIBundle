@@ -72,11 +72,13 @@
                     <div id="main-column" class="main-column layout-column">
                         <div class="layout-column-inner">
                             <div class="inner-cell">
-                                <div id="path" {% if content_edit %}class="path-edit"{% endif %}>
-                                    <div id="path-design">
-                                        {% include 'NetgenMoreAdminUIBundle::page_toppath.html.twig' %}
+                                {% if path_array is not empty %}
+                                    <div id="path" {% if content_edit %}class="path-edit"{% endif %}>
+                                        <div id="path-design">
+                                            {% include 'NetgenMoreAdminUIBundle::page_toppath.html.twig' %}
+                                        </div>
                                     </div>
-                                </div>
+                                {% endif %}
 
                                 <div class="main-content">
                                     {% block pre_content %}{% endblock %}
