@@ -14,18 +14,11 @@ interface MenuPluginInterface
     public function getIdentifier();
 
     /**
-     * Returns aside menu template name
+     * Returns the list of templates this plugin supports
      *
-     * @return string
+     * @return array
      */
-    public function getAsideTemplate();
-
-    /**
-     * Returns left menu template name
-     *
-     * @return string
-     */
-    public function getLeftTemplate();
+    public function getTemplates();
 
     /**
      * Returns if this plugin matches the current request

@@ -54,10 +54,12 @@
                         <nav class="aside-nav">
                             <ul class="nav">
                                 {% for menu_plugin_identifier, menu_plugin in menu_plugins %}
-                                    {% include menu_plugin.asideTemplate with {
-                                        plugin: menu_plugin,
-                                        active: menu_plugin.identifier == current_menu_plugin
-                                    } %}
+                                    {% if menu_plugin.templates.aside is defined %}
+                                        {% include menu_plugin.templates.aside ignore missing with {
+                                            plugin: menu_plugin,
+                                            active: menu_plugin.identifier == current_menu_plugin
+                                        } %}
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </nav>

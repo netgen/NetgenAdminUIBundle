@@ -1,6 +1,6 @@
 {% set left_menu %}{% spaceless %}
-    {% if current_menu_plugin != false %}
-        {% include menu_plugins[current_menu_plugin].leftTemplate ignore missing %}
+    {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.left is defined %}
+        {% include menu_plugins[current_menu_plugin].templates.left ignore missing %}
     {% endif %}
 {% endspaceless %}{% endset %}
 

@@ -17,23 +17,15 @@ class LegacyBookmarksPlugin implements MenuPluginInterface
     }
 
     /**
-     * Returns aside menu template name
+     * Returns the list of templates this plugin supports
      *
-     * @return string
+     * @return array
      */
-    public function getAsideTemplate()
+    public function getTemplates()
     {
-        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy_bookmarks:aside.html.twig';
-    }
-
-    /**
-     * Returns left menu template name
-     *
-     * @return string
-     */
-    public function getLeftTemplate()
-    {
-        return null;
+        return array(
+            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy_bookmarks:aside.html.twig'
+        );
     }
 
     /**

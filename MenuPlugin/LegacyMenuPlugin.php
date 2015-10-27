@@ -19,23 +19,16 @@ class LegacyMenuPlugin implements MenuPluginInterface
     }
 
     /**
-     * Returns aside menu template name
+     * Returns the list of templates this plugin supports
      *
-     * @return string
+     * @return array
      */
-    public function getAsideTemplate()
+    public function getTemplates()
     {
-        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig';
-    }
-
-    /**
-     * Returns left menu template name
-     *
-     * @return string
-     */
-    public function getLeftTemplate()
-    {
-        return 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig';
+        return array(
+            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig',
+            'left' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig'
+        );
     }
 
     /**
