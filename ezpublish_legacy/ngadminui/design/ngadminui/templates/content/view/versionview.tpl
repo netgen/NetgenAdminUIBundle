@@ -11,7 +11,7 @@
             <span class="caret"></span>
         </button>
 
-        <ul {if $translation_list|count|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
+        <ul{if $translation_list|count|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
             {def $locale_object = false}
             {foreach $translation_list as $locale_code}
                 {set $locale_object = $locale_code|locale()}

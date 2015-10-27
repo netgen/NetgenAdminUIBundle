@@ -12,7 +12,7 @@
                 <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <ul{if $node.object.can_edit_languages|count|sum($can_create_languages|count)|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
                 {foreach $node.object.can_edit_languages as $language}
                     {if $language.locale|eq($node.object.current_language)|not}
                         <li class="with-edit">
