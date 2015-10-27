@@ -1,5 +1,4 @@
 <div id="content-tree">
-	{include uri='design:page_search.tpl'}
 	{* DESIGN: Header START *}
 	<h4 class="leftmenu-hl">{'Content structure'|i18n( 'design/admin/parts/content/menu' )}</h4>
 	{* DESIGN: Header END *}
