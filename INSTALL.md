@@ -54,7 +54,7 @@ ActiveExtensions[]=ngadminui
 ## Create a new administration siteaccess with `legacy_mode: false` config and configure it:
 
 Use the following config to configure the templates in your new siteaccess. This config usually goes
-into your main `ezpublish.yml` file, or the one imported from your project bundle.
+into your `ezpublish.yml` file imported from your **project bundle**.
 (change `administration_group` to something more appropriate for your installation):
 
 ```
@@ -74,8 +74,8 @@ ez_publish_legacy:
 ```
 
 Use the following config to configure the pagelayout and some other required settings in your new
-siteaccess. This config usually goes into your main `parameters.yml` file, or the one imported from
-your project bundle. (change `administration_group` to something more appropriate for your installation):
+siteaccess. This config usually goes into your `parameters.yml` file imported from
+your **project bundle**. (change `administration_group` to something more appropriate for your installation):
 
 ```
 ngmore.administration_group.pagelayout: 'NetgenMoreAdminUIBundle::pagelayout.html.twig'
