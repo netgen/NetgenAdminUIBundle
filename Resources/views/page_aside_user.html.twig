@@ -1,0 +1,105 @@
+{% set user_content = app.user.APIUser.content %}
+
+<div class="aside-footer">
+    {% set user_avatar = asset( 'bundles/netgenmoreadminui/images/a0.jpg' ) %}
+    {% if not ez_is_field_empty( user_content, 'image' ) %}
+        {% set user_avatar =
+            asset(
+                ez_image_alias(
+                    ngmore_field( user_content, 'image' ),
+                    user_content.versionInfo,
+                    'medium'
+                ).uri
+            ) %}
+    {% endif %}
+
+    <a href="#" class="user-dropdown-toggle dropdown-toggle" data-toggle="dropdown">
+        <span class="user-avatar" style="background-image:url({{ user_avatar }})"></span>
+    </a>
+
+    <!-- dropdown -->
+    <ul class="dropdown-menu user-dropdown">
+
+        <li>
+            <div class="user-avatar" style="background-image:url({{ user_avatar }})">
+            </div>
+            <h4 class="user-name">{{ ez_content_name( user_content ) }}</h4>
+            <p class="user-role">{{ app.user.APIUser.login }}</p>
+        </li>
+
+        <li class="divider"></li>
+
+        {% if ui_context != 'edit' and ui_context != 'browse' %}
+            {% if ngmore_can_user( 'content', 'read', user_content ) %}
+                <li><a href="{{ path( 'ez_urlalias', { 'locationId': user_content.contentInfo.mainLocationId } ) }}">View profile</a></li>
+            {% endif %}
+
+            {% if ngmore_can_user( 'content', 'edit', user_content ) %}
+                <li>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}" title="Change name, email, password, etc.">Change information</a>
+                </li>
+            {% endif %}
+
+            <li>
+                <a href="{{ path( 'ez_legacy', { module_uri: '/user/password' } ) }}" title="Change password">Change password</a>
+            </li>
+        {% else %}
+            <li><span class="disabled">View profile</span></li>
+            <li><span class="disabled">Change information</span></li>
+            <li><span class="disabled">Change password</span></li>
+        {% endif %}
+
+        <li class="divider"></li>
+
+        {# {% if ui_context != 'edit' and ui_context != 'browse' %}
+            {% if ezpreference( 'admin_edit_show_locations' ) %}
+                <li class="hidden-folded">
+                    <span>Locations are enabled</span>
+                </li>
+
+                <li>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">Disable locations</a>
+                </li>
+            {% else %}
+                <li class="hidden-folded">
+                    <span>Locations are disabled</span>
+                </li>
+
+                <li>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/1' } ) }}" title="Enable location window when editing content.">Enable locations</a>
+                </li>
+            {% endif %}
+
+            {% if ezpreference( 'admin_edit_show_re_edit' ) %}
+                <li class="hidden-folded">
+                    <span>Re-edit is enabled</span>
+                </li>
+
+                <li>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">Disable Re-edit</a>
+                </li>
+            {% else %}
+                <li class="hidden-folded">
+                    <span>Re-edit is disabled</span>
+                </li>
+
+                <li>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/1' } ) }}" title="Enable &quot;Back to edit&quot; checkbox when editing content.">Enable Re-edit</a>
+                </li>
+            {% endif %}
+
+            <li class="divider"></li>
+        {% endif %} #}
+
+        <li>
+            {% if ui_context_edit %}
+                <span title="Logout from the system." class="disabled">Logout</span>
+            {% else %}
+                <a href="{{ path( 'logout' ) }}" title="Logout from the system.">Logout</a>
+            {% endif %}
+        </li>
+
+    </ul>
+    <!-- / dropdown -->
+
+</div>
