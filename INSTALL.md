@@ -20,6 +20,14 @@ public function registerBundles()
 }
 ```
 
+## Install bundle assets
+
+Use the following script to symlink bundle assets to `web/bundles` directory:
+
+```
+php ezpublish/console assets:install --symlink --relative
+```
+
 ## Import the `ezpublish.yml` from the bundle into your main `ezpublish.yml` file:
 
 ```
