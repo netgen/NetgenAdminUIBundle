@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 	background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
 }
 .header-nav {
-	width:$asideWidth; float:left; position:fixed;
+	width:$asideWidth; float:left;
 }
 .header-search {
 	margin-left:100px; background:#fff; -moz-box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05); -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05); box-shadow:0 2px 2px rgba(0,0,0,0.05),0 1px 0 rgba(0,0,0,0.05); height:$headerHeight;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-form {
-	position:fixed; padding:0; margin-left:100px; background:#fafafa; top:0; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; z-index:4;
+	padding:0; background:#fafafa; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; position:relative; float:left;
 	.search-input {
 		width:100%; border:none; background:transparent; height:30px; line-height:30px; padding:0 $gutter 0 45px; margin:20px 0 0; font:inherit;
 		&:focus {
@@ -613,7 +613,7 @@ select.input-sm {line-height:1.5;}
 /* subitems yui control */
 .fontawesome, #action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
 		display:inline-block; font:normal normal normal $fontSize/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);
-	}
+}
 
 #action-controls-container {
 	margin:5px 0 15px;
@@ -768,9 +768,13 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 		background:$lightBg;
 	}
 }
-
+table {
+	th.yui-dt-hidden, tr.yui-dt-odd .yui-dt-hidden, tr.yui-dt-even .yui-dt-hidden {
+		display:none;
+	}
+}
 .node-top-switch {
-	position:fixed;	top:0; height:$headerHeight; padding-left:$gutter; z-index:5; left:$asideWidth + $leftColumnWidth;
+	float:left; height:$headerHeight; padding-left:$gutter;
 	.language-switch {
 		float:left; margin:12px 12px 0 0;
 		.btn {
