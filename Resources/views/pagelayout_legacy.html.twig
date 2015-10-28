@@ -4,7 +4,7 @@
     {% set module_result = ezpublish.legacy.all %}
 {% endif %}
 
-{# PERSISTENT VARIABLE #}
+{# CONTENT INFO #}
 
 {% set content_info = null %}
 {% if ezpublish.legacy.has( 'content_info' ) %}
@@ -15,9 +15,11 @@
     {% set content_info = module_result.content_info %}
 {% endif %}
 
-{% set persistent_variable = null %}
-{% if content_info.persistent_variable is defined %}
-    {% set persistent_variable = content_info.persistent_variable %}
+{# PERSISTENT VARIABLE #}
+
+{% set persistent_variable = [] %}
+{% if ezpublish.legacy.has( 'persistent_variable' ) %}
+    {% set persistent_variable = ezpublish.legacy.get( 'persistent_variable' ) %}
 {% endif %}
 
 {# SHOWING OR HIDING SIDE MENU #}
