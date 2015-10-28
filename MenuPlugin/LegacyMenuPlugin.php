@@ -43,7 +43,11 @@ class LegacyMenuPlugin implements MenuPluginInterface
     {
         return in_array(
             $request->attributes->get( '_route' ),
-            array( FallbackRouter::ROUTE_NAME, UrlAliasRouter::URL_ALIAS_ROUTE_NAME )
+            array(
+                FallbackRouter::ROUTE_NAME,
+                UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+                '_eztagsTag'
+            )
         );
     }
 }
