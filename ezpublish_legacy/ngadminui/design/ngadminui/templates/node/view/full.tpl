@@ -1,5 +1,4 @@
-<div class="content-view-full class-{$node.class_identifier}">
-
+{set-block variable=$top_menu}
     <div class="node-top-switch">
         <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
             {def $can_create_languages = $node.object.can_create_languages
@@ -38,7 +37,11 @@
             <li><a href={concat('/content/versionview/', $node.object.id, '/', $node.object.current_version)|ezurl}><i class="fa fa-globe"></i> Preview</a></li>
         </ul>
     </div>
+{/set-block}
 
+{ezpagedata_set( 'top_menu', $top_menu )}
+
+<div class="content-view-full class-{$node.class_identifier}">
     {include uri='design:infocollection_validation.tpl'}
 
     <div class="content-navigation">

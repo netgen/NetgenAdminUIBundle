@@ -20,4 +20,9 @@
     {% endif %}
 {% endif %}
 
+{# MENU PLUGINS #}
+
+{% set menu_plugins = ngmore_admin_ui.menuPlugins %}
+{% set current_menu_plugin = ngmore_admin_ui.currentMenuPlugin %}
+
 {% endspaceless %}{% block pagelayout_content %}{% endblock %}

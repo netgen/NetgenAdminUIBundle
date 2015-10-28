@@ -770,7 +770,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 }
 
 .node-top-switch {
-	position:fixed;	top:0; height:$headerHeight; padding-left:$gutter; z-index:5;
+	position:fixed;	top:0; height:$headerHeight; padding-left:$gutter; z-index:5; left:$asideWidth + $leftColumnWidth;
 	.language-switch {
 		float:left; margin:12px 12px 0 0;
 		.btn {
@@ -1386,9 +1386,6 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 .hide-side-menu {
 	#content {
 		margin-left:0;
-	}
-	.node-top-switch {
-		left:$asideWidth + $leftColumnWidth;
 	}
 }
 

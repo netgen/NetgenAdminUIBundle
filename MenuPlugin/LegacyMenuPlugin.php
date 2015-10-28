@@ -27,7 +27,8 @@ class LegacyMenuPlugin implements MenuPluginInterface
     {
         return array(
             'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig',
-            'left' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig'
+            'left' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig',
+            'top' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:top.html.twig'
         );
     }
 

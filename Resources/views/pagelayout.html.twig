@@ -38,10 +38,11 @@
             <div class="header-search">
                 {% include 'design:page_search.tpl' %}
             </div>
-        </header>
 
-        {% set menu_plugins = ngmore_admin_ui.menuPlugins %}
-        {% set current_menu_plugin = ngmore_admin_ui.currentMenuPlugin %}
+            {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.top is defined %}
+                {% include menu_plugins[current_menu_plugin].templates.top ignore missing %}
+            {% endif %}
+        </header>
 
         {% if show_side_menu %}
             <aside id="aside">

@@ -1,3 +1,4 @@
+{set-block variable=$top_menu}
 <div class="node-top-switch">
     <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
         {def $can_create_languages = $node.object.can_create_languages
@@ -32,7 +33,9 @@
         <li class="active"><a href="#"><i class="fa fa-globe"></i> Preview</a></li>
     </ul>
 </div>
+{/set-block}
 
+{ezpagedata_set( 'top_menu', $top_menu )}
 
 <!-- Maincontent START -->
 
