@@ -14,24 +14,3 @@
         {% endif %}
     {% endif %}
 </form>
-
-<script type="text/javascript">
-(function($){
-    if ( !document.getElementById('searchbuttonfield') )return;
-
-    $('#searchbuttonfield').click(function(){
-        if ( $('#searchText').val() === $('#searchText').attr('title') )return;
-          $('#searchButton').click();
-    });
-    $('#searchscope').click(function(){
-        $('#searchscope-pane').addClass('active');
-    });
-    $('#searchscope-pane-close').click(function(){
-        $('#searchscope-pane').removeClass('active');
-    });
-    $('input:radio[name=SubTreeArray]').change( function() {
-        $('#searchText').attr('value', $(this).attr('title'));
-        $('#searchText').attr('title', $(this).attr('title'));
-    } );
-})( jQuery );
-</script>

@@ -36,9 +36,7 @@
             </div>
 
             {% if not ui_context_edit %}
-                <div class="header-search">
-                    {% include 'NetgenMoreAdminUIBundle::page_search.html.twig' %}
-                </div>
+                {% include 'NetgenMoreAdminUIBundle::page_search.html.twig' %}
             {% endif %}
 
             {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.top is defined %}

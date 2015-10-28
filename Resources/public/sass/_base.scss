@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.login-header {
 		text-align:center; margin:0 0 20px;
-		
+
 		.logo {
 			background:transparent url('../images/ez-logo.svg') 0 0 no-repeat; width:72px; height:36px; display:block; margin:0 auto 20px; background-size:100% auto;
 		}
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.list-group-item {
 		border:1px solid #e7ecee; padding:6px 10px; margin-bottom:-1px; background:#fff;
-		
+
 		&:first-child {
 			@include rounded(4px 4px 0 0);
 		}
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-form {
-	position:fixed; padding:0; margin:0; background:#fafafa; top:0; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; z-index:4;
+	position:fixed; padding:0; margin-left:100px; background:#fafafa; top:0; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; z-index:4;
 	.search-input {
 		width:100%; border:none; background:transparent; height:30px; line-height:30px; padding:0 $gutter 0 45px; margin:20px 0 0; font:inherit;
 		&:focus {
@@ -888,7 +888,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 
 .preview-content-diff {-moz-column-count:2; -webkit-column-count:2; column-count:2; -moz-column-gap:20px; -webkit-column-gap:20px; column-gap:20px; padding:20px 20px 0;}
 .attribute-view-diff p {margin:0; color:#333;}
-.attribute-view-diff-old, 
+.attribute-view-diff-old,
 .attribute-view-diff-new {padding:8px 10px; margin:0 -10px;}
 .attribute-view-diff-new {background-color:rgba(0,128,0,.035); margin-bottom:-6px;}
 #diffview .btn-group {margin:0 0 12px;}
@@ -1303,7 +1303,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 		}
 	}
 	&.tablet-horizontal, &.tablet-vertical {
-		border-width:8px 50px 8px 8px; 
+		border-width:8px 50px 8px 8px;
 		#preview-frame {
 			@include rounded(5px);
 		}
