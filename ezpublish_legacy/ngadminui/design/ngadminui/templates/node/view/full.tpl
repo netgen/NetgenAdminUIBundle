@@ -8,7 +8,7 @@
             <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
             <input name="ContentObjectLanguageCode" value="" type="hidden" />
             <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$language_code|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
+                <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$node.object.current_language|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
                 <span class="caret"></span>
             </button>
             <ul{if $node.object.can_edit_languages|count|sum($can_create_languages|count)|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
