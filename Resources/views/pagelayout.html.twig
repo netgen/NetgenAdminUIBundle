@@ -35,9 +35,11 @@
                 <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.rootLocation.id } ) }}" title="{{ site_name }}"></a>
             </div>
 
-            <div class="header-search">
-                {% include 'design:page_search.tpl' %}
-            </div>
+            {% if not ui_context_edit %}
+                <div class="header-search">
+                    {% include 'design:page_search.tpl' %}
+                </div>
+            {% endif %}
 
             {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.top is defined %}
                 {% include menu_plugins[current_menu_plugin].templates.top ignore missing %}
