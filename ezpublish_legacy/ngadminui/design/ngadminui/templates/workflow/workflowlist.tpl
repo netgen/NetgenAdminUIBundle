@@ -37,7 +37,7 @@
 
 </div>
 <div class="panel">
-    <form name="workflowlistform" method="post" action={concat( $module.functions.workflowlist.uri, '/', $group_id )|ezurl}> 
+    <form name="workflowlistform" method="post" action={concat( $module.functions.workflowlist.uri, '/', $group_id )|ezurl}>
 
 
         {* DESIGN: Header START *}
@@ -54,7 +54,7 @@
             {section show=$workflow_list}
             <table class="list" cellspacing="0">
             <tr>
-                <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/workflow/workflowlist' )}" onclick="ezjs_toggleCheckboxes( document.workflowlistform, 'Workflow_id_checked[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/workflow/workflowlist' )}" /></th>
+                <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.workflowlistform, 'Workflow_id_checked[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/workflow/workflowlist' )}"></i></th>
                 <th>{'Name'|i18n( 'design/admin/workflow/workflowlist' )}</th>
                 <th class="tight">{'ID'|i18n( 'design/admin/workflow/workflowlist' )}</th>
                 <th>{'Modifier'|i18n( 'design/admin/workflow/workflowlist' )}</th>
@@ -72,7 +72,7 @@
                 {/let}
                 </td>
                 <td>{$Workflows.item.modified|l10n( shortdatetime )}</td>
-                <td><a href={concat( $module.functions.edit.uri, '/', $Workflows.item.id )|ezurl}><img src={'edit.gif'|ezimage} width="16" height="16" alt="{'Edit'|i18n( 'design/admin/workflow/workflowlist' )}" title="{'Edit the < %workflow_name > workflow.'|i18n( 'design/admin/workflow/workflowlist',, hash( '%workflow_name', $Workflows.item.name ) )|wash}" /></a></td>
+                <td><a href={concat( $module.functions.edit.uri, '/', $Workflows.item.id )|ezurl}><i class="fa fa-pencil-square-o" title="{'Edit the < %workflow_name > workflow.'|i18n( 'design/admin/workflow/workflowlist',, hash( '%workflow_name', $Workflows.item.name ) )|wash}"></i></a></td>
                 </tr>
                {/section}
             </table>

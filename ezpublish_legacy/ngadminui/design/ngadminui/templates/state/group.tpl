@@ -105,7 +105,7 @@
 
             <table class="list" cellspacing="0">
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/state/group' )}" title="{'Invert selection.'|i18n( 'design/admin/state/group' )|wash}" onclick="ezjs_toggleCheckboxes( document.getElementById('stateList'), 'DeleteIDArray[]' ); return false;"/></th>
+                    <th class="tight"><i class="fa fa-check-square-o" title="{'Invert selection.'|i18n( 'design/admin/state/group' )|wash}" onclick="ezjs_toggleCheckboxes( document.getElementById('stateList'), 'DeleteIDArray[]' ); return false;"></i></th>
                     <th class="tight">{'ID'|i18n('design/admin/state/group')|wash}</th>
                     <th>{'Identifier'|i18n('design/admin/state/group')|wash}</th>
                     <th>{'Name'|i18n('design/admin/state/group')|wash}</th>
@@ -125,7 +125,7 @@
                     </td>
                     <td>
                     {if $group.is_internal|not}
-                    <a href={concat("state/edit/",$group.identifier,"/",$state.identifier)|ezurl}><img src={'edit.gif'|ezimage} width="16" height="16" alt="{'Edit'|i18n( 'design/admin/node/view/full' )|wash}" /></a></td>
+                    <a href={concat("state/edit/",$group.identifier,"/",$state.identifier)|ezurl}><i class="fa fa-pencil-square-o"></i></a></td>
                     {else}
                     <img src={'edit-disabled.gif'|ezimage} alt="{'Edit'|i18n( 'design/admin/node/view/full' )|wash}" />
                     {/if}

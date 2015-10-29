@@ -116,7 +116,7 @@
             {else}
             <table class="list" cellspacing="0" >
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/content/urlalias_global' )}" title="{'Invert selection.'|i18n( 'design/admin/content/urlalias_global' )}" onclick="ezjs_toggleCheckboxes( document.aliasform, 'ElementList[]' ); return false;"/></th>
+                    <th class="tight"><i class="fa fa-check-square-o" title="{'Invert selection.'|i18n( 'design/admin/content/urlalias_global' )}" onclick="ezjs_toggleCheckboxes( document.aliasform, 'ElementList[]' ); return false;"></i></th>
                     <th>{'URL alias'|i18n( 'design/admin/content/urlalias_global' )}</th>
                     <th>{'Destination'|i18n( 'design/admin/content/urlalias_global' )}</th>
                     <th>{'Language'|i18n( 'design/admin/content/urlalias_global' )}</th>

@@ -16,7 +16,7 @@
             {section show=$groups}
             <table class="list" cellspacing="0">
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="Invert selection." onclick="ezjs_toggleCheckboxes( document.grouplistform, 'ContentClass_id_checked[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/workflow/grouplist' )}" /></th>
+                    <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.grouplistform, 'ContentClass_id_checked[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/workflow/grouplist' )}"></i></th>
                     <th>{'Name'|i18n( 'design/admin/workflow/grouplist' )}</th>
                     <th class="tight">&nbsp;</th>
 
@@ -25,7 +25,7 @@
                 <tr class="{$Groups.sequence}">
                     <td><input type="checkbox" name="ContentClass_id_checked[]" value="{$Groups.item.id}" title="{'Select workflow group for removal.'|i18n( 'design/admin/workflow/grouplist' )}" /></td>
                     <td><a href={concat( $module.functions.workflowlist.uri, '/', $Groups.item.id )|ezurl}>{$Groups.item.name|wash}</a></td>
-                    <td><a href={concat( $module.functions.groupedit.uri, '/', $Groups.item.id )|ezurl}><img src={'edit.gif'|ezimage} width="16" height="16" alt="{'Edit'|i18n( 'design/admin/workflow/grouplist' )}" title="{'Edit the < %workflow_group_name > workflow group.'|i18n( 'design/admin/workflow/grouplist',, hash( '%workflow_group_name', $Groups.item.name ) )|wash}" /></a></td>
+                    <td><a href={concat( $module.functions.groupedit.uri, '/', $Groups.item.id )|ezurl}><i class="fa fa-pencil-square-o" title="{'Edit the < %workflow_group_name > workflow group.'|i18n( 'design/admin/workflow/grouplist',, hash( '%workflow_group_name', $Groups.item.name ) )|wash}"></i></a></td>
                 </tr>
                 {/section}
                 {section-else}
@@ -41,7 +41,7 @@
             {* Buttons. *}
             <div class="controlbar">
             {* DESIGN: Control bar START *}
-            
+
                 {if $groups}
                 <input class="btn btn-default" type="submit" name="DeleteGroupButton" value="{'Remove selected'|i18n( 'design/admin/workflow/grouplist' )}"  title="{'Remove selected workflow groups.'|i18n( 'design/admin/workflow/grouplist' )}"  />
                 {else}

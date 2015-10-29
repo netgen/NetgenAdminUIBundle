@@ -80,7 +80,7 @@
             {else}
             <table class="list" cellspacing="0" >
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/content/urlalias_wildcard' )}" title="{'Invert selection.'|i18n( 'design/admin/content/urlalias_wildcard' )}" onclick="ezjs_toggleCheckboxes( document.wildcardform, 'WildcardIDList[]' ); return false;"/></th>
+                    <th class="tight"><i class="fa fa-check-square-o" title="{'Invert selection.'|i18n( 'design/admin/content/urlalias_wildcard' )}" onclick="ezjs_toggleCheckboxes( document.wildcardform, 'WildcardIDList[]' ); return false;"></i></th>
                     <th>{'URL alias wildcard'|i18n( 'design/admin/content/urlalias_wildcard' )}</th>
                     <th>{'Destination'|i18n( 'design/admin/content/urlalias_wildcard' )}</th>
                     <th>{'Type'|i18n( 'design/admin/content/urlalias_wildcard' )}</th>
