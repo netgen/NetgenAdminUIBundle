@@ -15,7 +15,7 @@
         {section show=$pdfexport_list}
         <table class="list" cellspacing="0">
             <tr>
-                <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/pdf/list' )}" onclick="ezjs_toggleCheckboxes( document.pdfexportlist, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/pdf/list' )}" /></th>
+                <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.pdfexportlist, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/pdf/list' )}"></i></th>
                 <th>{'Name'|i18n( 'design/admin/pdf/list' )}</th>
                 <th>{'Modifier'|i18n( 'design/admin/pdf/list' )}</th>
                 <th>{'Modified'|i18n( 'design/admin/pdf/list' )}</th>
@@ -50,7 +50,7 @@
                 <td>{$PDFExports.item.modified|l10n( shortdatetime )}</td>
 
                 {* Edit. *}
-                <td><a href={concat( 'pdf/edit/', $PDFExports.item.id )|ezurl}><img class="button" src={'edit.gif'|ezimage} width="16" height="16" alt="{'Edit'|i18n( 'design/admin/pdf/list' )}" title="{'Edit the < %pdf_export_name > PDF export.'|i18n( 'design/admin/pdf/list',, hash( '%pdf_export_name', $PDFExports.item.title ) )|wash}" /></a></td>
+                <td><a href={concat( 'pdf/edit/', $PDFExports.item.id )|ezurl}><i class="fa fa-pencil-square-o" title="{'Edit the < %pdf_export_name > PDF export.'|i18n( 'design/admin/pdf/list',, hash( '%pdf_export_name', $PDFExports.item.title ) )|wash}"></i></a></td>
 
             </tr>
             {/section}

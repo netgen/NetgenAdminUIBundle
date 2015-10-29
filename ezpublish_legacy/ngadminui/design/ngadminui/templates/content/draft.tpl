@@ -51,7 +51,7 @@
 
             <table class="list" cellspacing="0">
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="{'Invert selection.'|i18n( 'design/admin/content/draft' )}" onclick="ezjs_toggleCheckboxes( document.draftaction, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/content/draft' )}" /></th>
+                    <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.draftaction, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/content/draft' )}"></i></th>
                     <th>{'Name'|i18n( 'design/admin/content/draft' )}</th>
                     <th>{'Type'|i18n( 'design/admin/content/draft' )}</th>
                     <th>{'Section'|i18n( 'design/admin/content/draft' )}</th>

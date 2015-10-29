@@ -220,7 +220,7 @@
             {if $attribute.content.relation_list}
                 <table class="list" cellspacing="0">
                     <tr class="bglight">
-                        <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} alt="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" onclick="ezjs_toggleCheckboxes( document.editform, '{$attribute_base}_selection[{$attribute.id}][]' ); return false;" title="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" /></th>
+                        <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.editform, '{$attribute_base}_selection[{$attribute.id}][]' ); return false;" title="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}">f</i></th>
                         <th>{'Name'|i18n( 'design/standard/content/datatype' )}</th>
                         <th>{'Type'|i18n( 'design/standard/content/datatype' )}</th>
                         <th>{'Section'|i18n( 'design/standard/content/datatype' )}</th>
@@ -333,7 +333,7 @@
                 </select>
                 {if $new_object_initial_node_placement}
                     <input type="hidden" name="{$attribute_base}_object_initial_node_placement[{$attribute.id}]" value="{$new_object_initial_node_placement|wash}" />
-                {/if} 
+                {/if}
                 <input class="button" type="submit" name="CustomActionButton[{$attribute.id}_new_class]" value="{'Create new object'|i18n( 'design/standard/content/datatype' )}" />
                 </div>
             {/section}

@@ -49,7 +49,7 @@
         {if $list_count}
         <table class="list" cellspacing="0">
             <tr>
-                <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="Toggle selection" onclick="ezjs_toggleCheckboxes( document.versionsform, 'DeleteIDArray[]' ); return false;" /></th>
+                <th class="tight"><i class="fa fa-pencil-square-o" onclick="ezjs_toggleCheckboxes( document.versionsform, 'DeleteIDArray[]' ); return false;"></i></th>
                 <th>{'Version'|i18n( 'design/admin/content/history' )}</th>
                 <th>{'Status'|i18n( 'design/admin/content/history' )}</th>
                 <th>{'Modified translation'|i18n( 'design/admin/content/history' )}</th>

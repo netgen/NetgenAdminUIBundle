@@ -53,7 +53,7 @@
 
             <table class="list" cellspacing="0">
                 <tr>
-                    <th class="tight"><img src={'toggle-button-16x16.gif'|ezimage} width="16" height="16" alt="Invert selection." onclick="ezjs_toggleCheckboxes( document.trashform, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/content/trash' )}" /></th>
+                    <th class="tight"><i class="fa fa-check-square-o" onclick="ezjs_toggleCheckboxes( document.trashform, 'DeleteIDArray[]' ); return false;" title="{'Invert selection.'|i18n( 'design/admin/content/trash' )}"></i></th>
                     <th>{'Name'|i18n( 'design/admin/content/trash')}</th>
                     <th>{'Type'|i18n( 'design/admin/content/trash')}</th>
                     <th>{'Section'|i18n( 'design/admin/content/trash')}</th>
@@ -80,12 +80,13 @@
                     </td>
                     <td>
                     {let section_object=fetch( section, object, hash( section_id, $cur_c_object.section_id ) )}{section show=$section_object}{$section_object.name|wash}{section-else}<i>{'Unknown'|i18n( 'design/admin/content/trash' )}</i>{/section}{/let}
-                    </td>
+                    </td>Key "url" for array with keys "uri, text" does not exist in NetgenMoreAdminUIBundle::pagelayout_legacy.html.twig at line 46
+500 Internal Server Error - Twig_Error_Runtime
                     <td>
                     {if $original_parent}<a href={concat( '/', $original_parent.path_identification_string )|ezurl}>{/if}/{$tObjects.item.original_parent_path_id_string|wash}{if $original_parent}</a>{/if}
                     </td>
                     <td>
-                    <a href={concat( '/content/restore/', $cur_c_object.id, '/' )|ezurl}><img src={'edit.gif'|ezimage} border="0" alt="{'Restore'|i18n( 'design/admin/content/trash' )}" /></a>
+                    <a href={concat( '/content/restore/', $cur_c_object.id, '/' )|ezurl}><i class="fa fa-pencil-square-o"></i></a>
                     </td>
                 </tr>
 
