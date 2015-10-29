@@ -9,7 +9,8 @@
     ],
     "require": {
         "ezsystems/ezpublish-kernel": "*",
-        "ezsystems/ezpublish-legacy": "*"
+        "ezsystems/ezpublish-legacy": "*",
+        "netgen/more-bundle": "*"
     },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\MoreAdminUIBundle\\": ""}
