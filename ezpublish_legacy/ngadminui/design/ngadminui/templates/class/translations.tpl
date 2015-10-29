@@ -58,7 +58,7 @@
                 {* Edit. *}
                 <td>
 
-                    <a href={concat( 'class/edit/', $class.id, '/(language)/', $Translations.item.locale )|ezurl}><img src={'edit.gif'|ezimage} width="16" height="16" alt="{'Edit in %language_name.'|i18n( 'design/admin/class/view',, hash( '%language_name', $Translations.item.locale_object.intl_language_name ) )|wash}" title="{'Edit in %language_name.'|i18n( 'design/admin/class/view',, hash( '%language_name', $Translations.item.locale_object.intl_language_name ) )|wash}" /></a>
+                    <a href={concat( 'class/edit/', $class.id, '/(language)/', $Translations.item.locale )|ezurl}><i class="fa fa-pencil-square-o" title="{'Edit in %language_name.'|i18n( 'design/admin/class/view',, hash( '%language_name', $Translations.item.locale_object.intl_language_name ) )|wash}"></i></a>
 
                 </td>
 
