@@ -1,10 +1,23 @@
-<li class="dropdown">
-    <a href="#" class="dropdown-toggle" title="Cache and quick settings"  data-toggle="dropdown">
-        <i class="fa fa-refresh"></i>
-        <span class="tt">Cache</span>
-        <span class="caret"></span>
-    </a>
-    <div class="dropdown-menu dropdown-cache">
-        {% include 'design:toolbar/full/admin_clear_cache.tpl' %}
-    </div>
-</li>
+{% if ngmore_has_access( 'setup', 'managecache' ) %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" title="Cache and quick settings"  data-toggle="dropdown">
+            <i class="fa fa-refresh"></i>
+            <span class="tt">Cache</span>
+            <span class="caret"></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-cache">
+            <div id="clearcache-tool" class="clearcache-tool">
+                {% if ui_context != 'browse' %}
+                    {% if ui_context == 'edit' %}
+                        <h4><span class="disabled">Clear cache</span></h4>
+                    {% else %}
+                        <h4>Clear cache</h4>
+                    {% endif %}
+                {% endif %}
+
+                {% include 'design:setup/clear_cache.tpl' %}
+            </div>
+        </div>
+    </li>
+{% endif %}
