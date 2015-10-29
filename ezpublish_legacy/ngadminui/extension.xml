@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<software>
-    <dependencies>
-        <extends>
-            <extension name="ngmore" />
-        </extends>
-    </dependencies>
-</software>
+<software />
