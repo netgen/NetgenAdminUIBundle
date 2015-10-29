@@ -43,7 +43,9 @@
             url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
                 root_location_path ~ legacy_path_item.url_alias :
                 false,
-            url: legacy_path_item.url ? path( 'ez_legacy', { 'module_uri': legacy_path_item.url } ) : false,
+            url: legacy_path_item.url is defined and legacy_path_item.url is not same as(false) ?
+                path( 'ez_legacy', { 'module_uri': legacy_path_item.url } ) :
+                false,
             text: legacy_path_item.text
         } ] ) %}
     {% endfor %}
