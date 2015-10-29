@@ -90,5 +90,8 @@ ezsettings.administration_group.treemenu.http_cache: false
 [DesignSettings]
 SiteDesign=ngadminui
 AdditionalSiteDesignList[]
-AdditionalSiteDesignList[]=ezdemo
+AdditionalSiteDesignList[]=admin2
+AdditionalSiteDesignList[]=admin
+AdditionalSiteDesignList[]=standard
+AdditionalSiteDesignList[]=base
 ```
