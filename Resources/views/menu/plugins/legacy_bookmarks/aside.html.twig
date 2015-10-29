@@ -1,10 +1,25 @@
-<li class="dropdown">
-    <a class="dropdown-toggle" title="Bookmarks"  data-toggle="dropdown">
-        <i class="fa fa-bookmark"></i>
-        <span class="tt">Bookmarks</span>
-        <span class="caret"></span>
-    </a>
-    <div class="dropdown-menu dropdown-cache">
-        {% include 'design:toolbar/full/admin_bookmarks.tpl' %}
-    </div>
-</li>
+{% if ngmore_has_access( 'content', 'bookmark' ) %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" title="Bookmarks"  data-toggle="dropdown">
+            <i class="fa fa-bookmark"></i>
+            <span class="tt">Bookmarks</span>
+            <span class="caret"></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-cache">
+            <div id="bookmarks">
+                {% if ui_context != 'browse' %}
+                    {% if ui_context == 'edit' %}
+                        <h4><span class="disabled">Bookmarks</span></h4>
+                    {% else %}
+                        <h4>Bookmarks</h4>
+                    {% endif %}
+                {% endif %}
+
+                <div class="box-content">
+                    {% include 'design:toolbar/full/admin_bookmarks.tpl' %}
+                </div>
+            </div>
+        </div>
+    </li>
+{% endif %}
