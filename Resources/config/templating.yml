@@ -17,10 +17,3 @@ services:
             - @ngmore_admin_ui.templating.global_helper
         tags:
             - { name: twig.extension }
-
-    ngmore_admin_ui.templating.converter.tag:
-        class: %ngmore_admin_ui.templating.converter.tag.class%
-        arguments:
-            - @ezpublish_legacy.kernel
-        tags:
-            - {name: ezpublish_legacy.templating.converter, for: Netgen\TagsBundle\API\Repository\Values\Tags\Tag}
