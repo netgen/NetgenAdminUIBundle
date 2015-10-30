@@ -43,17 +43,6 @@
                 {/section}
             </table>
 
-            {*
-            <div class="context-toolbar">
-                {include name=navigator
-                     uri='design:navigator/google.tpl'
-                     page_uri='/content/bookmark'
-                     item_count=$list_count
-                     view_parameters=$view_parameters
-                     item_limit=$page_limit}
-            </div>
-            *}
-
             {else}
                 <div class="block">
                     <p>{'There are no bookmarks in the list.'|i18n( 'design/admin/content/bookmark' )}</p>

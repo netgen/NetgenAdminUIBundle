@@ -4,7 +4,6 @@
 
 {* get the sections list which consist of: sections allowed to assign to the object by the
    current loged in user, plus the section which is currently assigned to the object *}
-{*{def $sections=fetch( 'content', 'section_list' )*}
 {def $sections=$object.allowed_assign_section_list
      $currentSectionName='unknown'}
 

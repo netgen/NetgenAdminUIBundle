@@ -93,24 +93,6 @@
     </div>
 
     {* DESIGN: Content END *}
-
-    {* Buttonbar for content window. *}
-    {* <div class="controlbar">
-        <form method="post" action={concat( 'content/versionview/', $object.id, '/', $version.version, '/', $language, '/', $from_language )|ezurl}>
-            {if or( and( eq( $version.status, 0 ), $is_creator, $object.can_edit ),
-                              and( eq( $object.status, 2 ), $object.can_edit ) )}
-                <input class="btn btn-primary" type="submit" name="EditButton" value="{'Back to edit'|i18n( 'design/admin/content/view/versionview' )}" title="{'Edit the draft that is being displayed.'|i18n( 'design/admin/content/view/versionview' )}" />
-                <input class="btn btn-default" type="submit" name="PreviewPublishButton" value="{'Publish'|i18n( 'design/admin/content/view/versionview' )}" title="{'Publish the draft that is being displayed.'|i18n( 'design/admin/content/view/versionview' )}" />
-            {else}
-                {if is_set( $redirect_uri )}
-                    <input class="text" type="hidden" name="RedirectURI" value="{$redirect_uri}" />
-                {/if}
-                <input class="btn btn-primary" type="submit" name="BackButton" value="{'Back'|i18n( 'design/admin/content/view/versionview' )}" />
-            {/if}
-
-        </form>
-    </div> *}
-
 </div>
 
 {literal}

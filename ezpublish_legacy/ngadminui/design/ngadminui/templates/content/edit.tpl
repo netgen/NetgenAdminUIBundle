@@ -100,22 +100,6 @@
 
 
         {* DESIGN: Header START *}
-        <!--div class="title-wrapper">
-            <span class="title-edit">{$object.class_identifier|class_icon( normal, $object.class_name )}</span>
-            <h1 class="context-title">
-                {'Edit < %object_name > (%class_name)'|i18n( 'design/admin/content/edit',, hash( '%object_name', $object.name, '%class_name', first_set( $class.nameList[$content_language], $class.name ) ) )|wash}
-                <div class="clearfix">
-                    {if $object.content_class.description}
-                        <span class="pull-left small">{first_set( $class.descriptionList[$content_language], $class.description )|wash}</span>
-                    {/if}
-                </div>
-            </h1>
-
-            {* DESIGN: Mainline *}<div class="header-mainline"></div>
-
-            {* DESIGN: Header END *}
-        </div-->
-
 
         {* DESIGN: Content START *}
         <div class="edit-tab-control">
@@ -133,8 +117,6 @@
             </div>
         </div>
         <div class="box-content">
-
-            {*include uri='design:page_toppath_content.tpl' node=$object.main_node*}
 
             {if $is_translating_content}
             <div class="content-translation">
@@ -170,14 +152,8 @@
                 </div>
             </div>
         </div>
-        {*include uri='design:content/edit_relations.tpl'*}
-
-
-
-
 
         {* Locations window. *}
-        {* section show=eq( ezini( 'EditSettings', 'EmbedNodeAssignmentHandling', 'content.ini' ), 'enabled' ) *}
         {if or( ezpreference( 'admin_edit_show_locations' ),
                           count( $invalid_node_assignment_list )|gt(0) )}
             {* We never allow changes to node assignments if the object has been published/archived.
