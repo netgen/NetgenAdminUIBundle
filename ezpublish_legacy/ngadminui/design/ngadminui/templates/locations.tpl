@@ -54,11 +54,6 @@
         {* Sub items. *}
         <td class="number" align="right">{$assignment_node.children_count}</td>
 
-        {* Sorting. *}
-    {*
-        <td class="nowrap">{$assignment_node.item.sort_array[0][0]} / {$assignment_node.item.sort_array[0][1]|choose( 'down'|i18n( 'design/admin/node/view/full' ), 'up'|i18n( 'design/admin/node/view/full' ) )}</td>
-    *}
-
         {* Visibility. *}
         <td class="nowrap">
         {if $assignment_node.is_invisible}

@@ -28,7 +28,7 @@
         </li>
         <li>
             <label>{'Last modified'|i18n( 'design/admin/node/view/full' )}:</label>
-            <p>{$node.object.modified|l10n(shortdatetime)} <br /><a href={$node.object.current.creator.main_node.url_alias|ezurl}>{$node.object.current.creator.name|wash}</a><br />{'Versions'|i18n( 'design/admin/node/view/full' )} {$node.object.versions|count()}</p>
+            <p>{$node.object.modified|l10n(shortdatetime)} <br /><a href={$node.object.current.creator.main_node.url_alias|ezurl}>{$node.object.current.creator.name|wash}</a><br />{'Versions count'|i18n( 'design/admin/node/view/full' )}: {$node.object.versions|count()}</p>
         </li>
         <li>
             <label>{'Node ID'|i18n( 'design/admin/node/view/full' )}:</label>

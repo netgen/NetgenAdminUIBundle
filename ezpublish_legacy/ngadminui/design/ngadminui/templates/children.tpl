@@ -31,13 +31,6 @@
                                             'objectname_filter', $view_parameters.namefilter ) )}
 {/if}
 
-
-{* DESIGN: Header START *}<!--div class="box-header">
-
-    <h2 class="context-title"><a href={$node.depth|gt(1)|choose('/'|ezurl,$node.parent.url_alias|ezurl )} title="{'Up one level.'|i18n(  'design/admin/node/view/full'  )}"><img src={'up-16x16-grey.png'|ezimage} width="16" height="16" alt="{'Up one level.'|i18n( 'design/admin/node/view/full' )}" title="{'Up one level.'|i18n( 'design/admin/node/view/full' )}" /></a>&nbsp;{'Sub items (%children_count)'|i18n( 'design/admin/node/view/full',, hash( '%children_count', $children_count ) )}</h2>
-
-{* DESIGN: Header END *}</div-->
-
 {* DESIGN: Content START *}<div class="box-content">
 
 
@@ -67,7 +60,7 @@
     {/section}
 
     <input type="hidden" name="NodeID" value="{$node.node_id}" />
-    
+
     {if and( $can_remove, ezini( 'RemoveSettings', 'HideRemoveConfirmation', 'content.ini' )|eq('true') )}
         <input type="hidden" name="HideRemoveConfirmation" value="true" />
     {/if}

@@ -6,43 +6,20 @@
         <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
         <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
         <div class="form-inline">
-                    {def $can_create_languages = $node.object.can_create_languages
-                        $languages            = fetch( 'content', 'prioritized_languages' )}
-                {*
+            {def $languages = fetch( 'content', 'prioritized_languages' )}
 
-                    {if $node.can_edit}
-                        {if and(eq( $languages|count, 1 ), is_set( $languages[0] ) )}
-                            <input name="ContentObjectLanguageCode" value="{$languages[0].locale}" type="hidden" />
-                        {else}
-                            <select name="ContentObjectLanguageCode" class="form-control">
-                                {foreach $node.object.can_edit_languages as $language}
-                                    <option value="{$language.locale|wash}"{if $language.locale|eq($node.object.current_language)} selected="selected"{/if}>{$language.name|wash}</option>
-                                {/foreach}
-                                {if gt( $can_create_languages|count, 0 )}
-                                    <option value="">{'New translation'|i18n( 'design/admin/node/view/full')}</option>
-                                {/if}
-                            </select>
-                        {/if}
-                    {else}
-                        <select name="ContentObjectLanguageCode" class="form-control" disabled="disabled">
-                            <option value="">{'Not available'|i18n( 'design/admin/node/view/full')}</option>
-                        </select>
+            {* Edit button. *}
+
+            {if and(eq( $languages|count, 1 ), is_set( $languages[0] ) )}
+                <input name="ContentObjectLanguageCode" value="{$languages[0].locale}" type="hidden" />
+            {else}
+                {foreach $node.object.can_edit_languages as $language}
+                    {if $language.locale|eq($node.object.current_language)}
+                        <input name="ContentObjectLanguageCode" value="{$language.locale|wash}" type="hidden">
                     {/if}
-                *}
-                
-                {* Edit button. *}
+                {/foreach}
+            {/if}
 
-                {if and(eq( $languages|count, 1 ), is_set( $languages[0] ) )}
-                    <input name="ContentObjectLanguageCode" value="{$languages[0].locale}" type="hidden" />
-                {else}
-                    {foreach $node.object.can_edit_languages as $language}
-                        {if $language.locale|eq($node.object.current_language)}
-                            <input name="ContentObjectLanguageCode" value="{$language.locale|wash}" type="hidden">
-                        {/if}
-                    {/foreach}
-                {/if}
-
-                {undef $can_create_languages}
             <div class="btn-group">
 
                 <button class="btn btn-primary" type="submit" name="EditButton" {if $node.can_edit}title="{'Edit the contents of this item.'|i18n( 'design/admin/node/view/full' )}"{else}title="{'You do not have permission to edit this item.'|i18n( 'design/admin/node/view/full' )}" disabled="disabled"{/if}><i class="fa fa-pencil-square-o"></i>&nbsp; {'Edit'|i18n( 'design/admin/node/view/full' )}</button>
@@ -69,24 +46,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!--div class="btn-group">
-            <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" data-title="Refresh" data-original-title="" title=""><i class="fa fa-refresh"></i></button>
-        </div>
-
-        <div class="btn-group dropdown">
-            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <span class="dropdown-label">More</span>
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu text-left text-sm">
-                <li><a ui-sref="app.mail.list()">Unread</a></li>
-                <li><a ui-sref="app.mail.list()">Starred</a></li>
-            </ul>
-        </div-->
-
-
     </form>
 </div>
 {* DESIGN: Control bar END *}
