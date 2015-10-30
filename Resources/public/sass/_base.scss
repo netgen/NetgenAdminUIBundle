@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header {
-	border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:1;
+	border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:10;
 }
 #header-logo {
 	background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
@@ -403,6 +403,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.show-hide-control:hover, .show-hide-control:focus, .show-hide-control:active {
 		background:#888;
+	}
+	.content-edit & {
+		top:$headerHeight + 45px;
+		#rightmenu-design {
+			padding-top:10px;
+		}
 	}
 }
 
@@ -848,7 +854,7 @@ table {
 	}
 }
 #controlbar-top {
-	position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter; z-index:5;
+	position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter; z-index:11;
 	.translation {
 		margin-top:14px; color:#999;
 	}
@@ -975,10 +981,7 @@ table {
 .list-group {margin:0 0 20px;}
 
 #maincontent.node-edit-container {
-	position:absolute; padding-left:200px; left:0; right:0; top:0; bottom:0;
-	.box-content {
-		overflow-y:scroll; position:absolute; top:45px; left:200px; right:0; bottom:0;
-	}
+	position:absolute; padding-left:200px; left:0; right:0; top:0; bottom:0; padding-top:45px;
 	.edit-tab-control {
 		position:fixed; left:$asideWidth; top:$headerHeight; bottom:0; width:200px; background:#e9e9e9;
 		margin-right:-5px; -moz-box-shadow:0 1px 1px 0 rgba(0,0,0,0.05); -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.05); box-shadow:0 1px 1px 0 rgba(0,0,0,0.05);
@@ -997,6 +1000,9 @@ table {
 				background-color:#fff; color:$activeColor; font-weight:600;
 			}
 		}
+	}
+	.path-edit-container {
+		position:fixed; top:$headerHeight; right:0; left:$asideWidth + 200px; z-index:3;
 	}
 }
 

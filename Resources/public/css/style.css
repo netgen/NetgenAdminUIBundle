@@ -4774,7 +4774,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 70px;
-  z-index: 1; }
+  z-index: 10; }
 
 #header-logo {
   background: #F3590A url("../images/ez-logo-w.svg") 50% no-repeat;
@@ -5311,6 +5311,10 @@ h1, h2, h3, h4, h5, h6 {
     content: "\f048"; }
   .rightmenu .show-hide-control:hover, .rightmenu .show-hide-control:focus, .rightmenu .show-hide-control:active {
     background: #888; }
+  .content-edit .rightmenu {
+    top: 115px; }
+    .content-edit .rightmenu #rightmenu-design {
+      padding-top: 10px; }
 
 fieldset.ezcca-collapsible legend {
   font-weight: normal; }
@@ -5951,7 +5955,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   left: 100px;
   right: 0;
   padding: 14px 20px 0 15px;
-  z-index: 5; }
+  z-index: 11; }
   #controlbar-top .translation {
     margin-top: 14px;
     color: #999; }
@@ -6131,14 +6135,8 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0; }
-  #maincontent.node-edit-container .box-content {
-    overflow-y: scroll;
-    position: absolute;
-    top: 45px;
-    left: 200px;
-    right: 0;
-    bottom: 0; }
+  bottom: 0;
+  padding-top: 45px; }
   #maincontent.node-edit-container .edit-tab-control {
     position: fixed;
     left: 100px;
@@ -6171,6 +6169,12 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
         background-color: #fff;
         color: #F3590A;
         font-weight: 600; }
+  #maincontent.node-edit-container .path-edit-container {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    left: 300px;
+    z-index: 3; }
 
 .context-attributes .tab + .tab {
   border: none; }
