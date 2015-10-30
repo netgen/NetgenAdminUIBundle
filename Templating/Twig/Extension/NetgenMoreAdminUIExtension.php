@@ -6,9 +6,10 @@ use Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper;
 use Closure;
 use Twig_Extension;
 use Twig_SimpleFunction;
+use Twig_Extension_GlobalsInterface;
 use eZPreferences;
 
-class NetgenMoreAdminUIExtension extends Twig_Extension
+class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {
     /**
      * @var \Closure
