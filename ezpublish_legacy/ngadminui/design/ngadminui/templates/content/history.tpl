@@ -174,7 +174,7 @@
                                     {/foreach}
                                 </select>
                             <input type="hidden" name="ObjectID" value="{$object.id}" />
-                            <input class="btn btn-default" type="submit" name="DiffButton" value="{'Show differences'|i18n( 'design/admin/content/history' )}" />
+                            <input class="btn btn-primary" type="submit" name="DiffButton" value="{'Show differences'|i18n( 'design/admin/content/history' )}" />
                         </form>
                     </div>
                 {/if}
@@ -183,7 +183,7 @@
                 {if is_set( $redirect_uri )}
                 <input class="form-control" type="hidden" name="RedirectURI" value="{$redirect_uri}" />
                 {/if}
-                <input class="btn btn-default" type="submit" name="BackButton" value="&larr; {'Back'|i18n( 'design/admin/content/history' )}" />
+                <input class="btn btn-primary" type="submit" name="BackButton" value="&larr; {'Back'|i18n( 'design/admin/content/history' )}" />
             </form>
         </div>
 
