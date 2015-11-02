@@ -252,11 +252,20 @@
 .o2k7Skin span.mce_AtD {background-position:-360px -40px}
 
 /* override */
-.o2k7SkinSilver .mceToolbar .mceToolbarStart span, .o2k7SkinSilver .mceButton, .o2k7SkinSilver .mceSplitButton, .o2k7SkinSilver .mceSeparator, .o2k7SkinSilver .mceSplitButton a.mceOpen {
+.o2k7SkinSilver .mceToolbar .mceToolbarStart span, .o2k7SkinSilver a.mceButton, .o2k7SkinSilver .mceSplitButton, .o2k7SkinSilver .mceSeparator, .o2k7SkinSilver .mceSplitButton a.mceOpen {
 	background-image:none !important; cursor:pointer;
 }
+.o2k7Skin a.mceText, .o2k7Skin a.mceOpen {
+	cursor:pointer;
+}
+.o2k7Skin a.mceButtonEnabled:hover {
+	background:#e5e5e5; -moz-box-shadow:0px 1px 2px rgba(0,0,0,.3); -webkit-box-shadow:0px 1px 2px rgba(0,0,0,.3); box-shadow:0px 1px 2px rgba(0,0,0,.3);
+}
+.o2k7Skin a.mceButtonDisabled {
+	cursor:default;
+}
 .o2k7Skin a span {
-	cursor:pointer !important;
+	cursor:inherit !important;
 }
 .o2k7SkinSilver .mceExternalToolbar, .o2k7SkinSilver .mceListBox .mceText, .o2k7SkinSilver div.mceMenu, .o2k7SkinSilver table.mceLayout, .o2k7SkinSilver .mceMenuItemTitle a, .o2k7SkinSilver table.mceLayout tr.mceFirst td, .o2k7SkinSilver table.mceLayout, .o2k7SkinSilver .mceMenuItemTitle a, .o2k7SkinSilver table.mceLayout tr.mceLast td, .o2k7SkinSilver .mceIframeContainer {
 	border-color:#dbdbdb !important;
