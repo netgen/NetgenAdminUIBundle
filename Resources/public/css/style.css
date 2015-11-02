@@ -4691,6 +4691,9 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400; }
 
+table:focus, tbody:focus {
+  outline: none; }
+
 .font-bold {
   font-weight: 700; }
 
@@ -6350,7 +6353,7 @@ fieldset legend {
   .edit-row .label-edit {
     display: table-cell;
     padding-right: 30px;
-    width: 250px;
+    width: 200px;
     vertical-align: top;
     text-align: right; }
     .edit-row .label-edit label {

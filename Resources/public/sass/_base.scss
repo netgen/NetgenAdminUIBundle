@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight:400;
 }
 
+table:focus, tbody:focus {
+	outline:none;
+}
+
 .font-bold {font-weight:700;}
 
 .loginpage {
@@ -1109,7 +1113,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 .edit-row {
 	display:table; table-layout:fixed; width:100%;
 	.label-edit {
-		display:table-cell; padding-right:30px; width:250px; vertical-align:top;
+		display:table-cell; padding-right:30px; width:200px; vertical-align:top;
 		label {
 			padding:0; margin:0;
 		}
