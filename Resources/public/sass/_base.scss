@@ -1044,7 +1044,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 }
 
 .dropdown-menu {
-	display:none; position:absolute; background:#fff; left:0; z-index:10; margin:0; padding:4px 0; list-style-type:none; min-width:100%;
+	display:none; position:absolute; background:#fff; left:0; z-index:1000; margin:0; padding:4px 0; list-style-type:none; min-width:100%;
 	> li {
 		margin:0; position:relative;
 		&:hover, &:focus {
@@ -1573,4 +1573,7 @@ $yuiInputHeight: 26px;
 
 @media (min-width: 768px) {
 	.form-inline .form-group {margin-right:10px;}
+}
+@media (min-width: 480px) {
+	.dropdown-backdrop {display:none !important;}
 }
