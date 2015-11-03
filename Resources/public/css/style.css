@@ -6873,6 +6873,9 @@ input.tagssuggestfield {
     background-color: transparent; }
   .content-edit .yui-skin-ezflow .yui-navset .yui-content input[type="radio"], .content-edit .yui-skin-ezflow .yui-navset .yui-content input[type="checkbox"] {
     margin: 0; }
+  .content-edit .yui-skin-ezflow .yui-navset .yui-content table.items td {
+    border: 1px solid #fff;
+    padding: 6px; }
 .content-edit .yui-skin-ezflow .yui-navset .yui-nav {
   border-color: #445464; }
   .content-edit .yui-skin-ezflow .yui-navset .yui-nav .selected {

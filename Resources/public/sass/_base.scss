@@ -1503,6 +1503,9 @@ $yuiInputHeight: 26px;
 				input[type="radio"], input[type="checkbox"] {
 					margin:0;
 				}
+				table.items td {
+					border:1px solid #fff; padding:6px;
+				}
 			}
 			.yui-nav {
 				border-color:#445464;
