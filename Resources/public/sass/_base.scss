@@ -1058,6 +1058,9 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 			&:hover, &:focus {
 				background:transparent;
 			}
+			&.disabled {
+				color:#bbb; cursor:not-allowed;
+			}
 		}
 	}
 	.with-edit {

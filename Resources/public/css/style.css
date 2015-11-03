@@ -6231,7 +6231,7 @@ fieldset legend {
   position: absolute;
   background: #fff;
   left: 0;
-  z-index: 10;
+  z-index: 1000;
   margin: 0;
   padding: 4px 0;
   list-style-type: none;
@@ -6258,6 +6258,9 @@ fieldset legend {
       font-size: 13px; }
       .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > input:hover, .dropdown-menu > li > input:focus, .dropdown-menu > li > button:hover, .dropdown-menu > li > button:focus {
         background: transparent; }
+      .dropdown-menu > li > a.disabled, .dropdown-menu > li > input.disabled, .dropdown-menu > li > button.disabled {
+        color: #bbb;
+        cursor: not-allowed; }
   .dropdown-menu .with-edit {
     padding-right: 55px; }
     .dropdown-menu .with-edit .edit-icon {
@@ -6934,5 +6937,8 @@ input.tagssuggestfield {
 @media (min-width: 768px) {
   .form-inline .form-group {
     margin-right: 10px; } }
+@media (min-width: 480px) {
+  .dropdown-backdrop {
+    display: none !important; } }
 
 /*# sourceMappingURL=style.css.map */
