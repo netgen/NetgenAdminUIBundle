@@ -1,16 +1,15 @@
+{% macro user_avatar( content ) %}{% spaceless %}
+    {% include 'design:page_aside_user.tpl' %}
+{% endspaceless %}{% endmacro %}
+
+{% import _self as macros %}
+
 {% set user_content = app.user.APIUser.content %}
 
 <div class="aside-footer">
-    {% set user_avatar = asset( 'bundles/netgenmoreadminui/images/a0.jpg' ) %}
-    {% if not ez_is_field_empty( user_content, 'image' ) %}
-        {% set user_avatar =
-            asset(
-                ez_image_alias(
-                    ngmore_field( user_content, 'image' ),
-                    user_content.versionInfo,
-                    'medium'
-                ).uri
-            ) %}
+    {% set user_avatar = macros.user_avatar( user_content ) %}
+    {% if user_avatar|trim is empty %}
+        {% set user_avatar = asset( 'bundles/netgenmoreadminui/images/a0.jpg' ) %}
     {% endif %}
 
     <a href="#" class="user-dropdown-toggle dropdown-toggle" data-toggle="dropdown">
