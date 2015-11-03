@@ -4757,6 +4757,9 @@ table:focus, tbody:focus {
     color: #98a6ad;
     font-size: 12px; }
 
+.btn {
+  line-height: 1.42858; }
+
 .form-control {
   border: 1px solid #e8e8e8;
   -moz-border-radius: 2px;
