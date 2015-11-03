@@ -135,8 +135,8 @@ h3 {font-size:14px;}
 #colorpicker #colornamecontainer {margin-top:5px;}
 #colorpicker #picker_panel fieldset {margin:auto;width:325px;}
 
-#table_cell_size input[type="text"], #table_cell_size input[type="file"], #table_cell_size select, #table_cell_size textarea, #table_width_source, #table_width_sizetype, #table_border_source, #table_border_sizetype, #embed_href_source_types {display:inline-block; width:auto; margin:0 2px 0 0;}
-#embed_href_source_types {margin-bottom:4px;}
+#table_cell_size input[type="text"], #table_cell_size input[type="file"], #table_cell_size select, #table_cell_size textarea, #table_width_source, #table_width_sizetype, #table_border_source, #table_border_sizetype, #embed_href_source_types, #link_href_source_types {display:inline-block; width:auto; margin:0 2px 0 0;}
+#embed_href_source_types, #link_href_source_types {margin-bottom:4px;}
 #table_cell_size_grid {margin-bottom:10px !important; border-color:#e8e8e8 !important;}
 
 /* extra input styles */
@@ -232,7 +232,9 @@ div.block /* Used around groups of objects which are connected in some way, and 
     padding: 0;
     clear: both;
 }
-
+div.block:after {
+	clear:both; content:""; display:table;
+}
 div.block div.element /* Used if several objects are to be stacked horizontally within the same block */
 {
     padding-right: 1em;
