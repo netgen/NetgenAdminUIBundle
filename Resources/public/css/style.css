@@ -6364,7 +6364,8 @@ fieldset legend {
     text-align: right; }
     .edit-row .label-edit label {
       padding: 0;
-      margin: 0; }
+      margin: 0;
+      white-space: normal; }
     .edit-row .label-edit .classattribute-description {
       display: block;
       padding: 0;

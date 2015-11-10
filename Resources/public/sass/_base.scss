@@ -1120,7 +1120,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
 	.label-edit {
 		display:table-cell; padding-right:30px; width:200px; vertical-align:top;
 		label {
-			padding:0; margin:0;
+			padding:0; margin:0; white-space:normal;
 		}
 		text-align:right;
 		.classattribute-description {
