@@ -30,22 +30,22 @@
 
         {% if ui_context != 'edit' and ui_context != 'browse' %}
             {% if ngmore_can_user( 'content', 'read', user_content ) %}
-                <li><a href="{{ path( 'ez_urlalias', { 'locationId': user_content.contentInfo.mainLocationId } ) }}">View profile</a></li>
+                <li><a href="{{ path( 'ez_urlalias', { 'locationId': user_content.contentInfo.mainLocationId } ) }}">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</a></li>
             {% endif %}
 
             {% if ngmore_can_user( 'content', 'edit', user_content ) %}
                 <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}" title="Change name, email, password, etc.">Change information</a>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}">{{ 'ngmore_admin_ui.user.change_information'|trans }}</a>
                 </li>
             {% endif %}
 
             <li>
-                <a href="{{ path( 'ez_legacy', { module_uri: '/user/password' } ) }}" title="Change password">Change password</a>
+                <a href="{{ path( 'ez_legacy', { module_uri: '/user/password' } ) }}">{{ 'ngmore_admin_ui.user.change_password'|trans }}</a>
             </li>
         {% else %}
-            <li><span class="disabled">View profile</span></li>
-            <li><span class="disabled">Change information</span></li>
-            <li><span class="disabled">Change password</span></li>
+            <li><span class="disabled">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</span></li>
+            <li><span class="disabled">{{ 'ngmore_admin_ui.user.change_information'|trans }}</span></li>
+            <li><span class="disabled">{{ 'ngmore_admin_ui.user.change_password'|trans }}</span></li>
         {% endif %}
 
         <li class="divider"></li>
@@ -92,9 +92,9 @@
 
         <li>
             {% if ui_context_edit %}
-                <span title="Logout from the system." class="disabled">Logout</span>
+                <span class="disabled">{{ 'ngmore_admin_ui.layout.logout'|trans }}</span>
             {% else %}
-                <a href="{{ path( 'logout' ) }}" title="Logout from the system.">Logout</a>
+                <a href="{{ path( 'logout' ) }}">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
             {% endif %}
         </li>
 
