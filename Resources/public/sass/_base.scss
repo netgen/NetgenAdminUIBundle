@@ -829,6 +829,9 @@ table {
 	}
 	&.path-edit {
 		display:none;
+		p {
+			white-space:nowrap; overflow:hidden; width:100%; text-overflow:ellipsis;
+		}
 	}
 }
 .path-edit-container {

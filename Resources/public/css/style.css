@@ -5916,6 +5916,11 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     color: #98a6ad; }
   #path.path-edit {
     display: none; }
+    #path.path-edit p {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-overflow: ellipsis; }
 
 .path-edit-container {
   min-height: 45px;
