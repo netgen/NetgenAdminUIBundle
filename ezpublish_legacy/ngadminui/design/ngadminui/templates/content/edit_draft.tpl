@@ -1,5 +1,4 @@
 
-<div class="path-edit-container"></div>
 <!-- Maincontent START -->
 
 {let has_own_drafts=false()
@@ -15,47 +14,43 @@
     {/if}
 {/section}
 
+<div class="panel">
+    <div class="alert alert-warning" role="alert">
 
-<div class="alert alert-warning" role="alert">
+        <h2><span class="time">[{currentdate()|l10n( shortdatetime )}]</span> {'Possible edit conflict'|i18n( 'design/admin/content/edit_draft' )}</h2>
 
-    <h2><span class="time">[{currentdate()|l10n( shortdatetime )}]</span> {'Possible edit conflict'|i18n( 'design/admin/content/edit_draft' )}</h2>
-
-    {if and( $has_own_drafts, $has_other_drafts )}
-        <p>{'This object is already being edited by someone else. In addition, it is already being edited by you.'|i18n( 'design/admin/content/edit_draft' )}</p>
-        <p>{"You should contact the other user(s) to make sure that you are not stepping on anyone's toes."|i18n( 'design/admin/content/edit_draft' )}
-        <p>{'The most recently modified draft is version #%version, created by %creator, last changed: %modified.'|i18n( 'design/admin/content/edit_draft',, hash( '%version', $most_recent_draft.version, '%creator', $most_recent_draft.creator.name, '%modified', $most_recent_draft.modified|l10n( shortdatetime ) ) )|wash}</p>
-    {else}
-
-        {if $has_own_drafts}
-            <p>{'This object is already being edited by you.'|i18n( 'design/admin/content/edit_draft' )}</p>
-            <p>{'Your most recently modified draft is version #%version, last changed: %modified.'|i18n( 'design/admin/content/edit_draft',, hash( '%version', $most_recent_draft.version, '%creator', $most_recent_draft.creator.name, '%modified', $most_recent_draft.modified|l10n( shortdatetime ) ) )|wash}</p>
-        {/if}
-
-        {if $has_other_drafts}
-            <p>{'This object is already being edited by someone else.'|i18n( 'design/admin/content/edit_draft' )}</p>
-            <p>{"You should contact the other user(s) to make sure that you are not stepping on anyone's toes."|i18n( 'design/admin/content/edit_draft' )}
+        {if and( $has_own_drafts, $has_other_drafts )}
+            <p>{'This object is already being edited by someone else. In addition, it is already being edited by you.'|i18n( 'design/admin/content/edit_draft' )}</p>
+            <p>{"You should contact the other user(s) to make sure that you are not stepping on anyone's toes."|i18n( 'design/admin/content/edit_draft' )}</p>
             <p>{'The most recently modified draft is version #%version, created by %creator, last changed: %modified.'|i18n( 'design/admin/content/edit_draft',, hash( '%version', $most_recent_draft.version, '%creator', $most_recent_draft.creator.name, '%modified', $most_recent_draft.modified|l10n( shortdatetime ) ) )|wash}</p>
+        {else}
+
+            {if $has_own_drafts}
+                <p>{'This object is already being edited by you.'|i18n( 'design/admin/content/edit_draft' )}</p>
+                <p>{'Your most recently modified draft is version #%version, last changed: %modified.'|i18n( 'design/admin/content/edit_draft',, hash( '%version', $most_recent_draft.version, '%creator', $most_recent_draft.creator.name, '%modified', $most_recent_draft.modified|l10n( shortdatetime ) ) )|wash}</p>
+            {/if}
+
+            {if $has_other_drafts}
+                <p>{'This object is already being edited by someone else.'|i18n( 'design/admin/content/edit_draft' )}</p>
+                <p>{"You should contact the other user(s) to make sure that you are not stepping on anyone's toes."|i18n( 'design/admin/content/edit_draft' )}</p>
+                <p>{'The most recently modified draft is version #%version, created by %creator, last changed: %modified.'|i18n( 'design/admin/content/edit_draft',, hash( '%version', $most_recent_draft.version, '%creator', $most_recent_draft.creator.name, '%modified', $most_recent_draft.modified|l10n( shortdatetime ) ) )|wash}</p>
+            {/if}
+
         {/if}
 
-    {/if}
+        <p>{'Possible actions'|i18n( 'design/admin/content/edit_draft' )}:</p>
+        <ul>
+            {if $has_own_drafts}
+                <li>{'Continue editing one of your drafts.'|i18n( 'design/admin/content/edit_draft' )}</li>
+            {/if}
+            <li>{'Create a new draft and start editing it.'|i18n( 'design/admin/content/edit_draft' )}</li>
+            <li>{'Cancel the edit operation.'|i18n( 'design/admin/content/edit_draft' )}</li>
+        </ul>
 
-    <p>{'Possible actions'|i18n( 'design/admin/content/edit_draft' )}:</p>
-    <ul>
-        {if $has_own_drafts}
-            <li>{'Continue editing one of your drafts.'|i18n( 'design/admin/content/edit_draft' )}</li>
-        {/if}
-        <li>{'Create a new draft and start editing it.'|i18n( 'design/admin/content/edit_draft' )}</li>
-        <li>{'Cancel the edit operation.'|i18n( 'design/admin/content/edit_draft' )}</li>
-    </ul>
+    </div>
 
-</div>
-
-
-
-
-<form method="post" action={concat( '/content/edit/', $object.id, '/f/', $edit_language, '/', $from_language )|ezurl}>
+    <form method="post" action={concat( '/content/edit/', $object.id, '/f/', $edit_language, '/', $from_language )|ezurl}>
     
-    <div class="panel">
 
         {* DESIGN: Header START *}
 
@@ -137,10 +132,9 @@
         {* DESIGN: Control bar END *}
 
         </div>
-    </div>
 
-</form>
-
+    </form>
+</div>
 {/let}
 
 
