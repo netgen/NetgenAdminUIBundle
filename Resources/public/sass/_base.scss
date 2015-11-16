@@ -70,7 +70,10 @@ table:focus, tbody:focus {
 .btn {
 	line-height:1.42858;
 }
-.form-control {border:1px solid #e8e8e8; @include rounded(2px); -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025);}
+.btn-sm, .btn-group-sm > .btn {
+	line-height:1.5;
+}
+.form-control {border:1px solid #e8e8e8; @include rounded(2px); -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); background:#f8f8f8;}
 
 #page {
 	background:transparent; padding-top:$headerHeight;
@@ -607,7 +610,7 @@ table.list {
 
 .form-group label {font-weight:400; font-size:1em;}
 select.form-control {
-	-webkit-appearance:none; -moz-appearance:none; appearance:none; background:#fff url(../images/select-bg.png) no-repeat right 5px center; background-size:contain; padding-right:18px; padding-left:8px; cursor:pointer;
+	-webkit-appearance:none; -moz-appearance:none; appearance:none; background:#f8f8f8 url(../images/select-bg.png) no-repeat right 5px center; background-size:contain; padding-right:18px; padding-left:8px; cursor:pointer;
 	&.form-control-multiple {
 		background-image:none; padding:0;
 		option {
@@ -835,7 +838,7 @@ table {
 	}
 }
 .path-edit-container {
-	min-height:45px; background:$lightBg;
+	/* min-height:45px; */ background:$lightBg;
 }
 
 #trash {padding:10px $gutter;}
@@ -1248,7 +1251,7 @@ table.multioption {
 .ezsr-star-rating > li {margin:0 0 8px;}
 .ezsr-star-rating {margin:10px 0;}
 .ezsr-star-rating > li {width:auto !important;}
-input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:$fontSize; line-height:1.42857143; color:#555555; background-color:#ffffff; background-image:none; border:1px solid $btnBorder; -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); -webkit-transition:border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; -o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s; transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:$fontSize; line-height:1.42857143; color:#555555; background-color:#f8f8f8; background-image:none; border:1px solid $btnBorder; -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); box-shadow:inset 0 1px 1px rgba(0,0,0,0.025); -webkit-transition:border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; -o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s; transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	@include rounded(4px);
 }
 

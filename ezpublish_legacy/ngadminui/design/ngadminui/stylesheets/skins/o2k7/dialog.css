@@ -81,12 +81,12 @@ td.charmap, #charmap a {width:18px; height:18px; border:1px solid #AAA; text-ali
 .mceActionPanel {margin-top:5px;}
 
 /* Tabs classes */
-.tabs {width:100%; height:26px; line-height:normal;}
-.tabs ul {margin:0; padding:0; list-style:none;}
-.tabs li {float:left; margin:0 2px 0 0; padding:0; display:block; text-align:center; background:#e5e5e5;}
-.tabs li.current {background:#fff;}
-.tabs a {text-decoration:none; font-family:Verdana, Arial; font-size:11px; padding:0 10px; height:26px; line-height:26px; display:block;}
-.tabs a:link, .tabs a:visited, .tabs a:hover {color:black;}
+.tabs {width:100%; line-height:normal;}
+.tabs ul {margin:0; padding:0; list-style:none; display:table;}
+.tabs li {display:table-cell; margin:0; padding:0 2px 0 0; text-align:center; background:transparent; vertical-align:top; word-break:break-word;}
+.tabs a {text-decoration:none; font-family:Verdana, Arial; font-size:11px; padding:8px 10px; display:block; color:#979797; border-bottom:3px solid transparent;}
+.tabs a:hover {color:#337ab7;}
+.tabs li.current a {border-bottom-color:#F3590A; color:#333;}
 
 /* Panels */
 .panel_wrapper div.panel {display:none;}
