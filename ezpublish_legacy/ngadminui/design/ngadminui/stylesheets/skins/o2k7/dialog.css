@@ -1,6 +1,8 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:700,400,600&subset=latin,latin-ext);
+
 /* Generic */
 body {
-font-family: Arial, Helvetica, sans-serif; font-size:0.8em;
+font-family: "Open Sans", Helvetica, Arial, sans-serif; font-size:0.8em;
 scrollbar-3dlight-color:#F0F0EE;
 scrollbar-arrow-color:#676662;
 scrollbar-base-color:#F0F0EE;
@@ -18,20 +20,20 @@ color:#333;
 * {-moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box;}
 
 html {background:#F0F0EE;}
-td {font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;}
+td {font-size:10px;}
 textarea {resize:none;outline:none;}
 a:link, a:visited {color:#337ab7;}
 a:hover {color:#23527c;}
 .nowrap {white-space: nowrap}
 
 /* Forms */
-fieldset {margin:0; padding:4px; border:1px solid #919B9C; font-family:Verdana, Arial; font-size:10px;}
+fieldset {margin:0; padding:4px; border:1px solid #919B9C; font-size:10px;}
 legend {color:#2B6FB6; font-weight:bold;}
 label.msg {display:none;}
 label.invalid {color:#EE0000; display:inline;}
 input.invalid {border:1px solid #EE0000;}
 input {background:#FFF; border:1px solid #CCC;}
-input, select, textarea {font-family:Verdana, Arial, Helvetica, sans-serif;}
+input, select, textarea {font-family: "Open Sans", Helvetica, Arial, sans-serif;}
 input[type="text"], input[type="file"], select, textarea {border:1px solid #e8e8e8; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); height:34px; padding:6px 10px; line-height:1.42857; font-size:13px; color:#555; -webkit-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; -moz-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; -ms-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; -o-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; width:100%; display:block;}
 select[multiple] {height:auto; max-height:200px;}
 input[type="submit"], input[type="reset"] {border:1px solid #c5c5c5; display:inline-block; padding:8px 12px; white-space:nowrap; color:#555; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; cursor:pointer; font-size:12px; line-height:1.4;}
@@ -73,7 +75,7 @@ td.charmap {background:#fff;}
 td.charmap, #charmap a {width:18px; height:18px; border:1px solid #AAA; text-align:center; font-size:12px; vertical-align:middle; line-height: 18px;}
 #charmap a {display:block; color:#333; text-decoration:none; border:0}
 #charmap a:hover {background:#CCC;color:#2B6FB6}
-#charmap #codeN {font-size:10px; font-family:Arial,Helvetica,sans-serif; text-align:center}
+#charmap #codeN {font-size:10px; text-align:center}
 #charmap #codeV {font-size:40px; height:80px; border:1px solid #AAA; text-align:center}
 
 /* Source */
@@ -84,7 +86,7 @@ td.charmap, #charmap a {width:18px; height:18px; border:1px solid #AAA; text-ali
 .tabs {width:100%; line-height:normal;}
 .tabs ul {margin:0; padding:0; list-style:none; display:table;}
 .tabs li {display:table-cell; margin:0; padding:0 2px 0 0; text-align:center; background:transparent; vertical-align:top; word-break:break-word;}
-.tabs a {text-decoration:none; font-family:Verdana, Arial; font-size:11px; padding:8px 10px; display:block; color:#979797; border-bottom:3px solid transparent;}
+.tabs a {text-decoration:none; font-size:11px; padding:8px 10px; display:block; color:#979797; border-bottom:3px solid transparent;}
 .tabs a:hover {color:#337ab7;}
 .tabs li.current a {border-bottom-color:#F3590A; color:#333;}
 
@@ -158,6 +160,7 @@ div.progress-indicator
 table.node_datalist
 {
     width: 100%;
+    border-collapse: collapse;
 }
 table.node_datalist td {padding:6px 0;}
 table.node_datalist td.thight
@@ -198,6 +201,19 @@ table.node_datalist span.image_preview a:hover img
    right: 50px;
 }
 
+table.node_datalist tfoot a {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #C1C1C1;
+    -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;
+    color: #333;
+    padding: 3px 6px;
+    background: #f9f9f9;
+    font-size:11px;
+}
+table.node_datalist tfoot a:hover {
+    background: #f0f0f0;
+}
 /* help dialog */
 
 dl
