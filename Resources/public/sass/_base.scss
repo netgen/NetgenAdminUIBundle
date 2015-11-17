@@ -20,6 +20,28 @@ table:focus, tbody:focus {
 	outline:none;
 }
 
+%btn {
+    display:inline-block; margin-bottom:0; font-weight:normal; text-align:center; vertical-align:middle; touch-action:manipulation; cursor:pointer; background-image:none; border:1px solid transparent; white-space:nowrap; padding:6px 12px; font-size:14px; line-height:1.42858; border-radius:4px; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+}
+%btn:active {
+    outline:0; background-image:none; -webkit-box-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+%btn-default {
+    color:#333; background-color:#fff; border-color:$btnBorder;
+}
+%btn-default:hover {
+    color:#333; background-color:#e6e6e6; border-color:#c5c5c5;
+}
+%btn-primary {
+	color:#fff; background-color:$btnPrimary; border-color:$btnPrimary;
+}
+%btn-primary:hover {
+    color:#fff; background-color:#2275d7; border-color:#2171ce;
+}
+%form-control {
+    border:1px solid #e8e8e8; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); background:#f8f8f8; display:inline-block; height:34px; padding:6px 12px; font-size:14px; line-height:1.42858; color:#555555; -webkit-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; -o-transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; transition:border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
 .font-bold {font-weight:700;}
 
 .loginpage {
@@ -984,6 +1006,9 @@ table {
 	border:none; margin:0; font-size:100%; background:$lightBg; padding:0 $gutter; display:inline-block; width:100%;
 	h1 {
 		margin:0 0 20px; font-size:23px; color:#333;
+		.small-info {
+			display:block; font-size:11px; color:#999;
+		}
 	}
 	.panel & {
 		background:#fff; padding:0;
@@ -1414,6 +1439,15 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 	}
 }
 
+.infocollector-attributes {
+	label {
+		color:#999; font-size:13px;
+	}
+	.attribute {
+		color:#333;
+	}
+}
+
 /* ez flow layout */
 $yuiInputHeight: 26px;
 
@@ -1543,6 +1577,54 @@ $yuiInputHeight: 26px;
 	}
 }
 
+/* ezmultiupload */
+.content-view-ezmultiupload {
+	padding:0 $gutter;
+	#uploadButton {
+		@extend %btn; @extend %btn-primary;
+		&:hover {
+			@extend %btn-primary:hover;
+		}
+		&:active {
+			@extend %btn:active;
+		}
+	}
+	#cancelUploadButton {
+		@extend %btn; @extend %btn-default;
+		&:hover {
+			@extend %btn-default:hover;
+		}
+		&:active {
+			@extend %btn:active;
+		}	
+	}
+	.thumbnail-block {
+		padding:0; margin:0 5px 5px 0;
+	}
+	#thumbnails {
+		h2 {
+			font-size:12px; line-height:1.25; margin:3px 5px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+		}
+		p {
+			font-size:12px;
+		}
+	}
+	.thumbnail-class-name {
+		padding-top:6px;
+	}
+	#multiuploadProgress {
+		border:1px solid $activeColor; background:#FFF5F0; padding:7px;
+		p {
+			margin:0.25em 0 0.5em; font-weight:normal; font-size:13px;
+		}
+	}
+	#multiuploadProgressBarOutline {
+		width:304px;
+	}
+	#multiuploadProgressBar {
+		background:$activeColor;
+	}
+}
 /* custom extensions styling */
 .classlists, .ezfindnavigationpart, .ezbccienavigationpart {
 	.context-block {
@@ -1582,6 +1664,10 @@ $yuiInputHeight: 26px;
 				}
 			}
 		}
+	}
+	input[type=text]:not(#searchText),
+	select {
+		@extend %form-control;
 	}
 }
 
