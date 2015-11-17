@@ -2,24 +2,26 @@
 
     <div class="context-block">
 
-        {* DESIGN: Header START *}<div class="box-header">
+        {* DESIGN: Header START *}
 
-        {if $remove_info.has_pending_object}
-            <h2 class="context-title">{'Pending sub-object'|i18n( 'design/admin/node/removeobject' )}</h2>
-        {else}
-            {if $remove_info.can_remove_all}
-            <h2 class="context-title">{'Confirm location removal'|i18n( 'design/admin/node/removeobject' )}</h2>
-            {else}
-            <h2 class="context-title">{'Insufficient permissions'|i18n( 'design/admin/node/removeobject' )}</h2>
-            {/if}
-        {/if}
 
-        {* DESIGN: Mainline *}<div class="header-mainline"></div>
-
-        {* DESIGN: Header END *}
 
         {* DESIGN: Content START *}
         <div class="box-content panel">
+
+            {if $remove_info.has_pending_object}
+                <h2 class="context-title">{'Pending sub-object'|i18n( 'design/admin/node/removeobject' )}</h2>
+            {else}
+                {if $remove_info.can_remove_all}
+                <h2 class="context-title">{'Confirm location removal'|i18n( 'design/admin/node/removeobject' )}</h2>
+                {else}
+                <h2 class="context-title">{'Insufficient permissions'|i18n( 'design/admin/node/removeobject' )}</h2>
+                {/if}
+            {/if}
+
+            {* DESIGN: Mainline *}<div class="header-mainline"></div>
+
+            {* DESIGN: Header END *}
 
             {if $remove_info.has_pending_object}
                 <div class="block">
@@ -135,9 +137,9 @@
             {* DESIGN: Control bar START *}
 
                 {if and( $remove_info.can_remove_all, eq( $delete_items_exist, true() ), not( $remove_info.has_pending_object ) )}
-                    <input class="btn btn-default" type="submit" name="ConfirmButton" value="{'OK'|i18n( 'design/admin/node/removeobject' )}" />
+                    <input class="btn btn-primary" type="submit" name="ConfirmButton" value="{'OK'|i18n( 'design/admin/node/removeobject' )}" />
                 {else}
-                    <input class="btn btn-default" type="submit" name="ConfirmButton" value="{'OK'|i18n( 'design/admin/node/removeobject' )}" title="{'You cannot continue because you do not have permission to remove some of the selected locations.'|i18n( 'design/admin/node/removeobject' )}" disabled="disabled" />
+                    <input class="btn btn-primary" type="submit" name="ConfirmButton" value="{'OK'|i18n( 'design/admin/node/removeobject' )}" title="{'You cannot continue because you do not have permission to remove some of the selected locations.'|i18n( 'design/admin/node/removeobject' )}" disabled="disabled" />
                 {/if}
 
                 <input type="submit" class="btn btn-default" name="CancelButton" value="{'Cancel'|i18n( 'design/admin/node/removeobject' )}" title="{'Cancel the removal of locations.'|i18n( 'design/admin/node/removeobject' )}" />
