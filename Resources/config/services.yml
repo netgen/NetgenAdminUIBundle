@@ -5,9 +5,9 @@ services:
     ngmore_admin_ui.event_listener.security:
         class: %ngmore_admin_ui.event_listener.security.class%
         arguments:
-            - @request_stack
-            - @ezpublish.api.repository
-            - @ezpublish.config.resolver
-            - @security.context
+            - "@request_stack"
+            - "@ezpublish.api.repository"
+            - "@ezpublish.config.resolver"
+            - "@security.context"
         tags:
             - { name: kernel.event_subscriber }
