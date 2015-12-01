@@ -7,7 +7,7 @@ Netgen More Admin UI installation instructions
 composer require netgen/more-admin-ui-bundle:~0.9
 ```
 
-## Activate the bundle in your `ezpublish/EzPublishKernel.php` file:
+## Activate the bundle in your `app/AppKernel.php` file:
 
 ```php
 public function registerBundles()
@@ -25,10 +25,10 @@ public function registerBundles()
 Use the following script to symlink bundle assets to `web/bundles` directory:
 
 ```
-php ezpublish/console assets:install --symlink --relative
+php app/console assets:install --symlink --relative
 ```
 
-## Import the `ezpublish.yml` from the bundle into your main `ezpublish.yml` file:
+## Import the `ezpublish.yml` from the bundle into your main `ezplatform.yml` file:
 
 ```
 imports:
