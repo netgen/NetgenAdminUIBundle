@@ -80,6 +80,7 @@ your **project bundle**. (change `administration_group` to something more approp
 ```
 ngmore.administration_group.pagelayout: 'NetgenMoreAdminUIBundle::pagelayout.html.twig'
 ngmore.administration_group.content_view.show_invisible_locations: true
+ngmore.administration_group.content_view.handle_legacy_fallback_error_result: false
 eztags.administration_group.routing.enable_tag_router: false
 ezsettings.administration_group.treemenu.http_cache: false
 ```
