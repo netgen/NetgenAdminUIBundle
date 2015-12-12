@@ -3,6 +3,9 @@
 [1ZonesA]
 ZoneThumbnail=1_zones_a.png
 
+[2ZonesSmart]
+ZoneThumbnail=2_zones_smart.png
+
 [4ZonesA]
 ZoneThumbnail=4_zones_a.png
 
