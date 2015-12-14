@@ -113,7 +113,7 @@
 
             <div class="block">
                 <label>{'Object count'|i18n( 'design/admin/class/view' )}:</label>
-                {$class.object_count}
+                <a href={concat( 'classlists/list/', $class.identifier )|ezurl}>{$class.object_count}</a>
             </div>
         </div>
     </div>
