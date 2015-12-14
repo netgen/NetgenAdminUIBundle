@@ -4694,6 +4694,9 @@ h1, h2, h3, h4, h5, h6 {
 table:focus, tbody:focus {
   outline: none; }
 
+label {
+  white-space: normal; }
+
 .content-view-ezmultiupload #uploadButton, .content-view-ezmultiupload #cancelUploadButton {
   display: inline-block;
   margin-bottom: 0;
