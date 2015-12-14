@@ -4852,7 +4852,8 @@ table:focus, tbody:focus {
   left: 0;
   right: 0;
   height: 70px;
-  z-index: 10; }
+  z-index: 10;
+  background: #fff; }
 
 #header-logo {
   background: #F3590A url("../images/ez-logo-w.svg") 50% no-repeat;
@@ -5351,7 +5352,8 @@ table:focus, tbody:focus {
     font-weight: 400; }
 
 .main-content {
-  color: #58666e; }
+  color: #58666e;
+  padding-bottom: 40px; }
 
 #maincontent {
   margin: 0 240px 0 0;

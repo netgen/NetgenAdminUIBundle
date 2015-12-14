@@ -102,7 +102,7 @@ table:focus, tbody:focus {
 }
 
 #header {
-	border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:10;
+	border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:10; background:#fff;
 }
 #header-logo {
 	background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
@@ -416,7 +416,7 @@ table:focus, tbody:focus {
 	}
 }
 
-.main-content {color:#58666e;}
+.main-content {color:#58666e; padding-bottom:40px;}
 
 #maincontent {
 	margin:0 240px 0 0; padding:0; @include rounded(0);
