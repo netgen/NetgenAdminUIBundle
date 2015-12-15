@@ -9,7 +9,7 @@
 {* Maximum string length. *}
 <div class="block form-inline">
     <div class="form-group">
-	    <label>{'Max string length'|i18n( 'design/standard/class/datatype' )}:</label>
-	    <input type="text" class="form-control" name="ContentClass_ezstring_max_string_length_{$class_attribute.id}" value="{$class_attribute.data_int1}" size="5" maxlength="5" /><label>&nbsp;{'characters'|i18n( 'design/standard/class/datatype' )}</label>
-	</div>
+        <label>{'Max string length'|i18n( 'design/standard/class/datatype' )}:</label>
+        <input type="text" class="form-control" name="ContentClass_ezstring_max_string_length_{$class_attribute.id}" value="{$class_attribute.data_int1}" size="5" maxlength="5" /><label>&nbsp;{'characters'|i18n( 'design/standard/class/datatype' )}</label>
+    </div>
 </div>

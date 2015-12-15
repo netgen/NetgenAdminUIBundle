@@ -3,26 +3,26 @@
 
 {* Current file. *}
 <div class="block file-attribute">
-	{if $attribute.content}
+    {if $attribute.content}
         <ul class="details">
             <li><label>{'Current file'|i18n( 'design/standard/content/datatype' )}:</label><span><a href={concat( 'content/download/', $attribute.contentobject_id, '/', $attribute.id,'/version/', $attribute.version , '/file/', $attribute.content.original_filename|urlencode )|ezurl} target="_blank">{$attribute.content.original_filename|wash( xhtml )}</a></span></li>
             <li><label>{'MIME type'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.mime_type|wash( xhtml )}</span></li>
             <li><label>{'Size'|i18n( 'design/standard/content/datatype' )}:</label><span>{$attribute.content.filesize|si( byte )}</span></li>
         </ul>
-	{else}
-		<p>{'There is no file.'|i18n( 'design/standard/content/datatype' )}</p>
-	{/if}
+    {else}
+        <p>{'There is no file.'|i18n( 'design/standard/content/datatype' )}</p>
+    {/if}
 
-	{if $attribute.content}
-		<input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_delete_binary]" value="{'Remove'|i18n( 'design/standard/content/datatype' )}" title="{'Remove the file from this draft.'|i18n( 'design/standard/content/datatype' )}" />
-	{/if}
+    {if $attribute.content}
+        <input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_delete_binary]" value="{'Remove'|i18n( 'design/standard/content/datatype' )}" title="{'Remove the file from this draft.'|i18n( 'design/standard/content/datatype' )}" />
+    {/if}
 </div>
 
 {* New file. *}
 <div class="row">
     <div class="col-sm-6">
-		<input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1}000000"/>
-		<label for="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="{$attribute.contentclass_attribute.data_int1}000000"/>
+        <label for="ezcoa-{if ne( $attribute_base, 'ContentObjectAttribute' )}{$attribute_base}-{/if}{$attribute.contentclassattribute_id}_{$attribute.contentclass_attribute_identifier}">{'New file for upload'|i18n( 'design/standard/content/datatype' )}:</label>
 
         <div class="input-group">
             <span class="input-group-btn">
@@ -32,7 +32,7 @@
             </span>
             <input type="text" class="form-control" readonly>
         </div>
-	</div>
+    </div>
 </div>
 
 {/default}

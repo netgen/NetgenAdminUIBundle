@@ -27,7 +27,7 @@
             <option value="2" {if eq( $type, 2 )}selected="selected"{/if}>{'Only existing objects'|i18n( 'design/standard/class/datatype' )}</option>
         </select>
     {else}
-        <input type="hidden" name="ContentClass_ezobjectrelationlist_type_{$class_attribute.id}" value="2" />    
+        <input type="hidden" name="ContentClass_ezobjectrelationlist_type_{$class_attribute.id}" value="2" />
     {/if}
 </div>
 
@@ -69,7 +69,7 @@
                {$default_location.class_identifier|class_icon( small, $default_location.class_name )}&nbsp;{$default_location.name|wash}
              {/let}
          {/if}
-	 <i>({'See'|i18n( 'design/standard/class/datatype' )} '{'Default location'|i18n( 'design/standard/class/datatype' )}')</i>
+     <i>({'See'|i18n( 'design/standard/class/datatype' )} '{'Default location'|i18n( 'design/standard/class/datatype' )}')</i>
      </td>
   </tr>
 </table>

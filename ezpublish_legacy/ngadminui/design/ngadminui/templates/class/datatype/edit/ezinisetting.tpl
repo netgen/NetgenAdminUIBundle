@@ -23,8 +23,8 @@
     {let selectedSiteAccess=$class_attribute.data_text4|explode( ';' )}
       {section name=SiteAccess loop=$class_attribute.data_text5|explode( ';' )}
         <option value="{$:index}" {if $selectedSiteAccess|contains( $:index )}selected="selected"{/if}>
-	  {$:item|wash}
-	</option>
+      {$:item|wash}
+    </option>
       {/section}
     {/let}
   </select>

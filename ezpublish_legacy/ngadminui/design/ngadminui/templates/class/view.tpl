@@ -153,9 +153,9 @@
             <td>
                 <div class="block">
                     <label>{'Category'|i18n( 'design/admin/class/view' )}:</label>
-        	        {if $Attributes.item.category|not}
-        	            <p>{'Default'|i18n( 'design/admin/class/edit' )} ({$attribute_categorys[ $attribute_default_category ]|wash})</p>
-        	        {elseif is_set( $attribute_categorys[ $Attributes.item.category ] )}
+                    {if $Attributes.item.category|not}
+                        <p>{'Default'|i18n( 'design/admin/class/edit' )} ({$attribute_categorys[ $attribute_default_category ]|wash})</p>
+                    {elseif is_set( $attribute_categorys[ $Attributes.item.category ] )}
                         <p>{$attribute_categorys[ $Attributes.item.category ]|wash}</p>
                     {else}
                         <p>{$attribute_categorys[ $attribute_default_category ]|wash}</p>
@@ -172,9 +172,9 @@
 
             <td rowspan="2">
 
-        		<div class="block">
-        		  <label>{'Flags'|i18n( 'design/admin/class/view' )}:</label>
-        		</div>
+                <div class="block">
+                  <label>{'Flags'|i18n( 'design/admin/class/view' )}:</label>
+                </div>
 
                 <div class="block">
                     <p>{if $Attributes.item.is_required}{'Is required'|i18n( 'design/admin/class/view' )}{else}{'Is not required'|i18n( 'design/admin/class/view' )}{/if}</p>

@@ -12,37 +12,37 @@
 </div>
 
 <div class="block">
-	<fieldset>
-		<h2>{'Default selection item'|i18n( 'design/standard/class/datatype' )}</h2>
-		{section show=$content.default_selection_node}
-		{let selection_node=fetch( content, node, hash( node_id, $content.default_selection_node ) )}
-		<table class="list" cellspacing="0">
-		<tr>
-		    <th>{'Name'|i18n( 'design/standard/class/datatype' )}</th>
-		    <th>{'Type'|i18n( 'design/standard/class/datatype' )}</th>
-		    <th>{'Section'|i18n( 'design/standard/class/datatype' )}</th>
-		</tr>
-		<tr>
-		    <td>{$selection_node.class_identifier|class_icon( small, $selection_node.class_name )}&nbsp;{$selection_node.name|wash}</td>
-		    <td>{$selection_node.class_name|wash}</td>
-		    <td>{let section_object=fetch( section, object, hash( section_id, $selection_node.object.section_id ) )}{section show=$section_object}{$section_object.name|wash}{section-else}<i>{'Unknown section'|i18n( 'design/standard/class/datatype' )}</i>{/section}{/let}</td>
-		</tr>
-		</table>
-		<input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_disable_selection_node]" value="{'Remove selection'|i18n('design/standard/class/datatype')}" />
-		{/let}
-		{section-else}
-		<p>{'No item has been selected.'|i18n( 'design/standard/class/datatype' )}</p>
-		<input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_disable_selection_node]" value="{'Remove selection'|i18n('design/standard/class/datatype')}" disabled="disabled" />
-		{/section}
+    <fieldset>
+        <h2>{'Default selection item'|i18n( 'design/standard/class/datatype' )}</h2>
+        {section show=$content.default_selection_node}
+        {let selection_node=fetch( content, node, hash( node_id, $content.default_selection_node ) )}
+        <table class="list" cellspacing="0">
+        <tr>
+            <th>{'Name'|i18n( 'design/standard/class/datatype' )}</th>
+            <th>{'Type'|i18n( 'design/standard/class/datatype' )}</th>
+            <th>{'Section'|i18n( 'design/standard/class/datatype' )}</th>
+        </tr>
+        <tr>
+            <td>{$selection_node.class_identifier|class_icon( small, $selection_node.class_name )}&nbsp;{$selection_node.name|wash}</td>
+            <td>{$selection_node.class_name|wash}</td>
+            <td>{let section_object=fetch( section, object, hash( section_id, $selection_node.object.section_id ) )}{section show=$section_object}{$section_object.name|wash}{section-else}<i>{'Unknown section'|i18n( 'design/standard/class/datatype' )}</i>{/section}{/let}</td>
+        </tr>
+        </table>
+        <input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_disable_selection_node]" value="{'Remove selection'|i18n('design/standard/class/datatype')}" />
+        {/let}
+        {section-else}
+        <p>{'No item has been selected.'|i18n( 'design/standard/class/datatype' )}</p>
+        <input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_disable_selection_node]" value="{'Remove selection'|i18n('design/standard/class/datatype')}" disabled="disabled" />
+        {/section}
 
-		<input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_browse_for_selection_node]" value="{'Select item'|i18n('design/standard/class/datatype')}" />
-	</fieldset>
+        <input class="btn btn-default" type="submit" name="CustomActionButton[{$class_attribute.id}_browse_for_selection_node]" value="{'Select item'|i18n('design/standard/class/datatype')}" />
+    </fieldset>
 </div>
 
 <div class="block">
-	<label for="eccaor_fuzzy_match_{$class_attribute.id}">{'Allow fuzzy match'|i18n( 'design/standard/class/datatype' )}:</label>
-	<input id="eccaor_fuzzy_match_{$class_attribute.id}" type="checkbox" name="ContentClass_ezobjectrelation_selection_fuzzy_match_{$class_attribute.id}" {if $content.fuzzy_match}checked="checked"{/if} />
-	<input type="hidden" name="ContentClass_ezobjectrelation_selection_fuzzy_match_helper_{$class_attribute.id}" value="1" />
+    <label for="eccaor_fuzzy_match_{$class_attribute.id}">{'Allow fuzzy match'|i18n( 'design/standard/class/datatype' )}:</label>
+    <input id="eccaor_fuzzy_match_{$class_attribute.id}" type="checkbox" name="ContentClass_ezobjectrelation_selection_fuzzy_match_{$class_attribute.id}" {if $content.fuzzy_match}checked="checked"{/if} />
+    <input type="hidden" name="ContentClass_ezobjectrelation_selection_fuzzy_match_helper_{$class_attribute.id}" value="1" />
 </div>
 
 {/let}

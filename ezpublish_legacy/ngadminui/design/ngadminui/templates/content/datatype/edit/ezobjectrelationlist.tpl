@@ -422,20 +422,20 @@
 
         {if $attribute.content.relation_list}
             <div class="block inline-block">
-	            <input class="btn btn-default ezobject-relation-remove-button" type="submit" name="CustomActionButton[{$attribute.id}_remove_objects]" value="{'Remove selected'|i18n( 'design/standard/content/datatype' )}" title="{'Remove selected elements from the relation'|i18n( 'design/standard/content/datatype' )}" />
+                <input class="btn btn-default ezobject-relation-remove-button" type="submit" name="CustomActionButton[{$attribute.id}_remove_objects]" value="{'Remove selected'|i18n( 'design/standard/content/datatype' )}" title="{'Remove selected elements from the relation'|i18n( 'design/standard/content/datatype' )}" />
             </div>
         {/if}
         {*<h4>{'Add objects in the relation'|i18n( 'design/standard/content/datatype' )}</h4>*}
         <div class="left">
-	        {if $browse_object_start_node}
-	            <input type="hidden" name="{$attribute_base}_browse_for_object_start_node[{$attribute.id}]" value="{$browse_object_start_node|wash}" />
-	        {/if}
+            {if $browse_object_start_node}
+                <input type="hidden" name="{$attribute_base}_browse_for_object_start_node[{$attribute.id}]" value="{$browse_object_start_node|wash}" />
+            {/if}
 
             {if is_set( $attribute.class_content.class_constraint_list[0] )}
                 <input type="hidden" name="{$attribute_base}_browse_for_object_class_constraint_list[{$attribute.id}]" value="{$attribute.class_content.class_constraint_list|implode(',')}" />
             {/if}
 
-	        <input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_browse_objects]" value="{'Add existing objects'|i18n( 'design/standard/content/datatype' )}" title="{'Browse to add existing objects in this relation'|i18n( 'design/standard/content/datatype' )}" />
+            <input class="btn btn-default" type="submit" name="CustomActionButton[{$attribute.id}_browse_objects]" value="{'Add existing objects'|i18n( 'design/standard/content/datatype' )}" title="{'Browse to add existing objects in this relation'|i18n( 'design/standard/content/datatype' )}" />
             {include uri='design:content/datatype/edit/ezobjectrelationlist_ajaxuploader.tpl'}
 
         </div>
@@ -449,7 +449,7 @@
         <div class="block inline-block ezobject-relation-search-browse hide"></div>
 
         {include uri='design:content/datatype/edit/ezobjectrelation_ajax_search.tpl'}
-	{/if}
+    {/if}
     </div><!-- /div class="block" id="ezobjectrelationlist_browse_{$attribute.id}" -->
 {/if}
 {/let}

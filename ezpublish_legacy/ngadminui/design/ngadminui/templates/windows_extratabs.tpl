@@ -4,8 +4,8 @@
 
 <div id="node-tab-{$tab}-content" class="tab-content{if $node_tab_index|ne( $tab )} hide{else} selected{/if}">
     <div class="panel">
-	    {include uri=concat( 'design:tabs/', $tab_template )}
-	</div>
+        {include uri=concat( 'design:tabs/', $tab_template )}
+    </div>
 <div class="break"></div>
 </div>
 

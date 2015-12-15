@@ -17,9 +17,9 @@ $btnPrimary: #4A90E2;
 $btnBorder: #e4e4e4;
 
 @mixin rounded($x:50%) {
-	-moz-border-radius:$x; -webkit-border-radius:$x; border-radius:$x;
+    -moz-border-radius:$x; -webkit-border-radius:$x; border-radius:$x;
 }
 
 @mixin overlayShadow() {
-	-moz-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); -webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15);
+    -moz-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); -webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15);
 }
