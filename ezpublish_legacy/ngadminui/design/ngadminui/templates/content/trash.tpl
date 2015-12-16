@@ -80,8 +80,7 @@
                     </td>
                     <td>
                     {let section_object=fetch( section, object, hash( section_id, $cur_c_object.section_id ) )}{section show=$section_object}{$section_object.name|wash}{section-else}<i>{'Unknown'|i18n( 'design/admin/content/trash' )}</i>{/section}{/let}
-                    </td>Key "url" for array with keys "uri, text" does not exist in NetgenMoreAdminUIBundle::pagelayout_legacy.html.twig at line 46
-500 Internal Server Error - Twig_Error_Runtime
+                    </td>
                     <td>
                     {if $original_parent}<a href={concat( '/', $original_parent.path_identification_string )|ezurl}>{/if}/{$tObjects.item.original_parent_path_id_string|wash}{if $original_parent}</a>{/if}
                     </td>
