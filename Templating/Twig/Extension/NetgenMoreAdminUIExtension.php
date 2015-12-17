@@ -22,12 +22,12 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
     protected $globalHelper;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param \Closure $legacyKernel
      * @param \Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper $globalHelper
      */
-    public function __construct( Closure $legacyKernel, GlobalHelper $globalHelper )
+    public function __construct(Closure $legacyKernel, GlobalHelper $globalHelper)
     {
         $this->legacyKernel = $legacyKernel;
         $this->globalHelper = $globalHelper;
@@ -53,24 +53,25 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
         return array(
             new Twig_SimpleFunction(
                 'ezpreference',
-                array( $this, 'getLegacyPreference' )
-            )
+                array($this, 'getLegacyPreference')
+            ),
         );
     }
 
     /**
-     * Returns eZ Publish Legacy ezpreference value
+     * Returns eZ Publish Legacy ezpreference value.
      *
      * @param string $name
      *
      * @return mixed
      */
-    public function getLegacyPreference( $name )
+    public function getLegacyPreference($name)
     {
         $legacyKernel = $this->legacyKernel;
+
         return $legacyKernel()->runCallback(
-            function () use ( $name ) {
-                return eZPreferences::value( $name );
+            function () use ($name) {
+                return eZPreferences::value($name);
             }
         );
     }
@@ -82,6 +83,6 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
      */
     public function getGlobals()
     {
-        return array( 'ngmore_admin_ui' => $this->globalHelper );
+        return array('ngmore_admin_ui' => $this->globalHelper);
     }
 }

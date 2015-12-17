@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class LegacyMenuPlugin implements MenuPluginInterface
 {
     /**
-     * Returns plugin identifier
+     * Returns plugin identifier.
      *
      * @return string
      */
@@ -19,7 +19,7 @@ class LegacyMenuPlugin implements MenuPluginInterface
     }
 
     /**
-     * Returns the list of templates this plugin supports
+     * Returns the list of templates this plugin supports.
      *
      * @return array
      */
@@ -28,22 +28,22 @@ class LegacyMenuPlugin implements MenuPluginInterface
         return array(
             'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig',
             'left' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig',
-            'top' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:top.html.twig'
+            'top' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:top.html.twig',
         );
     }
 
     /**
-     * Returns if this plugin matches the current request
+     * Returns if this plugin matches the current request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return bool
      */
-    public function matches( Request $request )
+    public function matches(Request $request)
     {
         return in_array(
-            $request->attributes->get( '_route' ),
-            array( FallbackRouter::ROUTE_NAME, UrlAliasRouter::URL_ALIAS_ROUTE_NAME )
+            $request->attributes->get('_route'),
+            array(FallbackRouter::ROUTE_NAME, UrlAliasRouter::URL_ALIAS_ROUTE_NAME)
         );
     }
 }

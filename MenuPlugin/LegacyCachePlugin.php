@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 class LegacyCachePlugin implements MenuPluginInterface
 {
     /**
-     * Returns plugin identifier
+     * Returns plugin identifier.
      *
      * @return string
      */
@@ -17,25 +17,25 @@ class LegacyCachePlugin implements MenuPluginInterface
     }
 
     /**
-     * Returns the list of templates this plugin supports
+     * Returns the list of templates this plugin supports.
      *
      * @return array
      */
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig'
+            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig',
         );
     }
 
     /**
-     * Returns if this plugin matches the current request
+     * Returns if this plugin matches the current request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return bool
      */
-    public function matches( Request $request )
+    public function matches(Request $request)
     {
         return false;
     }

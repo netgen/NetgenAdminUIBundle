@@ -10,17 +10,17 @@ class MenuPluginRegistry
     protected $menuPlugins = array();
 
     /**
-     * Adds a menu plugin to registry
+     * Adds a menu plugin to registry.
      *
      * @param \Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginInterface $menuPlugin
      */
-    public function addMenuPlugin( MenuPluginInterface $menuPlugin )
+    public function addMenuPlugin(MenuPluginInterface $menuPlugin)
     {
         $this->menuPlugins[$menuPlugin->getIdentifier()] = $menuPlugin;
     }
 
     /**
-     * Returns all menu plugins
+     * Returns all menu plugins.
      *
      * @return \Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginInterface[]
      */

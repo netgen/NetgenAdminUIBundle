@@ -9,33 +9,30 @@ use Symfony\Component\DependencyInjection\Reference;
 class MenuPluginRegistryPass implements CompilerPassInterface
 {
     /**
-     * Registers all menu plugins in the plugin registry
+     * Registers all menu plugins in the plugin registry.
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function process( ContainerBuilder $container )
+    public function process(ContainerBuilder $container)
     {
-        if ( !$container->has( 'ngmore_admin_ui.menu_plugin.registry' ) )
-        {
+        if (!$container->has('ngmore_admin_ui.menu_plugin.registry')) {
             return;
         }
 
-        $menuPluginRegistry = $container->findDefinition( 'ngmore_admin_ui.menu_plugin.registry' );
-        $menuPlugins = $container->findTaggedServiceIds( 'ngmore_admin_ui.menu_plugin' );
+        $menuPluginRegistry = $container->findDefinition('ngmore_admin_ui.menu_plugin.registry');
+        $menuPlugins = $container->findTaggedServiceIds('ngmore_admin_ui.menu_plugin');
 
         $flattenedMenuPlugins = array();
-        foreach ( $menuPlugins as $identifier => $menuPlugin )
-        {
-            $flattenedMenuPlugins[$identifier] = isset( $menuPlugin[0]['priority'] ) ? $menuPlugin[0]['priority'] : 0;
+        foreach ($menuPlugins as $identifier => $menuPlugin) {
+            $flattenedMenuPlugins[$identifier] = isset($menuPlugin[0]['priority']) ? $menuPlugin[0]['priority'] : 0;
         }
 
-        arsort( $flattenedMenuPlugins );
+        arsort($flattenedMenuPlugins);
 
-        foreach ( array_keys( $flattenedMenuPlugins ) as $menuPlugin )
-        {
+        foreach (array_keys($flattenedMenuPlugins) as $menuPlugin) {
             $menuPluginRegistry->addMethodCall(
                 'addMenuPlugin',
-                array( new Reference( $menuPlugin ) )
+                array(new Reference($menuPlugin))
             );
         }
     }

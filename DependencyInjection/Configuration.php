@@ -8,12 +8,12 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root( 'netgen_more_admin_ui' );
+        $rootNode = $treeBuilder->root('netgen_more_admin_ui');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

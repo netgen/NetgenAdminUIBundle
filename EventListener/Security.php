@@ -35,7 +35,7 @@ class Security implements EventSubscriberInterface
     protected $securityContext;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param \eZ\Publish\API\Repository\Repository $repository
@@ -47,8 +47,7 @@ class Security implements EventSubscriberInterface
         Repository $repository,
         ConfigResolverInterface $configResolver,
         SecurityContextInterface $securityContext
-    )
-    {
+    ) {
         $this->requestStack = $requestStack;
         $this->repository = $repository;
         $this->configResolver = $configResolver;
@@ -61,7 +60,7 @@ class Security implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            LegacyEvents::POST_BUILD_LEGACY_KERNEL => array( 'onKernelBuilt', 255 )
+            LegacyEvents::POST_BUILD_LEGACY_KERNEL => array('onKernelBuilt', 255),
         );
     }
 
@@ -70,7 +69,7 @@ class Security implements EventSubscriberInterface
      *
      * @param \eZ\Publish\Core\MVC\Legacy\Event\PostBuildKernelEvent $event
      */
-    public function onKernelBuilt( PostBuildKernelEvent $event )
+    public function onKernelBuilt(PostBuildKernelEvent $event)
     {
         $currentRequest = $this->requestStack->getCurrentRequest();
 
@@ -78,10 +77,9 @@ class Security implements EventSubscriberInterface
         if (
             $currentRequest === null
             || !$event->getKernelHandler() instanceof ezpWebBasedKernelHandler
-            || $this->configResolver->getParameter( 'legacy_mode' ) === true
+            || $this->configResolver->getParameter('legacy_mode') === true
             || !$this->isUserAuthenticated()
-        )
-        {
+        ) {
             return;
         }
 
@@ -113,6 +111,6 @@ class Security implements EventSubscriberInterface
         // or by "remember me" if available.
         return
             $this->securityContext->getToken() instanceof TokenInterface
-            && $this->securityContext->isGranted( 'IS_AUTHENTICATED_REMEMBERED' );
+            && $this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED');
     }
 }
