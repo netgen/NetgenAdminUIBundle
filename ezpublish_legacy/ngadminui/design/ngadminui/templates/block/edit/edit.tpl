@@ -66,23 +66,27 @@
             <div class="group float-break">
                 <label>{'Source:'|i18n( 'design/standard/block/edit' )}</label>
                 <div class="controls">
-                    <div class="source">
-                    {'Current source:'|i18n( 'design/standard/block/edit' )}
                     {if is_set( $fetch_params['Source'] )}
-                        {if is_array( $fetch_params['Source'] )}
-                            {foreach $fetch_params['Source'] as $source}
-                                {def $source_node = fetch( 'content', 'node', hash( 'node_id', $source ) )}
-                                <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>{delimiter}, {/delimiter}
+                        <div class="source">
+                            {'Current source:'|i18n( 'design/standard/block/edit' )}
+
+                            {if is_array( $fetch_params['Source'] )}
+                                {foreach $fetch_params['Source'] as $source}
+                                    {def $source_node = fetch( 'content', 'node', hash( 'node_id', $source ) )}
+                                    <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>{delimiter}, {/delimiter}
+                                    {undef $source_node}
+                                {/foreach}
+                            {else}
+                                {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
+                                <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>
                                 {undef $source_node}
-                            {/foreach}
-                        {else}
-                            {def $source_node = fetch( 'content', 'node', hash( 'node_id', $fetch_params['Source'] ) )}
-                            <a href={$source_node.url_alias|ezurl} target="_blank" title="{$source_node.name|wash()} [{$source_node.object.content_class.name|wash()}]">{$source_node.name|wash()}</a>
-                            {undef $source_node}
-                        {/if}
+                            {/if}
+                        </div>
                     {/if}
-                    </div>
                     <input id="block-fetch-parameter-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_new_source_browse-{$zone_id}-{$block_id}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+                    {if is_set( $fetch_params['Source'] )}
+                        <input id="block-fetch-parameter-remove-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_remove_source-{$zone_id}-{$block_id}]" type="submit" value="{'Remove source'|i18n( 'design/standard/block/edit' )}" />
+                    {/if}
                 </div>
             </div>
         {else}
@@ -119,20 +123,21 @@
                 <div class="group float-break {if $is_advanced} advanced{/if}">
                     {if is_set($custom_attribute_names[$custom_attrib])}<label>{$custom_attribute_names[$custom_attrib]}:</label>{/if}
                     <div class="controls">
-                        <div class="source">
-                            {'Current source:'|i18n( 'design/standard/block/edit' )}
-                            {if is_set( $block.custom_attributes[$custom_attrib] )}
+                        {if is_set( $block.custom_attributes[$custom_attrib] )}
+                            <div class="source">
+                                {'Current source:'|i18n( 'design/standard/block/edit' )}
+
                                 {def $source_node = fetch( 'content', 'node', hash( 'node_id', $block.custom_attributes[$custom_attrib] ) )}
                                 {if $source_node}
                                     <a target="_blank" href={$source_node.url_alias|ezurl()}>{$source_node.name|wash()}</a>
                                 {/if}
                                 {undef $source_node}
-                            {/if}
-                        </div>
+                            </div>
+                        {/if}
 
-                        <div class="choose-source"><input id="block-choose-source-{$block_id}-{$custom_attrib}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" /></div>
-                        {if and( is_set( $block.custom_attributes[$custom_attrib] ), $block.custom_attributes[$custom_attrib]|count_chars )}
-                            <label class="clear-source" for="block-clear-source-{$block_id}-{$custom_attrib}"><input id="block-clear-source-{$block_id}-{$custom_attrib}" name="ClearCustomAttributeSource[{$attribute.id}-{$zone_id}-{$block_id}-{$custom_attrib}]" type="checkbox" /> {'Clear source'|i18n( 'design/standard/block/edit' )}</label>
+                        <input id="block-choose-source-{$block_id}" class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_browse-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Choose source'|i18n( 'design/standard/block/edit' )}" />
+                        {if is_set( $block.custom_attributes[$custom_attrib] )}
+                            <input class="button block-control" name="CustomActionButton[{$attribute.id}_custom_attribute_remove_source-{$zone_id}-{$block_id}-{$custom_attrib}]" type="submit" value="{'Remove source'|i18n( 'design/standard/block/edit' )}" />
                         {/if}
                     </div>
                 </div>
