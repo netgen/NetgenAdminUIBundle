@@ -30,7 +30,7 @@
 
         {% if ui_context != 'edit' and ui_context != 'browse' %}
             {% if ngmore_can_user( 'content', 'read', user_content ) %}
-                <li><a href="{{ path( 'ez_urlalias', { 'locationId': user_content.contentInfo.mainLocationId } ) }}">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</a></li>
+                <li><a href="{{ path( user_content ) }}">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</a></li>
             {% endif %}
 
             {% if ngmore_can_user( 'content', 'edit', user_content ) %}

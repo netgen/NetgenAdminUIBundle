@@ -32,7 +32,7 @@
     <div id="page" class="{{ navigation_part }} section_id_{{ section_id }} {% if content_edit or ui_context_edit %} content-edit{% endif %}{% if not show_side_menu %} hide-side-menu{% endif %}">
         <header id="header">
             <div class="header-nav">
-                <a id="header-logo" href="{{ path( 'ez_urlalias', { locationId: ezpublish.rootLocation.id } ) }}" title="{{ site_name }}"></a>
+                <a id="header-logo" href="{{ path( ezpublish.rootLocation ) }}" title="{{ site_name }}"></a>
             </div>
 
             {% if not ui_context_edit %}
