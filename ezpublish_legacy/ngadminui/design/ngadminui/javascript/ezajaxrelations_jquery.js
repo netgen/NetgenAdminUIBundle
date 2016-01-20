@@ -42,7 +42,7 @@ jQuery(function( $ )
                     var liElem = $('<li></li>');
                         aElem = $( '<a></a>' ),
                         spanElem = $('<span></span>'),
-                        elPath = arr[i].path_identification_string;
+                        elPath = "/" + arr[i].url_alias;
                     aElem.bind( 'click', { boxID: boxID,
                                            id: arr[i].id,
                                            name: arr[i].name,
@@ -59,7 +59,6 @@ jQuery(function( $ )
                         spanElem.append( elPath );
                     }
 
-                    console.log(arr[i]);
                     liElem.append( aElem );
                     liElem.append( spanElem );
                     ulElem.append( liElem );
