@@ -237,26 +237,26 @@
                             </td>
                             <td colspan="4">
 
-                            {let object=fetch( content, object, hash( object_id, $:item.contentobject_id, object_version, $:item.contentobject_version ) )
-                                 version=fetch( content, version, hash( object_id, $:item.contentobject_id, version_id, $:item.contentobject_version ) )}
-                            <fieldset>
-                            <legend>{'Edit < %object_name > [%object_class]'|i18n( 'design/standard/content/datatype',, hash( '%object_name', $Relation:object.name, '%object_class', $Relation:object.class_name ) )|wash}</legend>
+                              {let object=fetch( content, object, hash( object_id, $:item.contentobject_id, object_version, $:item.contentobject_version ) )
+                                   version=fetch( content, version, hash( object_id, $:item.contentobject_id, version_id, $:item.contentobject_version ) )}
+                              <fieldset>
+                              <legend>{'Edit < %object_name > [%object_class]'|i18n( 'design/standard/content/datatype',, hash( '%object_name', $Relation:object.name, '%object_class', $Relation:object.class_name ) )|wash}</legend>
 
-                            {section name=Attribute loop=$:version.contentobject_attributes}
-                                <div class="block">
-                                {if $:item.display_info.edit.grouped_input}
-                                    <fieldset>
-                                    <legend>{$:item.contentclass_attribute.name}</legend>
-                                    {attribute_edit_gui attribute_base=concat( $attribute_base, '_ezorl_edit_object_', $Relation:item.contentobject_id ) html_class='half' attribute=$:item}
-                                    </fieldset>
-                                {else}
-                                    <label>{$:item.contentclass_attribute.name}:</label>
-                                    {attribute_edit_gui attribute_base=concat( $attribute_base, '_ezorl_edit_object_', $Relation:item.contentobject_id ) html_class='half' attribute=$:item}
-                                {/if}
-                                </div>
-                            {/section}
-                            {/let}
-                            </fieldset>
+                              {section name=Attribute loop=$:version.contentobject_attributes}
+                                  <div class="block">
+                                  {if $:item.display_info.edit.grouped_input}
+                                      <fieldset>
+                                      <legend>{$:item.contentclass_attribute.name}</legend>
+                                      {attribute_edit_gui attribute_base=concat( $attribute_base, '_ezorl_edit_object_', $Relation:item.contentobject_id ) html_class='half' attribute=$:item}
+                                      </fieldset>
+                                  {else}
+                                      <label>{$:item.contentclass_attribute.name}:</label>
+                                      {attribute_edit_gui attribute_base=concat( $attribute_base, '_ezorl_edit_object_', $Relation:item.contentobject_id ) html_class='half' attribute=$:item}
+                                  {/if}
+                                  </div>
+                              {/section}
+                              {/let}
+                              </fieldset>
                             </td>
 
                             {* Order. *}
@@ -349,7 +349,7 @@
             <tr>
                 <th class="tight"><i onclick="ezjs_toggleCheckboxes( document.editform, '{$attribute_base}_selection[{$attribute.id}][]' ); return false;" title="{'Invert selection.'|i18n( 'design/standard/content/datatype' )}" class="fa fa-check-square-o"></i></th>
                 <th>{'Name'|i18n( 'design/standard/content/datatype' )}</th>
-                <th></th>
+                {if $attribute.content.relation_list}<th></th>{/if}
                 <th>{'Type'|i18n( 'design/standard/content/datatype' )}</th>
                 <th>{'Section'|i18n( 'design/standard/content/datatype' )}</th>
                 <th>{'Published'|i18n( 'design/standard/content/datatype' )}</th>

@@ -6637,6 +6637,20 @@ input.tagssuggestfield {
   -webkit-border-radius: 4px;
   border-radius: 4px; }
 
+.ezobject-relation-search-browse ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0 0; }
+  .ezobject-relation-search-browse ul li {
+    margin: 0 0 0.5em; }
+    .ezobject-relation-search-browse ul li > span {
+      font-size: 10px;
+      color: #999;
+      margin-left: 1em; }
+    .ezobject-relation-search-browse ul li a span {
+      font-size: 12px;
+      color: #77acd9; }
+
 .thumbview {
   background: transparent; }
   .thumbview:before {

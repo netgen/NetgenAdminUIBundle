@@ -32,14 +32,17 @@ jQuery(function( $ )
     {
         if ( data && data.content !== '' )
         {
-            var boxID = '#' + data.content.CallbackID, boxElem = $( boxID + ' div.ezobject-relation-search-browse'  );
+            var boxID = '#' + data.content.CallbackID, boxElem = $( boxID + ' div.ezobject-relation-search-browse'  ), ulElem = $('<ul></ul>');
             if ( data.content.SearchResultCount )
             {
                 boxElem.empty();
                 var arr = data.content.SearchResult, pub = $('#ezobjectrelation-search-published-text');
                 for ( var i = 0, l = arr.length; i < l; i++ )
                 {
-                    var aElem = $( '<a></a>' );
+                    var liElem = $('<li></li>');
+                        aElem = $( '<a></a>' ),
+                        spanElem = $('<span></span>'),
+                        elPath = arr[i].path_identification_string;
                     aElem.bind( 'click', { boxID: boxID,
                                            id: arr[i].id,
                                            name: arr[i].name,
@@ -48,12 +51,20 @@ jQuery(function( $ )
                                            publishedTxt: pub.val() }, function(e) {
                         ezajaxrelationsSearchAddObject( this, e.data.boxID, e.data.id, e.data.name, e.data.className, e.data.sectionName, e.data.publishedTxt );
                     } );
-                    aElem.append( arr[i].name );
+                    aElem.append( arr[i].name + " <span>[" + arr[i].class_name + "]</span>");
                     aElem.attr( 'title', aElem.text() );
 
-                    boxElem.append( aElem );
-                    boxElem.append( '<br />' );
+                    elPath = elPath.substring(0, elPath.lastIndexOf('/'));
+                    if(elPath.length){
+                        spanElem.append( elPath );
+                    }
+
+                    console.log(arr[i]);
+                    liElem.append( aElem );
+                    liElem.append( spanElem );
+                    ulElem.append( liElem );
                 }
+                boxElem.append( ulElem );
                 boxElem.removeClass('hide');
             }
             else
@@ -98,7 +109,7 @@ jQuery(function( $ )
         tds.eq( 1 ).html( className );
         tds.eq( 2 ).html( sectionName );
         tds.eq( 3 ).html( publishedTxt );
-        $( boxID + ' table' ).removeClass('hide');
+        $(boxID + ' table').removeClass('hide');
         $(boxID + ' .ezobject-relation-remove-button').removeClass('button-disabled').addClass('button').attr('disabled', false);
         $(boxID + ' .ezobject-relation-no-relation').addClass('hide');
     }
