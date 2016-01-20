@@ -1284,6 +1284,13 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
     @include rounded(4px);
 }
 
+.thumbview {
+    background:transparent;
+    &:before {
+        @extend .fontawesome; content:"\f030"; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); cursor:pointer; font-size:13px;
+    }
+}
+
 #bookmarks {
     ul {
         margin:8px 0 14px; padding:0; list-style-type:none;

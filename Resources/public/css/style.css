@@ -5657,7 +5657,7 @@ select.input-sm, .input-group-sm > select.form-control,
   margin-left: -1px; }
 
 /* subitems yui control */
-.fontawesome, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon:before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger:before, #action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
+.fontawesome, .thumbview:before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon:before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger:before, #action-controls-container .yui-button button:before, #action-controls-container .yui-button button:after, .yui-pg-first [data-icon]:before, .yui-pg-previous [data-icon]:before, .yui-pg-next [data-icon]:before, .yui-pg-last [data-icon]:before, .yuimenuitemlabel:before, .yuimenu .topscrollbar:before, .yuimenu .bottomscrollbar:before, .rightmenu .show-hide-control:before, fieldset.ezcca-collapsible legend a:before {
   display: inline-block;
   font: normal normal normal 14px FontAwesome;
   font-size: inherit;
@@ -6636,6 +6636,17 @@ input.tagssuggestfield {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px; }
+
+.thumbview {
+  background: transparent; }
+  .thumbview:before {
+    content: "\f030";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    font-size: 13px; }
 
 #bookmarks ul {
   margin: 8px 0 14px;
