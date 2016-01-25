@@ -2,9 +2,9 @@
 {def $node_url_alias      = $node.url_alias
      $tabs_disabled       = false()
      $admin_navigation_content_pref = ezpreference( 'admin_navigation_content' )
+     $default_tabs        = ezini( 'ViewSettings', 'DefaultTabs', 'ngadminui.ini' )
      $default_tab         = 'view'
-     $node_tab_index      = first_set( $view_parameters.tab, $default_tab )
-     $read_open_tab_by_cookie = true()
+     $node_tab_index      = cond( is_set( $default_tabs[$node.object.class_identifier] ), $default_tabs[$node.object.class_identifier], true(), $default_tab )
      $available_languages = fetch( 'content', 'prioritized_languages' )
      $translations        = $node.object.languages
      $translations_count  = $translations|count
@@ -37,7 +37,7 @@
      $additional_tabs_count = $additional_tabs|count()}
 
 <div class="window-controls-tabs">
-    <ul class="tabs{if $read_open_tab_by_cookie} tabs-by-cookie{/if} clearfix">
+    <ul class="tabs clearfix">
 
         {* Content (pre)view *}
         <li id="node-tab-view" class="first{if $node_tab_index|eq('view')} selected{/if}">
