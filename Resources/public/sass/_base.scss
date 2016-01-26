@@ -106,7 +106,10 @@ label {
 }
 
 #header {
-    border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:10; background:#fff;
+    border:none; position:fixed; top:0; left:0; right:0; height:$headerHeight; z-index:10; background:#fff; overflow:hidden;
+    .dropdown-menu {
+        position:fixed; left:auto; top:$headerHeight - 10px; min-width:auto;
+    }
 }
 #header-logo {
     background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
@@ -139,6 +142,11 @@ label {
         }
         .fa {
             position:relative; top:-1px; left:-3px;
+        }
+    }
+    @media screen and (max-width: 880px) {
+        & {
+            width:$leftColumnWidth - 70px;
         }
     }
 }
@@ -276,6 +284,13 @@ label {
     }
     .inner-wrapper {
         padding:$gutter;
+    }
+    @media screen and (max-width: 880px) {
+        & {
+            &.left-column {
+                width:$leftColumnWidth - 70px;
+            }
+        }
     }
 }
 
@@ -541,6 +556,13 @@ fieldset.ezcca-collapsible {
     .badge {
         pointer-events:none;
     }
+    @media screen and (max-width: 981px) {
+        & {
+            > li {
+                padding-right:6px; font-size:13px;
+            }
+        }
+    }
 }
 .tabs-content {
     .tab-content {
@@ -727,6 +749,16 @@ select.input-sm {line-height:1.5;}
     .yui-pg-previous, .yui-pg-next {
         margin-left:-1px;
     }
+    @media screen and (max-width: 981px) {
+        & {
+            #tpg, #action-controls-options {
+                float:left; margin:10px 5px 0 0;
+            }
+            #tpg {
+                clear:left;
+            }
+        }
+    }
 }
 #action-controls .yui-button:last-child {
     @include rounded(0 4px 4px 0);
@@ -853,6 +885,13 @@ table {
             }
         }
     }
+    @media screen and (max-width: 981px) {
+        & {
+            .tt {
+                display:none;
+            }
+        }
+    }
 }
 
 .tight.listbutton .form-control {display:inline-block; width:auto; height:20px; font-size:13px; padding:2px 4px; text-align:center; margin:0 0 0 2px;}
@@ -902,9 +941,16 @@ table {
     }
 }
 #controlbar-top {
-    position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:14px 20px 0 $gutter; z-index:11;
+    position:fixed; top:0; height:$headerHeight; left:$asideWidth; right:0; padding:18px 20px 0 $gutter; z-index:11;
     .translation {
-        margin-top:14px; color:#999;
+        margin-top:10px; color:#999;
+    }
+    @media screen and (max-width: 880px){
+        & {
+            .tt {
+                display:none;
+            }
+        }
     }
 }
 //.controlbar .btn-group {margin-left:16px;}
@@ -963,6 +1009,9 @@ table {
         }
         .attribute-preview {
             display:table-cell; vertical-align:top;
+            img {
+                max-width:100%; height:auto;
+            }
         }
     }
     label, legend {
@@ -993,8 +1042,12 @@ table {
             display:block;
         }
     }
+    @media screen and (max-width: 981px) {
+        & {
+            padding:15px;
+        }
+    }
 }
-
 .node-info-list {
     list-style-type:none; padding:0; border-left:3px solid $lightBg; margin:0; position:absolute; right:0; top:0; min-height:100%; width:200px;
      > li {
@@ -1012,6 +1065,11 @@ table {
     table.list {
         td {
             padding-left:0; padding-right:0;
+        }
+    }
+    @media screen and (max-width: 981px) {
+        & {
+            position:relative; width:auto; border-left:none; margin:4em -15px 0; background:$lightBg;
         }
     }
 }
@@ -1054,6 +1112,17 @@ table {
     }
     .path-edit-container {
         position:fixed; top:$headerHeight; right:0; left:$asideWidth + 200px; z-index:3;
+    }
+    @media screen and (max-width: 981px){
+        & {
+            padding-left:160px;
+            .edit-tab-control {
+                width:160px;
+            }
+            .path-edit-container {
+                left:$asideWidth + 160px;
+            }
+        }
     }
 }
 
@@ -1177,6 +1246,17 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         display:table-cell; vertical-align:top;
         label {
             font-size:0.928em;
+        }
+    }
+    @media screen and (max-width: 981px){
+        & {
+            display:block;
+            .label-edit {
+                display:block; width:auto; padding-right:0; text-align:left; margin:0 0 1em;
+            }
+            .attribute-edit {
+                display:block;
+            }
         }
     }
 }

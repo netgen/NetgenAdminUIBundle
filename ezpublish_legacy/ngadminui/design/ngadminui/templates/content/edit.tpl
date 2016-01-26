@@ -78,7 +78,7 @@
 
                 {else}
 
-                    <img src="{$translation_list[$language_index].language_code|flag_icon}" width="18" height="12" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />&nbsp;{$translation_list[$language_index].locale.intl_language_name}
+                    <img src="{$translation_list[$language_index].language_code|flag_icon}" width="18" height="12" style="vertical-align: middle;" alt="{$translation_list[$language_index].language_code}" />&nbsp;<span class="tt">{$translation_list[$language_index].locale.intl_language_name}</span>
 
                 {/if}
 

@@ -4828,7 +4828,13 @@ label {
   right: 0;
   height: 70px;
   z-index: 10;
-  background: #fff; }
+  background: #fff;
+  overflow: hidden; }
+  #header .dropdown-menu {
+    position: fixed;
+    left: auto;
+    top: 60px;
+    min-width: auto; }
 
 #header-logo {
   background: #F3590A url("../images/ez-logo-w.svg") 50% no-repeat;
@@ -4892,6 +4898,9 @@ label {
       position: relative;
       top: -1px;
       left: -3px; }
+  @media screen and (max-width: 880px) {
+    .search-form {
+      width: 170px; } }
 
 #aside {
   width: 100px;
@@ -5101,6 +5110,9 @@ label {
       padding-top: 60px; }
   .layout-column .inner-wrapper {
     padding: 15px; }
+  @media screen and (max-width: 880px) {
+    .layout-column.left-column {
+      width: 170px; } }
 
 .layout-column-inner {
   position: relative;
@@ -5481,6 +5493,10 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
     background: #555; }
   .tabs .badge {
     pointer-events: none; }
+  @media screen and (max-width: 981px) {
+    .tabs > li {
+      padding-right: 6px;
+      font-size: 13px; } }
 
 .tabs-content .tab-content {
   display: none; }
@@ -5683,6 +5699,12 @@ select.input-sm, .input-group-sm > select.form-control,
     border-radius: 0 4px 4px 0; }
   #action-controls-container .yui-pg-previous, #action-controls-container .yui-pg-next {
     margin-left: -1px; }
+  @media screen and (max-width: 981px) {
+    #action-controls-container #tpg, #action-controls-container #action-controls-options {
+      float: left;
+      margin: 10px 5px 0 0; }
+    #action-controls-container #tpg {
+      clear: left; } }
 
 #action-controls .yui-button:last-child {
   border-radius: 0 4px 4px 0; }
@@ -5910,6 +5932,9 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
       .node-top-switch .node-view-switch li.active a {
         background: #f5f5f5;
         cursor: default; }
+  @media screen and (max-width: 981px) {
+    .node-top-switch .tt {
+      display: none; } }
 
 .tight.listbutton .form-control {
   display: inline-block;
@@ -5989,11 +6014,14 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   height: 70px;
   left: 100px;
   right: 0;
-  padding: 14px 20px 0 15px;
+  padding: 18px 20px 0 15px;
   z-index: 11; }
   #controlbar-top .translation {
-    margin-top: 14px;
+    margin-top: 10px;
     color: #999; }
+  @media screen and (max-width: 880px) {
+    #controlbar-top .tt {
+      display: none; } }
 
 .preview-content label, table.list.preview label {
   color: #98a6ad;
@@ -6094,6 +6122,9 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     .content-preview .preview-row .attribute-preview {
       display: table-cell;
       vertical-align: top; }
+      .content-preview .preview-row .attribute-preview img {
+        max-width: 100%;
+        height: auto; }
   .content-preview label, .content-preview legend {
     font-size: 13px;
     color: #999;
@@ -6124,6 +6155,9 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     margin-bottom: 15px; }
   .content-preview .file-attribute label {
     display: block; }
+  @media screen and (max-width: 981px) {
+    .content-preview {
+      padding: 15px; } }
 
 .node-info-list {
   list-style-type: none;
@@ -6151,6 +6185,13 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   .node-info-list table.list td {
     padding-left: 0;
     padding-right: 0; }
+  @media screen and (max-width: 981px) {
+    .node-info-list {
+      position: relative;
+      width: auto;
+      border-left: none;
+      margin: 4em -15px 0;
+      background: #f5f5f5; } }
 
 .box-header {
   border: none;
@@ -6219,6 +6260,13 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     right: 0;
     left: 300px;
     z-index: 3; }
+  @media screen and (max-width: 981px) {
+    #maincontent.node-edit-container {
+      padding-left: 160px; }
+      #maincontent.node-edit-container .edit-tab-control {
+        width: 160px; }
+      #maincontent.node-edit-container .path-edit-container {
+        left: 260px; } }
 
 .context-attributes .tab + .tab {
   border: none; }
@@ -6410,6 +6458,17 @@ fieldset legend {
     vertical-align: top; }
     .edit-row .attribute-edit label {
       font-size: 0.928em; }
+  @media screen and (max-width: 981px) {
+    .edit-row {
+      display: block; }
+      .edit-row .label-edit {
+        display: block;
+        width: auto;
+        padding-right: 0;
+        text-align: left;
+        margin: 0 0 1em; }
+      .edit-row .attribute-edit {
+        display: block; } }
 
 .file-attribute {
   color: #333;
