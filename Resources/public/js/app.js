@@ -143,6 +143,9 @@ $(document).ready(function(){
         breadcrumbDiv.appendTo('.path-edit-container').fadeIn('fast');
     }
 
+    $('.removeNodeConfirm').on('click', function(){
+        $('#removePrompt').modal('show');
+    })
 });
 
 var initBlockAttributesState = function(){

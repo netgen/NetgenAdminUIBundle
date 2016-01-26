@@ -1,3 +1,4 @@
+{def $assigned_nodes_count = $node.object.assigned_nodes|count}
 {* DESIGN: Control bar START *}
 <div class="node-control-toolbar">
 
@@ -35,7 +36,11 @@
 
                         {* Remove button. *}
                         {if $node.can_remove}
-                            <li><input type="submit" name="ActionRemove" value="{'Remove'|i18n( 'design/admin/node/view/full' )}" title="{'Remove this item.'|i18n( 'design/admin/node/view/full' )}" /></li>
+                            {if $assigned_nodes_count|gt(1)}
+                                <li><button type="button" class="removeNodeConfirm">{'Remove'|i18n( 'design/admin/node/view/full' )}</button></li>
+                            {else}
+                                <li><input type="submit" name="ActionRemove" value="{'Remove'|i18n( 'design/admin/node/view/full' )}" title="{'Remove this item.'|i18n( 'design/admin/node/view/full' )}" /></li>
+                            {/if}
                         {else}
                             <li><input class="disabled" type="submit" name="ActionRemove" value="{'Remove'|i18n( 'design/admin/node/view/full' )}" title="{'You do not have permission to remove this item.'|i18n( 'design/admin/node/view/full' )}" disabled="disabled" /></li>
                         {/if}
@@ -46,6 +51,27 @@
                 </div>
             </div>
         </div>
+
+        {if $assigned_nodes_count|gt(1)}
+            <div class="modal fade" id="removePrompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="removePromptLabel">{'Confirm location removal'|i18n( 'design/admin/node/removeobject' )}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>The object you want to remove exists on one or more locations and will be removed only from this location.</p>
+                            <p>Are you sure you want to remove object from this location?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <input type="submit" class="btn btn-primary" name="ActionRemove" value="{'Remove'|i18n( 'design/admin/node/view/full' )}" title="{'Remove this item.'|i18n( 'design/admin/node/view/full' )}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/if}
     </form>
 </div>
 {* DESIGN: Control bar END *}
