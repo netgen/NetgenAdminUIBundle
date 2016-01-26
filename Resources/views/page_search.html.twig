@@ -1,6 +1,6 @@
 {% set search_text = app.request.query.get( 'SearchText', '' ) %}
 
-<form action="{{ path( 'ez_legacy', { module_uri: '/content/search' } ) }}" method="get" class="navbar-form search-form" role="search">
+<form action="{{ path( 'ez_legacy', { module_uri: '/content/search' } ) }}" method="get" class="navbar-form" role="search">
     {% if ui_context_edit %}
         <input id="searchText" name="SearchText" class="search-input disabled" type="text" size="20" value="{{ search_text }}" placeholder="{{ 'ngmore_admin_ui.search.search_content'|trans }}" disabled="disabled" />
         <button id="searchButton" name="SearchButton" type="submit" class="search-btn disabled" disabled="disabled"><i class="fa fa-search"></i></button>

@@ -554,6 +554,16 @@ fieldset.ezcca-collapsible {
 .btn-toolbar {margin-bottom:20px;}
 .btn-toolbar .form-inline {margin-left:5px;}
 
+.modal-body p {
+    color:#333; line-height:1.42857143; font-size:13px;
+}
+.modal-footer .btn {
+    float:none;
+}
+.modal-title {
+    font-weight:600; color:#4b4b4b;
+}
+
 .alert {
     border:none; @include rounded(0);
     .time {
@@ -1337,14 +1347,14 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
     }
 }
 .preview-box-header {
-    padding:10px; position:fixed; top:$headerHeight; z-index:4;
+    padding:10px; position:fixed; top:$headerHeight; z-index:4; display:table; table-layout:fixed;
     .btn-toolbar {
-        float:left; margin-bottom:0; margin-right:10px;
+        display:table-cell; vertical-align:middle; margin:0; width:560px;
     }
     .path-edit-container {
-        min-height:40px;
+        display:table-cell; vertical-align:middle;
         #path {
-            padding:12px $gutter;
+            padding:4px $gutter;
             p {
                 white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
             }
