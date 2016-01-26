@@ -53,7 +53,7 @@
         </div>
 
         {if $assigned_nodes_count|gt(1)}
-            <div class="modal fade" id="removePrompt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="removePrompt" tabindex="-1" role="dialog" aria-labelledby="removePromptLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
