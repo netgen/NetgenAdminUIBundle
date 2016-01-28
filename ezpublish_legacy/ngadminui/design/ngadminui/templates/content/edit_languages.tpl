@@ -36,10 +36,11 @@
                 {* Translation a user is able to edit *}
                 {set-block variable=$existing_languages_output}
                 {foreach $object_edit_languages as $language}
-                    <label>
-                        <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{run-once} checked="checked"{/run-once} /> {$language.name|wash}
-                    </label>
-                    <div class="labelbreak"></div>
+                    <div class="radio">
+                        <label>
+                            <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{run-once} checked="checked"{/run-once} /> {$language.name|wash}
+                        </label>
+                    </div>
                 {/foreach}
                 {/set-block}
 
@@ -61,10 +62,11 @@
             {set-block variable=$nonexisting_languages_output}
             {def $select_first_language = and( $object_create_languages|count|eq( 1 ), $show_existing_languages|not ) }
             {foreach $object_create_languages as $language}
-                <label>
-                   <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{if $select_first_language} checked="checked"{/if} /> {$language.name|wash}
-                </label>
-                <div class="labelbreak"></div>
+                <div class="radio">
+                    <label>
+                       <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{if $select_first_language} checked="checked"{/if} /> {$language.name|wash}
+                    </label>
+                </div>
             {/foreach}
             {undef $select_first_language}
             {/set-block}
@@ -89,16 +91,18 @@
                         <p>{'Select the language the added translation will be based on'|i18n('design/admin/content/edit_languages')}:</p>
 
                         <div class="indent">
-                            <label>
-                                <input name="FromLanguage" type="radio" checked="checked" value="" /> {'None'|i18n('design/admin/content/edit_languages')}
-                            </label>
-                            <div class="labelbreak"></div>
+                            <div class="radio">
+                                <label>
+                                    <input name="FromLanguage" type="radio" checked="checked" value="" /> {'None'|i18n('design/admin/content/edit_languages')}
+                                </label>
+                            </div>
 
                             {foreach $object.languages as $language}
-                                <label>
-                                    <input name="FromLanguage" type="radio" value="{$language.locale|wash}" /> {$language.name|wash}
-                                </label>
-                                <div class="labelbreak"></div>
+                                <div class="radio">
+                                    <label>
+                                        <input name="FromLanguage" type="radio" value="{$language.locale|wash}" /> {$language.name|wash}
+                                    </label>
+                                </div>
                             {/foreach}
                         </div>
                     </fieldset>
@@ -111,10 +115,11 @@
                     {* Translation a user is able to edit *}
                     {set-block variable=$existing_languages_output}
                     {foreach $object_edit_languages as $language}
-                        <label>
-                            <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{run-once} checked="checked"{/run-once} /> {$language.name|wash}
-                        </label>
-                        <div class="labelbreak"></div>
+                        <div class="radio">
+                            <label>
+                                <input name="EditLanguage" type="radio" value="{$language.locale|wash}"{run-once} checked="checked"{/run-once} /> {$language.name|wash}
+                            </label>
+                        </div>
                     {/foreach}
                     {/set-block}
 
