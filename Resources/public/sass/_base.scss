@@ -422,7 +422,7 @@ label {
         }
     }
     .panel-hl {
-        margin:-20px -20px 15px; padding:10px 20px; background:#edf1f2; color:#333; @include rounded(2px 2px 0 0);
+        margin:(-$gutter) (-$gutter) 15px; padding:10px 20px; background:#edf1f2; color:#333; @include rounded(2px 2px 0 0);
         h1, h2, h3, h4 {
             margin:0; color:#333;
         }

@@ -31,9 +31,9 @@
 {/if}
 
 
-<div class="row">
-    <div class="col-lg-6">
-        <div class="panel">
+<div class="panel">
+    <div class="row">
+        <div class="col-lg-6">
             <form name="Password" method="post" action={concat( $module.functions.password.uri, '/', $userID )|ezurl}>
 
                 {* DESIGN: Header START *}
