@@ -55,13 +55,17 @@
 				</p>
 
 				<div class="block">
-					<label for="ezrole-createpolizy-function">{'Function'|i18n( 'design/admin/role/createpolicystep2' )}:</label>
-					<select class="form-control" id="ezrole-createpolizy-function" name="ModuleFunction">
-						{section name=Functions loop=$functions}
-							<option value="{$Functions:item}">{$Functions:item}</option>
-						{/section}
-					</select>
-					<input type="hidden" name="CurrentModule" value="{$current_module}" />
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<label for="ezrole-createpolizy-function">{'Function'|i18n( 'design/admin/role/createpolicystep2' )}:</label>
+							<select class="form-control" id="ezrole-createpolizy-function" name="ModuleFunction">
+								{section name=Functions loop=$functions}
+									<option value="{$Functions:item}">{$Functions:item}</option>
+								{/section}
+							</select>
+							<input type="hidden" name="CurrentModule" value="{$current_module}" />
+						</div>
+					</div>
 				</div>
 
 				<div class="block">
