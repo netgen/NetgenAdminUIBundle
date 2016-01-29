@@ -2,7 +2,6 @@
 <div id="package">
     <form method="post" action={'package/create'|ezurl}>
 
-
         {* DESIGN: Header START *}<div class="box-header">
         <h1 class="context-title">
             {'Create package'|i18n('design/admin/package')}
