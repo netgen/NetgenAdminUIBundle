@@ -407,7 +407,7 @@ label {
 }
 
 .panel {
-    background:#fff; padding:$gutter; border:none; margin:0; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none;
+    background:#fff; padding:0 0 $gutter; border:none; margin:0; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none;
     &.divider {
         border-top:1px solid #e5e5e5;
     }
@@ -1794,4 +1794,62 @@ $yuiInputHeight: 26px;
 }
 @media (min-width: 480px) {
     .dropdown-backdrop {display:none !important;}
+}
+
+/* acem ngadminui fix */
+.main-content {
+    padding:$gutter $gutter 40px;
+    h2 {
+        a {
+            color:#333;
+        }
+    }
+}
+.acem-it-tool {
+    h4 {
+        font-weight:600;
+        margin:6px 0 12px;
+        padding:0 $gutter;
+    }
+    ul {
+        margin-left:0;
+        li {
+            padding:0;
+            a {
+                padding:6px $gutter !important;
+            }
+        }
+    }
+}
+.table-striped.table-bordered {
+    border:none;
+    td, th {
+        padding:10px; border:none;
+    }
+    th {
+        background:$thBg; border:none; color:#fff; font-size:11px; text-transform:uppercase; font-weight:600; line-height:20px;
+        .fa {
+            cursor:pointer; font-size:$fontSize; display:block; height:$fontSize;
+        }
+    }
+    tr td:first-child {
+        border-left:none;
+    }
+    td {
+        font-size:1em; padding:12px 10px; border-bottom:2px solid $lightBg; color:#4a4a4a;
+    }
+    tr.bglight, tr.bgdark {
+        -webkit-transition:background-color 150ms ease-in-out; -moz-transition:background-color 150ms ease-in-out; -ms-transition:background-color 150ms ease-in-out; -o-transition:background-color 150ms ease-in-out; transition:background-color 150ms ease-in-out;
+    }
+    tr.bglight:hover, tr.bgdark:hover {
+        background:$lightBg;
+    }
+    tr.bgdark {
+        background:#fff;
+    }
+}
+.node-edit-container {
+    .panel {
+        padding:$gutter;
+    }
 }
