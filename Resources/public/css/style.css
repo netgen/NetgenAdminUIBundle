@@ -5121,6 +5121,17 @@ label {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
+#main-column:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  content: "";
+  height: 2px;
+  background: #f5f5f5;
+  z-index: 9;
+  display: block; }
+
 .ui-resizable-handle.ui-resizable-e {
   top: 0;
   bottom: 0;
