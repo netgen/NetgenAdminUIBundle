@@ -45,30 +45,30 @@
         {if $has_edit_access}
             <div class="button-left">
                 {if $tag.translations|count}
-                    <input class="button" type="submit" name="RemoveTranslationButton" value="{'Remove selected'|i18n( 'extension/eztags/tags/view' )}" />
+                    <input class="btn-default" type="submit" name="RemoveTranslationButton" value="{'Remove selected'|i18n( 'extension/eztags/tags/view' )}" />
                 {else}
-                    <input class="button-disabled" type="submit" name="RemoveTranslationButton" value="{'Remove selected'|i18n( 'extension/eztags/tags/view' )}" disabled="disabled" />
+                    <input class="btn-default" type="submit" name="RemoveTranslationButton" value="{'Remove selected'|i18n( 'extension/eztags/tags/view' )}" disabled="disabled" />
                 {/if}
             </div>
         {/if}
         {if $has_edit_access}
             <div class="button-right">
                 {if $tag.translations|count}
-                    <input id="tab-translations-list-set-main" class="button" type="submit" name="UpdateMainTranslationButton" value="{'Set main'|i18n( 'extension/eztags/tags/view' )}" />
+                    <input id="tab-translations-list-set-main" class="btn-default" type="submit" name="UpdateMainTranslationButton" value="{'Set main'|i18n( 'extension/eztags/tags/view' )}" />
                     <script type="text/javascript">
                     {literal}
                     (function( $ ) {
                         $('input.main-translation-radio').change(function() {
                             if ( this.className === 'main-translation-radio' )
-                                $('#tab-translations-list-set-main').removeClass('button').addClass('defaultbutton');
+                                $('#tab-translations-list-set-main').removeClass('btn-default').addClass('btn-primary');
                             else
-                                $('#tab-translations-list-set-main').removeClass('defaultbutton').addClass('button');
+                                $('#tab-translations-list-set-main').removeClass('btn-primary').addClass('btn-default');
                         });
                     })( jQuery );
                     {/literal}
                     </script>
                 {else}
-                    <input class="button-disabled" type="submit" name="UpdateMainTranslationButton" value="{'Set main'|i18n( 'extension/eztags/tags/view' )}" disabled="disabled" />
+                    <input class="btn-default" type="submit" name="UpdateMainTranslationButton" value="{'Set main'|i18n( 'extension/eztags/tags/view' )}" disabled="disabled" />
                 {/if}
             </div>
         {/if}
@@ -82,12 +82,12 @@
 
         {if $has_edit_access}
             <div class="block">
-                <input id="tab-translations-alwaysavailable-btn" class="button" type="submit" name="UpdateAlwaysAvailableButton" value="{'Update'|i18n( 'extension/eztags/tags/view' )}" />
+                <input id="tab-translations-alwaysavailable-btn" class="btn-default" type="submit" name="UpdateAlwaysAvailableButton" value="{'Update'|i18n( 'extension/eztags/tags/view' )}" />
                 <script type="text/javascript">
                 {literal}
                 (function( $ ) {
                     $('#tab-translations-alwaysavailable-checkbox').change(function() {
-                        $('#tab-translations-alwaysavailable-btn').removeClass('button').addClass('defaultbutton');
+                        $('#tab-translations-alwaysavailable-btn').removeClass('btn-default').addClass('btn-primary');
                     });
                 })( jQuery );
                 {/literal}

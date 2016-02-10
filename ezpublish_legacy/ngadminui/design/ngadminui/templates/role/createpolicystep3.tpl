@@ -179,8 +179,8 @@
 				<div class="block">
 					<input type="hidden" name="CurrentModule" value="{$current_module}" />
 					<input type="hidden" name="CurrentFunction" value="{$current_function}" />
-					<input class="defaultbutton" type="submit" name="AddLimitation" value="{'OK'|i18n( 'design/admin/role/createpolicystep3' )}" />
-					<input class="button" type="submit" name="Cancel" value="{'Cancel'|i18n( 'design/admin/role/createpolicystep3' )}" />
+					<input class="btn btn-primary" type="submit" name="AddLimitation" value="{'OK'|i18n( 'design/admin/role/createpolicystep3' )}" />
+					<input class="btn btn-default" type="submit" name="Cancel" value="{'Cancel'|i18n( 'design/admin/role/createpolicystep3' )}" />
 				</div>
 			{* DESIGN: Control bar END *}
 			</div>

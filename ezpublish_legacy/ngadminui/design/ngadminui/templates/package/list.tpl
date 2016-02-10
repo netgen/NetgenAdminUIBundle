@@ -46,8 +46,8 @@
             <div class="controlbar">
 
                 {* DESIGN: Control bar START *}
-                    <input class="defaultbutton" type="submit" name="ConfirmRemovePackageButton" value="{'Remove'|i18n('design/admin/package/list')}" />
-                    <input class="button" type="submit" name="CancelRemovePackageButton" value="{'Cancel'|i18n('design/admin/package/list')}" />
+                    <input class="btn btn-primary" type="submit" name="ConfirmRemovePackageButton" value="{'Remove'|i18n('design/admin/package/list')}" />
+                    <input class="btn btn-default" type="submit" name="CancelRemovePackageButton" value="{'Cancel'|i18n('design/admin/package/list')}" />
                 {* DESIGN: Control bar END *}
 
             </div>

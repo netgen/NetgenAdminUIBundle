@@ -1,7 +1,7 @@
 <form name="editform" id="editform" enctype="multipart/form-data" method="post" action={concat( '/content/edit/', $object.id, '/', $edit_version, '/', $edit_language|not|choose( concat( $edit_language, '/' ), '/' ), $is_translating_content|not|choose( concat( $from_language, '/' ), '' ) )|ezurl}>
 
 {* This is to force form to use publish action instead of 'Manage version' button on enter key press in input and textarea elements. *}
-    <input class="defaultbutton hide" type="submit" id="ezedit-default-button" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" />
+    <input class="btn btn-primary hide" type="submit" id="ezedit-default-button" name="PublishButton" value="{'Send for publishing'|i18n( 'design/admin/content/edit' )}" />
 
     {* Current gui locale, to be used for class [attribute] name & description fields *}
     {def $content_language = ezini( 'RegionalSettings', 'Locale' )

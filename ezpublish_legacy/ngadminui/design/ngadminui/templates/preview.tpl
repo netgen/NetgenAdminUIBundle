@@ -111,7 +111,7 @@
         var btn = $('#tab-details-set-states');
         if ( !btn.attr('disabled') )
         {
-            btn.removeClass('button').addClass('defaultbutton');
+            btn.removeClass('button').removeClass('btn-default').addClass('btn-primary');
         }
     });
     $('#selected-section-id').change(function()
@@ -119,7 +119,7 @@
         var btn = $('#tab-details-set-section');
         if ( !btn.attr('disabled') )
         {
-            btn.removeClass('button').addClass('defaultbutton');
+            btn.removeClass('button').removeClass('btn-default').addClass('btn-primary');
         }
     });
 })( jQuery );

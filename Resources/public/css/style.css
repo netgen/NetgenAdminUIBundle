@@ -6242,6 +6242,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     bottom: 0;
     width: 200px;
     background: #e9e9e9;
+    z-index: 9;
     margin-right: -5px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05); }
     #maincontent.node-edit-container .edit-tab-control h4 {
