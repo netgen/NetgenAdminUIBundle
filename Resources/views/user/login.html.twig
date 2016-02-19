@@ -32,7 +32,10 @@
                         </div>
                     </div>
 
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
+                    {# @deprecated We check for non existence for compatibility with eZ 5 sites #}
+                    {% if not app.request.attributes.has( 'csrf_enabled' ) or app.request.attributes.get( 'csrf_enabled' ) %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
+                    {% endif %}
 
                     {#
                         If you want to control the URL the user
