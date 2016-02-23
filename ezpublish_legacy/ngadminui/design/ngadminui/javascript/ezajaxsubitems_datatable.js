@@ -107,7 +107,7 @@ var sortableSubitems = function () {
 
         var columnDefs = [
             {key:"checkbox", label:"", formatter:customCheckbox, resizeable:false},
-            {key:"crank", label:labelsObj.DATA_TABLE_COLS.crank, sortable:false, formatter:customMenu, resizeable:false},
+            {key:"crank", label:"", sortable:false, formatter:customMenu, resizeable:false},
             {key:"thumbnail", label:labelsObj.DATA_TABLE_COLS.thumbnail, sortable:false, formatter:thumbView, resizeable:false},
             {key:"name", label:labelsObj.DATA_TABLE_COLS.name, sortable:true, resizeable:true, formatter:formatName},
             {key:"hidden_status_string", label: labelsObj.DATA_TABLE_COLS.visibility, sortable:true, resizeable:true},
