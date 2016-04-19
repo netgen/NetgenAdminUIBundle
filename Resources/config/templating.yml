@@ -5,13 +5,13 @@ parameters:
 
 services:
     ngmore_admin_ui.templating.global_helper:
-        class: %ngmore_admin_ui.templating.global_helper.class%
+        class: "%ngmore_admin_ui.templating.global_helper.class%"
         arguments:
             - "@ngmore_admin_ui.menu_plugin.registry"
             - "@request_stack"
 
     ngmore_admin_ui.templating.twig.extension:
-        class: %ngmore_admin_ui.templating.twig.extension.class%
+        class: "%ngmore_admin_ui.templating.twig.extension.class%"
         arguments:
             - "@ezpublish_legacy.kernel"
             - "@ngmore_admin_ui.templating.global_helper"

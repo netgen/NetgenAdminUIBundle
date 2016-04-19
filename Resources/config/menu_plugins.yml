@@ -6,19 +6,19 @@ parameters:
 
 services:
     ngmore_admin_ui.menu_plugin.registry:
-        class: %ngmore_admin_ui.menu_plugin.registry.class%
+        class: "%ngmore_admin_ui.menu_plugin.registry.class%"
 
     ngmore_admin_ui.menu_plugin.legacy:
-        class: %ngmore_admin_ui.menu_plugin.legacy.class%
+        class: "%ngmore_admin_ui.menu_plugin.legacy.class%"
         tags:
             - { name: 'ngmore_admin_ui.menu_plugin', priority: 0 }
 
     ngmore_admin_ui.menu_plugin.legacy_cache:
-        class: %ngmore_admin_ui.menu_plugin.legacy_cache.class%
+        class: "%ngmore_admin_ui.menu_plugin.legacy_cache.class%"
         tags:
             - { name: 'ngmore_admin_ui.menu_plugin', priority: -10 }
 
     ngmore_admin_ui.menu_plugin.legacy_bookmarks:
-        class: %ngmore_admin_ui.menu_plugin.legacy_bookmarks.class%
+        class: "%ngmore_admin_ui.menu_plugin.legacy_bookmarks.class%"
         tags:
             - { name: 'ngmore_admin_ui.menu_plugin', priority: -20 }
