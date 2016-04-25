@@ -1702,6 +1702,14 @@ $yuiInputHeight: 26px;
     }
 }
 
+.box-content {
+    padding:$gutter;
+    .panel &,
+    .panel {
+        padding:0;
+    }
+}
+
 /* ezmultiupload */
 .content-view-ezmultiupload {
     padding:0 $gutter;
@@ -1753,13 +1761,15 @@ $yuiInputHeight: 26px;
 /* custom extensions styling */
 .classlists, .ezfindnavigationpart, .ezbccienavigationpart {
     .context-block {
-        padding:0 $gutter;
         .box-header {
-            background:#fff; padding:0;
+            background:#fff;
             h1.context-title {
                 margin-top:10px;
             }
         }
+    }
+    .controlbar {
+        padding:0 $gutter;
     }
     p.table-preferences {
         background:#fff; @extend .clearfix; border:1px solid #ccc;
