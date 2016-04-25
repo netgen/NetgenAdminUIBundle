@@ -3,7 +3,7 @@ parameters:
 
 services:
     ngmore_admin_ui.event_listener.security:
-        class: %ngmore_admin_ui.event_listener.security.class%
+        class: "%ngmore_admin_ui.event_listener.security.class%"
         arguments:
             - "@request_stack"
             - "@ezpublish.api.repository"
