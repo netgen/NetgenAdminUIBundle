@@ -49,7 +49,7 @@ label {
 .font-bold {font-weight:700;}
 
 .loginpage {
-    background:#f0f3f4; padding-top:60px;
+    background:$asideBg; padding-top:120px; color:#fff;
     .alert {
         max-width:700px; width:90%; margin:0 auto 20px;
     }
@@ -57,40 +57,62 @@ label {
         margin:0 auto; max-width:360px; padding:0 $gutter;
     }
     .login-header {
-        text-align:center; margin:0 0 20px;
-
+        text-align:center; margin:0 0 30px;
         .logo {
-            background:transparent url('../images/ez-logo.svg') 0 0 no-repeat; width:72px; height:36px; display:block; margin:0 auto 20px; background-size:100% auto;
+            background:transparent url('../images/ngadmin-logo-w.svg') 0 0 no-repeat; width:30px; height:28px; display:block; margin:0 auto 30px; background-size:100% auto;
         }
         h3 {
-            font-size:20px; font-weight:700; margin:0;
+            font-size:23px; font-weight:700; margin:0;
         }
-    }
-    .list-group {
-        margin:0 0 20px;
-    }
-    .list-group-item {
-        border:1px solid #e7ecee; padding:6px 10px; margin-bottom:-1px; background:#fff;
-
-        &:first-child {
-            @include rounded(4px 4px 0 0);
-        }
-        &:last-child {
-            @include rounded(0 0 4px 4px);
-        }
-        .form-control {
-            border:none; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; font-family:$baseFont;
-            @include rounded(0);
-        }
-    }
-    .btn-lg {
-        @include rounded(2px);
     }
     form {
-        margin:0 0 20px;
+        margin:0 0 30px;
+        .input-item {
+            position:relative;
+            .icon {
+                position:absolute; display:block; width:44px; height:44px; opacity:0.3;
+                &.icon-user {
+                    background:transparent url('../images/icon-user.svg') 50% 50% no-repeat; background-size:20px auto;
+                }
+                &.icon-lock {
+                    background:transparent url('../images/icon-lock.svg') 50% 50% no-repeat; background-size:18px auto;
+                }
+            }
+        }
+        .form-control {
+            border:none; box-shadow:none; font-family:$baseFont; margin:0 0 10px; background:#1E364E; border-radius:0; transition:none; font-size:16px; height:44px; padding:11px 12px 11px 56px;
+            &:-webkit-autofill {
+                -webkit-box-shadow:0 0 0 50px #1E364E inset;
+                -webkit-text-fill-color:#617283;
+            }
+        }
+        ::-webkit-input-placeholder {
+           color:#617283;
+        }
+        :-moz-placeholder {
+           color:#617283;
+        }
+        ::-moz-placeholder {
+           color:#617283;
+        }
+        :-ms-input-placeholder {
+           color:#617283;
+        }
+        .btn.btn-primary {
+            margin:30px 0 0; display:block; width:100%; border-radius:0; background:$activeColor; font-size:16px; font-weight:600; text-transform:uppercase; border:none; padding:11px;
+        }
     }
     .login-footer {
-        text-align:center; color:#98a6ad; font-size:12px;
+        text-align:center; color:#617283; font-size:13px;
+        p {
+            margin:0 0 1em;
+        }
+        a {
+            color:#fff;
+        }
+    }
+    @media screen and (max-width:640px) {
+        padding-top:60px;
     }
 }
 .btn {
@@ -112,7 +134,7 @@ label {
     }
 }
 #header-logo {
-    background:$activeColor url('../images/ez-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:65% auto; height:$headerHeight; display:block; margin:0;
+    background:$activeColor url('../images/ngadmin-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:40% auto; height:$headerHeight; display:block; margin:0;
 }
 .header-nav {
     width:$asideWidth; float:left;

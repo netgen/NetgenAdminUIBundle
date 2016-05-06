@@ -22,14 +22,13 @@
 
             <form name="loginform" method="post" action="{{ path( 'login_check' ) }}">
                 {% block login_fields %}
-                    <div class="list-group list-group-sm">
-                        <div class="list-group-item">
-                            <input type="text" class="form-control no-border" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'ngmore_admin_ui.login.username'|trans }}" tabindex="1" title="{{ 'ngmore_admin_ui.login.username.title'|trans }}">
-                        </div>
-
-                        <div class="list-group-item">
-                            <input type="password" class="form-control no-border" size="10" name="_password" id="passwordtext" placeholder="{{ 'ngmore_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'ngmore_admin_ui.login.password.title'|trans }}">
-                        </div>
+                    <div class="input-item">
+                        <span class="icon icon-user"></span>
+                        <input type="text" class="form-control" autofocus="autofocus" size="10" name="_username" id="logintext" placeholder="{{ 'ngmore_admin_ui.login.username'|trans }}" tabindex="1" title="{{ 'ngmore_admin_ui.login.username.title'|trans }}">
+                    </div>
+                    <div class="input-item">
+                        <span class="icon icon-lock"></span>
+                        <input type="password" class="form-control" size="10" name="_password" id="passwordtext" placeholder="{{ 'ngmore_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'ngmore_admin_ui.login.password.title'|trans }}">
                     </div>
 
                     {# @deprecated We check for non existence for compatibility with eZ 5 sites #}
@@ -43,7 +42,7 @@
                         <input type="hidden" name="_target_path" value="/account" />
                     #}
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginbutton" name="LoginButton" tabindex="3" title="{{ 'ngmore_admin_ui.login.submit.title'|trans }}">{{ 'ngmore_admin_ui.login.submit'|trans }}</button>
+                    <button class="btn btn-primary" type="submit" id="loginbutton" name="LoginButton" tabindex="3" title="{{ 'ngmore_admin_ui.login.submit.title'|trans }}">{{ 'ngmore_admin_ui.login.submit'|trans }}</button>
                 {% endblock %}
             </form>
         </div>
