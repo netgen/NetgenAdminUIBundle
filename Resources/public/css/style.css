@@ -4808,10 +4808,10 @@ label {
       font-size: 16px;
       height: 44px;
       padding: 11px 12px 11px 56px;
-      color: #617283; }
+      color: #fff; }
       .loginpage form .form-control:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 50px #1E364E inset;
-        -webkit-text-fill-color: #617283; }
+        -webkit-text-fill-color: #fff; }
     .loginpage form ::-webkit-input-placeholder {
       color: #617283; }
     .loginpage form :-moz-placeholder {
@@ -4878,7 +4878,7 @@ label {
 #header-logo {
   background: #F3590A url("../images/ngadmin-logo-w.svg") 50% no-repeat;
   width: 100px;
-  background-size: 40% auto;
+  background-size: 34% auto;
   height: 70px;
   display: block;
   margin: 0; }
