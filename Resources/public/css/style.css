@@ -4807,7 +4807,8 @@ label {
               transition: none;
       font-size: 16px;
       height: 44px;
-      padding: 11px 12px 11px 56px; }
+      padding: 11px 12px 11px 56px;
+      color: #617283; }
       .loginpage form .form-control:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 50px #1E364E inset;
         -webkit-text-fill-color: #617283; }

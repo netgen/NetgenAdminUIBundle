@@ -80,7 +80,7 @@ label {
             }
         }
         .form-control {
-            border:none; box-shadow:none; font-family:$baseFont; margin:0 0 10px; background:#1E364E; border-radius:0; transition:none; font-size:16px; height:44px; padding:11px 12px 11px 56px;
+            border:none; box-shadow:none; font-family:$baseFont; margin:0 0 10px; background:#1E364E; border-radius:0; transition:none; font-size:16px; height:44px; padding:11px 12px 11px 56px; color:#617283;
             &:-webkit-autofill {
                 -webkit-box-shadow:0 0 0 50px #1E364E inset;
                 -webkit-text-fill-color:#617283;
