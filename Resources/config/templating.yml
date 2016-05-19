@@ -1,7 +1,6 @@
 parameters:
     ngmore_admin_ui.templating.global_helper.class: Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper
     ngmore_admin_ui.templating.twig.extension.class: Netgen\Bundle\MoreAdminUIBundle\Templating\Twig\Extension\NetgenMoreAdminUIExtension
-    ngmore_admin_ui.templating.converter.tag.class: Netgen\Bundle\MoreAdminUIBundle\Templating\Converter\TagConverter
 
 services:
     ngmore_admin_ui.templating.global_helper:
