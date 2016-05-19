@@ -50,45 +50,35 @@
 
         <li class="divider"></li>
 
-        {# {% if ui_context != 'edit' and ui_context != 'browse' %}
-            {% if ezpreference( 'admin_edit_show_locations' ) %}
-                <li class="hidden-folded">
-                    <span>Locations are enabled</span>
-                </li>
+        {% if ui_context != 'edit' or ui_context != 'browse' %}
+            <li><span>Edit interface settings</span></li>
+        {% endif %}
+        {% if ui_context != 'edit' %}
+            <li><span class="tt">Show Locations</span>
+                <span class="control-toggle">
+                    {% if ezpreference( 'admin_edit_show_locations' ) %}
+                        <strong>on</strong><a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">off</a>
+                    {% else %}
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/1' } ) }}" title="Enable location window when editing content.">on</a><strong>off</strong>
+                    {% endif %}
+                </span>
+            </li>
+        {% endif %}
 
-                <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">Disable locations</a>
-                </li>
-            {% else %}
-                <li class="hidden-folded">
-                    <span>Locations are disabled</span>
-                </li>
-
-                <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/1' } ) }}" title="Enable location window when editing content.">Enable locations</a>
-                </li>
-            {% endif %}
-
-            {% if ezpreference( 'admin_edit_show_re_edit' ) %}
-                <li class="hidden-folded">
-                    <span>Re-edit is enabled</span>
-                </li>
-
-                <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">Disable Re-edit</a>
-                </li>
-            {% else %}
-                <li class="hidden-folded">
-                    <span>Re-edit is disabled</span>
-                </li>
-
-                <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/1' } ) }}" title="Enable &quot;Back to edit&quot; checkbox when editing content.">Enable Re-edit</a>
-                </li>
-            {% endif %}
-
+        {% if ui_context != 'browse' %}
+            <li><span class="tt">Enable Re-edit</span>
+                <span class="control-toggle">
+                    {% if ezpreference( 'admin_edit_show_re_edit' ) %}
+                        <strong>on</strong><a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">off</a>
+                    {% else %}
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/1' } ) }}" title="Enable &quot;Back to edit&quot; checkbox when editing content.">on</a><strong>off</strong>
+                    {% endif %}
+                </span>
+            </li>
+        {% endif %}
+        {% if ui_context != 'edit' or ui_context != 'browse' %}
             <li class="divider"></li>
-        {% endif %} #}
+        {% endif %}
 
         <li>
             {% if ui_context_edit %}

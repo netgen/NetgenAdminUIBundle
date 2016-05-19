@@ -102,15 +102,6 @@ label {
             margin:30px 0 0; display:block; width:100%; border-radius:0; background:$activeColor; font-size:16px; font-weight:600; text-transform:uppercase; border:none; padding:11px;
         }
     }
-    .login-footer {
-        text-align:center; color:#617283; font-size:13px;
-        p {
-            margin:0 0 1em;
-        }
-        a {
-            color:#fff;
-        }
-    }
     @media screen and (max-width:640px) {
         padding-top:60px;
     }
@@ -168,7 +159,7 @@ label {
     }
     @media screen and (max-width: 900px) {
         & {
-            width:$leftColumnWidthNarrow;
+            width:$leftColumnWidthSm;
         }
     }
 }
@@ -304,7 +295,10 @@ label {
     .inner-cell {
         position:absolute; top:0; right:0; left:0; bottom:0;
         &.contentPreview {
-            background:$darkBg; bottom:auto; min-height:100%; padding-top:60px;
+            background:$darkBg; bottom:auto; min-height:100%; padding-top:54px;
+            .alert {
+                margin:-28px 0 28px;
+            }
         }
     }
     .inner-wrapper {
@@ -313,7 +307,7 @@ label {
     @media screen and (max-width: 900px) {
         & {
             &.left-column {
-                width:$leftColumnWidthNarrow;
+                width:$leftColumnWidthSm;
             }
         }
     }
@@ -467,7 +461,9 @@ label {
     }
 }
 
-.main-content {color:#58666e; padding-bottom:40px;}
+.main-content {
+    color:#58666e; padding-bottom:80px; position:relative; min-height:100%;
+}
 
 #maincontent {
     margin:0 240px 0 0; padding:0; @include rounded(0);
@@ -962,7 +958,24 @@ table {
 
 #trash {padding:10px 0;}
 
-#footer {margin-left:200px; height:50px; position:absolute; bottom:0; left:0; right:0; z-index:2; border-top:1px solid #e5e5e5;}
+#footer {
+    position:absolute; bottom:0; left:0; right:0; z-index:2; background:#fbfbfb; padding:10px; color:#bbb;
+    p {
+        font-size:11px; line-height:1.4; margin:0;
+    }
+    .content-edit & {
+        display:none;
+    }
+    .loginpage & {
+        position:relative; background:transparent; border:none; box-shadow:none; height:auto; color:#617283; padding:10px 0;
+        p {
+            font-size:13px;
+        }
+        a {
+            color:#fff;
+        }
+    }
+}
 
 .content-edit {
     .content-body {
@@ -1159,12 +1172,12 @@ table {
     }
     @media screen and (max-width: 900px){
         & {
-            padding-left:$leftColumnWidthNarrow;
+            padding-left:$leftColumnWidthSm;
             .edit-tab-control {
-                width:$leftColumnWidthNarrow;
+                width:$leftColumnWidthSm;
             }
             .path-edit-container {
-                left:$asideWidth + $leftColumnWidthNarrow;
+                left:$asideWidth + $leftColumnWidthSm;
             }
         }
     }
@@ -1248,9 +1261,22 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         }
         > span {
             display:block; cursor:default; color:#536D88; padding:4px 0;
+            &.tt {
+                display:inline-block; padding:0;
+            }
         }
         &:hover {
             background:transparent;
+        }
+        .control-toggle {
+            display:inline-block;
+            margin-left:4px;
+            > a {
+                display:inline-block; width:auto; color:#fff; padding:4px 6px; margin:0 2px;
+            }
+            > strong {
+                color:#fff; display:inline-block; padding:2px 6px; margin:0 2px; border:1px solid #536D88; font-weight:400;
+            }
         }
     }
     .divider {

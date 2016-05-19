@@ -19,9 +19,7 @@
     {% block content %}{% endblock %}
 
     <div class="login-container">
-        <div class="login-footer">
-            <p><a href="http://ez.no/ezpublish">eZ Platform</a> Copyright &copy; 1999-{{ 'now'|date('Y') }} <a href="http://ez.no">eZ Systems AS</a> and others.</p>
-        </div>
+        {% include 'NetgenMoreAdminUIBundle::page_footer.html.twig' %}
     </div>
 </body>
 </html>

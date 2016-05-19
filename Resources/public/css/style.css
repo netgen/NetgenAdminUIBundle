@@ -4831,14 +4831,6 @@ label {
       text-transform: uppercase;
       border: none;
       padding: 11px; }
-  .loginpage .login-footer {
-    text-align: center;
-    color: #617283;
-    font-size: 13px; }
-    .loginpage .login-footer p {
-      margin: 0 0 1em; }
-    .loginpage .login-footer a {
-      color: #fff; }
   @media screen and (max-width: 640px) {
     .loginpage {
       padding-top: 60px; } }
@@ -5143,7 +5135,9 @@ label {
       background: #272A2F;
       bottom: auto;
       min-height: 100%;
-      padding-top: 60px; }
+      padding-top: 54px; }
+      .layout-column .inner-cell.contentPreview .alert {
+        margin: -28px 0 28px; }
   .layout-column .inner-wrapper {
     padding: 15px; }
   @media screen and (max-width: 900px) {
@@ -5371,7 +5365,9 @@ label {
 
 .main-content {
   color: #58666e;
-  padding-bottom: 40px; }
+  padding-bottom: 80px;
+  position: relative;
+  min-height: 100%; }
 
 #maincontent {
   margin: 0 240px 0 0;
@@ -6037,14 +6033,32 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   padding: 10px 0; }
 
 #footer {
-  margin-left: 200px;
-  height: 50px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 2;
-  border-top: 1px solid #e5e5e5; }
+  background: #fbfbfb;
+  padding: 10px;
+  color: #bbb; }
+  #footer p {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0; }
+  .content-edit #footer {
+    display: none; }
+  .loginpage #footer {
+    position: relative;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    height: auto;
+    color: #617283;
+    padding: 10px 0; }
+    .loginpage #footer p {
+      font-size: 13px; }
+    .loginpage #footer a {
+      color: #fff; }
 
 .content-edit .content-body {
   top: 70px; }
@@ -6454,8 +6468,27 @@ fieldset legend {
       cursor: default;
       color: #536D88;
       padding: 4px 0; }
+      .user-dropdown li > span.tt {
+        display: inline-block;
+        padding: 0; }
     .user-dropdown li:hover {
       background: transparent; }
+    .user-dropdown li .control-toggle {
+      display: inline-block;
+      margin-left: 4px; }
+      .user-dropdown li .control-toggle > a {
+        display: inline-block;
+        width: auto;
+        color: #fff;
+        padding: 4px 6px;
+        margin: 0 2px; }
+      .user-dropdown li .control-toggle > strong {
+        color: #fff;
+        display: inline-block;
+        padding: 2px 6px;
+        margin: 0 2px;
+        border: 1px solid #536D88;
+        font-weight: 400; }
   .user-dropdown .divider {
     height: 1px;
     margin: 16px 0;
