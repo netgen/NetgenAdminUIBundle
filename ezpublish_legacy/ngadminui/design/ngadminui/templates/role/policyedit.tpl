@@ -133,11 +133,6 @@
 {section-else}
 <p>{'The function limitations of this policy cannot be edited. This is either because the function does not support limitations or because the function was assigned without limitations when the policy was created.'|i18n( 'design/admin/role/policyedit' )}</p>
 {/section}
-
-</div>
-
-{* DESIGN: Content END *}</div></div></div>
-
 <div class="controlbar">
 {* DESIGN: Control bar START *}<div class="box-bc"><div class="box-ml">
 <div class="block">
@@ -153,6 +148,11 @@
 </div>
 {* DESIGN: Control bar END *}</div></div>
 </div>
+
+</div>
+
+{* DESIGN: Content END *}</div></div></div>
+
 
 </div>
 
