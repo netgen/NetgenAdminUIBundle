@@ -1,4 +1,5 @@
 _ezpublishPreviewContentDefaultSa:
     path: /content/versionview/{contentId}/{versionNo}/{language}
-    defaults: { _controller: ezpublish_legacy.controller:indexAction }
+    defaults:
+        _controller: "ezpublish_legacy.controller:indexAction"
     methods:  [GET]

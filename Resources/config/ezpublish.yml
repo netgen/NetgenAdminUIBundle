@@ -5,12 +5,12 @@ ezpublish:
     system:
         administration_group:
             user:
-                layout: 'NetgenMoreAdminUIBundle::pagelayout_login.html.twig'
-                login_template: 'NetgenMoreAdminUIBundle:user:login.html.twig'
+                layout: "NetgenMoreAdminUIBundle::pagelayout_login.html.twig"
+                login_template: "NetgenMoreAdminUIBundle:user:login.html.twig"
 
 ez_publish_legacy:
     system:
         administration_group:
             templating:
-                view_layout: 'NetgenMoreAdminUIBundle::pagelayout_legacy.html.twig'
-                module_layout: 'NetgenMoreAdminUIBundle::pagelayout_module.html.twig'
+                view_layout: "NetgenMoreAdminUIBundle::pagelayout_legacy.html.twig"
+                module_layout: "NetgenMoreAdminUIBundle::pagelayout_module.html.twig"
