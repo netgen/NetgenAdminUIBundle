@@ -1,40 +1,49 @@
 {set-block variable=$top_menu}
     <div class="node-top-switch">
-        <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
-            {def $can_create_languages = $node.object.can_create_languages
-                        $languages            = fetch( 'content', 'prioritized_languages' )}
-            <input type="hidden" name="TopLevelNode" value="{$node.object.main_node_id}" />
-            <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
-            <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
-            <input name="ContentObjectLanguageCode" value="" type="hidden" />
-            <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$node.object.current_language|wash}" style="vertical-align: middle;" /> <span class="tt">{$node.object.current_language_object.locale_object.intl_language_name}</span>
-                <span class="caret"></span>
-            </button>
-            <ul{if $node.object.can_edit_languages|count|sum($can_create_languages|count)|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
-                {foreach $node.object.can_edit_languages as $language}
-                    {if $language.locale|eq($node.object.current_language)|not}
-                        <li class="with-edit">
-                            <a href={concat( $node.url, '/(language)/', $language.locale )|ezurl} title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">
-                                <img src="{$language.locale|flag_icon}" width="18" height="12" alt="{$language.locale|wash}" style="vertical-align: middle;" /> {$language.name|wash}
-                            </a>
-                            <a href={concat( 'content/edit/', $node.object.id, '/f/', $language.locale )|ezurl} class="edit-icon" title="{'Edit in %language.name.'|i18n( 'design/admin/node/view/full',, hash( '%language.name', $language.locale_object.intl_language_name ) )|wash}"><i class="fa fa-edit"></i></a>
-                        </li>
-                    {/if}
-                {/foreach}
-                {if gt( $can_create_languages|count, 0 )}
-                    {if $node.object.can_edit_languages|count|gt( 1 )}
-                        <li role="separator" class="divider"></li>
-                    {/if}
-                    <li><button type="submit" name="EditButton">+ Add new translation</button></li>
-                {/if}
-            </ul>
-            {undef $can_create_languages}
-        </form>
         <ul class="node-view-switch">
-            <li class="active"><a href=""><i class="fa fa-file-text-o"></i> Content</a></li>
-            <li><a href=""><i class="fa fa-th-large"></i> Layout</a></li>
-            <li><a href={concat('/content/versionview/', $node.object.id, '/', $node.object.current_version)|ezurl}><i class="fa fa-globe"></i> Preview</a></li>
+            <li class="active">
+                <a href=""><i class="fa fa-file-text-o"></i> Content</a>
+                {if fetch( content, translation_list )|count|gt(1)}
+                    <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
+                        {def $can_create_languages = $node.object.can_create_languages
+                                    $languages            = fetch( 'content', 'prioritized_languages' )}
+                        <input type="hidden" name="TopLevelNode" value="{$node.object.main_node_id}" />
+                        <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+                        <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
+                        <input name="ContentObjectLanguageCode" value="" type="hidden" />
+                        <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$node.object.current_language|wash}" style="vertical-align: middle;" /> <span class="tt">{$node.object.current_language_object.locale_object.intl_language_name}</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul{if $node.object.can_edit_languages|count|sum($can_create_languages|count)|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
+                            {foreach $node.object.can_edit_languages as $language}
+                                {if $language.locale|eq($node.object.current_language)|not}
+                                    <li class="with-edit">
+                                        <a href={concat( $node.url, '/(language)/', $language.locale )|ezurl} title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">
+                                            <img src="{$language.locale|flag_icon}" width="18" height="12" alt="{$language.locale|wash}" style="vertical-align: middle;" /> {$language.name|wash}
+                                        </a>
+                                        <a href={concat( 'content/edit/', $node.object.id, '/f/', $language.locale )|ezurl} class="edit-icon" title="{'Edit in %language.name.'|i18n( 'design/admin/node/view/full',, hash( '%language.name', $language.locale_object.intl_language_name ) )|wash}"><i class="fa fa-edit"></i></a>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                            {if gt( $can_create_languages|count, 0 )}
+                                {if $node.object.can_edit_languages|count|gt( 1 )}
+                                    <li role="separator" class="divider"></li>
+                                {/if}
+                                <li><button type="submit" name="EditButton">+ Add new translation</button></li>
+                            {/if}
+                        </ul>
+                        {undef $can_create_languages}
+                    </form>
+                {/if}
+            </li>
+            <li>
+                <form method="post" id="previewForm" action={concat( 'content/versionview/', $node.object.id, '/', $node.object.current_version, '/', $language.locale, '/', $from_language )|ezurl}>
+                    <input type="hidden" id="SelectedLanguage" name="SelectedLanguage" value="{$node.object.current_language_object.locale_object.locale_code}" />
+                    <input type="hidden" name="ChangeSettingsButton" value="{'Update view'|i18n( 'design/admin/content/view/versionview' )}" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" />
+                </form>
+                <a type="submit" name="ChangeSettingsButton" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" onclick="document.getElementById('previewForm').submit();"><i class="fa fa-globe"></i> Preview</a>
+            </li>
         </ul>
     </div>
 {/set-block}

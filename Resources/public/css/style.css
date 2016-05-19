@@ -4868,12 +4868,7 @@ label {
   height: 70px;
   z-index: 10;
   background: #fff;
-  overflow: hidden; }
-  #header .dropdown-menu {
-    position: fixed;
-    left: auto;
-    top: 60px;
-    min-width: auto; }
+  /*overflow:hidden;*/ }
 
 #header-logo {
   background: #F3590A url("../images/ngadmin-logo-w.svg") 50% no-repeat;
@@ -4899,7 +4894,7 @@ label {
 
 .search-form {
   padding: 0;
-  background: #fafafa;
+  background: #fff;
   height: 70px;
   width: 240px;
   overflow: hidden;
@@ -4937,9 +4932,9 @@ label {
       position: relative;
       top: -1px;
       left: -3px; }
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 900px) {
     .search-form {
-      width: 170px; } }
+      width: 160px; } }
 
 #aside {
   width: 100px;
@@ -5134,6 +5129,8 @@ label {
   .layout-column.left-column {
     width: 240px;
     background: #e5e5e5; }
+    .layout-column.left-column .inner-cell {
+      padding: 15px; }
   .layout-column.main-column {
     background: #fff; }
   .layout-column .inner-cell {
@@ -5149,9 +5146,9 @@ label {
       padding-top: 60px; }
   .layout-column .inner-wrapper {
     padding: 15px; }
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 900px) {
     .layout-column.left-column {
-      width: 170px; } }
+      width: 160px; } }
 
 .layout-column-inner {
   position: relative;
@@ -5180,14 +5177,14 @@ label {
   cursor: col-resize; }
 
 .leftmenu-hl {
-  padding: 12px 15px;
+  padding: 12px 0;
   margin: 0;
   font-weight: 400;
   font-size: 14px; }
 
 .leftmenu-items-list {
   list-style-type: none;
-  margin: 0 0 15px;
+  margin: 0 -15px 15px;
   padding: 0; }
   .leftmenu-items-list > li {
     padding: 0;
@@ -5207,7 +5204,7 @@ label {
 
 #content-tree-menu {
   list-style-type: none;
-  margin: 0 0 20px;
+  margin: 0 -15px 20px;
   padding: 0 5px 0 15px; }
   #content-tree-menu li {
     /*white-space:nowrap;*/
@@ -5945,43 +5942,56 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
 
 .node-top-switch {
   float: left;
-  height: 70px;
-  padding-left: 15px; }
+  height: 70px; }
   .node-top-switch .language-switch {
     float: left;
-    margin: 12px 12px 0 0; }
+    margin: 18px 24px 0 0; }
     .node-top-switch .language-switch .btn {
-      padding: 12px 14px; }
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.025);
+      color: #555; }
       .node-top-switch .language-switch .btn .caret {
         margin-left: 4px;
         color: #bfbfbf; }
+  .node-top-switch .siteaccess-switch {
+    float: left;
+    margin: 18px 24px 0 0; }
   .node-top-switch .node-view-switch {
     float: left;
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    .node-top-switch .node-view-switch li {
+    .node-top-switch .node-view-switch > li {
       float: left;
       margin: 0;
       padding: 0; }
-      .node-top-switch .node-view-switch li a {
+      .node-top-switch .node-view-switch > li > a {
         display: block;
         float: left;
         height: 70px;
-        padding: 25px 16px;
+        padding: 25px 24px;
         font-weight: 600;
         color: #5b5b5b;
         text-decoration: none; }
-        .node-top-switch .node-view-switch li a i {
+        .node-top-switch .node-view-switch > li > a > i {
           color: #bfbfbf;
           margin-right: 8px;
           float: left;
           font-size: 20px; }
-        .node-top-switch .node-view-switch li a:hover {
+        .node-top-switch .node-view-switch > li > a:hover {
           background: #f9f9f9; }
-      .node-top-switch .node-view-switch li.active a {
-        background: #f5f5f5;
-        cursor: default; }
+      .node-top-switch .node-view-switch > li.active {
+        background: #f5f5f5; }
+        .node-top-switch .node-view-switch > li.active > a {
+          cursor: default;
+          background: transparent; }
+      .node-top-switch .node-view-switch > li .form-control {
+        height: 34px;
+        background-color: rgba(255, 255, 255, 0.5); }
+        @media screen and (max-width: 1000px) {
+          .node-top-switch .node-view-switch > li .form-control {
+            max-width: 100px; } }
   @media screen and (max-width: 981px) {
     .node-top-switch .tt {
       display: none; } }
@@ -6024,7 +6034,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   background: #f5f5f5; }
 
 #trash {
-  padding: 10px 15px; }
+  padding: 10px 0; }
 
 #footer {
   margin-left: 200px;
@@ -6069,7 +6079,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   #controlbar-top .translation {
     margin-top: 10px;
     color: #999; }
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 900px) {
     #controlbar-top .tt {
       display: none; } }
 
@@ -6268,7 +6278,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
 
 #maincontent.node-edit-container {
   position: absolute;
-  padding-left: 200px;
+  padding-left: 240px;
   left: 0;
   right: 0;
   top: 0;
@@ -6279,7 +6289,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     left: 100px;
     top: 70px;
     bottom: 0;
-    width: 200px;
+    width: 240px;
     background: #e9e9e9;
     z-index: 9;
     margin-right: -5px;
@@ -6309,9 +6319,9 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     position: fixed;
     top: 70px;
     right: 0;
-    left: 300px;
+    left: 340px;
     z-index: 3; }
-  @media screen and (max-width: 981px) {
+  @media screen and (max-width: 900px) {
     #maincontent.node-edit-container {
       padding-left: 160px; }
       #maincontent.node-edit-container .edit-tab-control {
@@ -6758,7 +6768,7 @@ input.tagssuggestfield {
     display: table-cell;
     vertical-align: middle;
     margin: 0;
-    width: 560px; }
+    width: 430px; }
   .preview-box-header .path-edit-container {
     display: table-cell;
     vertical-align: middle; }
@@ -7060,6 +7070,8 @@ input.tagssuggestfield {
   padding: 15px; }
   .panel .box-content,
   .box-content .panel {
+    padding: 0; }
+  .rightmenu .box-content {
     padding: 0; }
 
 /* ezmultiupload */

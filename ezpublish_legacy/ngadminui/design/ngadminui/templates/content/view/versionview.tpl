@@ -1,36 +1,11 @@
 {set-block variable=$top_menu}
 <div class="node-top-switch">
-    <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
-        {def $can_create_languages = $node.object.can_create_languages
-                    $languages            = fetch( 'content', 'prioritized_languages' )}
-        <input type="hidden" name="TopLevelNode" value="{$node.object.main_node_id}" />
-        <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
-        <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
-        <input name="ContentObjectLanguageCode" value="" type="hidden" />
-        <button class="btn btn-default dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <img src="{$node.object.current_language|flag_icon}" width="18" height="12" alt="{$node.object.current_language|wash}" style="vertical-align: middle;" /> {$node.object.current_language_object.locale_object.intl_language_name}
-            <span class="caret"></span>
-        </button>
-
-        <ul{if $translation_list|count|gt( 1 )} class="dropdown-menu" aria-labelledby="languageDropdown"{/if}>
-            {def $locale_object = false}
-            {foreach $translation_list as $locale_code}
-                {set $locale_object = $locale_code|locale()}
-                {if eq( $locale_code, $object_languagecode )|not}
-                    <li>
-                        <a href="" title="{'View translation.'|i18n( 'design/admin/node/view/full' )}">
-                            <img src="{$locale_code|flag_icon}" width="18" height="12" alt="{$locale_code|wash}" style="vertical-align: middle;" /> {$locale_object.intl_language_name}
-                        </a>
-                    </li>
-                {/if}
-            {/foreach}
-        </ul>
-        {undef $can_create_languages}
-    </form>
     <ul class="node-view-switch">
         <li><a href={$node.url_alias|ezurl}><i class="fa fa-file-text-o"></i> Content</a></li>
-        <li><a href=""><i class="fa fa-th-large"></i> Layout</a></li>
-        <li class="active"><a href="#"><i class="fa fa-globe"></i> Preview</a></li>
+        <li class="active">
+            <a><i class="fa fa-globe"></i> Preview</a>
+            {include uri='design:content/view/versioncontrol.tpl'}
+        </li>
     </ul>
 </div>
 {/set-block}
@@ -50,20 +25,6 @@
             <button type="button" class="btn btn-default" data-width="768" data-height="1024"><span class="icon-tablet-vertical"></span> 768px</button>
             <button type="button" class="btn btn-default" data-width="1024" data-height="768"><span class="icon-tablet-horizontal"></span> 1024px</button>
             <button type="button" class="btn btn-default" data-width="1200" data-height="768"><span class="icon-desktop"></span> 1200px</button>
-        </div>
-        <div class="btn-group" role="group">
-            <form class="dropdown pull-left form-siteaccess" method="post" action={concat( 'content/versionview/', $object.id, '/', $version.version, '/', $language, '/', $from_language )|ezurl}>
-                <select class="form-control" name="SelectedSiteAccess">
-                    {if $site_access_locale_map|count|gt( 1 )}
-                        {foreach $site_access_locale_map as $related_site_access => $related_site_access_locale}
-                            <option id="{$related_site_access}" value="{$related_site_access}" {if eq( $related_site_access, $siteaccess )}selected{/if}>{$related_site_access|wash}</option>
-                        {/foreach}
-                    {else}
-                        <option id="{$site_designs[0]}" value="{$site_designs[0]}">{$site_designs[0]|wash}</option>
-                    {/if}
-                </select>
-                <input class="btn btn-default btn-sm" type="hidden" name="ChangeSettingsButton" />
-            </form>
         </div>
     </div>
     <div class="path-edit-container"></div>
