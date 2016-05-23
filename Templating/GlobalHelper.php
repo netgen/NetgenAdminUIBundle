@@ -1,15 +1,15 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\Templating;
+namespace Netgen\Bundle\AdminUIBundle\Templating;
 
-use Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginRegistry;
+use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class GlobalHelper
 {
     /**
-     * @var \Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginRegistry
+     * @var \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry
      */
     protected $menuPluginRegistry;
 
@@ -21,7 +21,7 @@ class GlobalHelper
     /**
      * Constructor.
      *
-     * @param \Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginRegistry $menuPluginRegistry
+     * @param \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry $menuPluginRegistry
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      */
     public function __construct(MenuPluginRegistry $menuPluginRegistry, RequestStack $requestStack)
@@ -33,7 +33,7 @@ class GlobalHelper
     /**
      * Returns all menu plugins.
      *
-     * @return \Netgen\Bundle\MoreAdminUIBundle\MenuPlugin\MenuPluginInterface[]
+     * @return \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface[]
      */
     public function getMenuPlugins()
     {

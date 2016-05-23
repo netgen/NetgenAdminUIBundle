@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\MenuPlugin;
+namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,7 +24,7 @@ class LegacyCachePlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig',
+            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig',
         );
     }
 

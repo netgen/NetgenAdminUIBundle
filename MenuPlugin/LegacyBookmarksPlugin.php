@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\MenuPlugin;
+namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,7 +24,7 @@ class LegacyBookmarksPlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy_bookmarks:aside.html.twig',
+            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy_bookmarks:aside.html.twig',
         );
     }
 

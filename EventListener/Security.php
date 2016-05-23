@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\EventListener;
+namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;

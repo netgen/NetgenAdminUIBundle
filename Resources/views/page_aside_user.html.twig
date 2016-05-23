@@ -9,7 +9,7 @@
 <div class="aside-footer">
     {% set user_avatar = macros.user_avatar( user_content ) %}
     {% if user_avatar|trim is empty %}
-        {% set user_avatar = asset( 'bundles/netgenmoreadminui/images/a0.jpg' ) %}
+        {% set user_avatar = asset( 'bundles/netgenadminui/images/a0.jpg' ) %}
     {% endif %}
 
     <a href="#" class="user-dropdown-toggle dropdown-toggle" data-toggle="dropdown">
@@ -30,22 +30,22 @@
 
         {% if ui_context != 'edit' and ui_context != 'browse' %}
             {% if ngmore_can_user( 'content', 'read', user_content ) %}
-                <li><a href="{{ path( 'ez_urlalias', { 'contentId': user_content.id } ) }}">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</a></li>
+                <li><a href="{{ path( 'ez_urlalias', { 'contentId': user_content.id } ) }}">{{ 'netgen_admin_ui.user.view_profile'|trans }}</a></li>
             {% endif %}
 
             {% if ngmore_can_user( 'content', 'edit', user_content ) %}
                 <li>
-                    <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}">{{ 'ngmore_admin_ui.user.change_information'|trans }}</a>
+                    <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}">{{ 'netgen_admin_ui.user.change_information'|trans }}</a>
                 </li>
             {% endif %}
 
             <li>
-                <a href="{{ path( 'ez_legacy', { module_uri: '/user/password' } ) }}">{{ 'ngmore_admin_ui.user.change_password'|trans }}</a>
+                <a href="{{ path( 'ez_legacy', { module_uri: '/user/password' } ) }}">{{ 'netgen_admin_ui.user.change_password'|trans }}</a>
             </li>
         {% else %}
-            <li><span class="disabled">{{ 'ngmore_admin_ui.user.view_profile'|trans }}</span></li>
-            <li><span class="disabled">{{ 'ngmore_admin_ui.user.change_information'|trans }}</span></li>
-            <li><span class="disabled">{{ 'ngmore_admin_ui.user.change_password'|trans }}</span></li>
+            <li><span class="disabled">{{ 'netgen_admin_ui.user.view_profile'|trans }}</span></li>
+            <li><span class="disabled">{{ 'netgen_admin_ui.user.change_information'|trans }}</span></li>
+            <li><span class="disabled">{{ 'netgen_admin_ui.user.change_password'|trans }}</span></li>
         {% endif %}
 
         <li class="divider"></li>
@@ -82,9 +82,9 @@
 
         <li>
             {% if ui_context_edit %}
-                <span class="disabled">{{ 'ngmore_admin_ui.layout.logout'|trans }}</span>
+                <span class="disabled">{{ 'netgen_admin_ui.layout.logout'|trans }}</span>
             {% else %}
-                <a href="{{ path( 'logout' ) }}">{{ 'ngmore_admin_ui.layout.logout'|trans }}</a>
+                <a href="{{ path( 'logout' ) }}">{{ 'netgen_admin_ui.layout.logout'|trans }}</a>
             {% endif %}
         </li>
 

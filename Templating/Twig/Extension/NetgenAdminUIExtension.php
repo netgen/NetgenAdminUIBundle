@@ -1,15 +1,15 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\Templating\Twig\Extension;
+namespace Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension;
 
-use Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper;
+use Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper;
 use Closure;
 use Twig_Extension;
 use Twig_SimpleFunction;
 use Twig_Extension_GlobalsInterface;
 use eZPreferences;
 
-class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
+class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {
     /**
      * @var \Closure
@@ -17,7 +17,7 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
     protected $legacyKernel;
 
     /**
-     * @var \Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper
+     * @var \Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper
      */
     protected $globalHelper;
 
@@ -25,7 +25,7 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
      * Constructor.
      *
      * @param \Closure $legacyKernel
-     * @param \Netgen\Bundle\MoreAdminUIBundle\Templating\GlobalHelper $globalHelper
+     * @param \Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper $globalHelper
      */
     public function __construct(Closure $legacyKernel, GlobalHelper $globalHelper)
     {
@@ -40,7 +40,7 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
      */
     public function getName()
     {
-        return 'ngmore_admin_ui';
+        return 'netgen_admin_ui';
     }
 
     /**
@@ -83,6 +83,6 @@ class NetgenMoreAdminUIExtension extends Twig_Extension implements Twig_Extensio
      */
     public function getGlobals()
     {
-        return array('ngmore_admin_ui' => $this->globalHelper);
+        return array('netgen_admin_ui' => $this->globalHelper);
     }
 }

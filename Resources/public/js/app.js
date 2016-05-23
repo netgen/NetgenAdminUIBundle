@@ -121,14 +121,14 @@ $(document).ready(function(){
         e.preventDefault();
         var blockId = $(this).data('block-id');
 
-        if(localStorage.getItem('NgMoreAdvancedAttributesShown-' + blockId) !== null) {
+        if(localStorage.getItem('NgAdminUIAdvancedAttributesShown-' + blockId) !== null) {
             $('#id_' + blockId + ' .advanced').hide();
-            localStorage.removeItem('NgMoreAdvancedAttributesShown-' + blockId);
+            localStorage.removeItem('NgAdminUIAdvancedAttributesShown-' + blockId);
             $(this).text($(this).data('show-text'));
         }
         else {
             $('#id_' + blockId + ' .advanced').show();
-            localStorage.setItem('NgMoreAdvancedAttributesShown-' + blockId, '1');
+            localStorage.setItem('NgAdminUIAdvancedAttributesShown-' + blockId, '1');
             $(this).text($(this).data('hide-text'));
         }
     });
@@ -153,7 +153,7 @@ var initBlockAttributesState = function(){
         var blockId = $(this).prop('id').replace('id_', '');
         var toggler = $('#id_' + blockId + ' .show-hide-advanced-attributes');
 
-        if(localStorage.getItem('NgMoreAdvancedAttributesShown-' + blockId) !== null) {
+        if(localStorage.getItem('NgAdminUIAdvancedAttributesShown-' + blockId) !== null) {
             $('#id_' + blockId + ' .advanced').show();
             toggler.text(toggler.data('hide-text'));
         } else {

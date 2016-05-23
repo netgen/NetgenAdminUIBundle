@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\MenuPlugin;
+namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
 use Symfony\Component\HttpFoundation\Request;
 

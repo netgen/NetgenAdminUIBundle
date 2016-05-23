@@ -1,25 +1,25 @@
-{% extends 'NetgenMoreAdminUIBundle::pagelayout_variables.html.twig' %}
+{% extends 'NetgenAdminUIBundle::pagelayout_variables.html.twig' %}
 
 {% block pagelayout_content %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
     <title>{{ site_name }}</title>
-    <meta name="generator" content="{{ 'ngmore_admin_ui.layout.generator'|trans }}" />
+    <meta name="generator" content="{{ 'netgen_admin_ui.layout.generator'|trans }}" />
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&amp;subset=latin,latin-ext" />
 
     {% include 'design:page_head_style.tpl' %}
     {% include 'design:page_head_script.tpl' %}
 
-    {% include 'NetgenMoreAdminUIBundle::page_head_style.html.twig' %}
-    {% include 'NetgenMoreAdminUIBundle::page_head_script.html.twig' %}
+    {% include 'NetgenAdminUIBundle::page_head_style.html.twig' %}
+    {% include 'NetgenAdminUIBundle::page_head_script.html.twig' %}
 </head>
 <body class="loginpage">
     {% block content %}{% endblock %}
 
     <div class="login-container">
-        {% include 'NetgenMoreAdminUIBundle::page_footer.html.twig' %}
+        {% include 'NetgenAdminUIBundle::page_footer.html.twig' %}
     </div>
 </body>
 </html>

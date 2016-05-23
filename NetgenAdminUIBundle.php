@@ -1,12 +1,12 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle;
+namespace Netgen\Bundle\AdminUIBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Netgen\Bundle\MoreAdminUIBundle\DependencyInjection\CompilerPass\MenuPluginRegistryPass;
+use Netgen\Bundle\AdminUIBundle\DependencyInjection\CompilerPass\MenuPluginRegistryPass;
 
-class NetgenMoreAdminUIBundle extends Bundle
+class NetgenAdminUIBundle extends Bundle
 {
     /**
      * Builds the bundle.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\MenuPlugin;
+namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
 use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
@@ -26,9 +26,9 @@ class LegacyMenuPlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:aside.html.twig',
-            'left' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:left.html.twig',
-            'top' => 'NetgenMoreAdminUIBundle:menu/plugins/legacy:top.html.twig',
+            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy:aside.html.twig',
+            'left' => 'NetgenAdminUIBundle:menu/plugins/legacy:left.html.twig',
+            'top' => 'NetgenAdminUIBundle:menu/plugins/legacy:top.html.twig',
         );
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\MoreAdminUIBundle\DependencyInjection\CompilerPass;
+namespace Netgen\Bundle\AdminUIBundle\DependencyInjection\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,12 +15,12 @@ class MenuPluginRegistryPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('ngmore_admin_ui.menu_plugin.registry')) {
+        if (!$container->has('netgen_admin_ui.menu_plugin.registry')) {
             return;
         }
 
-        $menuPluginRegistry = $container->findDefinition('ngmore_admin_ui.menu_plugin.registry');
-        $menuPlugins = $container->findTaggedServiceIds('ngmore_admin_ui.menu_plugin');
+        $menuPluginRegistry = $container->findDefinition('netgen_admin_ui.menu_plugin.registry');
+        $menuPlugins = $container->findTaggedServiceIds('netgen_admin_ui.menu_plugin');
 
         $flattenedMenuPlugins = array();
         foreach ($menuPlugins as $identifier => $menuPlugin) {

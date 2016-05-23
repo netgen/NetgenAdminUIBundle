@@ -1,6 +1,6 @@
 {
-    "name": "netgen/more-admin-ui-bundle",
-    "description": "Netgen More Admin UI Bundle implements a new design for eZ Publish legacy administration interface",
+    "name": "netgen/admin-ui-bundle",
+    "description": "Netgen Admin UI implements an alternate administration UI for eZ Platform, based on eZ Publish Legacy administration interface",
     "authors": [
         {
             "name": "Netgen",
@@ -9,10 +9,9 @@
     ],
     "require": {
         "ezsystems/ezpublish-kernel": "*",
-        "ezsystems/ezpublish-legacy": "*",
-        "netgen/more-bundle": "*"
+        "ezsystems/ezpublish-legacy": "*"
     },
     "autoload": {
-        "psr-4": {"Netgen\\Bundle\\MoreAdminUIBundle\\": ""}
+        "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
     }
 }

@@ -19,5 +19,5 @@ ZoneThumbnail=4_zones_c.png
 ZoneThumbnail=6_zones_a.png
 
 [NGRegionLayout]
-ZoneThumbnail=ngmoreregionlayout.png
+ZoneThumbnail=ngregionlayout.png
 */ ?>
