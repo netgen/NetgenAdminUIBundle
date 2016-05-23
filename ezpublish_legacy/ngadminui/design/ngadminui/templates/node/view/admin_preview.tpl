@@ -7,26 +7,28 @@
     $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )
 }
 
-{foreach $node.object.grouped_data_map as $attribute_group => $content_attributes_grouped}
-    {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
-        <div class="preview-row">
-            {if $attribute.display_info.view.grouped_input}
-            <fieldset>
-                <div class="label-preview">
-                    <legend>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}</legend>
-                </div>
-                <div class="attribute-preview">
-                    {attribute_view_gui attribute=$attribute}
-                </div>
-            </fieldset>
-            {else}
-                <div class="label-preview">
-                    <label>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:</label>
-                </div>
-                <div class="attribute-preview">
-                    {attribute_view_gui attribute=$attribute}
-                </div>
-            {/if}
-        </div>
+<div class="node-preview-content">
+    {foreach $node.object.grouped_data_map as $attribute_group => $content_attributes_grouped}
+        {foreach $content_attributes_grouped as $attribute_identifier => $attribute}
+            <div class="preview-row">
+                {if $attribute.display_info.view.grouped_input}
+                <fieldset>
+                    <div class="label-preview">
+                        <legend>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}</legend>
+                    </div>
+                    <div class="attribute-preview">
+                        {attribute_view_gui attribute=$attribute}
+                    </div>
+                </fieldset>
+                {else}
+                    <div class="label-preview">
+                        <label>{$attribute.contentclass_attribute.name|wash}{if $attribute.is_information_collector} <span class="collector">({'information collector'|i18n( 'design/admin/content/edit_attribute' )})</span>{/if}:</label>
+                    </div>
+                    <div class="attribute-preview">
+                        {attribute_view_gui attribute=$attribute}
+                    </div>
+                {/if}
+            </div>
+        {/foreach}
     {/foreach}
-{/foreach}
+</div>

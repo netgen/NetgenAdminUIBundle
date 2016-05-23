@@ -6177,7 +6177,13 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
 
 .content-preview {
   position: relative;
-  padding-right: 215px; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0; }
+  .content-preview .node-preview-content {
+    padding: 15px; }
   .content-preview .preview-row {
     color: #444;
     padding: 12px 0;
@@ -6238,10 +6244,6 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   padding: 0;
   border-left: 3px solid #f5f5f5;
   margin: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  min-height: 100%;
   width: 200px; }
   .node-info-list > li {
     padding: 8px 20px;
