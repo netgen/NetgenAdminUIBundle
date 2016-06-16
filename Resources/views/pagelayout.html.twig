@@ -35,12 +35,6 @@
                 <a id="header-logo" href="{{ path( ezpublish.rootLocation ) }}" title="{{ site_name }}"></a>
             </div>
 
-            <div class="search-form">
-                {% if not ui_context_edit %}
-                    {% include 'NetgenAdminUIBundle::page_search.html.twig' %}
-                {% endif %}
-            </div>
-
             {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.top is defined %}
                 {% include menu_plugins[current_menu_plugin].templates.top ignore missing %}
             {% endif %}
