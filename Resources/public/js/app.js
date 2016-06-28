@@ -162,3 +162,7 @@ var initBlockAttributesState = function(){
         }
     });
 };
+
+ace.config.set('basePath', '/bundles/netgenadminui/bower/ace-builds/src-min-noconflict');
+ace.require("ace/ext/language_tools");
+
