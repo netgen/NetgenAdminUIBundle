@@ -6335,7 +6335,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
     top: 70px;
     right: 0;
     left: 340px;
-    z-index: 3; }
+    z-index: 5; }
   @media screen and (max-width: 900px) {
     #maincontent.node-edit-container {
       padding-left: 160px; }
@@ -7107,6 +7107,12 @@ input.tagssuggestfield {
     padding: 0; }
   .rightmenu .box-content {
     padding: 0; }
+
+.snippet-editor.ace_editor {
+  position: relative;
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #e8e8e8; }
 
 /* ezmultiupload */
 .content-view-ezmultiupload {

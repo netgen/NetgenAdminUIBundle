@@ -16,7 +16,7 @@
             {def $field_settings = ezini( $snippet_editor_config_section, $field_settings_name, 'ngadminui.ini' )}
         {/if}
 
-        <div id="{$attribute_base}_data_text_{$attribute.id}" style="position: relative; width: 100%; height: {$attribute.contentclass_attribute.data_int1|mul(2)}em;" ></div>
+        <div class="snippet-editor" id="{$attribute_base}_data_text_{$attribute.id}" style="height: {$attribute.contentclass_attribute.data_int1|mul(2)}em;"></div>
 
         <script type="text/javascript">
             $(document).ready(function(){ldelim}

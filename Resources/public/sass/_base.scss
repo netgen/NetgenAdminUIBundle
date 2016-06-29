@@ -1171,7 +1171,7 @@ table {
         }
     }
     .path-edit-container {
-        position:fixed; top:$headerHeight; right:0; left:$asideWidth + $leftColumnWidth; z-index:3;
+        position:fixed; top:$headerHeight; right:0; left:$asideWidth + $leftColumnWidth; z-index:5;
     }
     @media screen and (max-width: 900px){
         & {
@@ -1777,6 +1777,13 @@ $yuiInputHeight: 26px;
     .rightmenu & {
         padding:0;
     }
+}
+
+.snippet-editor.ace_editor {
+    position:relative;
+    width:100%;
+    font-size:1em;
+    border:1px solid #e8e8e8;
 }
 
 /* ezmultiupload */
