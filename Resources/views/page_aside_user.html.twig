@@ -51,27 +51,31 @@
         <li class="divider"></li>
 
         {% if ui_context != 'edit' or ui_context != 'browse' %}
-            <li><span>Edit interface settings</span></li>
+            <li><span>{{ 'netgen_admin_ui.user.interface_settings'|trans }}</span></li>
         {% endif %}
         {% if ui_context != 'edit' %}
-            <li><span class="tt">Show Locations</span>
+            <li><span class="tt">{{ 'netgen_admin_ui.user.show_locations'|trans }}</span>
                 <span class="control-toggle">
                     {% if ezpreference( 'admin_edit_show_locations' ) %}
-                        <strong>on</strong><a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">off</a>
+                        <strong>{{ 'netgen_admin_ui.user.on'|trans }}</strong>
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">{{ 'netgen_admin_ui.user.off'|trans }}</a>
                     {% else %}
-                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/1' } ) }}" title="Enable location window when editing content.">on</a><strong>off</strong>
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/1' } ) }}" title="Enable location window when editing content.">{{ 'netgen_admin_ui.user.on'|trans }}</a>
+                        <strong>{{ 'netgen_admin_ui.user.off'|trans }}</strong>
                     {% endif %}
                 </span>
             </li>
         {% endif %}
 
         {% if ui_context != 'browse' %}
-            <li><span class="tt">Enable Re-edit</span>
+            <li><span class="tt">{{ 'netgen_admin_ui.user.enable_reedit'|trans }}</span>
                 <span class="control-toggle">
                     {% if ezpreference( 'admin_edit_show_re_edit' ) %}
-                        <strong>on</strong><a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">off</a>
+                        <strong>{{ 'netgen_admin_ui.user.on'|trans }}</strong>
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">{{ 'netgen_admin_ui.user.off'|trans }}</a>
                     {% else %}
-                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/1' } ) }}" title="Enable &quot;Back to edit&quot; checkbox when editing content.">on</a><strong>off</strong>
+                        <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/1' } ) }}" title="Enable &quot;Back to edit&quot; checkbox when editing content.">{{ 'netgen_admin_ui.user.on'|trans }}</a>
+                        <strong>{{ 'netgen_admin_ui.user.off'|trans }}</strong>
                     {% endif %}
                 </span>
             </li>
@@ -82,7 +86,7 @@
 
         <li>
             {% if ui_context_edit %}
-                <span class="disabled">{{ 'netgen_admin_ui.layout.logout'|trans }}</span>
+                <span class="disabled">{{ 'netgen_admin_ui.user.logout'|trans }}</span>
             {% else %}
                 <a href="{{ path( 'logout' ) }}">{{ 'netgen_admin_ui.layout.logout'|trans }}</a>
             {% endif %}
