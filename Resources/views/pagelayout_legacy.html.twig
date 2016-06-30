@@ -38,6 +38,10 @@
     {% set path_array = [] %}
     {% set root_location_path = path( ezpublish.rootLocation ) %}
 
+    {% if not (root_location_path ends with '/') %}
+        {% set root_location_path = root_location_path ~ '/' %}
+    {% endif %}
+
     {% for legacy_path_item in legacy_path_array %}
         {% set path_array = path_array|merge( [ {
             url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
