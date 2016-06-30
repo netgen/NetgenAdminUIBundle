@@ -27,7 +27,7 @@
 
             {* Image thumbnail *}
             <td class="related-thumbnail">
-                {if eq($attribute.content.class_name, 'Image')}
+                {if eq($attribute.content.class_identifier, 'image')}
                     <div class="thumbnail-tt">
                         <i class="fa fa-picture-o"></i>
                         <div class="thumbnail-tt-box">

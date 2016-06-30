@@ -371,7 +371,7 @@
 
                     {* Image thumbnail *}
                     <td class="related-thumbnail">
-                      {if eq($object.class_name, 'Image')}
+                      {if eq($object.class_identifier, 'image')}
                         <div class="thumbnail-tt">
                           <i class="fa fa-picture-o"></i>
                           <div class="thumbnail-tt-box">
