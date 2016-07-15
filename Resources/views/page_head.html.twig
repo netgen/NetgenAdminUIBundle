@@ -17,6 +17,10 @@
 <title>{{ 'netgen_admin_ui.title'|trans }}</title>
 <meta name="generator" content="{{ 'netgen_admin_ui.title'|trans }}" />
 
+{% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.head is defined %}
+    {% include menu_plugins[current_menu_plugin].templates.head ignore missing %}
+{% endif %}
+
 {#
     Left and right menu shenanigans
     @TODO: Rewrite, since it's taken from legacy
