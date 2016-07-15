@@ -1,6 +1,5 @@
 netgen_admin_ui.title: 'Netgen Admin UI'
 
-netgen_admin_ui.layout.generator: 'eZ Publish'
 netgen_admin_ui.layout.loading: 'Loading...'
 netgen_admin_ui.layout.logout: 'Logout'
 netgen_admin_ui.layout.path.you_are_here: 'You are here:'
