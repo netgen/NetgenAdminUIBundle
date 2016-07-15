@@ -1,16 +1,23 @@
-imports:
-    - { resource: parameters.yml }
-
 ezpublish:
     system:
-        administration_group:
+        ngadminui:
             user:
                 layout: "NetgenAdminUIBundle::pagelayout_login.html.twig"
                 login_template: "NetgenAdminUIBundle:user:login.html.twig"
+            content_view:
+                full:
+                    default:
+                        controller: "ezpublish_legacy.controller:indexAction"
+                        match: ~
+            location_view:
+                full:
+                    default:
+                        controller: "ezpublish_legacy.controller:indexAction"
+                        match: ~
 
 ez_publish_legacy:
     system:
-        administration_group:
+        ngadminui:
             templating:
                 view_layout: "NetgenAdminUIBundle::pagelayout_legacy.html.twig"
                 module_layout: "NetgenAdminUIBundle::pagelayout_module.html.twig"

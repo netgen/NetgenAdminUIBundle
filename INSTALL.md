@@ -1,7 +1,10 @@
 Netgen Admin UI installation instructions
 -----------------------------------------
 
-## Use Composer to install the package:
+Netgen Admin UI requires a fully functional eZ Publish 5 or eZ Platform with Legacy Bridge
+so make sure you have it installed and fully configured before installing Netgen Admin UI.
+
+## Use Composer to install the package: 
 
 ```
 composer require netgen/admin-ui-bundle:^1.0
@@ -28,13 +31,6 @@ Use the following script to symlink bundle assets to `web/bundles` directory:
 php app/console assets:install --symlink --relative
 ```
 
-## Import the `ezplatform.yml` from the bundle into your main `ezplatform.yml` file:
-
-```
-imports:
-    - { resource: '@NetgenAdminUIBundle/Resources/config/ezplatform.yml' }
-```
-
 ## Import the `routing.yml` from the bundle into your main `routing.yml` file:
 
 Since this file overrides some built in routes, make sure you put it at the end of your `routing.yml`.
@@ -44,45 +40,41 @@ _netgen_admin_ui:
     resource: "@NetgenAdminUIBundle/Resources/config/routing.yml"
 ```
 
-## Activate the legacy `ngadminui` extension in your `site.ini.append.php` file
+## Activate the legacy `ngadminui` extension in your `site.ini.append.php` file along with other required extensions:
 
 ```
 [ExtensionSettings]
 ActiveExtensions[]=ngadminui
+ActiveExtensions[]=ezdemo
+ActiveExtensions[]=ezjscore
+ActiveExtensions[]=ezoe
 ```
 
 ## Create a new administration siteaccess with `legacy_mode: false` config and configure it:
 
-Use the following config to configure the templates in your new siteaccess. This config usually goes
-into your `ezplatform.yml` file imported from your **project bundle**.
-(change `administration_group` to something more appropriate for your installation):
+Use the following config somewhere in your app to configure the templates and controllers for your new siteaccess.
+
+Make sure to change `ngadminui` to the name of your Netgen Admin UI siteaccess:
 
 ```
+parameters:
+    netgen_admin_ui.ngadminui.is_admin_ui_siteaccess: true
+    eztags.ngadminui.routing.enable_tag_router: false
+    ezsettings.ngadminui.treemenu.http_cache: false
+
 ezpublish:
     system:
-        administration_group:
+        ngadminui:
             user:
                 layout: 'NetgenAdminUIBundle::pagelayout_login.html.twig'
                 login_template: 'NetgenAdminUIBundle:user:login.html.twig'
 
 ez_publish_legacy:
     system:
-        administration_group:
+        ngadminui:
             templating:
                 view_layout: 'NetgenAdminUIBundle::pagelayout_legacy.html.twig'
                 module_layout: 'NetgenAdminUIBundle::pagelayout_module.html.twig'
-```
-
-Use the following config to configure the pagelayout and some other required settings in your new
-siteaccess. This config usually goes into your `parameters.yml` file imported from
-your **project bundle**. (change `administration_group` to something more appropriate for your installation):
-
-```
-ngmore.administration_group.pagelayout: 'NetgenAdminUIBundle::pagelayout.html.twig'
-ngmore.administration_group.content_view.show_invisible_locations: true
-ngmore.administration_group.content_view.handle_legacy_fallback_error_result: false
-eztags.administration_group.routing.enable_tag_router: false
-ezsettings.administration_group.treemenu.http_cache: false
 ```
 
 ## Create a new legacy administration siteaccess and make sure you set the main design to `ngadminui`:
@@ -96,3 +88,5 @@ AdditionalSiteDesignList[]=admin
 AdditionalSiteDesignList[]=standard
 AdditionalSiteDesignList[]=base
 ```
+
+Also, make sure that **only your editors/administrators** have `user/login` policy to the new administration siteaccess.
