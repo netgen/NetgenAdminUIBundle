@@ -1,7 +1,6 @@
 parameters:
-    ngmore.administration_group.pagelayout: "NetgenAdminUIBundle::pagelayout.html.twig"
-    ngmore.administration_group.content_view.show_invisible_locations: true
-    # Disable handling of legacy stack fallback error responses through Symfony exceptions
-    ngmore.administration_group.content_view.handle_legacy_fallback_error_result: false
-    eztags.administration_group.routing.enable_tag_router: false
-    ezsettings.administration_group.treemenu.http_cache: false
+    netgen_admin_ui.default.is_admin_ui_siteaccess: false
+
+    netgen_admin_ui.ngadminui.is_admin_ui_siteaccess: true
+    eztags.ngadminui.routing.enable_tag_router: false
+    ezsettings.ngadminui.treemenu.http_cache: false
