@@ -1,7 +1,6 @@
 .idea/
 .sass-cache/
 .tmp/
-CodeCoverage/
 node_modules/
 vendor/
 composer.phar
