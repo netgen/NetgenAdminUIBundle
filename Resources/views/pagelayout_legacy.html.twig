@@ -1,4 +1,4 @@
-{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+{% extends 'NetgenAdminUIBundle::pagelayout.html.twig' %}
 
 {% if module_result is not defined %}
     {% set module_result = ezpublish.legacy.all %}
@@ -54,7 +54,7 @@
         } ] ) %}
     {% endfor %}
 {% elseif module_result is defined and module_result['node_id'] is defined and module_result['node_id'] is not empty %}
-    {% set path_array = ngmore_location_path( module_result['node_id'], true ) %}
+    {% set path_array = ngadmin_location_path( module_result['node_id'] ) %}
 {% endif %}
 
 {% block content %}

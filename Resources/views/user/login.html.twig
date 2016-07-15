@@ -17,7 +17,7 @@
         <div class="login-container">
             <header class="login-header">
                 <a href="#" class="logo"></a>
-                <h3>{{ 'netgen_admin_ui.login.title'|trans }}</h3>
+                <h3>{{ 'netgen_admin_ui.title'|trans }}</h3>
             </header>
 
             <form name="loginform" method="post" action="{{ path( 'login_check' ) }}">
@@ -31,10 +31,7 @@
                         <input type="password" class="form-control" size="10" name="_password" id="passwordtext" placeholder="{{ 'netgen_admin_ui.login.password'|trans }}" tabindex="2" title="{{ 'netgen_admin_ui.login.password.title'|trans }}">
                     </div>
 
-                    {# @deprecated We check for non existence for compatibility with eZ 5 sites #}
-                    {% if not app.request.attributes.has( 'csrf_enabled' ) or app.request.attributes.get( 'csrf_enabled' ) %}
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
-                    {% endif %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
 
                     {#
                         If you want to control the URL the user

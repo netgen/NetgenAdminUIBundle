@@ -29,11 +29,11 @@
         <li class="divider"></li>
 
         {% if ui_context != 'edit' and ui_context != 'browse' %}
-            {% if ngmore_can_user( 'content', 'read', user_content ) %}
+            {% if ngadmin_is_granted( 'content', 'read', user_content ) %}
                 <li><a href="{{ path( 'ez_urlalias', { 'contentId': user_content.id } ) }}">{{ 'netgen_admin_ui.user.view_profile'|trans }}</a></li>
             {% endif %}
 
-            {% if ngmore_can_user( 'content', 'edit', user_content ) %}
+            {% if ngadmin_is_granted( 'content', 'edit', user_content ) %}
                 <li>
                     <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}">{{ 'netgen_admin_ui.user.change_information'|trans }}</a>
                 </li>

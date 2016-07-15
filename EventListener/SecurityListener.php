@@ -12,7 +12,7 @@ use eZ\Publish\Core\MVC\Legacy\Event\PostBuildKernelEvent;
 use eZ\Publish\Core\MVC\Legacy\LegacyEvents;
 use ezpWebBasedKernelHandler;
 
-class Security implements EventSubscriberInterface
+class SecurityListener implements EventSubscriberInterface
 {
     /**
      * @var \Symfony\Component\HttpFoundation\RequestStack

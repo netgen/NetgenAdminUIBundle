@@ -1,5 +1,6 @@
 parameters:
-    netgen_admin_ui.event_listener.security.class: Netgen\Bundle\AdminUIBundle\EventListener\Security
+    netgen_admin_ui.event_listener.security.class: Netgen\Bundle\AdminUIBundle\EventListener\SecurityListener
+    netgen_admin_ui.helper.path_helper.class: Netgen\Bundle\AdminUIBundle\Helper\PathHelper
 
 services:
     netgen_admin_ui.event_listener.security:
@@ -11,3 +12,12 @@ services:
             - "@security.context"
         tags:
             - { name: kernel.event_subscriber }
+
+    netgen_admin_ui.helper.path_helper:
+        class: "%netgen_admin_ui.helper.path_helper.class%"
+        arguments:
+            - "@ezpublish.api.service.location"
+            - "@ezpublish.translation_helper"
+            - "@router"
+        calls:
+            - [setRootLocationId, ["$content.tree_root.location_id$"]]

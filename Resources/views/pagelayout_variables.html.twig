@@ -1,9 +1,5 @@
 {% spaceless %}
 
-{# SITE NAME #}
-
-{% set site_name = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
-
 {# SIDE MENU #}
 
 {% if show_side_menu is not defined %}
@@ -14,7 +10,7 @@
 
 {% if path_array is not defined %}
     {% if content is defined and location is defined and location is not empty and not location.isDraft %}
-        {% set path_array = ngmore_location_path( location.id, true ) %}
+        {% set path_array = ngadmin_location_path( location.id ) %}
     {% else %}
         {% set path_array = [] %}
     {% endif %}

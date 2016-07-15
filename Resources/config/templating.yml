@@ -12,7 +12,9 @@ services:
     netgen_admin_ui.templating.twig.extension:
         class: "%netgen_admin_ui.templating.twig.extension.class%"
         arguments:
-            - "@ezpublish_legacy.kernel"
+            - "@security.authorization_checker"
+            - "@netgen_admin_ui.helper.path_helper"
             - "@netgen_admin_ui.templating.global_helper"
+            - "@ezpublish_legacy.kernel"
         tags:
             - { name: twig.extension }

@@ -8,8 +8,7 @@
         }
     ],
     "require": {
-        "ezsystems/ezpublish-kernel": "*",
-        "ezsystems/ezpublish-legacy": "*"
+        "ezsystems/ezpublish-kernel": "*"
     },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
