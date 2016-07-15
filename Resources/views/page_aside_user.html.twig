@@ -56,7 +56,7 @@
         {% if ui_context != 'edit' %}
             <li><span class="tt">{{ 'netgen_admin_ui.user.show_locations'|trans }}</span>
                 <span class="control-toggle">
-                    {% if ezpreference( 'admin_edit_show_locations' ) %}
+                    {% if ngadmin_ezpreference( 'admin_edit_show_locations' ) %}
                         <strong>{{ 'netgen_admin_ui.user.on'|trans }}</strong>
                         <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_locations/0' } ) }}" title="Disable location window when editing content.">{{ 'netgen_admin_ui.user.off'|trans }}</a>
                     {% else %}
@@ -70,7 +70,7 @@
         {% if ui_context != 'browse' %}
             <li><span class="tt">{{ 'netgen_admin_ui.user.enable_reedit'|trans }}</span>
                 <span class="control-toggle">
-                    {% if ezpreference( 'admin_edit_show_re_edit' ) %}
+                    {% if ngadmin_ezpreference( 'admin_edit_show_re_edit' ) %}
                         <strong>{{ 'netgen_admin_ui.user.on'|trans }}</strong>
                         <a href="{{ path( 'ez_legacy', { module_uri: '/user/preferences/set/admin_edit_show_re_edit/0' } ) }}" title="Disable &quot;Back to edit&quot; checkbox when editing content.">{{ 'netgen_admin_ui.user.off'|trans }}</a>
                     {% else %}

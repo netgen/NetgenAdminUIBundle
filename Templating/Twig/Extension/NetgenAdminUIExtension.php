@@ -83,7 +83,7 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
-                'ezpreference',
+                'ngadmin_ezpreference',
                 array($this, 'getLegacyPreference')
             ),
         );

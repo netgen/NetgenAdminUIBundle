@@ -25,8 +25,8 @@
 {% set hide_left_menu = not( module_result.content_info.persistent_variable.left_menu|default( not content_edit ) ) %}
 {% set hide_right_menu = not( module_result.content_info.persistent_variable.extra_menu|default( not ui_context_edit ) ) %}
 
-{% set collapse_right_menu = not ezpreference( 'admin_right_menu_show' ) %}
-{% set admin_left_size = ezpreference( 'admin_left_menu_size' ) %}
+{% set collapse_right_menu = not ngadmin_ezpreference( 'admin_right_menu_show' ) %}
+{% set admin_left_size = ngadmin_ezpreference( 'admin_left_menu_size' ) %}
 
 {% if hide_right_menu %}
     {% set collapse_right_menu = false %}

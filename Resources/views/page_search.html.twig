@@ -10,7 +10,7 @@
 
         {% if ui_context == 'browse' %}
             <input name="Mode" type="hidden" value="browse" />
-            <input name="BrowsePageLimit" type="hidden" value="{{ [10, 10, 25, 50][min( ezpreference( 'admin_list_limit' ), 3)] }}" />
+            <input name="BrowsePageLimit" type="hidden" value="{{ [10, 10, 25, 50][min( ngadmin_ezpreference( 'admin_list_limit' ), 3)] }}" />
         {% endif %}
     {% endif %}
 </form>
