@@ -52,7 +52,7 @@ ActiveExtensions[]=ezoe
 
 ## Create a new administration siteaccess with `legacy_mode: false` config and configure it:
 
-Use the following config somewhere in your app to configure the templates and controllers for your new siteaccess.
+Use the following config somewhere in your app to configure the templates for your new siteaccess.
 
 Make sure to change `ngadminui` to the name of your Netgen Admin UI siteaccess:
 
