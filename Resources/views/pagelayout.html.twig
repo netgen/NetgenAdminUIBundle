@@ -17,6 +17,10 @@
 
     {% include 'NetgenAdminUIBundle::page_head.html.twig' %}
 
+    {% block title %}
+        <title>{{ 'netgen_admin_ui.title'|trans }}</title>
+    {% endblock %}
+
     {% block stylesheets %}
         {% include 'design:page_head_style.tpl' %}
         {% include 'NetgenAdminUIBundle::page_head_style.html.twig' %}
