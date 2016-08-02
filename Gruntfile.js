@@ -20,6 +20,7 @@ module.exports = function (grunt) {
 
   // Configurable paths
   var config = {
+    resources_dir: 'Resources/',
     public_dir: 'Resources/public/'
   };
 
@@ -45,7 +46,7 @@ module.exports = function (grunt) {
          }
       },
       sass: {
-        files: ['<%= config.public_dir %>/sass/{,*/}*.{scss,sass}'],
+        files: ['<%= config.resources_dir %>/sass/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'postcss']
       }
     },
@@ -61,7 +62,7 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.public_dir %>/sass',
+          cwd: '<%= config.resources_dir %>/sass',
           src: ['*.{scss,sass}'],
           dest: '.tmp/css',
           ext: '.css'
