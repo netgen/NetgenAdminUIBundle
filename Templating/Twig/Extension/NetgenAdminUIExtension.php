@@ -21,7 +21,7 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
     protected $authorizationChecker;
 
     /**
-     * @var \Netgen\Bundle\EzToolsBundle\Helper\PathHelper
+     * @var \Netgen\Bundle\AdminUIBundle\Helper\PathHelper
      */
     protected $pathHelper;
 
