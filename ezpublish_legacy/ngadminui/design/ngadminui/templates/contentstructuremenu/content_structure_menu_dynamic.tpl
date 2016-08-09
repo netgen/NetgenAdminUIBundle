@@ -90,6 +90,10 @@ var treeMenu;
             {set $class_list = $class_list|merge( hash( concat( '_', $class.id ), hash( 'name', $class.name, 'identifier', $class.identifier ) ) )}
         {/foreach}
 
+        {if is_set($class_list['_1'])|not}
+            {set $class_list = $class_list|merge( hash( '_1', hash( 'name', 'Folder', 'identifier', 'folder' ) ) )}
+        {/if}
+
         params.classes = {json_encode( $class_list ) }
 
         {foreach $iconInfo.icons as $class => $icon}{*
