@@ -145,7 +145,12 @@ $(document).ready(function(){
 
     $('.removeNodeConfirm').on('click', function(){
         $('#removePrompt').modal('show');
-    })
+    });
+
+    /* save current url to local storage when opening bm */
+    $(document).on('click', '.js-open-bm', function(e){
+        localStorage.setItem('bm_referrer', window.location.href);
+    });
 });
 
 var initBlockAttributesState = function(){
