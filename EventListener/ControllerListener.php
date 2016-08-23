@@ -2,7 +2,6 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
-use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -22,15 +21,25 @@ class ControllerListener implements EventSubscriberInterface
     protected $isAdminSiteAccess;
 
     /**
+     * @var array
+     */
+    protected $legacyRoutes;
+
+    /**
      * Constructor.
      *
      * @param \Symfony\Component\HttpKernel\Controller\ControllerResolverInterface $controllerResolver
      * @param bool $isAdminSiteAccess
+     * @param array $legacyRoutes
      */
-    public function __construct(ControllerResolverInterface $controllerResolver, $isAdminSiteAccess = false)
-    {
+    public function __construct(
+        ControllerResolverInterface $controllerResolver,
+        $isAdminSiteAccess = false,
+        $legacyRoutes = array()
+    ) {
         $this->controllerResolver = $controllerResolver;
         $this->isAdminSiteAccess = $isAdminSiteAccess;
+        $this->legacyRoutes = $legacyRoutes;
     }
 
     /**
@@ -46,7 +55,7 @@ class ControllerListener implements EventSubscriberInterface
     }
 
     /**
-     * Injects the invisible location if configured so.
+     * Redirects configured routes to eZ legacy.
      *
      * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event
      */
@@ -61,11 +70,14 @@ class ControllerListener implements EventSubscriberInterface
         }
 
         $currentRoute = $event->getRequest()->attributes->get('_route');
-        if ($currentRoute !== UrlAliasRouter::URL_ALIAS_ROUTE_NAME) {
-            return;
-        }
 
-        $event->getRequest()->attributes->set('_controller', 'ezpublish_legacy.controller:indexAction');
-        $event->setController($this->controllerResolver->getController($event->getRequest()));
+        foreach ($this->legacyRoutes as $legacyRoute) {
+            if (stripos($currentRoute, $legacyRoute) === 0) {
+                $event->getRequest()->attributes->set('_controller', 'ezpublish_legacy.controller:indexAction');
+                $event->setController($this->controllerResolver->getController($event->getRequest()));
+
+                return;
+            }
+        }
     }
 }

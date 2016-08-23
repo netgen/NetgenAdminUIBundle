@@ -35,6 +35,7 @@ services:
         arguments:
             - "@controller_resolver"
             - "$is_admin_ui_siteaccess;netgen_admin_ui$"
+            - "$legacy_routes;netgen_admin_ui$"
         tags:
             - {name: kernel.event_subscriber}
 
