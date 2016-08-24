@@ -36,8 +36,6 @@
             {$edit_version}
         </p>
 
-        <input class="btn btn-default btn-sm" type="submit" name="PreviewButton" value="{'Preview'|i18n( 'design/admin/content/edit' )}" title="{'Preview the draft that is being edited.'|i18n( 'design/admin/content/edit' )}" />
-
         {* DESIGN: Content END *}
     </div>
 </div>
