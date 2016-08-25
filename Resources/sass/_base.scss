@@ -99,7 +99,7 @@ label {
            color:#617283;
         }
         .btn.btn-primary {
-            margin:30px 0 0; display:block; width:100%; background:$activeColor; font-size:16px; font-weight:600; text-transform:uppercase; border:none; padding:11px;
+            margin:30px 0 0; display:block; width:100%; background:$activeColor; font-size:16px; font-weight:500; text-transform:uppercase; border:none; padding:11px;
         }
     }
     @media screen and (max-width:640px) {
@@ -545,7 +545,7 @@ fieldset.ezcca-collapsible {
         float:left; display:block; margin-right:8px;
     }
     .context-title {
-        margin:0 0 14px 40px; font-size:20px; color:#333; font-weight:600;
+        margin:0 0 14px 40px; font-size:20px; color:#333; font-weight:500;
     }
     h1 {
         .small {
@@ -564,7 +564,7 @@ fieldset.ezcca-collapsible {
      > li {
         display:table-cell; margin:0; padding:0 25px 0 0; text-align:center; vertical-align:top;
         a {
-            display:block; position:relative; background:transparent; font-weight:600; padding:15px 4px; color:#979797; text-decoration:none; border-bottom:4px solid transparent;
+            display:block; position:relative; background:transparent; font-weight:500; padding:15px 4px; color:#979797; text-decoration:none; border-bottom:4px solid transparent;
             &:hover {
                 color:#337ab7;
             }
@@ -611,7 +611,7 @@ fieldset.ezcca-collapsible {
     float:none;
 }
 .modal-title {
-    font-weight:600; color:#4b4b4b;
+    font-weight:500; color:#4b4b4b;
 }
 
 .alert {
@@ -633,7 +633,7 @@ table.list {
         padding:10px;
     }
     th {
-        background:$thBg; border:none; color:#fff; font-size:11px; text-transform:uppercase; font-weight:600; line-height:20px;
+        background:$thBg; border:none; color:#fff; font-size:11px; text-transform:uppercase; font-weight:500; line-height:20px;
         .fa {
             cursor:pointer; font-size:$fontSize; display:block; height:$fontSize;
         }
@@ -851,7 +851,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {bac
 /* /subitems yui control */
 .yui-dt {
     th {
-        background:$thBg; border:none; font-size:11px; text-transform:uppercase; font-weight:600; line-height:20px;
+        background:$thBg; border:none; font-size:11px; text-transform:uppercase; font-weight:500; line-height:20px;
         .fa {
             font-size:16px;
             &.fa-cog {
@@ -903,7 +903,7 @@ table {
         > li {
             float:left; margin:0; padding:0;
             > a {
-                display:block; float:left; height:$headerHeight; padding:(($headerHeight - 20)/2) 24px; font-weight:600; color:#5b5b5b; text-decoration:none;
+                display:block; float:left; height:$headerHeight; padding:(($headerHeight - 20)/2) 24px; font-weight:500; color:#5b5b5b; text-decoration:none;
                 > i {
                     color:#bfbfbf; margin-right:8px; float:left; font-size:20px;
                 }
@@ -1166,7 +1166,7 @@ table {
                 border-top:none;
             }
             &.active, &.active:hover, &.active:focus {
-                background-color:#fff; color:$activeColor; font-weight:600;
+                background-color:#fff; color:$activeColor; font-weight:500;
             }
         }
     }

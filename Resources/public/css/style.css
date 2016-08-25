@@ -1,23 +1,31 @@
+/* Roboto */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/Roboto/Roboto-300.eot");
+  src: url("../fonts/Roboto/Roboto-300.eot?#iefix") format("embedded-opentype"), local("Roboto Light"), local("Roboto-300"), url("../fonts/Roboto/Roboto-300.woff2") format("woff2"), url("../fonts/Roboto/Roboto-300.woff") format("woff"), url("../fonts/Roboto/Roboto-300.ttf") format("truetype"), url("../fonts/Roboto/Roboto-300.svg#Roboto") format("svg"); }
+
+@font-face {
+  font-family: 'Roboto';
   font-weight: 400;
   font-style: normal;
-  src: url("../fonts/Open-Sans/Open-Sans-regular.eot");
-  src: url("../fonts/Open-Sans/Open-Sans-regular.eot?#iefix") format("embedded-opentype"), local("Open Sans"), local("Open-Sans-regular"), url("../fonts/Open-Sans/Open-Sans-regular.woff2") format("woff2"), url("../fonts/Open-Sans/Open-Sans-regular.woff") format("woff"), url("../fonts/Open-Sans/Open-Sans-regular.ttf") format("truetype"), url("../fonts/Open-Sans/Open-Sans-regular.svg#OpenSans") format("svg"); }
+  src: url("../fonts/Roboto/Roboto-regular.eot");
+  src: url("../fonts/Roboto/Roboto-regular.eot?#iefix") format("embedded-opentype"), local("Roboto"), local("Roboto-regular"), url("../fonts/Roboto/Roboto-regular.woff2") format("woff2"), url("../fonts/Roboto/Roboto-regular.woff") format("woff"), url("../fonts/Roboto/Roboto-regular.ttf") format("truetype"), url("../fonts/Roboto/Roboto-regular.svg#Roboto") format("svg"); }
 
 @font-face {
-  font-family: 'Open Sans';
-  font-weight: 600;
+  font-family: 'Roboto';
+  font-weight: 500;
   font-style: normal;
-  src: url("../fonts/Open-Sans/Open-Sans-600.eot");
-  src: url("../fonts/Open-Sans/Open-Sans-600.eot?#iefix") format("embedded-opentype"), local("Open Sans Semibold"), local("Open-Sans-600"), url("../fonts/Open-Sans/Open-Sans-600.woff2") format("woff2"), url("../fonts/Open-Sans/Open-Sans-600.woff") format("woff"), url("../fonts/Open-Sans/Open-Sans-600.ttf") format("truetype"), url("../fonts/Open-Sans/Open-Sans-600.svg#OpenSans") format("svg"); }
+  src: url("../fonts/Roboto/Roboto-500.eot");
+  src: url("../fonts/Roboto/Roboto-500.eot?#iefix") format("embedded-opentype"), local("Roboto Medium"), local("Roboto-500"), url("../fonts/Roboto/Roboto-500.woff2") format("woff2"), url("../fonts/Roboto/Roboto-500.woff") format("woff"), url("../fonts/Roboto/Roboto-500.ttf") format("truetype"), url("../fonts/Roboto/Roboto-500.svg#Roboto") format("svg"); }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Roboto';
   font-weight: 700;
   font-style: normal;
-  src: url("../fonts/Open-Sans/Open-Sans-700.eot");
-  src: url("../fonts/Open-Sans/Open-Sans-700.eot?#iefix") format("embedded-opentype"), local("Open Sans Bold"), local("Open-Sans-700"), url("../fonts/Open-Sans/Open-Sans-700.woff2") format("woff2"), url("../fonts/Open-Sans/Open-Sans-700.woff") format("woff"), url("../fonts/Open-Sans/Open-Sans-700.ttf") format("truetype"), url("../fonts/Open-Sans/Open-Sans-700.svg#OpenSans") format("svg"); }
+  src: url("../fonts/Roboto/Roboto-700.eot");
+  src: url("../fonts/Roboto/Roboto-700.eot?#iefix") format("embedded-opentype"), local("Roboto Bold"), local("Roboto-700"), url("../fonts/Roboto/Roboto-700.woff2") format("woff2"), url("../fonts/Roboto/Roboto-700.woff") format("woff"), url("../fonts/Roboto/Roboto-700.ttf") format("truetype"), url("../fonts/Roboto/Roboto-700.svg#Roboto") format("svg"); }
 
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -4689,7 +4697,7 @@ button.close {
   display: none; }
 
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -4820,7 +4828,7 @@ label {
     .loginpage form .form-control {
       border: none;
       box-shadow: none;
-      font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
       margin: 0 0 10px;
       background: #1E364E;
       border-radius: 0;
@@ -4847,7 +4855,7 @@ label {
       width: 100%;
       background: #F3590A;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
       border: none;
       padding: 11px; }
@@ -5510,7 +5518,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
     margin: 0 0 14px 40px;
     font-size: 20px;
     color: #333;
-    font-weight: 600; }
+    font-weight: 500; }
   .title-wrapper h1 .small {
     display: block;
     font-size: 0.625em;
@@ -5537,7 +5545,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
       display: block;
       position: relative;
       background: transparent;
-      font-weight: 600;
+      font-weight: 500;
       padding: 15px 4px;
       color: #979797;
       text-decoration: none;
@@ -5581,7 +5589,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
   float: none; }
 
 .modal-title {
-  font-weight: 600;
+  font-weight: 500;
   color: #4b4b4b; }
 
 .alert {
@@ -5606,7 +5614,7 @@ table.list {
     color: #fff;
     font-size: 11px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 20px; }
     table.list th .fa {
       cursor: pointer;
@@ -5927,7 +5935,7 @@ span.yui-pg-first, span.yui-pg-previous, span.yui-pg-next, span.yui-pg-last {
   border: none;
   font-size: 11px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 20px; }
   .yui-dt th .fa {
     font-size: 16px; }
@@ -5987,7 +5995,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
         float: left;
         height: 70px;
         padding: 25px 24px;
-        font-weight: 600;
+        font-weight: 500;
         color: #5b5b5b;
         text-decoration: none; }
         .node-top-switch .node-view-switch > li > a > i {
@@ -6349,7 +6357,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
       #maincontent.node-edit-container .edit-tab-control a.active, #maincontent.node-edit-container .edit-tab-control a.active:hover, #maincontent.node-edit-container .edit-tab-control a.active:focus {
         background-color: #fff;
         color: #F3590A;
-        font-weight: 600; }
+        font-weight: 500; }
   #maincontent.node-edit-container .path-edit-container {
     position: fixed;
     top: 70px;
@@ -6639,7 +6647,7 @@ fieldset legend {
       text-indent: 0;
       content: "\f057"; }
   .yui-calcontainer .yui-calendar {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
     table-layout: fixed;
     border-collapse: collapse; }
     .yui-calcontainer .yui-calendar .calnavleft, .yui-calcontainer .yui-calendar .calnavright, .yui-calcontainer .yui-calendar .calclose {
