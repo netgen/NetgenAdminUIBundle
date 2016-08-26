@@ -1888,3 +1888,69 @@ $yuiInputHeight: 26px;
 @media (min-width: 480px) {
     .dropdown-backdrop {display:none !important;}
 }
+
+#size-warning {
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba($asideBg, 0.98);
+    color:#fff;
+    z-index:100000;
+    display:none;
+    .size-warning-text {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        text-align:center;
+        width:94%;
+        max-width:320px;
+        .icon {
+            position:relative;
+            display:inline-block;
+            font-size:42px;
+            &::before,
+            &::after {
+                @extend .fontawesome;
+            }
+            &::before {
+                content:"\f108";
+                font-size:1em;
+                color:hsla(0, 0, 100, 0.5);
+            }
+            &::after {
+                content:"\f07e";
+                position:absolute;
+                left:50%;
+                transform:translateX(-50%);
+                top:0.5em;
+                color:hsla(0, 0, 100, 0.2);
+                font-size:0.5em;
+            }
+        }
+        h2 {
+            margin:0 0 0.25em;
+            font-size:1.5em;
+            font-weight:700;
+        }
+        p {
+            margin:0 0 1em;
+            font-size:1em;
+            color:hsla(0, 0, 100, 0.6);
+        }
+    }
+    @media screen and (max-width: 799px) {
+        display:block;
+        animation:warningFadeIn 0.2s;
+    }
+    @keyframes warningFadeIn {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+}
