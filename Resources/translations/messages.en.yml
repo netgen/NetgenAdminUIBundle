@@ -4,6 +4,9 @@ netgen_admin_ui.layout.loading: 'Loading...'
 netgen_admin_ui.layout.logout: 'Logout'
 netgen_admin_ui.layout.path.you_are_here: 'You are here:'
 
+netgen_admin_ui.layout.size_warning.title: 'The current window is too small'
+netgen_admin_ui.layout.size_warning.text: 'Consider resizing your browser window or switching to another device to properly display the Admin UI interface.'
+
 netgen_admin_ui.login.message.username_password: 'Make sure that the username and password is correct.'
 netgen_admin_ui.login.message.letter_case: 'All letters must be entered in the correct case.'
 netgen_admin_ui.login.message.contact_admin: 'Please try again or contact the site administrator.'
