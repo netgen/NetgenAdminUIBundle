@@ -5128,7 +5128,8 @@ label {
   position: absolute;
   top: 70px;
   bottom: 0;
-  width: auto !important;
+  left: 100px;
+  right: 0;
   height: auto;
   padding: 0 !important;
   overflow-y: auto;
