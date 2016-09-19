@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    var $loginform = $('form[name="loginform"]');
+    $loginform.attr('action', $loginform.attr('action') + window.location.hash);
+
     /* left column resize */
     (function(){
         var colw = sessionStorage.getItem('lcw'),
