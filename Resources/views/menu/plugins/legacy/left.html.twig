@@ -1,4 +1,10 @@
-{% include 'design:parts/' ~ navigation_part[2:-14] ~ '/menu.tpl' ignore missing
+{% if module_result is defined and module_result.left_menu is defined %}
+    {% set left_menu_template = module_result.left_menu %}
+{% else %}
+    {% set left_menu_template = 'design:parts/' ~ navigation_part[2:-14] ~ '/menu.tpl' %}
+{% endif %}
+
+{% include left_menu_template ignore missing
     with {
         uri_string: app.request.attributes.get( 'semanticPathinfo' )|trim( '/' )
     }
