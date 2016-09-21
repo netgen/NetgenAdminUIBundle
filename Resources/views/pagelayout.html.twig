@@ -15,9 +15,11 @@
 
     {% include 'NetgenAdminUIBundle::page_head.html.twig' %}
 
-    {% block title %}
-        <title>{{ 'netgen_admin_ui.title'|trans }}</title>
-    {% endblock %}
+    <title>
+        {% block title %}
+            {{ 'netgen_admin_ui.title'|trans }}
+        {% endblock %}
+    </title>
 
     {% block stylesheets %}
         {% include 'design:page_head_style.tpl' %}
