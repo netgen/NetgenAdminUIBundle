@@ -5173,6 +5173,25 @@ label {
     .layout-column.left-column {
       width: 160px; } }
 
+.left-column .box-header {
+  background: transparent;
+  padding: 0;
+  margin: 0 0 1em; }
+
+.left-column .box-content {
+  padding: 0; }
+  .left-column .box-content form > label {
+    display: block;
+    font-weight: normal;
+    margin: 0 0 2px;
+    font-size: 12px; }
+  .left-column .box-content form > select {
+    margin: 0 0 1em; }
+  .left-column .box-content > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1em; }
+
 .layout-column-inner {
   position: relative;
   width: 100%;
