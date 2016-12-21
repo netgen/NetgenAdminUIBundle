@@ -33,6 +33,16 @@ class LegacyMenuPlugin implements MenuPluginInterface
     }
 
     /**
+     * Returns if the menu is active.
+     *
+     * @return bool
+     */
+    public function isActive()
+    {
+        return true;
+    }
+
+    /**
      * Returns if this plugin matches the current request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
