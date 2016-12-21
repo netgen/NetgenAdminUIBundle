@@ -1,6 +1,7 @@
 parameters:
     netgen_admin_ui.menu_plugin.registry.class: Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry
     netgen_admin_ui.menu_plugin.legacy.class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyMenuPlugin
+    netgen_admin_ui.menu_plugin.tags.class: Netgen\Bundle\AdminUIBundle\MenuPlugin\TagsMenuPlugin
     netgen_admin_ui.menu_plugin.legacy_cache.class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyCachePlugin
     netgen_admin_ui.menu_plugin.legacy_bookmarks.class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyBookmarksPlugin
 
@@ -12,6 +13,13 @@ services:
         class: "%netgen_admin_ui.menu_plugin.legacy.class%"
         tags:
             - { name: "netgen_admin_ui.menu_plugin", priority: 0 }
+
+    netgen_admin_ui.menu_plugin.tags:
+        class: "%netgen_admin_ui.menu_plugin.tags.class%"
+        arguments:
+            - "%kernel.bundles%"
+        tags:
+            - { name: "netgen_admin_ui.menu_plugin", priority: -1 }
 
     netgen_admin_ui.menu_plugin.legacy_cache:
         class: "%netgen_admin_ui.menu_plugin.legacy_cache.class%"
