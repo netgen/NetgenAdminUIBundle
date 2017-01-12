@@ -12,5 +12,10 @@
     },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
