@@ -1,6 +1,3 @@
-ngadminui_homepage:
-    path: /
-
 _ezpublishPreviewContentDefaultSa:
     path: /content/versionview/{contentId}/{versionNo}/{language}
     defaults:

@@ -45,10 +45,10 @@
     {% for legacy_path_item in legacy_path_array %}
         {% set path_array = path_array|merge( [ {
             url_alias: legacy_path_item.url_alias is defined and legacy_path_item.url_alias is not same as( false ) ?
-                root_location_path ~ legacy_path_item.url_alias :
+                root_location_path ~ legacy_path_item.url_alias|trim( '/' ) :
                 false,
             url: legacy_path_item.url is defined and legacy_path_item.url is not same as(false) ?
-                path( 'ngadminui_homepage' ) ~ '/' ~ legacy_path_item.url|trim( '/' ) :
+                root_location_path ~ legacy_path_item.url|trim( '/' ) :
                 false,
             text: legacy_path_item.text
         } ] ) %}
