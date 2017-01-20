@@ -2,6 +2,12 @@
 {def $icon='unselected '}
 {foreach topmenu($ui_context, true() ) as $index => $menu_item}
 
+    {if $menu_item.navigationpart_identifier|eq('eztagsnavigationpart')}
+        {if $hide_navigation_parts|contains($menu_item.navigationpart_identifier)}
+            {continue}
+        {/if}
+    {/if}
+
     {switch match=$menu_item.url}
 
         {case match='content/dashboard'}

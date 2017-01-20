@@ -1,1 +1,10 @@
-{% include 'design:menu/plugins/legacy/aside.tpl' %}
+{% set menu_plugins = netgen_admin_ui.menuPlugins %}
+{% set hide_navigation_parts = [] %}
+
+{% if menu_plugins.tags is defined and menu_plugins.tags.active %}
+    {% set hide_navigation_parts = hide_navigation_parts|merge(['eztagsnavigationpart']) %}
+{% endif %}
+
+{% include 'design:menu/plugins/legacy/aside.tpl' with {
+    hide_navigation_parts: hide_navigation_parts
+} %}
