@@ -59,7 +59,7 @@ label {
     .login-header {
         text-align:center; margin:0 0 30px;
         .logo {
-            background:transparent url('../images/ngadmin-logo-w.svg') 0 0 no-repeat; width:30px; height:28px; display:block; margin:0 auto 30px; background-size:100% auto;
+            background:transparent url('../images/ngadmin-logo-full.svg') 0 0 no-repeat; width:190px; height:64px; display:block; margin:0 auto 50px; background-size:100% auto;
         }
         h3 {
             font-size:23px; font-weight:700; margin:0;
@@ -80,23 +80,23 @@ label {
             }
         }
         .form-control {
-            border:none; box-shadow:none; font-family:$baseFont; margin:0 0 10px; background:#1E364E; border-radius:0; transition:none; font-size:16px; height:44px; padding:11px 12px 11px 56px; color:#fff;
+            border:none; box-shadow:none; font-family:$baseFont; margin:0 0 10px; background:#444444; border-radius:0; transition:none; font-size:16px; height:44px; padding:11px 12px 11px 56px; color:#fff;
             &:-webkit-autofill {
-                -webkit-box-shadow:0 0 0 50px #1E364E inset;
+                -webkit-box-shadow:0 0 0 50px #444444 inset;
                 -webkit-text-fill-color:#fff;
             }
         }
         ::-webkit-input-placeholder {
-           color:#617283;
+           color:#7B7B7B;
         }
         :-moz-placeholder {
-           color:#617283;
+           color:#7B7B7B;
         }
         ::-moz-placeholder {
-           color:#617283;
+           color:#7B7B7B;
         }
         :-ms-input-placeholder {
-           color:#617283;
+           color:#7B7B7B;
         }
         .btn.btn-primary {
             margin:30px 0 0; display:block; width:100%; background:$activeColor; font-size:16px; font-weight:500; text-transform:uppercase; border:none; padding:11px;
@@ -125,7 +125,7 @@ label {
     }
 }
 #header-logo {
-    background:$activeColor url('../images/ngadmin-logo-w.svg') 50% no-repeat; width:$asideWidth; background-size:34% auto; height:$headerHeight; display:block; margin:0;
+    background:#161616 url('../images/ngadmin-logo.svg') 50% no-repeat; width:$asideWidth; background-size:26px auto; height:$headerHeight; display:block; margin:0;
 }
 .header-nav {
     width:$asideWidth; float:left;
@@ -238,7 +238,7 @@ label {
     .nav {
         list-style-type:none; margin:0; padding:0; color:$asideColor;
         .caret {
-            display:inline-block; width:0; height:0; margin-left:0; vertical-align:middle; border-top:4px solid; border-right:4px solid transparent; border-left:4px solid transparent; border-top-color:#869fb1; border-bottom-color:#869fb1;
+            display:inline-block; width:0; height:0; margin-left:0; vertical-align:middle; border-top:4px solid; border-right:4px solid transparent; border-left:4px solid transparent; border-top-color:$asideColor; border-bottom-color:$asideColor;
         }
         li {
             line-height:1.42857143; margin:0;
@@ -266,11 +266,11 @@ label {
             }
         }
         .active a {
-            background:$btnPrimary; color:#fff;
+            background:#606060; color:#fff;
         }
     }
 }
-.nav .open > a {background:#16232d;}
+.nav .open > a {background:$asideHover;}
 
 #content {
     margin-left:$asideWidth; height:100%;
@@ -421,6 +421,9 @@ label {
     .currentnode {
         > a {
             color:$activeColor;
+            span {
+                color:inherit;
+            }
         }
     }
 }
@@ -994,7 +997,7 @@ table {
         display:none;
     }
     .loginpage & {
-        position:relative; background:transparent; border:none; box-shadow:none; height:auto; color:#617283; padding:10px 0;
+        position:relative; background:transparent; border:none; box-shadow:none; height:auto; color:#7B7B7B; padding:10px 0;
         p {
             font-size:13px;
         }
@@ -1277,7 +1280,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
     }
 }
 .user-dropdown {
-    position:fixed; top:0; bottom:0; left:$asideWidth; right:auto; min-width:0; width:280px; @include rounded(0); border:none; background:#04182C; padding:20px; text-align:center; color:#fff; font-size:14px; font-weight:300;
+    position:fixed; top:0; bottom:0; left:$asideWidth; right:auto; min-width:0; width:280px; @include rounded(0); border:none; background:$asideDarkBg; padding:20px; text-align:center; color:#fff; font-size:14px; font-weight:300;
     &.open {
         display:block;
     }
@@ -1286,11 +1289,11 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         > a {
             display:block; font:inherit; color:inherit; white-space:nowrap; padding:4px 0;
             &:hover {
-                color:#536D88;
+                color:#888;
             }
         }
         > span {
-            display:block; cursor:default; color:#536D88; padding:4px 0;
+            display:block; cursor:default; color:#888; padding:4px 0;
             &.tt {
                 display:inline-block; padding:0;
             }
@@ -1305,15 +1308,15 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
                 display:inline-block; width:auto; color:#fff; padding:4px 6px; margin:0 2px;
             }
             > strong {
-                color:#fff; display:inline-block; padding:2px 6px; margin:0 2px; border:1px solid #536D88; font-weight:400;
+                color:#fff; display:inline-block; padding:2px 6px; margin:0 2px; border:1px solid #888; font-weight:400;
             }
         }
     }
     .divider {
-        height:1px; margin:16px 0; overflow:hidden; background-color:#2C4056;
+        height:1px; margin:16px 0; overflow:hidden; background-color:#666;
     }
     &::after {
-        display:block; content:""; position:absolute; bottom:28px; left:-10px; border:8px solid transparent; border-right:10px solid #04182C; border-left-width:0;
+        display:block; content:""; position:absolute; bottom:28px; left:-10px; border:8px solid transparent; border-right:10px solid $asideDarkBg; border-left-width:0;
     }
     .user-avatar {
         width:70%; height:0; padding-bottom:70%; @include rounded(50%); overflow:hidden; margin:24px auto; background-size:cover;
@@ -1322,7 +1325,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         font-size:20px; font-weight:700; margin:0 0 16px;
     }
     p.user-role {
-        color:#536D88; font-size:14px;
+        color:#888; font-size:14px;
     }
 }
 

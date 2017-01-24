@@ -1,19 +1,20 @@
 $asideWidth: 100px;
-$asideBg: #06203B;
-$asideHover: #153556;
-$asideColor: #C4D9EF;
+$asideBg: #383838;
+$asideHover: lighten($asideBg, 4%);
+$asideDarkBg: darken($asideBg, 8%);
+$asideColor: #fff;
 $lightBg: #f5f5f5;
 $thBg: #a7a7a7;
 $baseFont: 'Roboto',Helvetica,Arial,sans-serif;
 $fontSize: 14px;
-$activeColor: #F3590A;
+$activeColor: #7AC143;
 $leftColumnWidth: 240px;
 $leftColumnWidthSm: 160px;
 $headerHeight: 70px;
 $gutter: 15px;
 $darkBg: #272A2F;
 
-$btnPrimary: #4A90E2;
+$btnPrimary: #009AC7;
 $btnBorder: #e4e4e4;
 
 @mixin rounded($x:50%) {
