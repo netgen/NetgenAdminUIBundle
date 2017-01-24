@@ -16,6 +16,12 @@
 
 <meta name="generator" content="{{ 'netgen_admin_ui.title'|trans }}" />
 
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('bundles/netgenadminui/images/favicon/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('bundles/netgenadminui/images/favicon/favicon-32x32.png') }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ asset('bundles/netgenadminui/images/favicon/favicon-16x16.png') }}" sizes="16x16">
+<link rel="mask-icon" href="{{ asset('bundles/netgenadminui/images/favicon/safari-pinned-tab.svg') }}" color="#7ac143">
+<meta name="theme-color" content="#ffffff">
+
 {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.head is defined %}
     {% include menu_plugins[current_menu_plugin].templates.head ignore missing %}
 {% endif %}
