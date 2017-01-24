@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Netgen\TagsBundle\Version as TagsBundleVersion;
 
 class NetgenAdminUIExtension extends Extension
 {
@@ -22,5 +23,9 @@ class NetgenAdminUIExtension extends Extension
         $loader->load('menu_plugins.yml');
         $loader->load('templating.yml');
         $loader->load('services.yml');
+
+        if (class_exists(TagsBundleVersion::class) && TagsBundleVersion::MAJOR_VERSION >= 3) {
+            $loader->load('tags/services.yml');
+        }
     }
 }

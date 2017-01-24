@@ -3,7 +3,6 @@ parameters:
     netgen_admin_ui.event_listener.legacy_response.class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyResponseListener
     netgen_admin_ui.event_listener.legacy_exception.class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyExceptionListener
     netgen_admin_ui.event_listener.controller.class: Netgen\Bundle\AdminUIBundle\EventListener\ControllerListener
-    netgen_admin_ui.event_listener.set_tags_admin_pagelayout.class: Netgen\Bundle\AdminUIBundle\EventListener\SetTagsAdminPageLayoutListener
     netgen_admin_ui.helper.path_helper.class: Netgen\Bundle\AdminUIBundle\Helper\PathHelper
 
 services:
@@ -39,17 +38,6 @@ services:
             - "$legacy_routes;netgen_admin_ui$"
         tags:
             - {name: kernel.event_subscriber}
-
-    netgen_admin_ui.event_listener.set_tags_admin_pagelayout:
-        class: "%netgen_admin_ui.event_listener.set_tags_admin_pagelayout.class%"
-        arguments:
-            - "@eztags.templating.admin_global_variable"
-            - "%netgen_admin_ui.tags.pagelayout%"
-            - "$is_admin_ui_siteaccess;netgen_admin_ui$"
-        # Using siteaccess aware config, so we need the lazy flag
-        lazy: true
-        tags:
-            - { name: kernel.event_subscriber }
 
     netgen_admin_ui.helper.path_helper:
         class: "%netgen_admin_ui.helper.path_helper.class%"

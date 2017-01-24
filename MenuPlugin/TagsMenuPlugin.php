@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
-use Netgen\TagsBundle\Templating\Twig\Extension\AdminExtension;
+use Netgen\TagsBundle\Version as TagsBundleVersion;
 use Symfony\Component\HttpFoundation\Request;
 
 class TagsMenuPlugin implements MenuPluginInterface
@@ -52,7 +52,11 @@ class TagsMenuPlugin implements MenuPluginInterface
      */
     public function isActive()
     {
-        return isset($this->enabledBundles['NetgenTagsBundle']) && class_exists(AdminExtension::class);
+        if (!isset($this->enabledBundles['NetgenTagsBundle'])) {
+            return false;
+        }
+
+        return class_exists(TagsBundleVersion::class) && TagsBundleVersion::MAJOR_VERSION >= 3;
     }
 
     /**
