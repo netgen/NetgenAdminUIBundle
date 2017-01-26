@@ -5763,6 +5763,14 @@ select.input-sm, .input-group-sm > select.form-control,
       z-index: 2;
       background: #e6e6e6;
       border-color: #adadad; }
+    #action-controls-container .yui-button.yui-button-disabled {
+      cursor: not-allowed;
+      opacity: 0.65; }
+      #action-controls-container .yui-button.yui-button-disabled button {
+        cursor: not-allowed; }
+      #action-controls-container .yui-button.yui-button-disabled:hover {
+        background: #fff;
+        border-color: #e4e4e4; }
     #action-controls-container .yui-button button {
       padding: 0;
       background: transparent;
@@ -5786,6 +5794,9 @@ select.input-sm, .input-group-sm > select.form-control,
     #action-controls-container #action-controls-new .yui-button:hover {
       background: #0484a9;
       border-color: #0484a9; }
+    #action-controls-container #action-controls-new .yui-button.yui-button-disabled:hover {
+      background: #009AC7;
+      border-color: #009AC7; }
   #action-controls-container .yui-pg-previous {
     border-radius: 4px 0 0 4px; }
   #action-controls-container .yui-pg-next {

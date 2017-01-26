@@ -768,6 +768,15 @@ select.input-sm {line-height:1.5;}
         &:hover {
             z-index:2; background:#e6e6e6; border-color:#adadad;
         }
+        &.yui-button-disabled {
+            cursor:not-allowed; opacity:0.65;
+            button {
+                cursor:not-allowed;
+            }
+            &:hover {
+                background:#fff; border-color:$btnBorder;
+            }
+        }
         button {
             padding:0; background:transparent; color:inherit;
             &::before {
@@ -795,6 +804,11 @@ select.input-sm {line-height:1.5;}
             background:$btnPrimary; color:#fff; border-color:$btnPrimary;
             &:hover {
                 background:desaturate(darken($btnPrimary, 5%), 5%); border-color:desaturate(darken($btnPrimary, 5%), 5%);
+            }
+            &.yui-button-disabled {
+                &:hover {
+                    background:$btnPrimary; border-color:$btnPrimary;
+                }
             }
         }
     }
