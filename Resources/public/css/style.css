@@ -5102,6 +5102,9 @@ label {
       margin: 0 auto;
       overflow: hidden;
       text-align: center; }
+    .aside-nav .nav a .icon {
+      width: 22px;
+      margin: 0 auto 4px; }
     .aside-nav .nav a .badge {
       font-size: 10px;
       padding: 2px 5px;
