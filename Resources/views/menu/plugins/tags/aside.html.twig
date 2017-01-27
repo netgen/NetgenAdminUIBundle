@@ -1,7 +1,7 @@
 {% if ngadmin_is_granted('tags', 'read') %}
     <li{% if active %} class="active"{% endif %}>
         <a href="{{ path( 'netgen_tags_admin_root' ) }}">
-            <img src="{{ asset('bundles/netgentags/admin/images/tags-logo.svg') }}" class="icon" />
+            <img src="{{ asset('bundles/netgentags/admin/images/tags-logo-silhouette.svg') }}" class="icon" />
             <span class="tt">{{ 'netgen_admin_ui.menu.tags'|trans }}</span>
         </a>
     </li>
