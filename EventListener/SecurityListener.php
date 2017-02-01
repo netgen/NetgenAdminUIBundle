@@ -3,7 +3,8 @@
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use eZ\Publish\API\Repository\Repository;
@@ -30,9 +31,14 @@ class SecurityListener implements EventSubscriberInterface
     protected $configResolver;
 
     /**
-     * @var \Symfony\Component\Security\Core\SecurityContextInterface
+     * @var \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface
      */
-    protected $securityContext;
+    protected $tokenStorage;
+
+    /**
+     * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
+     */
+    protected $authorizationChecker;
 
     /**
      * Constructor.
@@ -40,18 +46,21 @@ class SecurityListener implements EventSubscriberInterface
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param \eZ\Publish\API\Repository\Repository $repository
      * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
-     * @param \Symfony\Component\Security\Core\SecurityContextInterface $securityContext
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authorizationChecker
      */
     public function __construct(
         RequestStack $requestStack,
         Repository $repository,
         ConfigResolverInterface $configResolver,
-        SecurityContextInterface $securityContext
+        TokenStorageInterface $tokenStorage,
+        AuthorizationCheckerInterface $authorizationChecker
     ) {
         $this->requestStack = $requestStack;
         $this->repository = $repository;
         $this->configResolver = $configResolver;
-        $this->securityContext = $securityContext;
+        $this->tokenStorage = $tokenStorage;
+        $this->authorizationChecker = $authorizationChecker;
     }
 
     /**
@@ -110,7 +119,7 @@ class SecurityListener implements EventSubscriberInterface
         // User can be either authenticated by providing credentials during current session
         // or by "remember me" if available.
         return
-            $this->securityContext->getToken() instanceof TokenInterface
-            && $this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED');
+            $this->tokenStorage->getToken() instanceof TokenInterface
+            && $this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED');
     }
 }
