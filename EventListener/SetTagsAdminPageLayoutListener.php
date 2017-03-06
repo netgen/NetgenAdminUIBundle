@@ -32,8 +32,8 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
      * @param bool $isAdminSiteAccess
      */
     public function __construct(
-        AdminGlobalVariable $globalVariable,
-        $pageLayoutTemplate,
+        AdminGlobalVariable $globalVariable = null,
+        $pageLayoutTemplate = null,
         $isAdminSiteAccess = false
     ) {
         $this->globalVariable = $globalVariable;
@@ -58,6 +58,10 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+        if ($this->globalVariable === null || $this->pageLayoutTemplate === null) {
+            return;
+        }
+
         if (!$event->isMasterRequest()) {
             return;
         }

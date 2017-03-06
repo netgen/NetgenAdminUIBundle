@@ -5,7 +5,7 @@ services:
     netgen_admin_ui.event_listener.set_tags_admin_pagelayout:
         class: "%netgen_admin_ui.event_listener.set_tags_admin_pagelayout.class%"
         arguments:
-            - "@eztags.templating.admin_global_variable"
+            - "@?eztags.templating.admin_global_variable"
             - "%netgen_admin_ui.tags.pagelayout%"
             - "$is_admin_ui_siteaccess;netgen_admin_ui$"
         # Using siteaccess aware config, so we need the lazy flag
