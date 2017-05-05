@@ -59,7 +59,7 @@
 {literal}
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.inner-cell').addClass('contentPreview');
+        $('.content-body').addClass('contentPreview');
 
         /* preview iframe resizing */
         (function(){

@@ -2,11 +2,11 @@
 
 <form action="{{ path( 'ez_legacy', { module_uri: '/content/search' } ) }}" method="get" class="navbar-form" role="search">
     {% if ui_context_edit %}
-        <input id="searchText" name="SearchText" class="search-input disabled" type="text" size="20" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_content'|trans }}" disabled="disabled" />
         <button id="searchButton" name="SearchButton" type="submit" class="search-btn disabled" disabled="disabled"><i class="fa fa-search"></i></button>
+        <input id="searchText" name="SearchText" class="search-input disabled" type="text" size="20" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_content'|trans }}" disabled="disabled" />
     {% else %}
-        <input id="searchText" name="SearchText" class="search-input" type="text" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_content'|trans }}" />
         <button id="searchButton" name="SearchButton" type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+        <input id="searchText" name="SearchText" class="search-input" type="text" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_content'|trans }}" />
 
         {% if ui_context == 'browse' %}
             <input name="Mode" type="hidden" value="browse" />

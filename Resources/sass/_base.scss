@@ -138,15 +138,15 @@ label {
 }
 
 .search-form {
-    padding:0; background:#fff; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; position:relative; float:left;
+    padding:20px 0 0 0; background:#fff; height:$headerHeight; width:$leftColumnWidth; overflow:hidden; position:relative; float:left;
     .search-input {
-        width:100%; border:none; background:transparent; height:30px; line-height:30px; padding:0 $gutter 0 45px; margin:20px 0 0; font:inherit;
+        width:100%; border:none; background:transparent; height:30px; line-height:30px; padding:0 $gutter 0 45px; font:inherit;
         &:focus {
             outline:none;
         }
     }
     .search-btn {
-        position:absolute; left:$gutter; top:20px; height:30px; width:30px; display:table-cell; vertical-align:middle; text-align:center; border:none; background:transparent; padding:0; color:#58666e;
+        position:absolute; left:$gutter; top:50%; margin-top:-15px; height:30px; width:30px; vertical-align:middle; text-align:center; border:none; background:transparent; padding:0; color:#58666e;
         &:focus {
             outline:none;
         }
@@ -200,7 +200,7 @@ label {
 
 .aside-fold-trigger {width:50px; height:50px; padding:17px 0; text-align:center;}
 .user-dropdown-toggle {
-    padding:10px 15px; overflow:hidden;
+    padding:10px 0; overflow:hidden; text-align:center;
     .user-avatar {
         width:52px; height:52px; margin:0 auto; overflow:hidden; display:block;    @include rounded(); background-size:cover;
     }
@@ -252,7 +252,7 @@ label {
         a {
             display:block; padding:12px 5px;
             i {
-                font-size:20px; margin:0 auto; overflow:hidden; text-align:center;
+                font-size:20px; margin:0 auto; overflow:hidden; text-align:center; display:block;
             }
             .icon {
                 width:22px; margin:0 auto 4px;
@@ -261,7 +261,7 @@ label {
                 font-size:10px; padding:2px 5px; margin-top:2px;
             }
             .tt {
-                font-size:10px; display:block; line-height:1.1;
+                font-size:10px; display:block; line-height:1.2; margin-top:0.4em;
             }
             &:hover,
             &:focus {
@@ -280,6 +280,9 @@ label {
 }
 .content-body {
     position:absolute; top:$headerHeight; bottom:0; left:$asideWidth; right:0; height:auto; padding:0!important; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    &.contentPreview {
+        left:0;
+    }
 }
 #columns {
     display:table; width:100%; height:100%; table-layout:fixed; border-spacing:0;
@@ -297,7 +300,7 @@ label {
     }
     .inner-cell {
         position:absolute; top:0; right:0; left:0; bottom:0;
-        &.contentPreview {
+        .contentPreview & {
             background:$darkBg; bottom:auto; min-height:100%; padding-top:54px;
             .alert {
                 margin:-28px 0 28px;
@@ -979,6 +982,16 @@ table {
             }
         }
     }
+    @media screen and (max-width: 800px) {
+        .node-view-switch {
+            > li {
+                .form-control {
+                    float:left;
+                    margin-left:4px;
+                }
+            }
+        }
+    }
 }
 
 .tight.listbutton .form-control {display:inline-block; width:auto; height:20px; font-size:13px; padding:2px 4px; text-align:center; margin:0 0 0 2px;}
@@ -1150,9 +1163,8 @@ table {
         }
     }
     @media screen and (max-width: 981px) {
-        & {
-            padding:15px;
-        }
+        display:block;
+        padding:15px;
     }
 }
 .node-info-list {
@@ -1991,7 +2003,7 @@ $yuiInputHeight: 26px;
             color:hsla(0, 0, 100, 0.6);
         }
     }
-    @media screen and (max-width: 799px) {
+    @media screen and (max-width: 639px) {
         display:block;
         animation:warningFadeIn 0.2s;
     }
@@ -2001,6 +2013,209 @@ $yuiInputHeight: 26px;
         }
         100% {
             opacity:1;
+        }
+    }
+}
+
+#menu-toggle {
+    display:none;
+    i {
+        @extend .fontawesome;
+        &::before {
+            content:"\f101";
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    $headerHeightSm: 50px;
+    $toggleHeight: 30px;
+    $asideWidthSm: 50px;
+    #page {
+        padding-top:$headerHeightSm;
+    }
+    #header,
+    #header-logo,
+    .node-top-switch {
+        height:$headerHeightSm;
+    }
+    #header {
+
+    }
+    #header-logo {
+        width:$asideWidthSm;
+    }
+    .header-nav {
+        width:auto;
+    }
+    .node-top-switch {
+        .node-view-switch {
+            background:#fff;
+            > li > a {
+                height:$headerHeightSm;
+                padding:15px;
+            }
+        }
+        .language-switch {
+            margin:8px 15px 0 0;
+        }
+    }
+    .content-body {
+        top:$headerHeightSm;
+        left:$asideWidthSm;
+        overflow-x:hidden;
+    }
+    .content-edit {
+        .content-body {
+            top:$headerHeightSm;
+        }
+        .rightmenu {
+            top:45px + $headerHeightSm;
+        }
+    }
+    .search-form {
+        height:$headerHeightSm;
+        padding:10px 0 0;
+        .search-input {
+        }
+        .search-btn {
+        }
+    }
+
+    #controlbar-top {
+        padding:8px;
+        height:$headerHeightSm;
+    }
+    #maincontent.node-edit-container {
+        padding-left:140px;
+        .path-edit-container {
+            top:$headerHeightSm;
+            left:140px + $asideWidthSm;
+        }
+        .edit-tab-control {
+            top:$headerHeightSm;
+            left:$asideWidthSm;
+            width:140px;
+        }
+    }
+
+    #menu-toggle {
+        display:block;
+        position:absolute;
+        bottom:0;
+        color:#fff;
+        height:$toggleHeight;
+        width:100%;
+        line-height:$toggleHeight;
+        text-align:center;
+        border-top:1px solid hsl(0, 0, 35);
+        font-size:16px;
+        &:hover {
+            background:hsl(0, 0, 25);
+        }
+        .menu-visible & {
+            i {
+                &::before {
+                    content:"\f100";
+                }
+            }
+        }
+    }
+
+    #aside {
+        position:absolute;
+        left:0;
+        top:$headerHeightSm;
+        bottom:0;
+        z-index:10;
+        width:$asideWidthSm;
+    }
+    .aside-wrap {
+        top:0;
+        width:100%;
+        position:absolute;
+    }
+    .aside-footer {
+        bottom:$toggleHeight;
+    }
+
+    #content {
+        margin-left:0;
+    }
+    #columns {
+        display:block;
+        position:relative;
+        transition:all .3s;
+        .layout-column {
+            display:block;
+            &.left-column {
+                width:200px;
+                position:absolute;
+                right:100%;
+                top:0;
+                bottom:0;
+            }
+        }
+    }
+    .navi-wrap {
+        padding-bottom:70px + $toggleHeight;
+        width:100%;
+        .aside-nav {
+            width:$asideWidthSm + 15px;
+            .menu-visible & {
+                width:$asideWidth + 15px;
+            }
+        }
+        .dropdown-menu {
+            left:1px;
+        }
+    }
+    .aside-nav {
+        .nav {
+            a {
+                i {
+                    display:block;
+                }
+                .tt {
+                    display:none;
+                    .menu-visible & {
+                        display:block;
+                    }
+                }
+            }
+        }
+    }
+
+    .user-dropdown {
+        left:$asideWidthSm;
+        &::after {
+            bottom:50px;
+        }
+    }
+    .user-dropdown-toggle .user-avatar {
+        width:40px;
+        height:40px;
+    }
+    .preview-box-header {
+        top:$headerHeightSm;
+    }
+
+    .menu-visible {
+        #header-logo,
+        #aside {
+            width:$asideWidth;
+        }
+        .content-body,
+        .user-dropdown {
+            left:$asideWidth;
+        }
+        #columns {
+            transform:translate3D(200px, 0, 0);
+        }
+        .navi-wrap {
+            .dropdown-menu {
+                left:51px;
+            }
         }
     }
 }
