@@ -160,9 +160,13 @@ $(document).ready(function(){
     });
 
     /* toggle menu on small screens */
-    $('#menu-toggle').on('click', function(){
-        $('body').toggleClass('menu-visible');
-    });
+    (function(){
+        var toggleClassName = 'menu-visible';
+        if($('#left-column').length === 0) toggleClassName += ' without-left-menu';
+        $('#menu-toggle').on('click', function(){
+            $('body').toggleClass(toggleClassName);
+        });
+    })();
 });
 
 var initBlockAttributesState = function(){

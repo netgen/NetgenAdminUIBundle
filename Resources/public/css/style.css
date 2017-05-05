@@ -7551,6 +7551,8 @@ input.tagssuggestfield {
   .menu-visible #columns {
     transform: translate3D(200px, 0, 0); }
   .menu-visible .navi-wrap .dropdown-menu {
-    left: 51px; } }
+    left: 51px; }
+  .menu-visible.without-left-menu #columns {
+    transform: none; } }
 
 /*# sourceMappingURL=style.css.map */
