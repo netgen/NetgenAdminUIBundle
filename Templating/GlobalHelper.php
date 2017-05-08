@@ -9,11 +9,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class GlobalHelper
 {
     /**
-     * @var \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface[]
-     */
-    protected $menuPlugins;
-
-    /**
      * @var \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry
      */
     protected $menuPluginRegistry;
@@ -42,32 +37,7 @@ class GlobalHelper
      */
     public function getMenuPlugins()
     {
-        if ($this->menuPlugins !== null) {
-            return $this->menuPlugins;
-        }
-
-        $this->menuPlugins = array();
-
-        foreach ($this->menuPluginRegistry->getMenuPlugins() as $identifier => $menuPlugin) {
-            if (method_exists($menuPlugin, 'isActive') && !$menuPlugin->isActive()) {
-                continue;
-            }
-
-            if (!method_exists($menuPlugin, 'isActive')) {
-                // @todo Add isActive method to MenuPluginInterface
-                @trigger_error(
-                    sprintf(
-                        'Menu plugin %s does not implement "isActive" method. This behaviour is deprecated since version 1.1 of Netgen Admin UI bundle and will stop working in version 2.0. Implement the method to remove this notice.',
-                        get_class($menuPlugin)
-                    ),
-                    E_USER_DEPRECATED
-                );
-            }
-
-            $this->menuPlugins[$identifier] = $menuPlugin;
-        }
-
-        return $this->menuPlugins;
+        return $this->menuPluginRegistry->getMenuPlugins();
     }
 
     /**
