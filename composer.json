@@ -10,6 +10,9 @@
     "require": {
         "ezsystems/ezpublish-kernel": "*"
     },
+    "conflict": {
+        "netgen/block-manager": "<= 0.7"
+    },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
     },
