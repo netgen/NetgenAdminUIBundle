@@ -1,0 +1,16 @@
+view:
+    rule_view:
+        ngadminui:
+            rule:
+                template: "NetgenAdminUIBundle:layouts:rule.html.twig"
+                match: ~
+    rule_target_view:
+        ngadminui:
+            target:
+                template: "NetgenAdminUIBundle:layouts:target.html.twig"
+                match: ~
+    rule_condition_view:
+        ngadminui:
+            condition:
+                template: "NetgenAdminUIBundle:layouts:condition.html.twig"
+                match: ~

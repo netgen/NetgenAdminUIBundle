@@ -1,0 +1,32 @@
+{% import 'NetgenBlockManagerAdminBundle:admin:macros.html.twig' as macros %}
+
+<tr>
+    <td>{{ rule.layout.name }}</td>
+    <td>
+        {% for target in rule.targets %}
+            <p>{{ ('layout_resolver.target.' ~ rule.targets[0].targetType.type)|trans({}, 'ngbm_admin') }}:</p>
+
+            <ul>
+                {% for target in rule.targets %}
+                    <li>{{ ngbm_render_rule_target(target) }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </td>
+    <td>
+        {% for condition in rule.conditions %}
+            <p>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}:</p>
+
+            <ul>
+                {% for condition in rule.conditions %}
+                    <li>{{ ngbm_render_rule_condition(condition) }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </td>
+    <td>
+        {% if is_granted('ROLE_NGBM_EDITOR') %}
+            <a href="{{ macros.layout_path(rule.layout.id) }}" class="js-open-bm">{{ 'netgen_admin_ui.layouts.mappings.edit_layout'|trans }}</a>
+        {% endif %}
+    </td>
+</tr>
