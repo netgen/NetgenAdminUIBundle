@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "ezsystems/ezpublish-kernel": "*"
+        "ezsystems/ezpublish-kernel": "*",
+        "netgen/ngsymfonytools": "^1.1"
     },
     "conflict": {
         "netgen/block-manager": "<= 0.7"
