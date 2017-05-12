@@ -59,12 +59,10 @@ class LayoutsController extends Controller
     {
         $request = Request::create('');
 
-        // Only for eZ 5 support
         $request->attributes->set('contentId', $content->id);
         $request->attributes->set('locationId', $location->id);
 
         if (interface_exists(ContentValueView::class)) {
-            // eZ 6+ support
             $contentView = new ContentView();
             $contentView->setLocation($location);
             $contentView->setContent($content);
