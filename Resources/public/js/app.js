@@ -167,6 +167,24 @@ $(document).ready(function(){
             $('body').toggleClass(toggleClassName);
         });
     })();
+
+    /* edit layout modal */
+    $('#editLayoutModal').on('shown.bs.modal', function(e){
+        var layoutList = document.getElementById('layouts-list-wrapper');
+        if (!layoutList.dataset.fetched){
+            $.ajax({
+                type: 'GET',
+                url: layoutList.dataset.url,
+                beforeSend: function(){
+                    layoutList.innerHTML = '<div class="layout-loading">Loading...</div>';
+                },
+                success: function(data){
+                    layoutList.innerHTML = data;
+                    layoutList.dataset.fetched = true;
+                },
+            });
+        }
+    });
 });
 
 var initBlockAttributesState = function(){

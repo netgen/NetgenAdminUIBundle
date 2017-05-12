@@ -7554,5 +7554,108 @@ input.tagssuggestfield {
     left: 51px; }
   .menu-visible.without-left-menu #columns {
     transform: none; } }
+.ngmodal .modal-dialog {
+  height: 100%;
+  max-width: 96%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center; }
+.ngmodal .modal-lg {
+  width: 960px; }
+.ngmodal .modal-content {
+  border-radius: 0;
+  border: none;
+  flex: 1; }
+.ngmodal .modal-header {
+  background: #404040;
+  color: #fff;
+  padding: 15px 30px; }
+  .ngmodal .modal-header .close {
+    color: inherit;
+    text-shadow: none;
+    font-size: 20px;
+    line-height: 1.4;
+    height: 1.4em;
+    opacity: 1;
+    margin: 0 -10px 0 0; }
+    .ngmodal .modal-header .close i {
+      position: relative;
+      display: block;
+      width: 1em;
+      height: 1em;
+      vertical-align: middle; }
+      .ngmodal .modal-header .close i::before, .ngmodal .modal-header .close i::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.8em;
+        height: 2px;
+        background: currentColor;
+        margin: -1px 0 0 -0.4em;
+        transform: rotate(45deg); }
+      .ngmodal .modal-header .close i::before {
+        transform: rotate(-45deg); }
+.ngmodal .modal-body {
+  padding: 30px;
+  background: whitesmoke; }
+  .ngmodal .modal-body p {
+    font-size: 14px;
+    margin: 0 0 1em; }
+.ngmodal .modal-title {
+  font-weight: 400;
+  font-size: 20px;
+  color: inherit; }
+
+.mapped-layout-list {
+  list-style-type: none;
+  margin: 2em 0 1em;
+  padding: 0;
+  color: #666666; }
+  .mapped-layout-list strong {
+    color: #333333; }
+  .mapped-layout-list > li {
+    display: flex;
+    margin: 0 0 10px;
+    padding: 10px 15px 10px 20px; }
+    .mapped-layout-list > li > div {
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+  .mapped-layout-list .layout-list-item {
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    line-height: 1.5; }
+    .mapped-layout-list .layout-list-item p {
+      font-size: inherit;
+      margin: 2px 0; }
+    .mapped-layout-list .layout-list-item ul {
+      list-style-type: none;
+      margin: 2px 0;
+      padding: 0; }
+      .mapped-layout-list .layout-list-item ul > li {
+        margin: 0; }
+    .mapped-layout-list .layout-list-item .layout-name {
+      color: #333333;
+      font-size: 14px;
+      font-weight: 700; }
+  .mapped-layout-list .layout-list-head {
+    padding-bottom: 0;
+    font-size: 12px;
+    color: #4d4d4d; }
+  .mapped-layout-list .layout-name {
+    flex: 1; }
+  .mapped-layout-list .layout-target {
+    width: 28%; }
+  .mapped-layout-list .layout-conditions {
+    width: 28%; }
+  .mapped-layout-list .layout-actions {
+    width: 100px;
+    align-items: flex-end; }
+    .mapped-layout-list .layout-actions .btn {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 10px; }
 
 /*# sourceMappingURL=style.css.map */

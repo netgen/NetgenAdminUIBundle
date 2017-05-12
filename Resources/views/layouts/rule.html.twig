@@ -1,8 +1,8 @@
 {% import 'NetgenBlockManagerAdminBundle:admin:macros.html.twig' as macros %}
 
-<tr>
-    <td>{{ rule.layout.name }}</td>
-    <td>
+<li class="layout-list-item">
+    <div class="layout-name">{{ rule.layout.name }}</div>
+    <div class="layout-target">
         {% for target in rule.targets %}
             <p>{{ ('layout_resolver.target.' ~ rule.targets[0].targetType.type)|trans({}, 'ngbm_admin') }}:</p>
 
@@ -12,8 +12,8 @@
                 {% endfor %}
             </ul>
         {% endfor %}
-    </td>
-    <td>
+    </div>
+    <div class="layout-conditions">
         {% for condition in rule.conditions %}
             <p>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}:</p>
 
@@ -23,10 +23,10 @@
                 {% endfor %}
             </ul>
         {% endfor %}
-    </td>
-    <td>
+    </div>
+    <div class="layout-actions">
         {% if is_granted('ROLE_NGBM_EDITOR') %}
-            <a href="{{ macros.layout_path(rule.layout.id) }}" class="js-open-bm">{{ 'netgen_admin_ui.layouts.mappings.edit_layout'|trans }}</a>
+            <a href="{{ macros.layout_path(rule.layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.mappings.edit_layout'|trans }}</a>
         {% endif %}
-    </td>
-</tr>
+    </div>
+</li>
