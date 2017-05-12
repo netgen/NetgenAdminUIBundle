@@ -45,6 +45,7 @@ _netgen_admin_ui:
 ```
 [ExtensionSettings]
 ActiveExtensions[]=ngadminui
+ActiveExtensions[]=ngsymfonytools
 ActiveExtensions[]=ezdemo
 ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezoe
