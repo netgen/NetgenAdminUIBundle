@@ -27,6 +27,14 @@ class LayoutsController extends Controller
         $this->layoutResolver = $layoutResolver;
     }
 
+    /**
+     * Renders a template that shows all layouts applied to provided location.
+     *
+     * @param \eZ\Publish\API\Repository\Values\Content\Content $content
+     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function showLocationMappings(Content $content, Location $location)
     {
         if ($content->id !== $location->contentInfo->id) {
