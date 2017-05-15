@@ -35,7 +35,7 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
-        $rules = $this->layoutResolver->resolveRules($request, false);
+        $rules = $this->layoutResolver->resolveRules($request, array('ez_content_type'));
 
         return $this->render(
             'NetgenAdminUIBundle:layouts:location_mappings.html.twig',
