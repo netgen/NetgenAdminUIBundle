@@ -2,10 +2,11 @@
 
 <li class="layout-list-item">
     <div class="layout-name">{{ rule.layout.name }}</div>
-    <div class="layout-target">
-        {% for target in rule.targets %}
-            <p>{{ ('layout_resolver.target.' ~ rule.targets[0].targetType.type)|trans({}, 'ngbm_admin') }}:</p>
 
+    <div class="layout-target">
+        <p>{{ ('layout_resolver.target.' ~ rule.targets[0].targetType.type)|trans({}, 'ngbm_admin') }}:</p>
+
+        {% for target in rule.targets %}
             <ul>
                 {% for target in rule.targets %}
                     <li>{{ ngbm_render_rule_target(target) }}</li>
@@ -13,17 +14,17 @@
             </ul>
         {% endfor %}
     </div>
+
     <div class="layout-conditions">
         {% for condition in rule.conditions %}
             <p>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}:</p>
 
             <ul>
-                {% for condition in rule.conditions %}
-                    <li>{{ ngbm_render_rule_condition(condition) }}</li>
-                {% endfor %}
+                <li>{{ ngbm_render_rule_condition(condition) }}</li>
             </ul>
         {% endfor %}
     </div>
+
     <div class="layout-actions">
         {% if is_granted('ROLE_NGBM_EDITOR') %}
             <a href="{{ macros.layout_path(rule.layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.mappings.edit_layout'|trans }}</a>
