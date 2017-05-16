@@ -2313,6 +2313,9 @@ $yuiInputHeight: 26px;
             flex-direction:column;
         }
     }
+    p {
+        color:inherit;
+    }
     .layout-list-item {
         background:#fff;
         box-shadow:0 1px 2px hsla(0, 0, 0, .3);
@@ -2328,6 +2331,9 @@ $yuiInputHeight: 26px;
             padding:0;
             > li {
                 margin:0;
+            }
+            .unique {
+                font-weight:700;
             }
         }
         .layout-name {
@@ -2346,6 +2352,9 @@ $yuiInputHeight: 26px;
     }
     .layout-target {
         width:28%;
+        ul {
+            color:#333;
+        }
     }
     .layout-conditions {
         width:28%;

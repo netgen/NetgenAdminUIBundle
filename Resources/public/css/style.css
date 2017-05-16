@@ -7710,6 +7710,8 @@ input.tagssuggestfield {
       display: flex;
       justify-content: center;
       flex-direction: column; }
+  .mapped-layout-list p {
+    color: inherit; }
   .mapped-layout-list .layout-list-item {
     background: #fff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -7724,6 +7726,8 @@ input.tagssuggestfield {
       padding: 0; }
       .mapped-layout-list .layout-list-item ul > li {
         margin: 0; }
+      .mapped-layout-list .layout-list-item ul .unique {
+        font-weight: 700; }
     .mapped-layout-list .layout-list-item .layout-name {
       color: #333333;
       font-size: 14px;
@@ -7736,6 +7740,8 @@ input.tagssuggestfield {
     flex: 1; }
   .mapped-layout-list .layout-target {
     width: 28%; }
+    .mapped-layout-list .layout-target ul {
+      color: #333; }
   .mapped-layout-list .layout-conditions {
     width: 28%; }
   .mapped-layout-list .layout-actions {
