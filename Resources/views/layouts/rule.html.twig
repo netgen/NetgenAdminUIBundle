@@ -6,13 +6,11 @@
     <div class="layout-target">
         <p>{{ ('layout_resolver.target.' ~ rule.targets[0].targetType.type)|trans({}, 'ngbm_admin') }}:</p>
 
-        {% for target in rule.targets %}
-            <ul>
-                {% for target in rule.targets %}
-                    <li>{{ ngbm_render_rule_target(target) }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
+        <ul>
+            {% for target in rule.targets %}
+                <li>{{ ngbm_render_rule_target(target) }}</li>
+            {% endfor %}
+        </ul>
     </div>
 
     <div class="layout-conditions">
