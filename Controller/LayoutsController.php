@@ -86,6 +86,6 @@ class LayoutsController extends Controller
      */
     protected function checkPermissions()
     {
-        $this->denyAccessUnlessGranted('ROLE_NGBM_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_NGBM_EDITOR');
     }
 }
