@@ -56,7 +56,7 @@ class TagsMenuPlugin implements MenuPluginInterface
             return false;
         }
 
-        return class_exists(TagsBundleVersion::class) && TagsBundleVersion::MAJOR_VERSION >= 3;
+        return class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::MAJOR_VERSION >= 3;
     }
 
     /**
