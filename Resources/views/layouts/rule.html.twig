@@ -9,7 +9,7 @@
         <ul>
             {% for target in rule.targets %}
                 <li {% if target.targetType.type == 'ezlocation' or target.targetType.type == 'ezcontent' %}class="unique"{% endif %}>
-                    {{ ngbm_render_rule_target(target) }}
+                    {{ ngbm_render_rule_target(target, {}, 'value') }}
                 </li>
             {% endfor %}
         </ul>
@@ -18,7 +18,7 @@
     <div class="layout-conditions">
         <ul>
             {% for condition in rule.conditions %}
-                <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}: {{ ngbm_render_rule_condition(condition) }}</li>
+                <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}: {{ ngbm_render_rule_condition(condition, {}, 'value') }}</li>
             {% endfor %}
         </ul>
     </div>
