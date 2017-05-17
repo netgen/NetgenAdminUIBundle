@@ -70,7 +70,7 @@ class LayoutsController extends Controller
         $request->attributes->set('contentId', $content->id);
         $request->attributes->set('locationId', $location->id);
 
-        if (interface_exists(ContentValueView::class)) {
+        if (interface_exists('eZ\Publish\Core\MVC\Symfony\View\ContentValueView')) {
             $contentView = new ContentView();
             $contentView->setLocation($location);
             $contentView->setContent($content);

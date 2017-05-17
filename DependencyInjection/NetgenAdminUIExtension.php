@@ -28,7 +28,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         $loader->load('controllers.yml');
         $loader->load('services.yml');
 
-        if (class_exists(TagsBundleVersion::class) && TagsBundleVersion::MAJOR_VERSION >= 3) {
+        if (class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::MAJOR_VERSION >= 3) {
             $loader->load('tags/services.yml');
         }
 
