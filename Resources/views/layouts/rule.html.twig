@@ -6,7 +6,7 @@
     <div class="layout-target">
         {% set target_type = rule.targets[0].targetType.type %}
 
-        <p>{{ ('layout_resolver.target.' ~ target_type)|trans({}, 'ngbm_admin') }}:</p>
+        <p>{{ ('layout_resolver.target.' ~ target_type)|trans({}, 'ngbm') }}:</p>
 
         <ul>
             {% for target in rule.targets %}
@@ -20,7 +20,7 @@
     <div class="layout-conditions">
         <ul>
             {% for condition in rule.conditions %}
-                <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm_admin') }}: {{ ngbm_render_rule_condition(condition, {}, 'value') }}</li>
+                <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm') }}: {{ ngbm_render_rule_condition(condition, {}, 'value') }}</li>
             {% endfor %}
         </ul>
     </div>
