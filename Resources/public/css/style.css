@@ -4804,9 +4804,6 @@ button.close {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-::-webkit-scrollbar {
-  display: none; }
-
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -5134,6 +5131,8 @@ label {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; }
+    .navi-wrap .aside-nav::-webkit-scrollbar {
+      display: none; }
 
 .aside-footer {
   position: absolute;
