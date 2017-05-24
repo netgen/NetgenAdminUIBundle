@@ -78,16 +78,21 @@ ez_publish_legacy:
                 module_layout: 'NetgenAdminUIBundle::pagelayout_module.html.twig'
 ```
 
-## Create a new legacy administration siteaccess and make sure you set the main design to `ngadminui`:
+## Create a new legacy administration siteaccess and configure it with `ngadminui` design and other needed settings:
 
 ```
 [DesignSettings]
+# Make sure the list of additional site designs is exactly as below
 SiteDesign=ngadminui
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=admin2
 AdditionalSiteDesignList[]=admin
 AdditionalSiteDesignList[]=standard
 AdditionalSiteDesignList[]=base
+
+# Make sure that template debug is disabled
+[TemplateSettings]
+Debug=disabled
 ```
 
 Also, make sure that **only your editors/administrators** have `user/login` policy to the new administration siteaccess.
