@@ -114,7 +114,7 @@ class InstallCommand extends ContainerAwareCommand
             'Language code',
             'eng-GB',
             function ($languageCode) {
-                $languageService = $this->getContainer()->get('ezpublish.api.service.language');
+                $languageService = $this->getContainer()->get('ezpublish.api.repository')->getContentLanguageService();
 
                 try {
                     $languageService->loadLanguage($languageCode);

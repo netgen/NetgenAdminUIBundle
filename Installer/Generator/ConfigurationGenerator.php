@@ -63,7 +63,7 @@ class ConfigurationGenerator extends Generator
 
         $siteAccessName = $input->getOption('site-access-name');
 
-        $languageService = $this->container->get('ezpublish.api.service.language');
+        $languageService = $this->container->get('ezpublish.api.repository')->getContentLanguageService();
         $languages = $languageService->loadLanguages();
 
         $settings = array(

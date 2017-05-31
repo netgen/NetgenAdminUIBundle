@@ -68,7 +68,7 @@ class LegacySiteAccessGenerator extends Generator
 
         // Template variables
 
-        $languageService = $this->container->get('ezpublish.api.service.language');
+        $languageService = $this->container->get('ezpublish.api.repository')->getContentLanguageService();
 
         $relatedSiteAccessList = $this->container->getParameter('ezpublish.siteaccess.list');
         $relatedSiteAccessList[] = $siteAccessName;
