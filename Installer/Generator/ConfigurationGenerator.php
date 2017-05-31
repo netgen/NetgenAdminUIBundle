@@ -110,7 +110,6 @@ class ConfigurationGenerator extends Generator
                             'view_layout' => 'NetgenAdminUIBundle::pagelayout_legacy.html.twig',
                             'module_layout' => 'NetgenAdminUIBundle::pagelayout_module.html.twig',
                         ),
-                        'legacy_mode' => false,
                     ),
                 ),
             ),
