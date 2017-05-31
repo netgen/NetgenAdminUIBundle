@@ -7,7 +7,9 @@ Netgen Admin UI install instructions
 composer require netgen/admin-ui-bundle:^2.0
 ```
 
-## Activate the bundle in your `app/AppKernel.php` file with other required bundles
+## Activate the Admin UI bundle along with other required bundles
+
+Add the following in your `app/AppKernel.php` file:
 
 ```php
 public function registerBundles()
@@ -31,14 +33,16 @@ php app/console assets:install --symlink --relative
 
 ## Import the `routing.yml` from the bundle into your main `routing.yml` file
 
-Since this file overrides some built in routes, make sure you put it at the end of your `routing.yml`.
+Since this file overrides some built in routes, make sure you put it at the end of your `routing.yml`:
 
 ```
 _netgen_admin_ui:
     resource: "@NetgenAdminUIBundle/Resources/config/routing.yml"
 ```
 
-## Activate the legacy `ngadminui` extension in your central `site.ini.append.php` file along with other required extensions
+## Activate the legacy `ngadminui` extension along with other required extensions
+
+Add the following in your central `site.ini.append.php` file (usually `ezpublish_legacy/settings/override/site.ini.append.php`):
 
 ```
 [ExtensionSettings]
@@ -75,7 +79,7 @@ imports:
     - { resource: ngadminui.yml }
 ```
 
-Activate the generated legacy siteaccess in your central `site.ini.append.php` file:
+Activate the generated legacy siteaccess in your central `site.ini.append.php` file (usually `ezpublish_legacy/settings/override/site.ini.append.php`):
 
 ```
 [SiteAccessSettings]
