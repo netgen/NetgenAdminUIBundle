@@ -10,13 +10,14 @@ so make sure you have it installed and fully configured before installing Netgen
 composer require netgen/admin-ui-bundle:^1.0
 ```
 
-## Activate the bundle in your `app/AppKernel.php` file:
+## Activate the bundle in your `app/AppKernel.php` file with other required bundles:
 
 ```php
 public function registerBundles()
 {
     ...
 
+    $bundles[] = new Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle();
     $bundles[] = new Netgen\Bundle\AdminUIBundle\NetgenAdminUIBundle();
 
     return $bundles;
