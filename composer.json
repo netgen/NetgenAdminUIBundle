@@ -1,5 +1,6 @@
 {
     "name": "netgen/admin-ui-bundle",
+    "license": "GPL-2.0",
     "description": "Netgen Admin UI implements an alternate administration UI for eZ Platform, based on eZ Publish Legacy administration interface",
     "authors": [
         {
