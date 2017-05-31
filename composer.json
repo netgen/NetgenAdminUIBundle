@@ -13,9 +13,6 @@
         "lolautruche/ez-core-extra-bundle": "^1.0",
         "netgen/ngsymfonytools": "^1.1"
     },
-    "conflict": {
-        "netgen/block-manager": "<= 0.7"
-    },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
     },

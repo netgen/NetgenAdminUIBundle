@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Netgen\TagsBundle\Version as TagsBundleVersion;
+use Netgen\BlockManager\Version as BlockManagerVersion;
 use Symfony\Component\Yaml\Yaml;
 use RuntimeException;
 
@@ -74,6 +75,14 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasLayouts(ContainerBuilder $container)
     {
+        if (!class_exists('Netgen\BlockManager\Version')) {
+            return false;
+        }
+
+        if (BlockManagerVersion::VERSION_ID < 800) {
+            return false;
+        }
+
         $activatedBundles = $container->getParameter('kernel.bundles');
 
         return array_key_exists('NetgenBlockManagerBundle', $activatedBundles);
