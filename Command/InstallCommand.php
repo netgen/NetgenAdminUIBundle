@@ -338,9 +338,7 @@ class InstallCommand extends ContainerAwareCommand
     protected function writeInstallerSummary($errors)
     {
         if (!$errors) {
-            $siteAccessName = $this->input->getOption('site-access-name');
-
-            $this->writeSection('You can now start using the Netgen Admin UI by going to /' . $siteAccessName . ' URL!');
+            $this->writeSection('You can now continue installation as per instructions in the README.md file!');
 
             return;
         }
