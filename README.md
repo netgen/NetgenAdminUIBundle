@@ -88,4 +88,4 @@ Activate the generated legacy siteaccess in your central `site.ini.append.php` f
 AvailableSiteAccessList[]=NEW_SITEACCESS_NAME
 ```
 
-Finally, make sure that **only your editors/administrators** have `user/login` policy to the new Admin UI siteaccess.
+Finally, clear all the caches and make sure that **only your editors/administrators** have `user/login` policy to the new Admin UI siteaccess.
