@@ -44,6 +44,8 @@ class ConfigurationGenerator extends Generator
     {
         $fileSystem = $this->container->get('filesystem');
         $kernelRootDir = $this->container->getParameter('kernel.root_dir');
+        $varDir = $this->container->getParameter('ezsettings.default.var_dir');
+        $repository = $this->container->getParameter('ezsettings.default.repository');
         $configFile = $kernelRootDir . '/config/ngadminui.yml';
 
         if ($fileSystem->exists($configFile)) {
@@ -100,6 +102,8 @@ class ConfigurationGenerator extends Generator
                             },
                             $languages
                         ),
+                        'var_dir' => $varDir,
+                        'repository' => $repository,
                     ),
                 ),
             ),
