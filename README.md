@@ -44,7 +44,7 @@ _netgen_admin_ui:
     resource: "@NetgenAdminUIBundle/Resources/config/routing.yml"
 ```
 
-## Activate the legacy `ngadminui` extension in your `site.ini.append.php` file along with other required extensions:
+## Activate the legacy `ngadminui` extension in your central `site.ini.append.php` file along with other required extensions:
 
 ```
 [ExtensionSettings]
@@ -55,48 +55,37 @@ ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezoe
 ```
 
-## Create a new administration siteaccess with `legacy_mode: false` config and configure it:
+## Run the installation wizard and activate configuration:
 
-Use the following config somewhere in your app to configure the templates for your new siteaccess.
-
-Make sure to change `ngadminui` to the name of your Netgen Admin UI siteaccess:
+Run the following command from your installation root to install Netgen Admin UI configuration:
 
 ```
-parameters:
-    netgen_admin_ui.ngadminui.is_admin_ui_siteaccess: true
-    eztags.ngadminui.routing.enable_tag_router: false
-    ezsettings.ngadminui.treemenu.http_cache: false
-
-ezpublish:
-    system:
-        ngadminui:
-            user:
-                layout: 'NetgenAdminUIBundle::pagelayout_login.html.twig'
-                login_template: 'NetgenAdminUIBundle:user:login.html.twig'
-
-ez_publish_legacy:
-    system:
-        ngadminui:
-            templating:
-                view_layout: 'NetgenAdminUIBundle::pagelayout_legacy.html.twig'
-                module_layout: 'NetgenAdminUIBundle::pagelayout_module.html.twig'
+$ php app/console ngadminui:install
 ```
 
-## Create a new legacy administration siteaccess and configure it with `ngadminui` design and other needed settings:
+This will install all required configuration in two places:
+
+* `app/config/ngadminui.yml`
+* `ezpublish_legacy/siteaccess/NEW_SITEACCESS_NAME`
+ 
+where `NEW_SITEACCESS_NAME` will be the name of the new siteaccess you selected during the installation wizard.
+
+## Activate the generated configuration
+
+The generated configuration is not activated automatically, so you need to activate it by yourself:
+
+Import `app/config/ngadminui.yml` in your `app/config/ezplatform.yml`:
 
 ```
-[DesignSettings]
-# Make sure the list of additional site designs is exactly as below
-SiteDesign=ngadminui
-AdditionalSiteDesignList[]
-AdditionalSiteDesignList[]=admin2
-AdditionalSiteDesignList[]=admin
-AdditionalSiteDesignList[]=standard
-AdditionalSiteDesignList[]=base
-
-# Make sure that template debug is disabled
-[TemplateSettings]
-Debug=disabled
+imports:
+    - { resource: ngadminui.yml }
 ```
 
-Also, make sure that **only your editors/administrators** have `user/login` policy to the new administration siteaccess.
+Activate the generated legacy siteaccess in your central `site.ini.append.php` file:
+
+```
+[SiteAccessSettings]
+AvailableSiteAccessList[]=NEW_SITEACCESS_NAME
+```
+
+Finally, make sure that **only your editors/administrators** have `user/login` policy to the new Admin UI siteaccess.
