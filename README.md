@@ -55,9 +55,9 @@ ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezoe
 ```
 
-## Run the installation wizard and activate configuration:
+## Run the installation wizard:
 
-Run the following command from your installation root to install Netgen Admin UI configuration:
+Run the following command from your installation root to install Netgen Admin UI configuration and follow on-screen instructions:
 
 ```
 $ php app/console ngadminui:install
