@@ -9,6 +9,7 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\ProcessBuilder;
 use Netgen\Bundle\AdminUIBundle\Installer\Generator\LegacySiteAccessGenerator;
 use Netgen\Bundle\AdminUIBundle\Installer\Generator\ConfigurationGenerator;
@@ -61,6 +62,12 @@ class InstallCommand extends ContainerAwareCommand
         $this->input = $input;
         $this->output = $output;
         $this->questionHelper = $this->getHelper('question');
+
+        if (Kernel::VERSION_ID < 20700) {
+            throw new RuntimeException(
+                'Installation is not possible. Netgen Admin UI requires Symfony 2.7 or later to work.'
+            );
+        }
 
         if (!$this->getContainer()->hasParameter('ezpublish_legacy.root_dir')) {
             throw new RuntimeException(
