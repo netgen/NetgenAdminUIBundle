@@ -73,6 +73,7 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
     public function getFunctions()
     {
         return array(
+            // ngadmin_is_granted function is @deprecated
             new Twig_SimpleFunction(
                 'ngadmin_is_granted',
                 array($this, 'isGranted')
@@ -102,6 +103,11 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
      */
     public function isGranted($module, $function, ValueObject $object = null, $targets = null)
     {
+        @trigger_error(
+            'ngadmin_is_granted Twig function is deprecated and will be removed in Admin UI Bundle 2.0. Use EzCoreExtraBundle and is_granted Twig function instead.',
+            E_USER_DEPRECATED
+        );
+
         $attribute = new Attribute($module, $function);
         if ($object instanceof ValueObject) {
             $attribute->limitations['valueObject'] = $object;

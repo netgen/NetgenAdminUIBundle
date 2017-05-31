@@ -1,4 +1,4 @@
-{% if ngadmin_is_granted('tags', 'read') %}
+{% if is_granted('ez:tags:read') %}
     <li{% if active %} class="active"{% endif %}>
         <a href="{{ path( 'netgen_tags_admin_root' ) }}">
             <img src="{{ asset('bundles/netgentags/admin/images/tags-logo-silhouette.svg') }}" class="icon" />

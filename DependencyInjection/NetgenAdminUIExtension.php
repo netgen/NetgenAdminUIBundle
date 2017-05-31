@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Netgen\TagsBundle\Version as TagsBundleVersion;
 use Symfony\Component\Yaml\Yaml;
+use RuntimeException;
 
 class NetgenAdminUIExtension extends Extension implements PrependExtensionInterface
 {
@@ -27,6 +28,12 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         $loader->load('templating.yml');
         $loader->load('controllers.yml');
         $loader->load('services.yml');
+
+        $activatedBundles = array_keys($container->getParameter('kernel.bundles'));
+
+        if (!in_array('EzCoreExtraBundle', $activatedBundles, true)) {
+            throw new RuntimeException('Netgen Admin UI Bundle requires EzCoreExtraBundle (lolautruche/ez-core-extra-bundle) to be activated to work properly.');
+        }
 
         if (class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::MAJOR_VERSION >= 3) {
             $loader->load('tags/services.yml');

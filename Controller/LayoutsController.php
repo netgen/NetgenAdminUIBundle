@@ -5,7 +5,6 @@ namespace Netgen\Bundle\AdminUIBundle\Controller;
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use eZ\Publish\Core\MVC\Symfony\View\ContentValueView;
 use Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface;
 use Netgen\Bundle\AdminUIBundle\Exception\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Request;
