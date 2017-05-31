@@ -61,6 +61,16 @@ class InstallCommand extends ContainerAwareCommand
         $this->output = $output;
         $this->questionHelper = $this->getHelper('question');
 
+        if ($this->getContainer()->hasParameter('ezpublish_legacy.root_dir')) {
+            throw new \RuntimeException(
+                sprintf(
+                    "%s\n%s",
+                    'Installation is not possible because eZ Publish Legacy is not present.',
+                    'Netgen Admin UI requires eZ Publish Community 2014.11, eZ Publish 5.4.x or eZ Platform with Legacy Bridge to work.'
+                )
+            );
+        }
+
         $this->writeSection('Welcome to the Netgen Admin UI installation');
 
         while (!$this->doInteract()) {
