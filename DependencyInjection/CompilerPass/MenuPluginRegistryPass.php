@@ -37,17 +37,6 @@ class MenuPluginRegistryPass implements CompilerPassInterface
                 $menuPluginClass = $container->getParameter(trim($menuPluginClass, '%'));
             }
 
-            if (!method_exists($menuPluginClass, 'isActive')) {
-                // @todo Add isActive method to MenuPluginInterface
-                @trigger_error(
-                    sprintf(
-                        'Menu plugin %s does not implement "isActive" method. This behaviour is deprecated since version 1.1 of Netgen Admin UI bundle and will stop working in version 2.0. Implement the method to remove this notice.',
-                        $menuPluginClass
-                    ),
-                    E_USER_DEPRECATED
-                );
-            }
-
             $menuPluginRegistry->addMethodCall(
                 'addMenuPlugin',
                 array(new Reference($menuPlugin))

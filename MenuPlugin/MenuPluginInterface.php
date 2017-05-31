@@ -21,6 +21,13 @@ interface MenuPluginInterface
     public function getTemplates();
 
     /**
+     * Returns if the menu is active.
+     *
+     * @return bool
+     */
+    public function isActive();
+
+    /**
      * Returns if this plugin matches the current request.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request

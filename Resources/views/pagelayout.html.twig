@@ -55,14 +55,11 @@
                         <nav class="aside-nav">
                             <ul class="nav">
                                 {% for menu_plugin_identifier, menu_plugin in menu_plugins %}
-                                    {# @todo Remove checking for existence of isActive method #}
-                                    {% if attribute(menu_plugin, 'isActive') is not defined or menu_plugin.active %}
-                                        {% if menu_plugin.templates.aside is defined %}
-                                            {% include menu_plugin.templates.aside ignore missing with {
-                                                plugin: menu_plugin,
-                                                active: menu_plugin.identifier == current_menu_plugin
-                                            } %}
-                                        {% endif %}
+                                    {% if menu_plugin.active and menu_plugin.templates.aside is defined %}
+                                        {% include menu_plugin.templates.aside ignore missing with {
+                                            plugin: menu_plugin,
+                                            active: menu_plugin.identifier == current_menu_plugin
+                                        } %}
                                     {% endif %}
                                 {% endfor %}
                             </ul>
