@@ -1,16 +1,12 @@
-parameters:
-    netgen_admin_ui.templating.global_variable.class: Netgen\Bundle\AdminUIBundle\Templating\GlobalVariable
-    netgen_admin_ui.templating.twig.extension.class: Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension\NetgenAdminUIExtension
-
 services:
     netgen_admin_ui.templating.global_variable:
-        class: "%netgen_admin_ui.templating.global_variable.class%"
+        class: Netgen\Bundle\AdminUIBundle\Templating\GlobalVariable
         arguments:
             - "@netgen_admin_ui.menu_plugin.registry"
             - "@request_stack"
 
     netgen_admin_ui.templating.twig.extension:
-        class: "%netgen_admin_ui.templating.twig.extension.class%"
+        class: Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension\NetgenAdminUIExtension
         arguments:
             - "@security.authorization_checker"
             - "@netgen_admin_ui.helper.path_helper"
