@@ -62,7 +62,7 @@ class InstallCommand extends ContainerAwareCommand
         $this->output = $output;
         $this->questionHelper = $this->getHelper('question');
 
-        if ($this->getContainer()->hasParameter('ezpublish_legacy.root_dir')) {
+        if (!$this->getContainer()->hasParameter('ezpublish_legacy.root_dir')) {
             throw new RuntimeException(
                 sprintf(
                     "%s\n%s",
