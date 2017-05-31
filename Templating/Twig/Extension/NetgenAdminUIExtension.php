@@ -3,7 +3,6 @@
 namespace Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension;
 
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Twig_Extension;
 use Twig_SimpleFunction;
 use eZPreferences;
@@ -11,11 +10,6 @@ use Closure;
 
 class NetgenAdminUIExtension extends Twig_Extension
 {
-    /**
-     * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
-     */
-    protected $authorizationChecker;
-
     /**
      * @var \Netgen\Bundle\AdminUIBundle\Helper\PathHelper
      */
@@ -29,16 +23,11 @@ class NetgenAdminUIExtension extends Twig_Extension
     /**
      * Constructor.
      *
-     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authorizationChecker
      * @param \Netgen\Bundle\AdminUIBundle\Helper\PathHelper $pathHelper
      * @param \Closure $legacyKernel
      */
-    public function __construct(
-        AuthorizationCheckerInterface $authorizationChecker,
-        PathHelper $pathHelper,
-        Closure $legacyKernel
-    ) {
-        $this->authorizationChecker = $authorizationChecker;
+    public function __construct(PathHelper $pathHelper, Closure $legacyKernel)
+    {
         $this->pathHelper = $pathHelper;
         $this->legacyKernel = $legacyKernel;
     }
