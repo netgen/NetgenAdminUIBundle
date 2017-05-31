@@ -30,13 +30,6 @@ class MenuPluginRegistryPass implements CompilerPassInterface
         arsort($flattenedMenuPlugins);
 
         foreach (array_keys($flattenedMenuPlugins) as $menuPlugin) {
-            $definition = $container->findDefinition($menuPlugin);
-
-            $menuPluginClass = $definition->getClass();
-            if (stripos($menuPluginClass, '%') === 0) {
-                $menuPluginClass = $container->getParameter(trim($menuPluginClass, '%'));
-            }
-
             $menuPluginRegistry->addMethodCall(
                 'addMenuPlugin',
                 array(new Reference($menuPlugin))
