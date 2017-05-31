@@ -67,7 +67,7 @@ class InstallCommand extends ContainerAwareCommand
                 sprintf(
                     "%s\n%s",
                     'Installation is not possible because eZ Publish Legacy is not present.',
-                    'Netgen Admin UI requires eZ Publish Community 2014.11, eZ Publish 5.4.x or eZ Platform with Legacy Bridge to work.'
+                    'Netgen Admin UI requires eZ Publish Community 2014.12 (Netgen Variant), eZ Publish 5.4.x or eZ Platform with Legacy Bridge to work.'
                 )
             );
         }
