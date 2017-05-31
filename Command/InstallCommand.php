@@ -14,6 +14,7 @@ use Netgen\Bundle\AdminUIBundle\Installer\Generator\LegacySiteAccessGenerator;
 use Netgen\Bundle\AdminUIBundle\Installer\Generator\ConfigurationGenerator;
 use InvalidArgumentException;
 use Exception;
+use RuntimeException;
 
 class InstallCommand extends ContainerAwareCommand
 {
@@ -62,7 +63,7 @@ class InstallCommand extends ContainerAwareCommand
         $this->questionHelper = $this->getHelper('question');
 
         if ($this->getContainer()->hasParameter('ezpublish_legacy.root_dir')) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 sprintf(
                     "%s\n%s",
                     'Installation is not possible because eZ Publish Legacy is not present.',
