@@ -7,7 +7,7 @@ so make sure you have it installed and fully configured before installing Netgen
 ## Use Composer to install the package: 
 
 ```
-composer require netgen/admin-ui-bundle:^1.0
+composer require netgen/admin-ui-bundle:^2.0
 ```
 
 ## Activate the bundle in your `app/AppKernel.php` file with other required bundles:
