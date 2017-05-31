@@ -5,15 +5,13 @@ namespace Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension;
 use eZ\Publish\API\Repository\Values\ValueObject;
 use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
-use Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Twig_Extension;
 use Twig_SimpleFunction;
-use Twig_Extension_GlobalsInterface;
 use eZPreferences;
 use Closure;
 
-class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
+class NetgenAdminUIExtension extends Twig_Extension
 {
     /**
      * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
@@ -26,11 +24,6 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
     protected $pathHelper;
 
     /**
-     * @var \Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper
-     */
-    protected $globalHelper;
-
-    /**
      * @var \Closure
      */
     protected $legacyKernel;
@@ -40,18 +33,15 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
      *
      * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authorizationChecker
      * @param \Netgen\Bundle\AdminUIBundle\Helper\PathHelper $pathHelper
-     * @param \Netgen\Bundle\AdminUIBundle\Templating\GlobalHelper $globalHelper
      * @param \Closure $legacyKernel
      */
     public function __construct(
         AuthorizationCheckerInterface $authorizationChecker,
         PathHelper $pathHelper,
-        GlobalHelper $globalHelper,
         Closure $legacyKernel
     ) {
         $this->authorizationChecker = $authorizationChecker;
         $this->pathHelper = $pathHelper;
-        $this->globalHelper = $globalHelper;
         $this->legacyKernel = $legacyKernel;
     }
 
@@ -147,15 +137,5 @@ class NetgenAdminUIExtension extends Twig_Extension implements Twig_Extension_Gl
                 return eZPreferences::value($name);
             }
         );
-    }
-
-    /**
-     * Returns a list of global variables to add to the existing list.
-     *
-     * @return array An array of global variables
-     */
-    public function getGlobals()
-    {
-        return array('netgen_admin_ui' => $this->globalHelper);
     }
 }

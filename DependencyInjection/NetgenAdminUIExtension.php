@@ -52,7 +52,9 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     public function prepend(ContainerBuilder $container)
     {
-        $configs = array();
+        $configs = array(
+            'framework/twig.yml' => 'twig',
+        );
 
         if ($this->hasLayouts($container)) {
             $configs['layouts/view.yml'] = 'netgen_block_manager';

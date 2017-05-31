@@ -1,0 +1,2 @@
+globals:
+    netgen_admin_ui: "@netgen_admin_ui.templating.global_helper"
