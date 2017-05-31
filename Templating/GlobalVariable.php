@@ -6,7 +6,7 @@ use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class GlobalHelper
+class GlobalVariable
 {
     /**
      * @var \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry
