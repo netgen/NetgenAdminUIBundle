@@ -36,7 +36,7 @@
     <div id="page" class="{{ navigation_part }} section_id_{{ section_id }} {% if content_edit or ui_context_edit %} content-edit{% endif %}{% if not show_side_menu %} hide-side-menu{% endif %}">
         <header id="header">
             <div class="header-nav">
-                <a id="header-logo" href="{{ path( ezpublish.rootLocation ) }}" title="{{ 'netgen_admin_ui.title'|trans }}"></a>
+                <a id="header-logo" class="logo-type-{{ netgen_admin_ui.logoType }}" href="{{ path( ezpublish.rootLocation ) }}" title="{{ 'netgen_admin_ui.title'|trans }}"></a>
             </div>
 
             {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.top is defined %}

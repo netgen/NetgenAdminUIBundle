@@ -19,15 +19,25 @@ class GlobalVariable
     protected $requestStack;
 
     /**
+     * @var string
+     */
+    protected $logoType;
+
+    /**
      * Constructor.
      *
      * @param \Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginRegistry $menuPluginRegistry
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+     * @param string $logoType
      */
-    public function __construct(MenuPluginRegistry $menuPluginRegistry, RequestStack $requestStack)
-    {
+    public function __construct(
+        MenuPluginRegistry $menuPluginRegistry,
+        RequestStack $requestStack,
+        $logoType
+    ) {
         $this->menuPluginRegistry = $menuPluginRegistry;
         $this->requestStack = $requestStack;
+        $this->logoType = $logoType;
     }
 
     /**
@@ -38,6 +48,16 @@ class GlobalVariable
     public function getMenuPlugins()
     {
         return $this->menuPluginRegistry->getMenuPlugins();
+    }
+
+    /**
+     * Returns the logo type.
+     *
+     * @return string
+     */
+    public function getLogoType()
+    {
+        return $this->logoType;
     }
 
     /**

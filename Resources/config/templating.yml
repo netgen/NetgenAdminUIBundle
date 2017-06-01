@@ -4,6 +4,7 @@ services:
         arguments:
             - "@netgen_admin_ui.menu_plugin.registry"
             - "@request_stack"
+            - "%netgen_admin_ui.logo_type%"
 
     netgen_admin_ui.templating.twig.extension:
         class: Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension\NetgenAdminUIExtension
