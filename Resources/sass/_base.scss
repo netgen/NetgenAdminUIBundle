@@ -57,7 +57,13 @@ label {
     .login-header {
         text-align:center; margin:0 0 30px;
         .logo {
-            background:transparent url('../images/ngadmin-logo-full.svg') 0 0 no-repeat; width:190px; height:64px; display:block; margin:0 auto 50px; background-size:100% auto;
+            background-color:transparent; background-position:center; background-repeat:no-repeat; width:190px; height:64px; display:block; margin:0 auto 50px; background-size:contain;
+            &.logo-type-ngadminui {
+                background-image:url('../images/ngadmin-logo-full.svg');
+            }
+            &.logo-type-default {
+                background-image:url('../images/ez-logo-w.svg');
+            }
         }
         h3 {
             font-size:23px; font-weight:700; margin:0;
@@ -123,7 +129,13 @@ label {
     }
 }
 #header-logo {
-    background:#161616 url('../images/ngadmin-logo.svg') 50% no-repeat; width:$asideWidth; background-size:26px auto; height:$headerHeight; display:block; margin:0;
+    background-color:#161616; background-position:50%; background-repeat:no-repeat; width:$asideWidth; background-size:26px auto; height:$headerHeight; display:block; margin:0;
+    &.logo-type-default {
+        background-image:url('../images/ez-logo-min-w.svg'); background-size:26px auto;
+    }
+    &.logo-type-ngadminui {
+        background-image:url('../images/ngadmin-logo.svg'); background-size:26px auto;
+    }
 }
 .header-nav {
     width:$asideWidth; float:left;
