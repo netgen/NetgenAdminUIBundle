@@ -40,10 +40,6 @@ git:
 # we don't need sudo
 sudo: false
 
-# enable scrutinizer
-after_script:
-  - wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover
-
 # send coverage to codecov.io
 after_success:
   - bash <(curl -s https://codecov.io/bash)
