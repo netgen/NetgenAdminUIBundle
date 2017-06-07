@@ -5,13 +5,9 @@ Netgen Admin UI requires a fully functional eZ Publish Community 2014.12 (Netgen
 eZ Publish 5 or eZ Platform with Legacy Bridge so make sure you have it installed and fully
 configured before installing Netgen Admin UI.
 
-## Use Composer to install the package 
-
-```
-composer require netgen/admin-ui-bundle:^2.0
-```
-
 ## Activate the Admin UI bundle along with other required bundles
+
+Adding the bundle to the kernel before installing it via Composer makes sure that the legacy extension is symlinked to eZ Publish Legacy extension folder as well as that bundle assets will be installed immediately after requiring the package.
 
 Add the following in your `app/AppKernel.php` file:
 
@@ -27,12 +23,10 @@ public function registerBundles()
 }
 ```
 
-## Install bundle assets
-
-Use the following script to symlink bundle assets to `web/bundles` directory:
+## Use Composer to install the package 
 
 ```
-php app/console assets:install --symlink --relative
+composer require netgen/admin-ui-bundle:^2.0
 ```
 
 ## Import the `routing.yml` from the bundle into your main `routing.yml` file
