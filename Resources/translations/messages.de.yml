@@ -1,0 +1,43 @@
+netgen_admin_ui.title: 'Netgen Admin UI'
+
+netgen_admin_ui.layout.loading: 'Lade...'
+netgen_admin_ui.layout.logout: 'Abmelden'
+netgen_admin_ui.layout.path.you_are_here: 'Sie sind hier:'
+
+netgen_admin_ui.layout.size_warning.title: 'Das aktuelle Fenster ist zu klein'
+netgen_admin_ui.layout.size_warning.text: 'Bitte vergrössern Sie das Browserfenster oder wechseln auf ein anderes Gerät, um das Admin UI korrekt darzustellen.'
+
+netgen_admin_ui.login.message.username_password: 'Stellen Sie sicher, dass Benutzername und Password richtig sind.'
+netgen_admin_ui.login.message.letter_case: 'Alle Buchstaben müssen mit richtiger Groß- und Kleinschreibung in das System eingegeben werden.'
+netgen_admin_ui.login.message.contact_admin: 'Bitte versuchen Sie es erneut oder kontaktieren Sie den Administrator.'
+netgen_admin_ui.login.username: 'Benutzername'
+netgen_admin_ui.login.username.title: 'Geben Sie einen korrekten Benutzernamen in dieses Feld ein.'
+netgen_admin_ui.login.password: 'Passwort'
+netgen_admin_ui.login.password.title: 'Geben Sie ein korrektes Passwort in dieses Feld ein.'
+netgen_admin_ui.login.submit: 'Anmelden'
+netgen_admin_ui.login.submit.title: 'Klicken Sie hier, um sich unter Verwendung von Benutzername und Passwort anzumelden.'
+
+netgen_admin_ui.search.search_content: 'Inhalte durchsuchen...'
+
+netgen_admin_ui.user.view_profile: 'Profil'
+netgen_admin_ui.user.change_information: 'Informationen ändern'
+netgen_admin_ui.user.change_password: 'Passwort ändern'
+netgen_admin_ui.user.interface_settings: 'Benutzer Interface Einstellungen'
+netgen_admin_ui.user.show_locations: 'Orte anzeigen'
+netgen_admin_ui.user.enable_reedit: 'Wiederbearbeiten ermöglichen'
+netgen_admin_ui.user.on: 'ein'
+netgen_admin_ui.user.off: 'aus'
+netgen_admin_ui.user.logout: 'Abmelden'
+
+netgen_admin_ui.menu.tags: 'Netgen Tags'
+netgen_admin_ui.menu.cache: 'Cache'
+netgen_admin_ui.menu.clear_cache: 'Cache leeren'
+netgen_admin_ui.menu.bookmarks: 'Lesezeichen'
+
+netgen_admin_ui.layouts.mappings.applied_to: 'Angewandte Layouts'
+netgen_admin_ui.layouts.mappings.order_note: 'Die Liste der Layouts ist nach Prioritäten geordnet.'
+netgen_admin_ui.layouts.mappings.no_rules: 'Keine Zuordnungen'
+netgen_admin_ui.layouts.mappings.mapped_layout: 'Zugeordnetes Layout'
+netgen_admin_ui.layouts.mappings.targets: 'Ziele'
+netgen_admin_ui.layouts.mappings.conditions: 'Bedingungen'
+netgen_admin_ui.layouts.mappings.edit_layout: 'Layout bearbeiten'
