@@ -45,7 +45,7 @@ class LayoutsController extends Controller
         $rules = $this->layoutResolver->resolveRules($request, array('ez_content_type'));
 
         return $this->render(
-            'NetgenAdminUIBundle:layouts:location_mappings.html.twig',
+            '@NetgenAdminUI/layouts/location_mappings.html.twig',
             array(
                 'rules' => $rules,
                 'content' => $content,

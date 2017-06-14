@@ -40,8 +40,8 @@ class TagsMenuPlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/tags:aside.html.twig',
-            'left' => 'NetgenAdminUIBundle:menu/plugins/tags:left.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/tags/aside.html.twig',
+            'left' => '@NetgenAdminUI/menu/plugins/tags/left.html.twig',
         );
     }
 

@@ -7,14 +7,14 @@
     {% include 'design:page_head_style.tpl' %}
     {% include 'design:page_head_script.tpl' %}
 
-    {% include 'NetgenAdminUIBundle::page_head_style.html.twig' %}
-    {% include 'NetgenAdminUIBundle::page_head_script.html.twig' %}
+    {% include '@NetgenAdminUI/page_head_style.html.twig' %}
+    {% include '@NetgenAdminUI/page_head_script.html.twig' %}
 </head>
 <body class="loginpage">
     {% block content %}{% endblock %}
 
     <div class="login-container">
-        {% include 'NetgenAdminUIBundle::page_footer.html.twig' %}
+        {% include '@NetgenAdminUI/page_footer.html.twig' %}
     </div>
 </body>
 </html>

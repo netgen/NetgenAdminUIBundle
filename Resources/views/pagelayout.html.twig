@@ -1,4 +1,4 @@
-{% extends 'NetgenAdminUIBundle::pagelayout_variables.html.twig' %}
+{% extends '@NetgenAdminUI/pagelayout_variables.html.twig' %}
 
 {% block pagelayout_content %}
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     {% set navigation_part = module_result.navigation_part|default( 'ezcontentnavigationpart' ) %}
     {% set section_id = module_result.section_id|default( '0' ) %}
 
-    {% include 'NetgenAdminUIBundle::page_head.html.twig' %}
+    {% include '@NetgenAdminUI/page_head.html.twig' %}
 
     <title>
         {% block title %}
@@ -23,12 +23,12 @@
 
     {% block stylesheets %}
         {% include 'design:page_head_style.tpl' %}
-        {% include 'NetgenAdminUIBundle::page_head_style.html.twig' %}
+        {% include '@NetgenAdminUI/page_head_style.html.twig' %}
     {% endblock %}
 
     {% block javascripts %}
         {% include 'design:page_head_script.tpl' %}
-        {% include 'NetgenAdminUIBundle::page_head_script.html.twig' %}
+        {% include '@NetgenAdminUI/page_head_script.html.twig' %}
     {% endblock %}
 </head>
 
@@ -47,7 +47,7 @@
         {% if show_side_menu %}
             <aside id="aside">
                 <div class="aside-wrap">
-                    {% include 'NetgenAdminUIBundle::page_aside_user.html.twig' %}
+                    {% include '@NetgenAdminUI/page_aside_user.html.twig' %}
 
                     <div class="navi-wrap">
                         <div class="clearfix hidden-xs text-center hide" id="aside-user"></div>
@@ -74,7 +74,7 @@
             <div class="content-body">
                 <div id="columns">
                     {% if not content_edit %}
-                        {% include 'NetgenAdminUIBundle::page_leftmenu.html.twig' %}
+                        {% include '@NetgenAdminUI/page_leftmenu.html.twig' %}
                     {% endif %}
 
                     <div id="main-column" class="main-column layout-column">
@@ -84,14 +84,14 @@
                                     {% if path_array is not empty %}
                                         <div id="path" {% if content_edit %}class="path-edit"{% endif %}>
                                             <div id="path-design">
-                                                {% include 'NetgenAdminUIBundle::page_toppath.html.twig' %}
+                                                {% include '@NetgenAdminUI/page_toppath.html.twig' %}
                                             </div>
                                         </div>
                                     {% endif %}
                                     {% block pre_content %}{% endblock %}
                                     {% block content %}{% endblock %}
                                     {% block post_content %}{% endblock %}
-                                    {% include 'NetgenAdminUIBundle::page_footer.html.twig' %}
+                                    {% include '@NetgenAdminUI/page_footer.html.twig' %}
                                 </div>
                             </div>
                         </div>

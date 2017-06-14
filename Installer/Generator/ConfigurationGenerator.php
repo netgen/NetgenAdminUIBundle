@@ -93,8 +93,8 @@ class ConfigurationGenerator extends Generator
                 'system' => array(
                     $siteAccessName => array(
                         'user' => array(
-                            'layout' => 'NetgenAdminUIBundle::pagelayout_login.html.twig',
-                            'login_template' => 'NetgenAdminUIBundle:user:login.html.twig',
+                            'layout' => '@NetgenAdminUI/pagelayout_login.html.twig',
+                            'login_template' => '@NetgenAdminUI/user/login.html.twig',
                         ),
                         'languages' => array_map(
                             function (Language $language) {
@@ -111,8 +111,8 @@ class ConfigurationGenerator extends Generator
                 'system' => array(
                     $siteAccessName => array(
                         'templating' => array(
-                            'view_layout' => 'NetgenAdminUIBundle::pagelayout_legacy.html.twig',
-                            'module_layout' => 'NetgenAdminUIBundle::pagelayout_module.html.twig',
+                            'view_layout' => '@NetgenAdminUI/pagelayout_legacy.html.twig',
+                            'module_layout' => '@NetgenAdminUI/pagelayout_module.html.twig',
                         ),
                     ),
                 ),

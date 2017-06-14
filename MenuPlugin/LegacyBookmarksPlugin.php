@@ -24,7 +24,7 @@ class LegacyBookmarksPlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy_bookmarks:aside.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/legacy_bookmarks/aside.html.twig',
         );
     }
 

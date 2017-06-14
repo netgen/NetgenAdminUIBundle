@@ -1,4 +1,4 @@
-{% extends 'NetgenAdminUIBundle::pagelayout.html.twig' %}
+{% extends '@NetgenAdminUI/pagelayout.html.twig' %}
 
 {% trans_default_domain 'eztags_admin' %}
 
@@ -9,20 +9,20 @@
 {% block stylesheets %}
     {{ parent() }}
 
-    {% include 'NetgenTagsBundle:admin:stylesheets.html.twig' %}
+    {% include '@NetgenTags/admin/stylesheets.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
 
-    {% include 'NetgenTagsBundle:admin:javascripts.html.twig' %}
+    {% include '@NetgenTags/admin/javascripts.html.twig' %}
 {% endblock %}
 
 {% block pre_content %}
     <div class="ng-tags-app">
         <div class="tags-content">
             <div class="path">
-                {% include 'NetgenTagsBundle:admin:path.html.twig' %}
+                {% include '@NetgenTags/admin/path.html.twig' %}
             </div>
 {% endblock %}
 

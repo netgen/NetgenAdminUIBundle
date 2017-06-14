@@ -2,5 +2,5 @@ view:
     rule_view:
         ngadminui:
             rule:
-                template: "NetgenAdminUIBundle:layouts:rule.html.twig"
+                template: "@NetgenAdminUI/layouts/rule.html.twig"
                 match: ~

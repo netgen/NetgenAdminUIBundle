@@ -24,7 +24,7 @@ class LegacyCachePlugin implements MenuPluginInterface
     public function getTemplates()
     {
         return array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/legacy_cache/aside.html.twig',
         );
     }
 

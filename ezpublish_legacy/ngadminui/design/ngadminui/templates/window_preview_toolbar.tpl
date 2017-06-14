@@ -57,7 +57,7 @@
 
         {if and( ezmodule( 'nglayouts' ), fetch( 'user', 'has_access_to', hash( 'module', 'nglayouts', 'function', 'editor' ) ) )}
             {symfony_include(
-                'NetgenAdminUIBundle:layouts:location_mappings_modal.html.twig',
+                '@NetgenAdminUI/layouts/location_mappings_modal.html.twig',
                 hash(
                     'location', $node,
                     'content', $node.object

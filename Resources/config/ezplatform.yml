@@ -2,8 +2,8 @@ ezpublish:
     system:
         ngadminui:
             user:
-                layout: "NetgenAdminUIBundle::pagelayout_login.html.twig"
-                login_template: "NetgenAdminUIBundle:user:login.html.twig"
+                layout: "@NetgenAdminUI/pagelayout_login.html.twig"
+                login_template: "@NetgenAdminUI/user/login.html.twig"
             content_view:
                 full:
                     default:
@@ -19,5 +19,5 @@ ez_publish_legacy:
     system:
         ngadminui:
             templating:
-                view_layout: "NetgenAdminUIBundle::pagelayout_legacy.html.twig"
-                module_layout: "NetgenAdminUIBundle::pagelayout_module.html.twig"
+                view_layout: "@NetgenAdminUI/pagelayout_legacy.html.twig"
+                module_layout: "@NetgenAdminUI/pagelayout_module.html.twig"
