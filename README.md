@@ -18,6 +18,11 @@ Install instructions
 
 See [INSTALL.md](INSTALL.md) to install the bundle.
 
+Changelog
+---------
+
+See [CHANGELOG.md] (CHANGELOG.md) for details.
+
 License
 -------
 
