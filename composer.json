@@ -10,7 +10,7 @@
     ],
     "require": {
         "ezsystems/ezpublish-kernel": "^6.0|^5.4|>=2014.11.0",
-        "lolautruche/ez-core-extra-bundle": "^1.0",
+        "lolautruche/ez-core-extra-bundle": "^1.0|^2.0",
         "netgen/ngsymfonytools": "^1.1"
     },
     "require-dev": {
