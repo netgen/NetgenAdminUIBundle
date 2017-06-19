@@ -5,7 +5,6 @@ namespace Netgen\Bundle\AdminUIBundle\Tests\MenuPlugin;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyCachePlugin;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
 
 class LegacyCachePluginTest extends TestCase
 {
@@ -21,7 +20,7 @@ class LegacyCachePluginTest extends TestCase
 
     public function testAssertInstanceOfMenuPlugin()
     {
-        $this->assertInstanceOf(MenuPluginInterface::class, $this->plugin);
+        $this->assertInstanceOf('Netgen\\Bundle\\AdminUIBundle\\MenuPlugin\\MenuPluginInterface', $this->plugin);
     }
 
     public function testGetIdentifier()
@@ -45,7 +44,7 @@ class LegacyCachePluginTest extends TestCase
 
     public function testMatches()
     {
-        $request = $this->getMockBuilder(Request::class)
+        $request = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\Request')
             ->disableOriginalConstructor()
             ->setMethods(array())
             ->getMock();

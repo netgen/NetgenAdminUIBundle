@@ -5,7 +5,6 @@ namespace Netgen\Bundle\AdminUIBundle\Tests\MenuPlugin;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\TagsMenuPlugin;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 
 class TagsMenuPluginTest extends TestCase
@@ -30,7 +29,7 @@ class TagsMenuPluginTest extends TestCase
 
     public function testAssertInstanceOfMenuPlugin()
     {
-        $this->assertInstanceOf(MenuPluginInterface::class, $this->plugin);
+        $this->assertInstanceOf('Netgen\\Bundle\\AdminUIBundle\\MenuPlugin\\MenuPluginInterface', $this->plugin);
     }
 
     public function testGetIdentifier()
@@ -58,7 +57,7 @@ class TagsMenuPluginTest extends TestCase
     {
         $request = new Request();
 
-        $attributes = $this->getMockBuilder(ParameterBag::class)
+        $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
             ->disableOriginalConstructor()
             ->setMethods(array('get'))
             ->getMock();
@@ -77,7 +76,7 @@ class TagsMenuPluginTest extends TestCase
     {
         $request = new Request();
 
-        $attributes = $this->getMockBuilder(ParameterBag::class)
+        $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
             ->disableOriginalConstructor()
             ->setMethods(array('get'))
             ->getMock();

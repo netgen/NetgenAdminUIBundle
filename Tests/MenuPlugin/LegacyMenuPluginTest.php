@@ -6,7 +6,6 @@ use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyMenuPlugin;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 
 class LegacyMenuPluginTest extends TestCase
@@ -23,7 +22,7 @@ class LegacyMenuPluginTest extends TestCase
 
     public function testAssertInstanceOfMenuPlugin()
     {
-        $this->assertInstanceOf(MenuPluginInterface::class, $this->plugin);
+        $this->assertInstanceOf('Netgen\\Bundle\\AdminUIBundle\\MenuPlugin\\MenuPluginInterface', $this->plugin);
     }
 
     public function testGetIdentifier()
@@ -52,7 +51,7 @@ class LegacyMenuPluginTest extends TestCase
         $this->markTestSkipped();
         $request = new Request();
 
-        $attributes = $this->getMockBuilder(ParameterBag::class)
+        $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
             ->disableOriginalConstructor()
             ->setMethods(array('get'))
             ->getMock();
@@ -72,7 +71,7 @@ class LegacyMenuPluginTest extends TestCase
         $this->markTestSkipped();
         $request = new Request();
 
-        $attributes = $this->getMockBuilder(ParameterBag::class)
+        $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
             ->disableOriginalConstructor()
             ->setMethods(array('get'))
             ->getMock();
@@ -92,7 +91,7 @@ class LegacyMenuPluginTest extends TestCase
         $this->markTestSkipped();
         $request = new Request();
 
-        $attributes = $this->getMockBuilder(ParameterBag::class)
+        $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
             ->disableOriginalConstructor()
             ->setMethods(array('get'))
             ->getMock();
