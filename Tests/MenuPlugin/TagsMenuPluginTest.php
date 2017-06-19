@@ -21,6 +21,8 @@ class TagsMenuPluginTest extends TestCase
 
     public function setUp()
     {
+        require_once __DIR__ . "/Version.php";
+
         $this->plugin = new TagsMenuPlugin(array(
             'NetgenTagsBundle' => 'Netgen\\Bundle\\TagsBundle',
         ));
@@ -50,7 +52,7 @@ class TagsMenuPluginTest extends TestCase
     public function testIsActive()
     {
         $this->assertFalse($this->pluginWithoutTags->isActive());
-        $this->assertFalse($this->plugin->isActive());
+        $this->assertTrue($this->plugin->isActive());
     }
 
     public function testMatchesWithTagsRoute()
