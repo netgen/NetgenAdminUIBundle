@@ -41,8 +41,8 @@ class TagsMenuPluginTest extends TestCase
     public function testGetTemplates()
     {
         $template = array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/tags:aside.html.twig',
-            'left' => 'NetgenAdminUIBundle:menu/plugins/tags:left.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/tags/aside.html.twig',
+            'left' => '@NetgenAdminUI/menu/plugins/tags/left.html.twig',
         );
 
         $this->assertEquals($template, $this->plugin->getTemplates());

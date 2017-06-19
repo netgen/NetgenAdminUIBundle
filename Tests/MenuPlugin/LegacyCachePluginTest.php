@@ -32,7 +32,7 @@ class LegacyCachePluginTest extends TestCase
     public function testGetTemplates()
     {
         $template = array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy_cache:aside.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/legacy_cache/aside.html.twig',
         );
 
         $this->assertEquals($template, $this->plugin->getTemplates());

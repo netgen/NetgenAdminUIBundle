@@ -34,9 +34,9 @@ class LegacyMenuPluginTest extends TestCase
     public function testGetTemplates()
     {
         $template = array(
-            'aside' => 'NetgenAdminUIBundle:menu/plugins/legacy:aside.html.twig',
-            'left' => 'NetgenAdminUIBundle:menu/plugins/legacy:left.html.twig',
-            'top' => 'NetgenAdminUIBundle:menu/plugins/legacy:top.html.twig',
+            'aside' => '@NetgenAdminUI/menu/plugins/legacy/aside.html.twig',
+            'left' => '@NetgenAdminUI/menu/plugins/legacy/left.html.twig',
+            'top' => '@NetgenAdminUI/menu/plugins/legacy/top.html.twig',
         );
 
         $this->assertEquals($template, $this->plugin->getTemplates());
