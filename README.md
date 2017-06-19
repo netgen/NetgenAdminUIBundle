@@ -1,5 +1,10 @@
 Netgen Admin UI
 ---------------
+[![Build Status](https://img.shields.io/travis/netgen/NetgenAdminUIBundle.svg?style=flat-square)](https://travis-ci.org/netgen/NetgenAdminUIBundle)
+[![Code Coverage](https://img.shields.io/codecov/c/github/netgen/NetgenAdminUIBundle.svg?style=flat-square)](https://codecov.io/gh/netgen/NetgenAdminUIBundle)
+[![Downloads](https://img.shields.io/packagist/dt/netgen/admin-ui-bundle.svg?style=flat-square)](https://packagist.org/packages/netgen/admin-ui-bundle)
+[![Latest stable](https://img.shields.io/packagist/v/netgen/admin-ui-bundle.svg?style=flat-square)](https://packagist.org/packages/netgen/admin-ui-bundle)
+[![License](https://img.shields.io/packagist/l/netgen/admin-ui-bundle.svg?style=flat-square)](https://packagist.org/packages/netgen/admin-ui-bundle)
 
 Netgen Admin UI implements an alternate administration UI for eZ Platform, based on
 eZ Publish Legacy administration interface.

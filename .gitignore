@@ -8,4 +8,5 @@ composer.lock
 grunt.lock
 phpunit.phar
 .php_cs.cache
+build/
 

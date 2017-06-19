@@ -13,8 +13,14 @@
         "lolautruche/ez-core-extra-bundle": "^1.0",
         "netgen/ngsymfonytools": "^1.1"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8|^5.7"
+    },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit --colors=always"
     },
     "extra": {
         "branch-alias": {
