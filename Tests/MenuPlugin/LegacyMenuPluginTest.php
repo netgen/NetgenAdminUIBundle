@@ -17,6 +17,7 @@ class LegacyMenuPluginTest extends TestCase
 
     public function setUp()
     {
+        require_once __DIR__ . "/LegacyFallbackRouter.php";
         $this->plugin = new LegacyMenuPlugin();
     }
 
@@ -48,7 +49,6 @@ class LegacyMenuPluginTest extends TestCase
 
     public function testMatchesWithEzRoute()
     {
-        $this->markTestSkipped();
         $request = new Request();
 
         $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
@@ -68,7 +68,6 @@ class LegacyMenuPluginTest extends TestCase
 
     public function testMatchesWithUrlAliasRoute()
     {
-        $this->markTestSkipped();
         $request = new Request();
 
         $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
@@ -88,7 +87,6 @@ class LegacyMenuPluginTest extends TestCase
 
     public function testMatchesWithFakeRoute()
     {
-        $this->markTestSkipped();
         $request = new Request();
 
         $attributes = $this->getMockBuilder('Symfony\\Component\\HttpFoundation\\ParameterBag')
