@@ -22,6 +22,10 @@ class TagsMenuPluginTest extends TestCase
 
     public function setUp()
     {
+        if (!class_exists(\Netgen\TagsBundle\Version::class)) {
+            $this->markTestSkipped();
+        }
+
         $this->plugin = new TagsMenuPlugin(array(
             'NetgenTagsBundle' => 'Netgen\\Bundle\\TagsBundle',
         ));
