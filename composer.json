@@ -14,8 +14,7 @@
         "netgen/ngsymfonytools": "^1.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8|^5.7",
-        "netgen/tagsbundle": "^2.0|^3.0"
+        "phpunit/phpunit": "^4.8|^5.7"
     },
     "autoload": {
         "psr-4": {"Netgen\\Bundle\\AdminUIBundle\\": ""}
