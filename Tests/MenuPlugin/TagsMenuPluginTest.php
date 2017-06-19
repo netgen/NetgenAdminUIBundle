@@ -23,7 +23,7 @@ class TagsMenuPluginTest extends TestCase
     public function setUp()
     {
         $this->plugin = new TagsMenuPlugin(array(
-            "NetgenTagsBundle" => "Netgen\\Bundle\\TagsBundle",
+            'NetgenTagsBundle' => 'Netgen\\Bundle\\TagsBundle',
         ));
         $this->pluginWithoutTags = new TagsMenuPlugin(array());
     }
