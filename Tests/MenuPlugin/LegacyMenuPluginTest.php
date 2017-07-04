@@ -17,7 +17,7 @@ class LegacyMenuPluginTest extends TestCase
 
     public function setUp()
     {
-        require_once __DIR__ . "/LegacyFallbackRouter.php";
+        require_once __DIR__ . '/Legacy/FallbackRouter.php';
         $this->plugin = new LegacyMenuPlugin();
     }
 

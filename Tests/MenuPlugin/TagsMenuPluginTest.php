@@ -54,7 +54,7 @@ class TagsMenuPluginTest extends TestCase
 
     public function testIsActive()
     {
-        require __DIR__ . "/TagsVersion.php";
+        require __DIR__ . '/Tags/Version.php';
         $this->assertFalse($this->pluginWithoutTags->isActive());
         $this->assertTrue($this->plugin->isActive());
     }
