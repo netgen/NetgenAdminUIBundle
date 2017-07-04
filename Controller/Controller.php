@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+use eZ\Bundle\EzPublishCoreBundle\Controller as BaseController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 abstract class Controller extends BaseController

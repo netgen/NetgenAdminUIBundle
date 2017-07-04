@@ -29,13 +29,18 @@ class LayoutsController extends Controller
     /**
      * Renders a template that shows all layouts applied to provided location.
      *
-     * @param \eZ\Publish\API\Repository\Values\Content\Content $content
-     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param int|string $contentId
+     * @param int|string $locationId
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showLocationMappings(Content $content, Location $location)
+    public function showLocationMappings($contentId, $locationId)
     {
+        $repository = $this->getRepository();
+
+        $content = $repository->getContentService()->loadContent($contentId);
+        $location = $repository->getLocationService()->loadLocation($locationId);
+
         if ($content->id !== $location->contentInfo->id) {
             throw new InvalidArgumentException('Location does not belong to provided content.');
         }
