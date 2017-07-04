@@ -9,4 +9,4 @@ grunt.lock
 phpunit.phar
 .php_cs.cache
 build/
-
+extension/
