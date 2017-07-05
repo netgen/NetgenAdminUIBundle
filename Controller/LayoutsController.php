@@ -71,8 +71,8 @@ class LayoutsController extends Controller
     {
         $request = Request::create('');
 
-        $request->attributes->set('contentId', $content->id);
-        $request->attributes->set('locationId', $location->id);
+        $request->attributes->set('content', $content);
+        $request->attributes->set('location', $location);
 
         if (interface_exists('eZ\Publish\Core\MVC\Symfony\View\ContentValueView')) {
             $contentView = new ContentView();
