@@ -5483,6 +5483,10 @@ label {
       color: #333;
       margin-right: 0.25em;
       font-size: 1.2em; }
+  #content-tree-menu .node-name-hiddenbyparent {
+    font-size: 13px;
+    background: transparent !important;
+    color: #9c9c9c; }
   #content-tree-menu .currentnode > a {
     color: #7AC143; }
     #content-tree-menu .currentnode > a span {

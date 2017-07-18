@@ -447,6 +447,11 @@ label {
             font-size:1.2em;
         }
     }
+    .node-name-hiddenbyparent {
+        font-size:13px;
+        background:transparent !important;
+        color:#9c9c9c;
+    }
     .currentnode {
         > a {
             color:$activeColor;
