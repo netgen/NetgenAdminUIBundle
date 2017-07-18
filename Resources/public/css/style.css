@@ -29,6 +29,15 @@
   font-style: italic;
   src: url("../fonts/Roboto/Roboto-italic.eot");
   src: url("../fonts/Roboto/Roboto-italic.eot?#iefix") format("embedded-opentype"), local("Roboto"), local("Roboto-italic"), url("../fonts/Roboto/Roboto-italic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-italic.woff") format("woff"), url("../fonts/Roboto/Roboto-italic.ttf") format("truetype"), url("../fonts/Roboto/Roboto-italic.svg#Roboto") format("svg"); }
+#content-tree-menu .node-name-hidden::before, .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i {
+  display: inline-block;
+  font: normal normal normal 14px FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); }
+
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -5465,10 +5474,21 @@ label {
     color: #444; }
   #content-tree-menu .node-name-normal {
     font-size: 13px; }
+  #content-tree-menu .node-name-hidden {
+    font-size: 13px;
+    background: transparent !important;
+    color: #9c9c9c; }
+    #content-tree-menu .node-name-hidden::before {
+      content: "\f070";
+      color: #333;
+      margin-right: 0.25em;
+      font-size: 1.2em; }
   #content-tree-menu .currentnode > a {
     color: #7AC143; }
     #content-tree-menu .currentnode > a span {
       color: inherit; }
+  #content-tree-menu .currentnode .node-name-hidden {
+    color: #dc835c !important; }
 
 .popupmenu {
   padding: 0;
@@ -5897,15 +5917,6 @@ select.input-sm, .input-group-sm > select.form-control,
   margin-left: -1px; }
 
 /* subitems yui control */
-.fontawesome, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before {
-  display: inline-block;
-  font: normal normal normal 14px FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0); }
-
 #action-controls-container {
   margin: 5px 0 15px; }
   #action-controls-container::after {
