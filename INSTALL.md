@@ -62,7 +62,7 @@ $ php app/console ngadminui:install
 This will install all required configuration in two places:
 
 * `app/config/ngadminui.yml`
-* `ezpublish_legacy/siteaccess/NEW_SITEACCESS_NAME`
+* `ezpublish_legacy/settings/siteaccess/NEW_SITEACCESS_NAME`
  
 where `NEW_SITEACCESS_NAME` will be the name of the new siteaccess you selected during the installation wizard.
 
