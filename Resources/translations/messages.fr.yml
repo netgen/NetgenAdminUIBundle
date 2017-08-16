@@ -1,0 +1,43 @@
+netgen_admin_ui.title: 'Netgen Admin UI'
+
+netgen_admin_ui.layout.loading: 'Chargement...'
+netgen_admin_ui.layout.logout: 'Se déconnecter'
+netgen_admin_ui.layout.path.you_are_here: 'Vous êtes ici:'
+
+netgen_admin_ui.layout.size_warning.title: 'La fenêtre en cours est trop petite'
+netgen_admin_ui.layout.size_warning.text: 'Consider resizing your browser window or switching to another device to properly display the Admin UI interface.'
+
+netgen_admin_ui.login.message.username_password: 'Vérifier votre nom d''utilisateur et votre mot de passe.'
+netgen_admin_ui.login.message.letter_case: 'Toutes les lettres doivent respecter la casse.'
+netgen_admin_ui.login.message.contact_admin: 'Merci de réessayer ou de contacter l''administrateur du site.'
+netgen_admin_ui.login.username: 'Nom d''utilisateur'
+netgen_admin_ui.login.username.title: 'Saisir un nom d''utilisateur valide dans ce champ.'
+netgen_admin_ui.login.password: 'Mot de passe'
+netgen_admin_ui.login.password.title: 'Saisir un mot de passe valide dans ce champ.'
+netgen_admin_ui.login.submit: 'Se connecter'
+netgen_admin_ui.login.submit.title: 'Click here to log in using the username/password combination entered in the fields above.'
+
+netgen_admin_ui.search.search_content: 'Chercher les contenus...'
+
+netgen_admin_ui.user.view_profile: 'Voir le profil'
+netgen_admin_ui.user.change_information: 'Modifier l''information'
+netgen_admin_ui.user.change_password: 'Modifier le mot de passe'
+netgen_admin_ui.user.interface_settings: 'Editer l''interface de configurations'
+netgen_admin_ui.user.show_locations: 'Afficher les emplacements'
+netgen_admin_ui.user.enable_reedit: 'Activer la ré-édition'
+netgen_admin_ui.user.on: 'Activé'
+netgen_admin_ui.user.off: 'Désactivé'
+netgen_admin_ui.user.logout: 'Se déconnecter'
+
+netgen_admin_ui.menu.tags: 'Netgen Tags'
+netgen_admin_ui.menu.cache: 'Cache'
+netgen_admin_ui.menu.clear_cache: 'Vider le cache'
+netgen_admin_ui.menu.bookmarks: 'Les signets'
+
+netgen_admin_ui.layouts.mappings.applied_to: 'Layouts applied to'
+netgen_admin_ui.layouts.mappings.order_note: 'List of layout mappings is ordered by priority.'
+netgen_admin_ui.layouts.mappings.no_rules: 'No mappings'
+netgen_admin_ui.layouts.mappings.mapped_layout: 'Mapped layout'
+netgen_admin_ui.layouts.mappings.targets: 'Cibles'
+netgen_admin_ui.layouts.mappings.conditions: 'Conditions'
+netgen_admin_ui.layouts.mappings.edit_layout: 'Editer le layout'
