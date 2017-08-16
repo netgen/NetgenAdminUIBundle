@@ -5,7 +5,7 @@ netgen_admin_ui.layout.logout: 'Se déconnecter'
 netgen_admin_ui.layout.path.you_are_here: 'Vous êtes ici:'
 
 netgen_admin_ui.layout.size_warning.title: 'La fenêtre en cours est trop petite'
-netgen_admin_ui.layout.size_warning.text: 'Consider resizing your browser window or switching to another device to properly display the Admin UI interface.'
+netgen_admin_ui.layout.size_warning.text: 'Essayez de redimensionner la fenêtre de votre navigateur ou de passer à un autre périphérique pour afficher correctement l''interface UI Admin.'
 
 netgen_admin_ui.login.message.username_password: 'Vérifier votre nom d''utilisateur et votre mot de passe.'
 netgen_admin_ui.login.message.letter_case: 'Toutes les lettres doivent respecter la casse.'
@@ -15,7 +15,7 @@ netgen_admin_ui.login.username.title: 'Saisir un nom d''utilisateur valide dans 
 netgen_admin_ui.login.password: 'Mot de passe'
 netgen_admin_ui.login.password.title: 'Saisir un mot de passe valide dans ce champ.'
 netgen_admin_ui.login.submit: 'Se connecter'
-netgen_admin_ui.login.submit.title: 'Click here to log in using the username/password combination entered in the fields above.'
+netgen_admin_ui.login.submit.title: 'Cliquez ici pour vous connecter en utilisant la combinaison nom d''utilisateur / mot de passe saisies dans les champs ci-dessus.'
 
 netgen_admin_ui.search.search_content: 'Chercher les contenus...'
 
@@ -34,10 +34,10 @@ netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Vider le cache'
 netgen_admin_ui.menu.bookmarks: 'Les signets'
 
-netgen_admin_ui.layouts.mappings.applied_to: 'Layouts applied to'
-netgen_admin_ui.layouts.mappings.order_note: 'List of layout mappings is ordered by priority.'
-netgen_admin_ui.layouts.mappings.no_rules: 'No mappings'
-netgen_admin_ui.layouts.mappings.mapped_layout: 'Mapped layout'
+netgen_admin_ui.layouts.mappings.applied_to: 'Layouts appliqués à'
+netgen_admin_ui.layouts.mappings.order_note: 'Liste des layouts mappings sont triés par priorité.'
+netgen_admin_ui.layouts.mappings.no_rules: 'Pas de mappings'
+netgen_admin_ui.layouts.mappings.mapped_layout: 'Layout mappé'
 netgen_admin_ui.layouts.mappings.targets: 'Cibles'
 netgen_admin_ui.layouts.mappings.conditions: 'Conditions'
 netgen_admin_ui.layouts.mappings.edit_layout: 'Editer le layout'
