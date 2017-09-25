@@ -22,23 +22,28 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
     /**
      * @var bool
      */
-    protected $isAdminSiteAccess;
+    protected $isAdminSiteAccess = false;
 
     /**
      * Constructor.
      *
      * @param \Netgen\TagsBundle\Templating\Twig\AdminGlobalVariable $globalVariable
      * @param string $pageLayoutTemplate
-     * @param bool $isAdminSiteAccess
      */
-    public function __construct(
-        AdminGlobalVariable $globalVariable,
-        $pageLayoutTemplate,
-        $isAdminSiteAccess = false
-    ) {
+    public function __construct(AdminGlobalVariable $globalVariable, $pageLayoutTemplate)
+    {
         $this->globalVariable = $globalVariable;
         $this->pageLayoutTemplate = $pageLayoutTemplate;
-        $this->isAdminSiteAccess = $isAdminSiteAccess;
+    }
+
+    /**
+     * Sets if the current siteaccess will be considered as Netgen Admin UI siteaccess.
+     *
+     * @param bool $isAdminSiteAccess
+     */
+    public function setIsAdminSiteAccess($isAdminSiteAccess = false)
+    {
+        $this->isAdminSiteAccess = (bool)$isAdminSiteAccess;
     }
 
     /**
