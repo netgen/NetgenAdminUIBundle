@@ -1,5 +1,11 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.0.3 (25.09.2017)
+
+* Use setter injection for an event listener to fix deprecation notice
+* Added French translations (thanks @sdaoudi)
+* Fix install docs (thanks @sdaoudi)
+
 ## 2.0.2 (05.07.2017)
 
 * Fixed showing Netgen Layouts location mappings on eZ Publish 5
