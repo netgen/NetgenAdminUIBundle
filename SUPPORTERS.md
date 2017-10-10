@@ -1,5 +1,4 @@
-SUPPORTERS
-----------
+# SUPPORTERS
 
 This bundle, built by [Netgen](https://www.netgenlabs.com), is also partially supported by the following companies:
 
