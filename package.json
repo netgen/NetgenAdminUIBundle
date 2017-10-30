@@ -1,0 +1,17 @@
+{
+  "name": "netgen-admin-ui",
+  "author": "Netgen",
+  "bugs": {
+    "url": "https://github.com/netgen/NetgenAdminUIBundle/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-lock": "^0.1.3",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "jit-grunt": "^0.10.0",
+    "time-grunt": "^1.4.0"
+  }
+}
