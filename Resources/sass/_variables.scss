@@ -24,3 +24,7 @@ $btnBorder: #e4e4e4;
 @mixin overlayShadow() {
     -moz-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); -webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15); box-shadow:0 2px 4px 0 rgba(0,0,0,0.125), 0 0 20px 0 rgba(0,0,0,0.15);
 }
+
+%fontawesome {
+    display:inline-block; font:normal normal normal $fontSize/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);
+}

@@ -435,12 +435,32 @@ label {
     .node-name-normal {
         font-size:13px;
     }
+    .node-name-hidden {
+        font-size:13px;
+        background:transparent !important;
+        color:#9c9c9c;
+        &::before {
+            @extend %fontawesome;
+            content:"\f070";
+            color:#333;
+            margin-right:0.25em;
+            font-size:1.2em;
+        }
+    }
+    .node-name-hiddenbyparent {
+        font-size:13px;
+        background:transparent !important;
+        color:#9c9c9c;
+    }
     .currentnode {
         > a {
             color:$activeColor;
             span {
                 color:inherit;
             }
+        }
+        .node-name-hidden {
+            color:#dc835c !important;
         }
     }
 }
@@ -760,7 +780,7 @@ select.input-sm {line-height:1.5;}
 
 /* subitems yui control */
 .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before {
-        display:inline-block; font:normal normal normal $fontSize/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);
+        @extend %fontawesome;
 }
 
 #action-controls-container {
@@ -1537,7 +1557,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 .thumbview {
     background:transparent;
     &::before {
-        @extend .fontawesome; content:"\f030"; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); cursor:pointer; font-size:13px;
+        @extend %fontawesome; content:"\f030"; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); cursor:pointer; font-size:13px;
     }
 }
 
@@ -1734,7 +1754,7 @@ $yuiInputHeight: 26px;
                             border:none; width:$yuiInputHeight; height:$yuiInputHeight; background:transparent; position:relative;
                         }
                         &::before {
-                            @extend .fontawesome; position:absolute; display:block; width:$yuiInputHeight; height:$yuiInputHeight; text-align:center; line-height:$yuiInputHeight; color:#fff;
+                            @extend %fontawesome; position:absolute; display:block; width:$yuiInputHeight; height:$yuiInputHeight; text-align:center; line-height:$yuiInputHeight; color:#fff;
                         }
                         &.block-control-up::before {
                             content:"\f062";
@@ -1755,7 +1775,7 @@ $yuiInputHeight: 26px;
                     .trigger {
                         width:$yuiInputHeight; height:$yuiInputHeight; margin:0 6px 0 0; background:rgba(#fff, .15); color:#fff; text-align:center; line-height:$yuiInputHeight; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;
                         &::before {
-                            @extend .fontawesome; content:"\f103";
+                            @extend %fontawesome; content:"\f103";
                         }
                         &.collapse::before {
                             content:"\f102";
@@ -1985,7 +2005,7 @@ $yuiInputHeight: 26px;
             font-size:42px;
             &::before,
             &::after {
-                @extend .fontawesome;
+                @extend %fontawesome;
             }
             &::before {
                 content:"\f108";
@@ -2031,7 +2051,7 @@ $yuiInputHeight: 26px;
 #menu-toggle {
     display:none;
     i {
-        @extend .fontawesome;
+        @extend %fontawesome;
         &::before {
             content:"\f101";
         }
