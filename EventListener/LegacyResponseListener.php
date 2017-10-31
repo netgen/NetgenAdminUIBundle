@@ -2,9 +2,9 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
-use Netgen\Bundle\AdminUIBundle\Exception\NotFoundHttpException;
 use eZ\Bundle\EzPublishLegacyBundle\LegacyResponse;
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
+use Netgen\Bundle\AdminUIBundle\Exception\NotFoundHttpException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
@@ -40,9 +40,10 @@ class LegacyResponseListener implements EventSubscriberInterface
     /**
      * Converts the legacy 404 response to proper Symfony exception.
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
      * @param \Symfony\Component\HttpKernel\Event\FilterResponseEvent $event
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function onKernelResponse(FilterResponseEvent $event)
     {
@@ -56,7 +57,7 @@ class LegacyResponseListener implements EventSubscriberInterface
             return;
         }
 
-        if (!$this->legacyMode && $response->getStatusCode() == Response::HTTP_NOT_FOUND) {
+        if (!$this->legacyMode && (int) $response->getStatusCode() === Response::HTTP_NOT_FOUND) {
             $moduleResult = $response->getModuleResult();
             $exception = new NotFoundHttpException(
                 isset($moduleResult['errorMessage']) ?

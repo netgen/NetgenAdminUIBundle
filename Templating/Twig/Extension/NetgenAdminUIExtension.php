@@ -2,11 +2,11 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension;
 
+use Closure;
+use eZPreferences;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
 use Twig_Extension;
 use Twig_SimpleFunction;
-use eZPreferences;
-use Closure;
 
 class NetgenAdminUIExtension extends Twig_Extension
 {

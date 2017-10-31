@@ -2,8 +2,8 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Installer\Generator;
 
-use Twig_Loader_Filesystem;
 use Twig_Environment;
+use Twig_Loader_Filesystem;
 
 abstract class Generator
 {
