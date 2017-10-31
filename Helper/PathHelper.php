@@ -2,10 +2,10 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Helper;
 
+use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 use eZ\Publish\API\Repository\LocationService;
 use eZ\Publish\Core\Helper\TranslationHelper;
 use Symfony\Component\Routing\RouterInterface;
-use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 
 class PathHelper
 {
@@ -53,7 +53,7 @@ class PathHelper
      */
     public function setRootLocationId($rootLocationId)
     {
-        $this->rootLocationId = $rootLocationId;
+        $this->rootLocationId = (int) $rootLocationId;
     }
 
     /**
@@ -67,7 +67,8 @@ class PathHelper
     {
         $pathArray = array();
 
-        $path = $this->locationService->loadLocation($locationId)->path;
+        $startingLocation = $this->locationService->loadLocation($locationId);
+        $path = $startingLocation->path;
 
         // Shift of location "1" from path as it is not
         // a fully valid location and not readable by most users
@@ -75,7 +76,7 @@ class PathHelper
 
         $rootLocationFound = false;
         foreach ($path as $index => $pathItem) {
-            if ($pathItem == $this->rootLocationId) {
+            if ((int) $pathItem === $this->rootLocationId) {
                 $rootLocationFound = true;
             }
 
@@ -93,7 +94,7 @@ class PathHelper
                 'text' => $this->translationHelper->getTranslatedContentNameByContentInfo(
                     $location->contentInfo
                 ),
-                'url' => $location->id != $locationId ?
+                'url' => $location->id !== $startingLocation->id ?
                     $this->router->generate($location) :
                     false,
                 'locationId' => $location->id,

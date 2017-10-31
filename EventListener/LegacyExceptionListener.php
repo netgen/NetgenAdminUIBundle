@@ -3,9 +3,9 @@
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class LegacyExceptionListener implements EventSubscriberInterface

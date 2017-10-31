@@ -2,16 +2,16 @@
 
 namespace Netgen\Bundle\AdminUIBundle\DependencyInjection;
 
+use Netgen\BlockManager\Version as BlockManagerVersion;
+use Netgen\TagsBundle\Version as TagsBundleVersion;
+use RuntimeException;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
-use Netgen\TagsBundle\Version as TagsBundleVersion;
-use Netgen\BlockManager\Version as BlockManagerVersion;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
-use RuntimeException;
 
 class NetgenAdminUIExtension extends Extension implements PrependExtensionInterface
 {

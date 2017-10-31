@@ -2,20 +2,20 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Command;
 
+use Exception;
 use eZ\Publish\API\Repository\Exceptions\NotFoundException;
+use InvalidArgumentException;
+use Netgen\Bundle\AdminUIBundle\Installer\Generator\ConfigurationGenerator;
+use Netgen\Bundle\AdminUIBundle\Installer\Generator\LegacySiteAccessGenerator;
+use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Process\ProcessBuilder;
-use Netgen\Bundle\AdminUIBundle\Installer\Generator\LegacySiteAccessGenerator;
-use Netgen\Bundle\AdminUIBundle\Installer\Generator\ConfigurationGenerator;
-use InvalidArgumentException;
-use Exception;
-use RuntimeException;
 
 class InstallCommand extends ContainerAwareCommand
 {

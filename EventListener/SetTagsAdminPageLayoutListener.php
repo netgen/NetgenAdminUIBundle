@@ -43,7 +43,7 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
      */
     public function setIsAdminSiteAccess($isAdminSiteAccess = false)
     {
-        $this->isAdminSiteAccess = (bool)$isAdminSiteAccess;
+        $this->isAdminSiteAccess = (bool) $isAdminSiteAccess;
     }
 
     /**
