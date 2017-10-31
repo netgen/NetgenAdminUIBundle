@@ -5988,6 +5988,10 @@ select.form-control {
     display: inline-block;
     margin-right: 5px;
     float: left; }
+  .radio select.form-control,
+  .checkbox select.form-control {
+    display: inline-block;
+    width: auto; }
 
 select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > select.input-group-addon,

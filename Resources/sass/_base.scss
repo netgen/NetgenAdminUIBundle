@@ -773,6 +773,10 @@ select.form-control {
     &.inline {
         width:auto; display:inline-block; margin-right:5px; float:left;
     }
+    .radio &,
+    .checkbox & {
+        display: inline-block; width: auto;
+    }
 }
 
 select.input-sm {line-height:1.5;}
