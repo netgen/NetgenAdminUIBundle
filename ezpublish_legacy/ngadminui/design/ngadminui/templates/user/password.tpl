@@ -32,17 +32,17 @@
 
 
 <div class="panel">
+    {* DESIGN: Header START *}
+    <div class="panel-hl">
+        <h3>{'Change password for %username'|i18n( 'design/admin/user/password',, hash( '%username', $userAccount.login ) )|wash}</h3>
+    </div>
+
+    {* DESIGN: Mainline *}
+    {* DESIGN: Header END *}
+
     <div class="row">
         <div class="col-lg-6">
             <form name="Password" method="post" action={concat( $module.functions.password.uri, '/', $userID )|ezurl}>
-
-                {* DESIGN: Header START *}
-                <div class="panel-hl">
-                    <h3>{'Change password for %username'|i18n( 'design/admin/user/password',, hash( '%username', $userAccount.login ) )|wash}</h3>
-                </div>
-
-                {* DESIGN: Mainline *}
-                {* DESIGN: Header END *}
                 {* DESIGN: Content START *}
 
                 {* Username. *}

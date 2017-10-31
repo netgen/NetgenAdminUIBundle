@@ -764,7 +764,8 @@ table.list {
 .form-group label {font-weight:400; font-size:1em;}
 select.form-control {
     -webkit-appearance:none; -moz-appearance:none; appearance:none; background:#f8f8f8 url(../images/select-bg.png) no-repeat right 5px center; background-size:contain; padding-right:18px; padding-left:8px; cursor:pointer;
-    &.form-control-multiple {
+    &.form-control-multiple,
+    &[multiple] {
         background-image:none; padding:0;
         option {
             padding:2px 10px;
@@ -1229,7 +1230,7 @@ table {
 }
 
 .box-header {
-    border:none; margin:0; font-size:100%; background:$lightBg; padding:0 $gutter; display:inline-block; width:100%;
+    border:none; margin:0; font-size:100%; background:$lightBg; padding:$gutter $gutter 0; display:inline-block; width:100%;
     h1 {
         margin:0 0 20px; font-size:23px; color:#333;
         .small-info {

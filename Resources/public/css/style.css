@@ -5978,10 +5978,10 @@ select.form-control {
   padding-right: 18px;
   padding-left: 8px;
   cursor: pointer; }
-  select.form-control.form-control-multiple {
+  select.form-control.form-control-multiple, select.form-control[multiple] {
     background-image: none;
     padding: 0; }
-    select.form-control.form-control-multiple option {
+    select.form-control.form-control-multiple option, select.form-control[multiple] option {
       padding: 2px 10px; }
   select.form-control.inline {
     width: auto;
@@ -6608,7 +6608,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
   margin: 0;
   font-size: 100%;
   background: #f5f5f5;
-  padding: 0 15px;
+  padding: 15px 15px 0;
   display: inline-block;
   width: 100%; }
   .box-header h1 {
