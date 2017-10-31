@@ -26,7 +26,6 @@
                 <directory>Exception</directory>
                 <directory>extension</directory>
                 <directory>ezpublish_legacy</directory>
-                <directory>Helper</directory>
                 <directory>Installer</directory>
                 <directory>Resources</directory>
                 <directory>Templating</directory>
