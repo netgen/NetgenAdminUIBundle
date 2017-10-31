@@ -2,14 +2,11 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\Helper;
 
-use eZ\Publish\API\Repository\LocationService;
 use eZ\Publish\API\Repository\Values\Content\ContentInfo;
 use eZ\Publish\Core\Base\Exceptions\UnauthorizedException;
-use eZ\Publish\Core\Helper\TranslationHelper;
 use eZ\Publish\Core\Repository\Values\Content\Location;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Routing\RouterInterface;
 
 class PathHelperTest extends TestCase
 {
@@ -40,9 +37,15 @@ class PathHelperTest extends TestCase
 
     public function setUp()
     {
-        $this->locationService = $this->createMock(LocationService::class);
-        $this->translationHelper = $this->createMock(TranslationHelper::class);
-        $this->router = $this->createMock(RouterInterface::class);
+        $this->locationService = $this->getMockBuilder('eZ\Publish\API\Repository\LocationService')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->translationHelper = $this->getMockBuilder('eZ\Publish\Core\Helper\TranslationHelper')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->router = $this->getMockBuilder('Symfony\Component\Routing\RouterInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $this->rootLocation = new Location(array(
             'id' => 2,
