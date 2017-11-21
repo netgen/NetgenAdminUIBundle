@@ -1,10 +1,16 @@
 # Netgen Admin UI Bundle changelog
 
-## 2.0.3 (21.11.2017)
+## 2.0.4 (21.11.2017)
 
 * Allow installing eZ kernel 7.0
 * Styling unstyled pages
 * Various fixes to design
+
+## 2.0.3 (25.09.2017)
+
+* Use setter injection for an event listener to fix deprecation notice
+* Added French translations (thanks @sdaoudi)
+* Fix install docs (thanks @sdaoudi)
 
 ## 2.0.2 (05.07.2017)
 
