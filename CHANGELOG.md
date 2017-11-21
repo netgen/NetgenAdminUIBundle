@@ -2,6 +2,7 @@
 
 ## 2.0.3 (21.11.2017)
 
+* Allow installing eZ kernel 7.0
 * Styling unstyled pages
 * Various fixes to design
 
