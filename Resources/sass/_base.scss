@@ -1049,7 +1049,7 @@ table {
     }
 }
 .path-edit-container {
-    /* min-height:45px; */ background:$lightBg;
+    min-height:$gutter; background:$lightBg;
 }
 
 #trash {padding:10px 0;}

@@ -6361,7 +6361,7 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
       text-overflow: ellipsis; }
 
 .path-edit-container {
-  /* min-height:45px; */
+  min-height: 15px;
   background: #f5f5f5; }
 
 #trash {
