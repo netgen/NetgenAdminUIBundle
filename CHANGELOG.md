@@ -1,5 +1,10 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.0.3 (21.11.2017)
+
+* Styling unstyled pages
+* Various fixes to design
+
 ## 2.0.2 (05.07.2017)
 
 * Fixed showing Netgen Layouts location mappings on eZ Publish 5
