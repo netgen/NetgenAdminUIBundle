@@ -1,6 +1,7 @@
 services:
     netgen_admin_ui.controller.base:
         class: Netgen\Bundle\AdminUIBundle\Controller\Controller
+        public: false
         abstract: true
         calls:
             - [initialize, ["@service_container"]]

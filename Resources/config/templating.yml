@@ -1,6 +1,7 @@
 services:
     netgen_admin_ui.templating.global_variable:
         class: Netgen\Bundle\AdminUIBundle\Templating\GlobalVariable
+        public: false
         arguments:
             - "@netgen_admin_ui.menu_plugin.registry"
             - "@request_stack"
@@ -8,6 +9,7 @@ services:
 
     netgen_admin_ui.templating.twig.extension:
         class: Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension\NetgenAdminUIExtension
+        public: false
         arguments:
             - "@netgen_admin_ui.helper.path_helper"
             - "@ezpublish_legacy.kernel"

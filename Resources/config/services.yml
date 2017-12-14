@@ -1,6 +1,7 @@
 services:
     netgen_admin_ui.event_listener.security:
         class: Netgen\Bundle\AdminUIBundle\EventListener\SecurityListener
+        # public: false
         arguments:
             - "@request_stack"
             - "@ezpublish.api.repository"
@@ -12,6 +13,7 @@ services:
 
     netgen_admin_ui.event_listener.legacy_response:
         class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyResponseListener
+        # public: false
         arguments:
             - "$legacy_mode$"
         tags:
@@ -19,6 +21,7 @@ services:
 
     netgen_admin_ui.event_listener.legacy_exception:
         class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyExceptionListener
+        # public: false
         arguments:
             - "$is_admin_ui_siteaccess;netgen_admin_ui$"
         tags:
@@ -26,6 +29,7 @@ services:
 
     netgen_admin_ui.event_listener.controller:
         class: Netgen\Bundle\AdminUIBundle\EventListener\ControllerListener
+        # public: false
         arguments:
             - "@controller_resolver"
             - "$is_admin_ui_siteaccess;netgen_admin_ui$"
@@ -35,6 +39,7 @@ services:
 
     netgen_admin_ui.helper.path_helper:
         class: Netgen\Bundle\AdminUIBundle\Helper\PathHelper
+        public: false
         arguments:
             - "@ezpublish.api.service.location"
             - "@ezpublish.translation_helper"

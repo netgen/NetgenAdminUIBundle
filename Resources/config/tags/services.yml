@@ -1,6 +1,7 @@
 services:
     netgen_admin_ui.event_listener.set_tags_admin_pagelayout:
         class: Netgen\Bundle\AdminUIBundle\EventListener\SetTagsAdminPageLayoutListener
+        # public: false
         arguments:
             - "@eztags.templating.admin_global_variable"
             - "%netgen_admin_ui.tags.pagelayout%"

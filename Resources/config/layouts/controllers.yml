@@ -1,6 +1,7 @@
 services:
     netgen_admin_ui.controller.layouts:
         class: Netgen\Bundle\AdminUIBundle\Controller\LayoutsController
+        public: true
         parent: netgen_admin_ui.controller.base
         arguments:
             - "@netgen_block_manager.layout.resolver"
