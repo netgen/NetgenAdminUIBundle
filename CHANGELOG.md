@@ -1,5 +1,10 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.1.0 (14.12.2017)
+
+* Mark all services as private/public for compatibility with Symfony 3.4
+* Test on eZ kernel 6 and PHP 7.2
+
 ## 2.0.4 (21.11.2017)
 
 * Allow installing eZ kernel 7.0
