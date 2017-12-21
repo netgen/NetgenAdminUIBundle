@@ -1,5 +1,9 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.1.1 (21.12.2017)
+
+* Fix a crash when Netgen Tags Bundle is installed but not activated
+
 ## 2.1.0 (14.12.2017)
 
 * Mark all services as private/public for compatibility with Symfony 3.4
