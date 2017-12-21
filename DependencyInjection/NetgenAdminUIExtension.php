@@ -30,17 +30,17 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         $loader->load('controllers.yml');
         $loader->load('services.yml');
 
-        $activatedBundles = array_keys($container->getParameter('kernel.bundles'));
+        $activatedBundles = $container->getParameter('kernel.bundles');
 
-        if (!in_array('EzCoreExtraBundle', $activatedBundles, true)) {
+        if (!array_key_exists('EzCoreExtraBundle', $activatedBundles)) {
             throw new RuntimeException('Netgen Admin UI Bundle requires EzCoreExtraBundle (lolautruche/ez-core-extra-bundle) to be activated to work properly.');
         }
 
-        if (class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::MAJOR_VERSION >= 3) {
+        if ($this->hasTags($activatedBundles)) {
             $loader->load('tags/services.yml');
         }
 
-        if ($this->hasLayouts($container)) {
+        if ($this->hasLayouts($activatedBundles)) {
             $loader->load('layouts/controllers.yml');
         }
 
@@ -61,7 +61,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
             'framework/twig.yml' => 'twig',
         );
 
-        if ($this->hasLayouts($container)) {
+        if ($this->hasLayouts($container->getParameter('kernel.bundles'))) {
             $configs['layouts/view.yml'] = 'netgen_block_manager';
         }
 
@@ -76,11 +76,11 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
     /**
      * Returns if Netgen Layouts is active or not.
      *
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array $activatedBundles
      *
      * @return bool
      */
-    protected function hasLayouts(ContainerBuilder $container)
+    protected function hasLayouts(array $activatedBundles)
     {
         if (!class_exists('Netgen\BlockManager\Version')) {
             return false;
@@ -90,8 +90,26 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
             return false;
         }
 
-        $activatedBundles = $container->getParameter('kernel.bundles');
-
         return array_key_exists('NetgenBlockManagerBundle', $activatedBundles);
+    }
+
+    /**
+     * Returns if Netgen Tags v3+ is active or not.
+     *
+     * @param array $activatedBundles
+     *
+     * @return bool
+     */
+    protected function hasTags(array $activatedBundles)
+    {
+        if (!class_exists('Netgen\TagsBundle\Version')) {
+            return false;
+        }
+
+        if (TagsBundleVersion::MAJOR_VERSION < 3) {
+            return false;
+        }
+
+        return array_key_exists('NetgenTagsBundle', $activatedBundles);
     }
 }
