@@ -9,3 +9,21 @@ _ezpublishPreviewContentDefaultSa:
     defaults:
         _controller: "ezpublish_legacy.controller:indexAction"
     methods:  [GET]
+
+# Overrides for eZ Platform Admin UI routes conflicting with eZ Publish Legacy
+
+ezplatform.section.list:
+    path: /sections/list
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:Section:list'
+
+ezplatform.section.view:
+    path: /sections/view/{sectionId}
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:Section:view'
+
+ezplatform.role.list:
+    path: /roles/list
+    methods: ['GET']
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:Role:list'
