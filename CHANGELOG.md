@@ -1,5 +1,9 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.1.2 (22.12.2017)
+
+* Override eZ Platform Admin UI routes conflicting with eZ Publish Legacy
+
 ## 2.1.1 (21.12.2017)
 
 * Fix a crash when Netgen Tags Bundle is installed but not activated
