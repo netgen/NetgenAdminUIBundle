@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpKernel\Kernel;
@@ -43,6 +44,7 @@ class InstallCommand extends ContainerAwareCommand
             array(
                 new InputOption('site-access-name', '', InputOption::VALUE_REQUIRED, 'Siteaccess name'),
                 new InputOption('language-code', '', InputOption::VALUE_REQUIRED, 'Language code'),
+                new InputOption('site-access-group', '', InputOption::VALUE_REQUIRED, 'Siteaccess group'),
             )
         );
         $this->setDescription('Netgen Admin UI installation');
@@ -96,7 +98,7 @@ class InstallCommand extends ContainerAwareCommand
     {
         $siteAccess = $this->askForData(
             'site-access-name',
-            'Siteaccess name',
+            'Enter the name of the Netgen Admin UI siteaccess',
             'ngadminui',
             function ($siteaccess) {
                 if (!preg_match('/^[a-z][a-z0-9_]*$/', $siteaccess)) {
@@ -116,9 +118,11 @@ class InstallCommand extends ContainerAwareCommand
             }
         );
 
+        $this->output->writeln('');
+
         $languageCode = $this->askForData(
             'language-code',
-            'Language code',
+            'Enter the language code in which the Netgen Admin UI will be translated',
             'eng-GB',
             function ($languageCode) {
                 $languageService = $this->getContainer()->get('ezpublish.api.repository')->getContentLanguageService();
@@ -135,11 +139,23 @@ class InstallCommand extends ContainerAwareCommand
             }
         );
 
+        $this->output->writeln('');
+
+        $availableGroups = array_keys($this->getContainer()->getParameter('ezpublish.siteaccess.groups'));
+        $availableGroups[] = 'default';
+
+        $siteAccessGroup = $this->askForChoiceData(
+            'site-access-group',
+            'Enter the siteaccess group name on which the Netgen Admin UI configuration will be based. This is usually the name of your frontend siteaccess group',
+            $availableGroups,
+            current($availableGroups)
+        );
+
         $this->writeSection('Summary before installation');
 
         $this->output->writeln(
             array(
-                'You are going to generate legacy <info>' . $siteAccess . '</info> siteaccess with <info>' . $languageCode . '</info> language code.',
+                'You are going to generate legacy <info>' . $siteAccess . '</info> siteaccess with <info>' . $languageCode . '</info> language code based on <info>' . $siteAccessGroup . '</info> siteaccess group.',
                 '',
             )
         );
@@ -288,7 +304,35 @@ class InstallCommand extends ContainerAwareCommand
     }
 
     /**
-     * Instantiates and returns a question.
+     * Asks a choice question that fills provided option.
+     *
+     * @param string $optionIdentifier
+     * @param string $optionName
+     * @param array $choices
+     * @param string $defaultValue
+     *
+     * @return string
+     */
+    protected function askForChoiceData($optionIdentifier, $optionName, array $choices, $defaultValue)
+    {
+        $optionValue = $this->input->getOption($optionIdentifier);
+        $optionValue = !empty($optionValue) ? $optionValue :
+            $defaultValue;
+
+        $question = $this->getChoiceQuestion($optionName, $optionValue, $choices);
+        $optionValue = $this->questionHelper->ask(
+            $this->input,
+            $this->output,
+            $question
+        );
+
+        $this->input->setOption($optionIdentifier, $optionValue);
+
+        return $optionValue;
+    }
+
+    /**
+     * Instantiates and returns a choice question.
      *
      * @param string $questionName
      * @param string $defaultValue
@@ -308,6 +352,24 @@ class InstallCommand extends ContainerAwareCommand
         }
 
         return $question;
+    }
+
+    /**
+     * Instantiates and returns a question.
+     *
+     * @param string $questionName
+     * @param string $defaultValue
+     * @param array $choices
+     *
+     * @return \Symfony\Component\Console\Question\Question
+     */
+    protected function getChoiceQuestion($questionName, $defaultValue = null, array $choices = array())
+    {
+        $questionName = $defaultValue
+            ? '<info>' . $questionName . '</info> [<comment>' . $defaultValue . '</comment>]: '
+            : '<info>' . $questionName . '</info>: ';
+
+        return new ChoiceQuestion($questionName, $choices, $defaultValue);
     }
 
     /**

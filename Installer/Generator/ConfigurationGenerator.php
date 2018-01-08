@@ -43,9 +43,14 @@ class ConfigurationGenerator extends Generator
     public function generate(InputInterface $input, OutputInterface $output)
     {
         $fileSystem = $this->container->get('filesystem');
+        $configResolver = $this->container->get('ezpublish.config.resolver');
         $kernelRootDir = $this->container->getParameter('kernel.root_dir');
-        $varDir = $this->container->getParameter('ezsettings.default.var_dir');
-        $repository = $this->container->getParameter('ezsettings.default.repository');
+
+        $siteAccessGroup = $input->getOption('site-access-group');
+
+        $varDir = $configResolver->getParameter('var_dir', null, $siteAccessGroup);
+        $repository = $configResolver->getParameter('repository', null, $siteAccessGroup);
+
         $configFile = $kernelRootDir . '/config/ngadminui.yml';
 
         if ($fileSystem->exists($configFile)) {
