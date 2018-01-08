@@ -26,7 +26,7 @@ public function registerBundles()
 ## Use Composer to install the package 
 
 ```
-composer require netgen/admin-ui-bundle:^2.0
+composer require netgen/admin-ui-bundle:^2.1
 ```
 
 ## Import the `routing.yml` from the bundle into your main `routing.yml` file
@@ -56,7 +56,7 @@ ActiveExtensions[]=ezoe
 Run the following command from your installation root to install Netgen Admin UI configuration and follow on-screen instructions:
 
 ```
-$ php app/console ngadminui:install
+$ php bin/console ngadminui:install
 ```
 
 This will install all required configuration in two places:
