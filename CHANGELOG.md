@@ -1,5 +1,9 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.1.3 (08.01.2018)
+
+* Add option to installer to ask for siteaccess group to base the config on
+
 ## 2.1.2 (22.12.2017)
 
 * Override eZ Platform Admin UI routes conflicting with eZ Publish Legacy
