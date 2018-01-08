@@ -23,7 +23,7 @@ return PhpCsFixer\Config::create()
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->exclude(['vendor', 'ezpublish_legacy', 'Resources', 'Installer/_templates'])
+            ->exclude(['vendor', 'ezpublish_legacy', 'extension', 'Resources', 'Installer/_templates'])
             ->in(__DIR__)
     )
 ;
