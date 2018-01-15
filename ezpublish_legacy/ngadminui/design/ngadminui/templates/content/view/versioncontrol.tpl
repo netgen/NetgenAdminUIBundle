@@ -37,4 +37,5 @@
     {/if}
 
     <input type="hidden" name="ChangeSettingsButton" value="{'Update view'|i18n( 'design/admin/content/view/versionview' )}" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" />
+    <input type="hidden" name="ezxform_token" value="@$ezxFormToken@" />
 </form>
