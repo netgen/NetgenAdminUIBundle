@@ -1,5 +1,9 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.1.4 (15.01.2018)
+
+* Fix exception when using preview with activated legacy `ezformtoken` extension
+
 ## 2.1.3 (08.01.2018)
 
 * Add option to installer to ask for siteaccess group to base the config on
