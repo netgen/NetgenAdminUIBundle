@@ -11,8 +11,8 @@ module.exports = function (grunt) {
 
     // Configurable paths
     var config = {
-        resources_dir: 'Resources/',
-        public_dir: 'Resources/public/'
+        resources_dir: 'bundle/Resources/',
+        public_dir: 'bundle/Resources/public/'
     };
 
     // Define the configuration for all the tasks

@@ -12,26 +12,22 @@
 >
     <testsuites>
         <testsuite name="NetgenAdminUIBundleTests">
-            <directory>Tests</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory>.</directory>
+            <directory suffix=".php">bundle</directory>
             <exclude>
-                <directory>Command</directory>
-                <directory>Controller</directory>
-                <directory>DependencyInjection</directory>
-                <directory>EventListener</directory>
-                <directory>Exception</directory>
-                <directory>extension</directory>
-                <directory>ezpublish_legacy</directory>
-                <directory>Installer</directory>
-                <directory>Resources</directory>
-                <directory>Templating</directory>
-                <directory>Tests</directory>
-                <directory>vendor</directory>
-                <file>NetgenAdminUIBundle.php</file>
+                <directory>bundle/Command</directory>
+                <directory>bundle/Controller</directory>
+                <directory>bundle/DependencyInjection</directory>
+                <directory>bundle/EventListener</directory>
+                <directory>bundle/Exception</directory>
+                <directory>bundle/Installer</directory>
+                <directory>bundle/Resources</directory>
+                <directory>bundle/Templating</directory>
+                <file>bundle/NetgenAdminUIBundle.php</file>
             </exclude>
         </whitelist>
     </filter>
