@@ -11,6 +11,7 @@ _ezpublishPreviewContentDefaultSa:
     methods:  [GET]
 
 # Overrides for eZ Platform Admin UI routes conflicting with eZ Publish Legacy
+# https://github.com/ezsystems/ezplatform-admin-ui/pull/287
 
 ezplatform.section.list:
     path: /sections/list
