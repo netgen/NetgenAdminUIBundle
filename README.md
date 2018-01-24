@@ -13,17 +13,17 @@ Netgen Admin UI requires a fully functional eZ Publish Community 2014.12 (Netgen
 eZ Publish 5 or eZ Platform with Legacy Bridge so make sure you have it installed and fully
 configured before installing Netgen Admin UI.
 
-Developed by Netgen with the help of our [SUPPORTERS](SUPPORTERS.md).
+Developed by Netgen with the help of our [SUPPORTERS](doc/SUPPORTERS.md).
 
 Install instructions
 --------------------
 
-See [INSTALL.md](INSTALL.md) to install the bundle.
+See [INSTALL.md](doc/INSTALL.md) to install the bundle.
 
 Changelog
 ---------
 
-See [CHANGELOG.md](CHANGELOG.md) for details.
+See [CHANGELOG.md](doc/CHANGELOG.md) for details.
 
 License
 -------
