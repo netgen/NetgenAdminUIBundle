@@ -28,3 +28,18 @@ ezplatform.role.list:
     methods: ['GET']
     defaults:
         _controller: 'EzPlatformAdminUiBundle:Role:list'
+
+ezplatform.object_state.groups.list:
+    path: /state/groups/list
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:list'
+
+ezplatform.object_state.group.view:
+    path: /state/groups/{objectStateGroupId}
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:view'
+
+ezplatform.object_state.group.add:
+    path: /state/groups/create
+    defaults:
+        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:add'
