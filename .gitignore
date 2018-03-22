@@ -11,3 +11,4 @@ style.css.map
 .php_cs.cache
 build/
 extension/
+package-lock.json
