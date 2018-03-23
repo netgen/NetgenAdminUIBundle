@@ -7,7 +7,9 @@ configured before installing Netgen Admin UI.
 
 ## Activate the Admin UI bundle along with other required bundles
 
-Adding the bundle to the kernel before installing it via Composer makes sure that the legacy extension is symlinked to eZ Publish Legacy extension folder as well as that bundle assets will be installed immediately after requiring the package.
+Adding the bundle to the kernel before installing it via Composer makes sure that the legacy
+extension is symlinked to eZ Publish Legacy extension folder as well as that bundle assets
+will be installed immediately after requiring the package.
 
 Add the following in your `app/AppKernel.php` file:
 
@@ -26,12 +28,13 @@ public function registerBundles()
 ## Use Composer to install the package 
 
 ```
-composer require netgen/admin-ui-bundle:^2.1
+composer require netgen/admin-ui-bundle
 ```
 
 ## Import the `routing.yml` from the bundle into your main `routing.yml` file
 
-Since this file overrides some built in routes, make sure you put it at the end of your `routing.yml`:
+Since this file overrides some built in routes, make sure you put it at the end of your
+`routing.yml`:
 
 ```
 _netgen_admin_ui:
@@ -40,7 +43,8 @@ _netgen_admin_ui:
 
 ## Activate the legacy `ngadminui` extension along with other required extensions
 
-Add the following in your central `site.ini.append.php` file (usually `ezpublish_legacy/settings/override/site.ini.append.php`):
+Add the following in your central `site.ini.append.php` file (usually
+`ezpublish_legacy/settings/override/site.ini.append.php`):
 
 ```
 [ExtensionSettings]
@@ -53,7 +57,8 @@ ActiveExtensions[]=ezoe
 
 ## Run the installation wizard
 
-Run the following command from your installation root to install Netgen Admin UI configuration and follow on-screen instructions:
+Run the following command from your installation root to install Netgen Admin UI configuration
+and follow on-screen instructions:
 
 ```
 $ php bin/console ngadminui:install
@@ -64,7 +69,8 @@ This will install all required configuration in two places:
 * `app/config/ngadminui.yml`
 * `ezpublish_legacy/settings/siteaccess/NEW_SITEACCESS_NAME`
  
-where `NEW_SITEACCESS_NAME` will be the name of the new siteaccess you selected during the installation wizard.
+where `NEW_SITEACCESS_NAME` will be the name of the new siteaccess you selected during the
+installation wizard.
 
 ## Activate the generated configuration
 
@@ -77,7 +83,8 @@ imports:
     - { resource: ngadminui.yml }
 ```
 
-Activate the generated legacy siteaccess in your central `site.ini.append.php` file (usually `ezpublish_legacy/settings/override/site.ini.append.php`):
+Activate the generated legacy siteaccess in your central `site.ini.append.php` file (usually
+`ezpublish_legacy/settings/override/site.ini.append.php`):
 
 ```
 [SiteAccessSettings]
@@ -86,6 +93,7 @@ AvailableSiteAccessList[]=NEW_SITEACCESS_NAME
 
 ## That's it
 
-Clear the caches and make sure that **only your editors/administrators** have `user/login` policy to the new Admin UI siteaccess.
+Clear the caches and make sure that **only your editors/administrators** have `user/login` policy
+to the new Admin UI siteaccess.
 
 Admin UI will be accessible at `/NEW_SITEACCESS_NAME` URL of your installation.
