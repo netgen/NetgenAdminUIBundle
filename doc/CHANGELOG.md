@@ -1,5 +1,10 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.2.0 (23.02.2018)
+
+* New bundle structure, now using PSR-4
+* Override object state eZ Platform Admin UI routes conflicting with eZ Publish Legacy
+
 ## 2.1.4 (15.01.2018)
 
 * Fix exception when using preview with activated legacy `ezformtoken` extension
