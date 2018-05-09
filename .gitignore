@@ -12,3 +12,4 @@ style.css.map
 build/
 extension/
 package-lock.json
+yarn.lock
