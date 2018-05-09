@@ -5,7 +5,7 @@
     "url": "https://github.com/netgen/NetgenAdminUIBundle/issues"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^8.4.1",
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-lock": "^0.1.3",
