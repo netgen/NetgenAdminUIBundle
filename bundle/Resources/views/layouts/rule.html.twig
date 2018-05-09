@@ -27,7 +27,7 @@
 
     <div class="layout-actions">
         {% if is_granted('ROLE_NGBM_EDITOR') %}
-            <a href="{{ macros.layout_path(rule.layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.mappings.edit_layout'|trans }}</a>
+            <a href="{{ macros.layout_path(rule.layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
         {% endif %}
     </div>
 </li>

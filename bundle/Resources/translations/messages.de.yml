@@ -40,4 +40,5 @@ netgen_admin_ui.layouts.mappings.no_rules: 'Keine Zuordnungen'
 netgen_admin_ui.layouts.mappings.mapped_layout: 'Zugeordnetes Layout'
 netgen_admin_ui.layouts.mappings.targets: 'Ziele'
 netgen_admin_ui.layouts.mappings.conditions: 'Bedingungen'
-netgen_admin_ui.layouts.mappings.edit_layout: 'Layout bearbeiten'
+
+netgen_admin_ui.layouts.edit_layout: 'Layout bearbeiten'
