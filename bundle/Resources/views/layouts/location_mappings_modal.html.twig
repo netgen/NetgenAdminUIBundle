@@ -1,13 +1,11 @@
-<div class="modal fade ngmodal" id="editLayoutModal" tabindex="-1" role="dialog" aria-labelledby="editLayoutModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade ngmodal" id="clearBlockCachesModal" tabindex="-1" role="dialog" aria-labelledby="clearBlockCachesModalLabel">
+    <div class="modal-dialog modal-md nl-modal-cache" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i></i></button>
-                <h4 class="modal-title" id="editLayoutModalLabel">{{ 'netgen_admin_ui.layouts.mappings.applied_to'|trans }}: <strong>{{ ez_content_name(content) }}</strong></h4>
+                <h4 class="modal-title" id="clearBlockCachesModalLabel">&nbsp;</h4>
             </div>
-            <div class="modal-body">
-                <div id="layouts-list-wrapper" data-url="{{ path('ngadmin_location_mappings', {'contentId': content.id, 'locationId': location.id}) }}"></div>
-            </div>
+            <div class="modal-body"></div>
         </div>
     </div>
 </div>

@@ -22,10 +22,9 @@
             {/if}
 
             <div class="btn-group">
-
                 <button class="btn btn-primary" type="submit" name="EditButton" {if $node.can_edit}title="{'Edit the contents of this item.'|i18n( 'design/admin/node/view/full' )}"{else}title="{'You do not have permission to edit this item.'|i18n( 'design/admin/node/view/full' )}" disabled="disabled"{/if}><i class="fa fa-pencil-square-o"></i>&nbsp; {'Edit'|i18n( 'design/admin/node/view/full' )}</button>
                 {if and( ezmodule( 'nglayouts' ), fetch( 'user', 'has_access_to', hash( 'module', 'nglayouts', 'function', 'editor' ) ) )}
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editLayoutModal">{'Manage layouts'|i18n( 'design/admin/node/view/full' )}</button>
+                    <button type="button" class="btn btn-default js-manage-layouts">{'Manage layouts'|i18n( 'design/admin/node/view/full' )} <i class="fa fa-caret-down"></i><div class="layout-loading"><i class="loading-ng-icon"></i></div></button>
                 {/if}
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>...</strong></button>
@@ -54,16 +53,6 @@
                 </div>
             </div>
         </div>
-
-        {if and( ezmodule( 'nglayouts' ), fetch( 'user', 'has_access_to', hash( 'module', 'nglayouts', 'function', 'editor' ) ) )}
-            {symfony_include(
-                '@NetgenAdminUI/layouts/location_mappings_modal.html.twig',
-                hash(
-                    'location', $node,
-                    'content', $node.object
-                )
-            )}
-        {/if}
 
         {if $assigned_nodes_count|gt(1)}
             <div class="modal fade" id="removePrompt" tabindex="-1" role="dialog" aria-labelledby="removePromptLabel">

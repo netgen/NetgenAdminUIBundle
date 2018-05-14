@@ -1,4 +1,5 @@
 {% if rules is not empty %}
+    <h3>{{ 'netgen_admin_ui.layouts.mappings.applied_to'|trans }}: <strong>{{ ez_content_name(content) }}</strong></h3>
     <p>{{ 'netgen_admin_ui.layouts.mappings.order_note'|trans }}</p>
 
     <ul class="layout-list">
@@ -7,6 +8,7 @@
             <div class="layout-target">{{ 'netgen_admin_ui.layouts.mappings.targets'|trans }}</div>
             <div class="layout-conditions">{{ 'netgen_admin_ui.layouts.mappings.conditions'|trans }}</div>
             <div class="layout-actions"></div>
+            <div class="layout-dropdown"></div>
         </li>
         {% for rule in rules %}
             {{ ngbm_render_rule(rule, {}, 'ngadminui') }}
