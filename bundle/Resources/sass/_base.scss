@@ -1337,6 +1337,10 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         }
         > a, > input, > button {
             display:block; width:100%; padding:4px $gutter; clear:both; font-weight:normal; line-height:1.42857143; white-space:nowrap; color:#333; border:none; background:transparent; text-align:inherit; font-size:13px;
+            .note {
+                display: block;
+                font-size: .75em;
+            }
             &:hover, &:focus {
                 background:transparent;
             }
@@ -2326,7 +2330,6 @@ $yuiInputHeight: 26px;
     }
     .modal-body {
         padding:2*$gutter;
-        background:hsl(0, 0, 96);
         p {
             font-size:14px;
             margin:0 0 1em;
@@ -2500,6 +2503,7 @@ $yuiInputHeight: 26px;
             color: #fff;
             margin: 0;
             padding: .5em 0;
+            text-align: right;
             > li {
                 &:hover {
                     background: transparent;

@@ -6764,6 +6764,9 @@ fieldset legend {
       background: transparent;
       text-align: inherit;
       font-size: 13px; }
+      .dropdown-menu > li > a .note, .dropdown-menu > li > input .note, .dropdown-menu > li > button .note {
+        display: block;
+        font-size: .75em; }
       .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > input:hover, .dropdown-menu > li > input:focus, .dropdown-menu > li > button:hover, .dropdown-menu > li > button:focus {
         background: transparent; }
       .dropdown-menu > li > a.disabled, .dropdown-menu > li > input.disabled, .dropdown-menu > li > button.disabled {
@@ -7788,8 +7791,7 @@ input.tagssuggestfield {
                 transform: rotate(-45deg); }
 
 .ngmodal .modal-body {
-  padding: 30px;
-  background: whitesmoke; }
+  padding: 30px; }
   .ngmodal .modal-body p {
     font-size: 14px;
     margin: 0 0 1em; }
@@ -7947,7 +7949,8 @@ input.tagssuggestfield {
       border-radius: 0;
       color: #fff;
       margin: 0;
-      padding: .5em 0; }
+      padding: .5em 0;
+      text-align: right; }
       .layout-list .layout-dropdown .dropdown-menu > li:hover {
         background: transparent; }
       .layout-list .layout-dropdown .dropdown-menu a {
