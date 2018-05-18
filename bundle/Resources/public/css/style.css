@@ -7760,7 +7760,7 @@ input.tagssuggestfield {
 .ngmodal .modal-header {
   background: #404040;
   color: #fff;
-  padding: 15px 30px; }
+  padding: 15px 30px 15px 15px; }
   .ngmodal .modal-header .close {
     color: inherit;
     text-shadow: none;
@@ -7768,7 +7768,7 @@ input.tagssuggestfield {
     line-height: 1.4;
     height: 1.4em;
     opacity: 1;
-    margin: 0 -10px 0 0; }
+    margin: 0 -15px 0 0; }
     .ngmodal .modal-header .close i {
       position: relative;
       display: block;
@@ -7791,9 +7791,10 @@ input.tagssuggestfield {
                 transform: rotate(-45deg); }
 
 .ngmodal .modal-body {
-  padding: 30px; }
+  padding: 30px 15px;
+  font-size: 16px; }
   .ngmodal .modal-body p {
-    font-size: 14px;
+    font-size: inherit;
     margin: 0 0 1em; }
 
 .ngmodal .modal-title {
