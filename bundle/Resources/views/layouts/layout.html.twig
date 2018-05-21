@@ -16,8 +16,8 @@
             <div class="layout-dropdown dropdown">
                 <button id="layout-{{ layout.id }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ layout.id }}-dropdown">
-                    <li><a href="#" class="btn btn-default btn-sm js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_cache.note'|trans({}, 'ngbm_admin') }}</span></a></li>
-                    <li><a href="#" class="btn btn-default btn-sm js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans({}, 'ngbm_admin') }}</span></a></li>
+                    <li><a href="#" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default btn-sm js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_cache.note'|trans({}, 'ngbm_admin') }}</span></a></li>
+                    <li><a href="#" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default btn-sm js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans({}, 'ngbm_admin') }}</span></a></li>
                 </ul>
             </div>
         {% endif %}
@@ -35,8 +35,8 @@
                         <p>{{ 'netgen_admin_ui.layouts.cache_clear.question'|trans }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default" data-dismiss="modal">{{ 'netgen_admin_ui.layouts.cache_clear.cancel'|trans }}</button>
-                        <button type="button" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-primary js-modal-confirm">{{ 'netgen_admin_ui.layouts.cache_clear.submit'|trans }}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'netgen_admin_ui.layouts.cache_clear.cancel'|trans }}</button>
+                        <button type="button" class="btn btn-primary js-modal-confirm">{{ 'netgen_admin_ui.layouts.cache_clear.submit'|trans }}</button>
                     </div>
                 </div>
             </div>
