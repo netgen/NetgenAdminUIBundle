@@ -1,0 +1,16 @@
+{% if related_layouts is not empty %}
+    <ul class="layout-list">
+        <li class="layout-list-head">
+            <div class="layout-name">{{ 'netgen_admin_ui.layouts.related_layouts.layout_name'|trans }}</div>
+            <div class="layout-description">{{ 'netgen_admin_ui.layouts.related_layouts.description'|trans }}</div>
+            <div class="layout-modified">{{ 'netgen_admin_ui.layouts.related_layouts.modified'|trans }}</div>
+            <div class="layout-actions"></div>
+            <div class="layout-dropdown"></div>
+        </li>
+        {% for related_layout in related_layouts %}
+            {{ ngbm_render_layout(related_layout, {}, 'ngadminui') }}
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>{{ 'netgen_admin_ui.layouts.related_layouts.no_related_layouts'|trans }}</p>
+{% endif %}

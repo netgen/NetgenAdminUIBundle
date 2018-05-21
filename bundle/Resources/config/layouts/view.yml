@@ -4,3 +4,8 @@ view:
             rule:
                 template: "@NetgenAdminUI/layouts/rule.html.twig"
                 match: ~
+    layout_view:
+        ngadminui:
+            layout:
+                template: "@NetgenAdminUI/layouts/layout.html.twig"
+                match: ~

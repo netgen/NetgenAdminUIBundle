@@ -1,7 +1,13 @@
-ngadmin_location_mappings:
-    path: /ngadmin/layouts/mappings/{contentId}/{locationId}
+ngadmin_layouts_location_mappings:
+    path: /ngadmin/layouts/mappings/{locationId}
     defaults:
         _controller: "netgen_admin_ui.controller.layouts:showLocationMappings"
+    methods:  [GET]
+
+ngadmin_layouts_related_layouts:
+    path: /ngadmin/layouts/related_layouts/{locationId}
+    defaults:
+        _controller: "netgen_admin_ui.controller.layouts:showRelatedLayouts"
     methods:  [GET]
 
 _ezpublishPreviewContentDefaultSa:

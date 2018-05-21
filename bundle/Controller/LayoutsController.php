@@ -2,11 +2,16 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Types\Type;
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use Netgen\BlockManager\API\Service\LayoutService;
+use Netgen\BlockManager\API\Values\Layout\Layout;
+use Netgen\BlockManager\API\Values\Value;
 use Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface;
-use Netgen\Bundle\AdminUIBundle\Exception\InvalidArgumentException;
+use PDO;
 use Symfony\Component\HttpFoundation\Request;
 
 class LayoutsController extends Controller
@@ -17,33 +22,38 @@ class LayoutsController extends Controller
     protected $layoutResolver;
 
     /**
-     * Constructor.
-     *
-     * @param \Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface $layoutResolver
+     * @var \Netgen\BlockManager\API\Service\LayoutService
      */
-    public function __construct(LayoutResolverInterface $layoutResolver)
-    {
+    protected $layoutService;
+
+    /**
+     * @var \Doctrine\DBAL\Connection
+     */
+    protected $databaseConnection;
+
+    public function __construct(
+        LayoutResolverInterface $layoutResolver,
+        LayoutService $layoutService,
+        Connection $databaseConnection
+    ) {
         $this->layoutResolver = $layoutResolver;
+        $this->layoutService = $layoutService;
+        $this->databaseConnection = $databaseConnection;
     }
 
     /**
      * Renders a template that shows all layouts applied to provided location.
      *
-     * @param int|string $contentId
      * @param int|string $locationId
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showLocationMappings($contentId, $locationId)
+    public function showLocationMappings($locationId)
     {
         $repository = $this->getRepository();
 
-        $content = $repository->getContentService()->loadContent($contentId);
         $location = $repository->getLocationService()->loadLocation($locationId);
-
-        if ($content->id !== $location->contentInfo->id) {
-            throw new InvalidArgumentException('Location does not belong to provided content.');
-        }
+        $content = $repository->getContentService()->loadContent($location->contentInfo->id);
 
         $request = $this->createRequest($content, $location);
 
@@ -54,6 +64,89 @@ class LayoutsController extends Controller
             array(
                 'rules' => $rules,
                 'content' => $content,
+                'location' => $location,
+            )
+        );
+    }
+
+    /**
+     * Renders a template that shows all layouts related to provided location.
+     *
+     * @param int|string $locationId
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showRelatedLayouts($locationId)
+    {
+        $repository = $this->getRepository();
+
+        $location = $repository->getLocationService()->loadLocation($locationId);
+
+        $query = $this->databaseConnection->createQueryBuilder();
+
+        $query->select('DISTINCT b.layout_id')
+            ->from('ngbm_collection_item', 'ci')
+            ->innerJoin(
+                'ci',
+                'ngbm_block_collection',
+                'bc',
+                $query->expr()->andX(
+                    $query->expr()->eq('bc.collection_id', 'ci.collection_id'),
+                    $query->expr()->eq('bc.collection_status', 'ci.status')
+                )
+            )
+            ->innerJoin(
+                'bc',
+                'ngbm_block',
+                'b',
+                $query->expr()->andX(
+                    $query->expr()->eq('b.id', 'bc.block_id'),
+                    $query->expr()->eq('b.status', 'bc.block_status')
+                )
+            )
+            ->where(
+                $query->expr()->andX(
+                    $query->expr()->orX(
+                        $query->expr()->andX(
+                            $query->expr()->eq('ci.value_type', ':content_value_type'),
+                            $query->expr()->eq('ci.value', ':content_id')
+                        ),
+                        $query->expr()->andX(
+                            $query->expr()->eq('ci.value_type', ':location_value_type'),
+                            $query->expr()->eq('ci.value', ':location_id')
+                        )
+                    ),
+                    $query->expr()->eq('ci.status', ':status')
+                )
+            )
+            ->setParameter('status', Value::STATUS_PUBLISHED, Type::INTEGER)
+            ->setParameter('content_value_type', 'ezcontent', Type::STRING)
+            ->setParameter('location_value_type', 'ezlocation', Type::STRING)
+            ->setParameter('content_id', $location->contentInfo->id, Type::INTEGER)
+            ->setParameter('location_id', $location->id, Type::INTEGER);
+
+        $relatedLayouts = array_map(
+            function (array $dataRow) {
+                return $this->layoutService->loadLayout($dataRow['layout_id']);
+            },
+            $query->execute()->fetchAll(PDO::FETCH_ASSOC)
+        );
+
+        usort(
+            $relatedLayouts,
+            function (Layout $layout1, Layout $layout2) {
+                if ($layout1->getName() === $layout2->getName()) {
+                    return 0;
+                }
+
+                return $layout1->getName() > $layout2->getName() ? 1 : -1;
+            }
+        );
+
+        return $this->render(
+            '@NetgenAdminUI/layouts/related_layouts.html.twig',
+            array(
+                'related_layouts' => $relatedLayouts,
                 'location' => $location,
             )
         );

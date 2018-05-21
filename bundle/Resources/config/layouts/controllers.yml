@@ -5,3 +5,5 @@ services:
         parent: netgen_admin_ui.controller.base
         arguments:
             - "@netgen_block_manager.layout.resolver"
+            - "@netgen_block_manager.api.service.layout"
+            - "@database_connection"
