@@ -3,7 +3,7 @@
         {if $tabs_disabled}
             <span class="disabled">{'Related layouts'|i18n( 'extension/nglayouts/node/view' )}</span>
         {else}
-            <a href={concat( $node_url_alias, '/(tab)/nglayouts' )|ezurl} title="{'Show layouts related to this content/location.'|i18n( 'extension/nglayouts/node/view' )}">{'Related layouts'|i18n( 'extension/nglayouts/node/view' )}</a>
+            <a href={concat( $node_url_alias, '/(tab)/nglayouts' )|ezurl} title="{'Show layouts related to this object/node.'|i18n( 'extension/nglayouts/node/view' )}">{'Related layouts'|i18n( 'extension/nglayouts/node/view' )}</a>
         {/if}
     </li>
 {/if}
