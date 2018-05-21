@@ -55,8 +55,8 @@
                         <p>{{ 'netgen_admin_ui.layouts.cache_clear.question'|trans }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'netgen_admin_ui.layouts.cache_clear.cancel'|trans }}</button>
-                        <button type="button" class="btn btn-primary js-modal-confirm">{{ 'netgen_admin_ui.layouts.cache_clear.submit'|trans }}</button>
+                        <button type="button" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default" data-dismiss="modal">{{ 'netgen_admin_ui.layouts.cache_clear.cancel'|trans }}</button>
+                        <button type="button" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-primary js-modal-confirm">{{ 'netgen_admin_ui.layouts.cache_clear.submit'|trans }}</button>
                     </div>
                 </div>
             </div>
