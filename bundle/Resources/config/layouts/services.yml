@@ -1,0 +1,7 @@
+services:
+    netgen_admin_ui.layouts.related_layouts_loader:
+        class: Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader
+        public: false
+        arguments:
+            - "@netgen_block_manager.api.service.layout"
+            - "@database_connection"

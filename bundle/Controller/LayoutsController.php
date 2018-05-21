@@ -2,16 +2,11 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Types\Type;
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use Netgen\BlockManager\API\Service\LayoutService;
-use Netgen\BlockManager\API\Values\Layout\Layout;
-use Netgen\BlockManager\API\Values\Value;
 use Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface;
-use PDO;
+use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
 use Symfony\Component\HttpFoundation\Request;
 
 class LayoutsController extends Controller
@@ -22,23 +17,16 @@ class LayoutsController extends Controller
     protected $layoutResolver;
 
     /**
-     * @var \Netgen\BlockManager\API\Service\LayoutService
+     * @var \Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader
      */
-    protected $layoutService;
-
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-    protected $databaseConnection;
+    protected $relatedLayoutsLoader;
 
     public function __construct(
         LayoutResolverInterface $layoutResolver,
-        LayoutService $layoutService,
-        Connection $databaseConnection
+        RelatedLayoutsLoader $relatedLayoutsLoader
     ) {
         $this->layoutResolver = $layoutResolver;
-        $this->layoutService = $layoutService;
-        $this->databaseConnection = $databaseConnection;
+        $this->relatedLayoutsLoader = $relatedLayoutsLoader;
     }
 
     /**
@@ -82,71 +70,10 @@ class LayoutsController extends Controller
 
         $location = $repository->getLocationService()->loadLocation($locationId);
 
-        $query = $this->databaseConnection->createQueryBuilder();
-
-        $query->select('DISTINCT b.layout_id')
-            ->from('ngbm_collection_item', 'ci')
-            ->innerJoin(
-                'ci',
-                'ngbm_block_collection',
-                'bc',
-                $query->expr()->andX(
-                    $query->expr()->eq('bc.collection_id', 'ci.collection_id'),
-                    $query->expr()->eq('bc.collection_status', 'ci.status')
-                )
-            )
-            ->innerJoin(
-                'bc',
-                'ngbm_block',
-                'b',
-                $query->expr()->andX(
-                    $query->expr()->eq('b.id', 'bc.block_id'),
-                    $query->expr()->eq('b.status', 'bc.block_status')
-                )
-            )
-            ->where(
-                $query->expr()->andX(
-                    $query->expr()->orX(
-                        $query->expr()->andX(
-                            $query->expr()->eq('ci.value_type', ':content_value_type'),
-                            $query->expr()->eq('ci.value', ':content_id')
-                        ),
-                        $query->expr()->andX(
-                            $query->expr()->eq('ci.value_type', ':location_value_type'),
-                            $query->expr()->eq('ci.value', ':location_id')
-                        )
-                    ),
-                    $query->expr()->eq('ci.status', ':status')
-                )
-            )
-            ->setParameter('status', Value::STATUS_PUBLISHED, Type::INTEGER)
-            ->setParameter('content_value_type', 'ezcontent', Type::STRING)
-            ->setParameter('location_value_type', 'ezlocation', Type::STRING)
-            ->setParameter('content_id', $location->contentInfo->id, Type::INTEGER)
-            ->setParameter('location_id', $location->id, Type::INTEGER);
-
-        $relatedLayouts = array_map(
-            function (array $dataRow) {
-                return $this->layoutService->loadLayout($dataRow['layout_id']);
-            },
-            $query->execute()->fetchAll(PDO::FETCH_ASSOC)
-        );
-
-        usort(
-            $relatedLayouts,
-            function (Layout $layout1, Layout $layout2) {
-                if ($layout1->getName() === $layout2->getName()) {
-                    return 0;
-                }
-
-                return $layout1->getName() > $layout2->getName() ? 1 : -1;
-            }
-        );
-
         return $this->render(
             '@NetgenAdminUI/layouts/related_layouts.html.twig',
             array(
-                'related_layouts' => $relatedLayouts,
+                'related_layouts' => $this->relatedLayoutsLoader->loadRelatedLayouts($location),
                 'location' => $location,
             )
         );

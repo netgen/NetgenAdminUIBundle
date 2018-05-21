@@ -42,6 +42,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
 
         if ($this->hasLayouts($activatedBundles)) {
             $loader->load('layouts/controllers.yml');
+            $loader->load('layouts/services.yml');
         }
 
         $logoType = $container->getParameter('netgen_admin_ui.logo_type');
