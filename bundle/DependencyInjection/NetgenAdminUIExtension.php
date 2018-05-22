@@ -4,6 +4,7 @@ namespace Netgen\Bundle\AdminUIBundle\DependencyInjection;
 
 use Netgen\BlockManager\Version as BlockManagerVersion;
 use Netgen\TagsBundle\Version as TagsBundleVersion;
+use Netgen\Bundle\InformationCollectionBundle\Version as InformationCollectionVersion;
 use RuntimeException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -126,14 +127,17 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasInformationCollection(array $activatedBundles)
     {
-//        if (!class_exists('Netgen\TagsBundle\Version')) {
-//            return false;
-//        }
-//
-//        if (TagsBundleVersion::MAJOR_VERSION < 3) {
-//            return false;
-//        }
+        if (!class_exists('Netgen\Bundle\InformationCollectionBundle\Version')) {
+            return false;
+        }
 
-        return array_key_exists('NetgenInformationCollectionBundle', $activatedBundles);
+        if (
+            array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)
+            && InformationCollectionVersion::MAJOR_VERSION >= 1
+            && InformationCollectionVersion::MINOR_VERSION >= 5) {
+                return true;
+        }
+
+        return false;
     }
 }
