@@ -45,7 +45,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
             $loader->load('layouts/controllers.yml');
         }
 
-        if ($this->hasInformationCollection($activatedBundles)) {
+        if ($this->hasInformationCollection($activatedBundles, $container)) {
             $loader->load('information_collection/services.yml');
         }
 
@@ -125,19 +125,14 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      *
      * @return bool
      */
-    protected function hasInformationCollection(array $activatedBundles)
+    protected function hasInformationCollection(array $activatedBundles, ContainerBuilder $containerBuilder)
     {
-        if (!class_exists('Netgen\Bundle\InformationCollectionBundle\Version')) {
+        if (!array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)) {
             return false;
         }
 
-        if (
-            array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)
-            && InformationCollectionVersion::MAJOR_VERSION >= 1
-            && InformationCollectionVersion::MINOR_VERSION >= 5) {
-                return true;
-        }
-
-        return false;
+        # this service is backend for collected info admin
+        # if service exists then plugin should be available
+        return $containerBuilder->has('netgen_information_collection.api.service');
     }
 }

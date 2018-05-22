@@ -13,9 +13,15 @@ class InformationCollectionMenuPlugin implements MenuPluginInterface
      */
     protected $enabledBundles;
 
-    public function __construct(array $enabledBundles)
+    /**
+     * @var boolean
+     */
+    protected $hasInformationCollectionService;
+
+    public function __construct(array $enabledBundles, $hasInformationCollectionService)
     {
         $this->enabledBundles = $enabledBundles;
+        $this->hasInformationCollectionService = $hasInformationCollectionService;
     }
 
     public function getIdentifier()
@@ -37,9 +43,7 @@ class InformationCollectionMenuPlugin implements MenuPluginInterface
             return false;
         }
 
-        return class_exists('Netgen\Bundle\InformationCollectionBundle\Version')
-            && InformationCollectionVersion::MAJOR_VERSION >= 1
-            && InformationCollectionVersion::MINOR_VERSION >= 5;
+        return $this->hasInformationCollectionService;
     }
 
     public function matches(Request $request)

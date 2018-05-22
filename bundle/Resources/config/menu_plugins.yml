@@ -34,5 +34,8 @@ services:
         public: false
         arguments:
             - "%kernel.bundles%"
+            # this service is backend for collected info admin
+            # if service exists then plugin should be available
+            - "@=container.has('netgen_information_collection.api.service')"
         tags:
             - { name: "netgen_admin_ui.menu_plugin", priority: -1 }
