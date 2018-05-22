@@ -44,6 +44,10 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
             $loader->load('layouts/controllers.yml');
         }
 
+        if ($this->hasInformationCollection($activatedBundles, $container)) {
+            $loader->load('information_collection/services.yml');
+        }
+
         $logoType = $container->getParameter('netgen_admin_ui.logo_type');
         if ($logoType === 'default' && class_exists('Netgen\Bundle\MoreBundle\NetgenMoreBundle')) {
             $container->setParameter('netgen_admin_ui.logo_type', 'ngadminui');
@@ -111,5 +115,22 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         }
 
         return array_key_exists('NetgenTagsBundle', $activatedBundles);
+    }
+
+    /**
+     * Returns if Netgen Information Collection is active or not.
+     *
+     * @param array $activatedBundles
+     *
+     * @return bool
+     */
+    protected function hasInformationCollection(array $activatedBundles, ContainerBuilder $containerBuilder)
+    {
+        if (!array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)) {
+            return false;
+        }
+        # this service is backend for collected info admin
+        # if service exists then plugin should be available
+        return class_exists('Netgen\Bundle\InformationCollectionBundle\API\InformationCollectionService');
     }
 }

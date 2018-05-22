@@ -2,6 +2,7 @@ parameters:
     netgen_admin_ui.logo_type: default
 
     netgen_admin_ui.tags.pagelayout: '@@NetgenAdminUI/tags/pagelayout.html.twig'
+    netgen_admin_ui.information_collection.pagelayout: '@@NetgenAdminUI/information_collection/pagelayout.html.twig'
 
     netgen_admin_ui.default.is_admin_ui_siteaccess: false
     netgen_admin_ui.default.legacy_routes: [ez_urlalias]
