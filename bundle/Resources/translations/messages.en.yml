@@ -34,6 +34,8 @@ netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Clear cache'
 netgen_admin_ui.menu.bookmarks: 'Bookmarks'
 
+netgen_admin_ui.menu.information_collection: 'Collected information'
+
 netgen_admin_ui.layouts.mappings.applied_to: 'Layouts applied to'
 netgen_admin_ui.layouts.mappings.order_note: 'List of layout mappings is ordered by priority.'
 netgen_admin_ui.layouts.mappings.no_rules: 'No mappings'

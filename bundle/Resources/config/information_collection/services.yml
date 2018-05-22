@@ -1,0 +1,13 @@
+services:
+    netgen_admin_ui.event_listener.set_information_collection_admin_pagelayout:
+        class: Netgen\Bundle\AdminUIBundle\EventListener\SetInformationCollectionAdminPageLayoutListener
+        # public: false
+        arguments:
+            - "@netgen_information_collection.templating.admin_global_variable"
+            - "%netgen_admin_ui.information_collection.pagelayout%"
+        # Using siteaccess aware config, so we need the lazy flag
+        lazy: true
+        calls:
+            - [setIsAdminSiteAccess, [$is_admin_ui_siteaccess;netgen_admin_ui$]]
+        tags:
+            - { name: kernel.event_subscriber }
