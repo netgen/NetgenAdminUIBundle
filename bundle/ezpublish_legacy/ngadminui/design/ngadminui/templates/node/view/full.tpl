@@ -106,16 +106,6 @@
         </div>
         {* DESIGN: Header END *}
 
-        {if and( ezmodule( 'nglayouts' ), fetch( 'user', 'has_access_to', hash( 'module', 'nglayouts', 'function', 'editor' ) ) )}
-            {symfony_include(
-                '@NetgenAdminUI/layouts/location_mappings_box.html.twig',
-                hash(
-                    'location', $node,
-                    'content', $node.object
-                )
-            )}
-        {/if}
-
         <div id="window-controls" class="tab-block">
             {include uri='design:window_controls.tpl'}
         </div>
