@@ -45,7 +45,7 @@ class InformationCollectionMenuPlugin implements MenuPluginInterface
 
         return $this->hasInformationCollectionService;
     }
-
+    
     public function matches(Request $request)
     {
         return mb_stripos(
