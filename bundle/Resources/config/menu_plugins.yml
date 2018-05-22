@@ -15,19 +15,7 @@ services:
         arguments:
             - "%kernel.bundles%"
         tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -1 }
-
-    netgen_admin_ui.menu_plugin.legacy_cache:
-        class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyCachePlugin
-        public: false
-        tags:
             - { name: "netgen_admin_ui.menu_plugin", priority: -10 }
-
-    netgen_admin_ui.menu_plugin.legacy_bookmarks:
-        class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyBookmarksPlugin
-        public: false
-        tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -20 }
 
     netgen_admin_ui.menu_plugin.information_collection:
         class: Netgen\Bundle\AdminUIBundle\MenuPlugin\InformationCollectionMenuPlugin
@@ -38,4 +26,16 @@ services:
             # if service exists then plugin should be available
             - "@=container.has('netgen_information_collection.api.service')"
         tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -1 }
+            - { name: "netgen_admin_ui.menu_plugin", priority: -20 }
+
+    netgen_admin_ui.menu_plugin.legacy_cache:
+        class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyCachePlugin
+        public: false
+        tags:
+            - { name: "netgen_admin_ui.menu_plugin", priority: -100 }
+
+    netgen_admin_ui.menu_plugin.legacy_bookmarks:
+        class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyBookmarksPlugin
+        public: false
+        tags:
+            - { name: "netgen_admin_ui.menu_plugin", priority: -200 }
