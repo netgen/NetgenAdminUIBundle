@@ -4,7 +4,6 @@ namespace Netgen\Bundle\AdminUIBundle\DependencyInjection;
 
 use Netgen\BlockManager\Version as BlockManagerVersion;
 use Netgen\TagsBundle\Version as TagsBundleVersion;
-use Netgen\Bundle\InformationCollectionBundle\Version as InformationCollectionVersion;
 use RuntimeException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -130,9 +129,8 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         if (!array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)) {
             return false;
         }
-
         # this service is backend for collected info admin
         # if service exists then plugin should be available
-        return $containerBuilder->has('netgen_information_collection.api.service');
+        return class_exists('Netgen\Bundle\InformationCollectionBundle\API\InformationCollectionService');
     }
 }

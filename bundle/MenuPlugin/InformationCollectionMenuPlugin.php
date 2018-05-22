@@ -14,7 +14,7 @@ class InformationCollectionMenuPlugin implements MenuPluginInterface
     protected $enabledBundles;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $hasInformationCollectionService;
 
