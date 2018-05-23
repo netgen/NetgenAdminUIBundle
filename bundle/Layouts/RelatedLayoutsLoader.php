@@ -8,6 +8,7 @@ use eZ\Publish\API\Repository\Values\Content\Location;
 use Netgen\BlockManager\API\Service\LayoutService;
 use Netgen\BlockManager\API\Values\Layout\Layout;
 use Netgen\BlockManager\API\Values\Value;
+use Netgen\BlockManager\Version;
 use PDO;
 
 class RelatedLayoutsLoader
@@ -44,6 +45,8 @@ class RelatedLayoutsLoader
     {
         $query = $this->databaseConnection->createQueryBuilder();
 
+        $valueColumnName = Version::VERSION_ID < 1100 ? 'value_id' : 'value';
+
         $query->select('DISTINCT b.layout_id')
             ->from('ngbm_collection_item', 'ci')
             ->innerJoin(
@@ -69,11 +72,11 @@ class RelatedLayoutsLoader
                     $query->expr()->orX(
                         $query->expr()->andX(
                             $query->expr()->eq('ci.value_type', ':content_value_type'),
-                            $query->expr()->eq('ci.value', ':content_id')
+                            $query->expr()->eq('ci.' . $valueColumnName, ':content_id')
                         ),
                         $query->expr()->andX(
                             $query->expr()->eq('ci.value_type', ':location_value_type'),
-                            $query->expr()->eq('ci.value', ':location_id')
+                            $query->expr()->eq('ci.' . $valueColumnName, ':location_id')
                         )
                     ),
                     $query->expr()->eq('ci.status', ':status')
