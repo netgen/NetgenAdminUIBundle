@@ -1,5 +1,11 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.3.0
+
+* Redesigned "Manage layouts" button. Instead of the popup, mapped layouts are now in a tab on node view page
+* Added possibility to clear the caches for mapped layouts directly on node view page
+* Added list of related layouts (layouts where current node or object are added as a manual item in a block)
+
 ## 2.2.0 (23.02.2018)
 
 * New bundle structure, now using PSR-4
