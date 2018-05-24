@@ -34,7 +34,7 @@ netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Vider le cache'
 netgen_admin_ui.menu.bookmarks: 'Les signets'
 
-netgen_admin_ui.layouts.mappings.title: 'Liste des layouts mappings sont triés par priorité.'
+netgen_admin_ui.layouts.mappings.title: 'Liste des layouts mappings sont triés par priorité'
 netgen_admin_ui.layouts.mappings.no_rules: 'Pas de mappings'
 netgen_admin_ui.layouts.mappings.mapped_layout: 'Layout mappé'
 netgen_admin_ui.layouts.mappings.targets: 'Cibles'

@@ -34,7 +34,7 @@ netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Cache leeren'
 netgen_admin_ui.menu.bookmarks: 'Lesezeichen'
 
-netgen_admin_ui.layouts.mappings.title: 'Die Liste der Layouts ist nach Prioritäten geordnet.'
+netgen_admin_ui.layouts.mappings.title: 'Die Liste der Layouts ist nach Prioritäten geordnet'
 netgen_admin_ui.layouts.mappings.no_rules: 'Keine Zuordnungen'
 netgen_admin_ui.layouts.mappings.mapped_layout: 'Zugeordnetes Layout'
 netgen_admin_ui.layouts.mappings.targets: 'Ziele'
