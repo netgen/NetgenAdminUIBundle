@@ -36,8 +36,8 @@
             <div class="layout-dropdown dropdown">
                 <button id="layout-{{ rule.layout.id }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ rule.layout.id }}-dropdown">
-                    <li><a href="#" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default btn-sm js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_cache.note'|trans({}, 'ngbm_admin') }}</span></a></li>
-                    <li><a href="#" {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="btn btn-default btn-sm js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans({}, 'ngbm_admin') }}</span></a></li>
+                    <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_cache.note'|trans({}, 'ngbm_admin') }}</span></button></li>
+                    <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans({}, 'ngbm_admin') }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans({}, 'ngbm_admin') }}</span></button></li>
                 </ul>
             </div>
         {% endif %}

@@ -6769,9 +6769,9 @@ fieldset legend {
         font-size: .75em; }
       .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > input:hover, .dropdown-menu > li > input:focus, .dropdown-menu > li > button:hover, .dropdown-menu > li > button:focus {
         background: transparent; }
-      .dropdown-menu > li > a.disabled, .dropdown-menu > li > input.disabled, .dropdown-menu > li > button.disabled {
-        color: #bbb;
-        cursor: not-allowed; }
+      .dropdown-menu > li > a.disabled, .dropdown-menu > li > a[disabled], .dropdown-menu > li > input.disabled, .dropdown-menu > li > input[disabled], .dropdown-menu > li > button.disabled, .dropdown-menu > li > button[disabled] {
+        cursor: not-allowed;
+        opacity: .5; }
   .dropdown-menu .with-edit {
     padding-right: 55px; }
     .dropdown-menu .with-edit .edit-icon {
@@ -7926,7 +7926,7 @@ input.tagssuggestfield {
         -ms-flex-align: stretch;
             align-items: stretch;
     width: 60px; }
-    .layout-list .layout-dropdown button {
+    .layout-list .layout-dropdown > button {
       height: 100%;
       border: 0;
       background: transparent;
@@ -7935,7 +7935,7 @@ input.tagssuggestfield {
       -webkit-transition: background .25s;
       transition: background .25s;
       outline: none; }
-      .layout-list .layout-dropdown button:hover {
+      .layout-list .layout-dropdown > button:hover {
         background: #e5e5e5; }
     .layout-list .layout-dropdown .dropdown-menu {
       background: #404040;
@@ -7947,10 +7947,12 @@ input.tagssuggestfield {
       text-align: right; }
       .layout-list .layout-dropdown .dropdown-menu > li:hover {
         background: transparent; }
-      .layout-list .layout-dropdown .dropdown-menu a {
+      .layout-list .layout-dropdown .dropdown-menu a,
+      .layout-list .layout-dropdown .dropdown-menu button {
         color: inherit;
         padding: .6em 1em; }
-        .layout-list .layout-dropdown .dropdown-menu a:hover {
+        .layout-list .layout-dropdown .dropdown-menu a:hover,
+        .layout-list .layout-dropdown .dropdown-menu button:hover {
           background: rgba(255, 255, 255, 0.05); }
     .layout-list .layout-dropdown.open button {
       background: #404040;

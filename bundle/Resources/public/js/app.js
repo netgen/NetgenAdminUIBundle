@@ -184,6 +184,7 @@ $(document).ready(function () {
   LayoutMapped.prototype.openCacheModal = function (e) {
     e.preventDefault();
     this.$layoutCacheModal.find('.errors').remove();
+    this.cacheModalStopLoading();
     this.$layoutCacheModal.modal('show');
   };
   LayoutMapped.prototype.cacheModalStartLoading = function () {

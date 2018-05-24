@@ -187,7 +187,7 @@
         padding: 0;
         align-items: stretch;
         width: 60px;
-        button {
+        > button {
             height: 100%;
             border: 0;
             background: transparent;
@@ -212,7 +212,8 @@
                     background: transparent;
                 }
             }
-            a {
+            a,
+            button {
                 color: inherit;
                 padding: .6em 1em;
                 &:hover {
