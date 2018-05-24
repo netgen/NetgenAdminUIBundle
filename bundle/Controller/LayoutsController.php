@@ -36,7 +36,7 @@ class LayoutsController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showLocationMappings($locationId)
+    public function showLocationLayouts($locationId)
     {
         $repository = $this->getRepository();
 
@@ -45,34 +45,10 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
-        $rules = $this->layoutResolver->resolveRules($request, array('ez_content_type'));
-
         return $this->render(
-            '@NetgenAdminUI/layouts/location_mappings.html.twig',
+            '@NetgenAdminUI/layouts/netgen_layouts.html.twig',
             array(
-                'rules' => $rules,
-                'content' => $content,
-                'location' => $location,
-            )
-        );
-    }
-
-    /**
-     * Renders a template that shows all layouts related to provided location.
-     *
-     * @param int|string $locationId
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showRelatedLayouts($locationId)
-    {
-        $repository = $this->getRepository();
-
-        $location = $repository->getLocationService()->loadLocation($locationId);
-
-        return $this->render(
-            '@NetgenAdminUI/layouts/related_layouts.html.twig',
-            array(
+                'rules' => $this->layoutResolver->resolveRules($request, array('ez_content_type')),
                 'related_layouts' => $this->relatedLayoutsLoader->loadRelatedLayouts($location),
                 'location' => $location,
             )
