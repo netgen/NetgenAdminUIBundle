@@ -1,0 +1,294 @@
+.ngmodal {
+    .modal-dialog {
+        height:100%;
+        max-width:96%;
+        margin:0 auto;
+        display:flex;
+        align-items:center;
+    }
+    .modal-lg {
+        width:960px;
+    }
+    .modal-content {
+        border-radius:0;
+        border:none;
+        flex:1;
+    }
+    .modal-loading {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-header {
+        background:hsl(0, 0, 25);
+        color:#fff;
+        padding:$gutter 2*$gutter $gutter $gutter;
+        .close {
+            color:inherit;
+            text-shadow:none;
+            font-size:20px;
+            line-height:1.4;
+            height:1.4em;
+            opacity:1;
+            margin:0 (-$gutter) 0 0;
+            i {
+                position:relative;
+                display:block;
+                width:1em;
+                height:1em;
+                vertical-align:middle;
+                &::before,
+                &::after {
+                    content:"";
+                    position:absolute;
+                    left:50%;
+                    top:50%;
+                    width:0.8em;
+                    height:2px;
+                    background:currentColor;
+                    margin:-1px 0 0 -0.4em;
+                    transform:rotate(45deg);
+                }
+                &::before {
+                    transform:rotate(-45deg);
+                }
+            }
+        }
+    }
+    .modal-body {
+        padding: 2*$gutter $gutter;
+        font-size: 16px;
+        position: relative;
+        min-height: 86px;
+        p {
+            font-size:inherit;
+            margin:0 0 1em;
+        }
+    }
+    .modal-title {
+        font-weight:400;
+        font-size:20px;
+        color:inherit;
+    }
+    .layout-loading {
+        text-align:center;
+    }
+}
+
+.layout-list-wrapper {
+    padding: $gutter;
+    background: $lightBg;
+    margin: 0 0 $gutter;
+    > h4 {
+        font-size: 1.125em;
+        margin: 0 0 1em;
+        font-weight: 500;
+    }
+}
+.layout-list {
+    list-style-type:none;
+    margin:1em 0 2em;
+    padding:0;
+    color:hsl(0, 0, 40);
+    > li {
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        color:inherit;
+    }
+    .layout-item,
+    .layout-list-head {
+        display:flex;
+        align-items: stretch;
+        > div {
+            padding:10px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .layout-item {
+        background:#fff;
+        box-shadow:0 1px 2px hsla(0, 0, 0, .3);
+        font-size:12px;
+        line-height:1.5;
+        margin:0 0 10px;
+        min-height: 60px;
+        p {
+            font-size:inherit;
+            margin:2px 0;
+        }
+        strong {
+            color:hsl(0, 0, 20);
+        }
+        ul {
+            list-style-type:none;
+            margin:2px 0;
+            padding:0;
+            > li {
+                margin:0;
+            }
+            .unique {
+                font-weight:700;
+            }
+        }
+        .layout-name {
+            color:hsl(0, 0, 20);
+            font-size:14px;
+            font-weight:700;
+        }
+        .layout-dropdown {
+            padding: 0;
+        }
+    }
+    .layout-list-head {
+        font-size:12px;
+        color:hsl(0, 0, 30);
+        > div {
+            padding-bottom: .5em;
+        }
+    }
+    .layout-name {
+        flex:1;
+    }
+    .layout-target {
+        width:28%;
+        ul {
+            color:#333;
+        }
+    }
+    .layout-conditions {
+        width:28%;
+    }
+    .layout-description {
+        width: 28%;
+    }
+    .layout-modified {
+        width: 28%;
+    }
+    .layout-actions {
+        width:100px;
+        align-items:flex-end;
+        .btn {
+            text-transform:uppercase;
+            font-weight:700;
+            font-size:10px;
+        }
+    }
+    .layout-dropdown {
+        padding: 0;
+        align-items: stretch;
+        width: 60px;
+        button {
+            height: 100%;
+            border: 0;
+            background: transparent;
+            font-size: 1.8em;
+            padding: .2em .5em;
+            transition: background .25s;
+            outline: none;
+            &:hover {
+                background: #e5e5e5;
+            }
+        }
+        .dropdown-menu {
+            background: #404040;
+            border: 0;
+            border-radius: 0;
+            color: #fff;
+            margin: 0;
+            padding: .5em 0;
+            text-align: right;
+            > li {
+                &:hover {
+                    background: transparent;
+                }
+            }
+            a {
+                color: inherit;
+                padding: .6em 1em;
+                &:hover {
+                    background: rgba(#fff, .05);
+                }
+            }
+        }
+        &.open {
+            button {
+                background: #404040;
+                color: #fff;
+            }
+        }
+    }
+}
+.nl-modal-cache {
+    .modal-body {
+        padding: 0;
+    }
+    .nl-caches-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: -1px;
+        th,
+        td {
+            padding: 15px 15px 14px 0;
+            font-size: 12px;
+            line-height: 1.5;
+            &:first-child {
+                padding-left: 15px;
+            }
+        }
+        th {
+            background: hsl(0, 0, 95);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            .nl-btn {
+                text-transform: none;
+                font-weight: 500;
+            }
+        }
+        td {
+            color: hsl(0, 0, 30);
+            p {
+                margin: 0;
+                line-height: inherit;
+            }
+            &.nl-caches-ttl {
+                font-size: 14px;
+            }
+        }
+        .nl-caches-action {
+            text-align: right;
+        }
+        tbody {
+            tr {
+                border-bottom: 1px solid hsl(0, 0, 82);
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    .errors {
+        list-style-type: none;
+        margin: 0;
+        padding: 1em;
+        font-size: 14px;
+        li {
+            color: red;
+        }
+    }
+    .nl-caches-empty {
+        padding: 2em 1em;
+        margin: 0 !important;
+        text-align: center;
+    }
+}

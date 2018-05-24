@@ -177,14 +177,20 @@ $(document).ready(function () {
     this.setupEvents();
   }
   LayoutMapped.prototype.setupEvents = function () {
-    this.$el.on('click', '.js-clear-layout-cache', this.openCacheModal.bind(this));
-    this.$el.on('click', '.js-clear-block-caches', this.clearBlockCaches.bind(this));
+    this.$el.find('.js-clear-layout-cache').on('click', this.openCacheModal.bind(this));
+    this.$el.find('.js-clear-block-caches').on('click', this.clearBlockCaches.bind(this));
     this.$layoutCacheModal.on('click', '.js-modal-confirm', this.clearLayoutCache.bind(this));
   };
   LayoutMapped.prototype.openCacheModal = function (e) {
     e.preventDefault();
     this.$layoutCacheModal.find('.errors').remove();
     this.$layoutCacheModal.modal('show');
+  };
+  LayoutMapped.prototype.cacheModalStartLoading = function () {
+    if (!this.$layoutCacheModal.find('.modal-loading').length) this.$layoutCacheModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
+  };
+  LayoutMapped.prototype.cacheModalStopLoading = function () {
+    this.$layoutCacheModal.find('.modal-loading').remove();
   };
   LayoutMapped.prototype.clearLayoutCache = function (e) {
     e.preventDefault();
@@ -197,6 +203,7 @@ $(document).ready(function () {
       },
       beforeSend: function () {
         self.$layoutCacheModal.find('.errors').remove();
+        self.cacheModalStartLoading();
       },
       success: function () {
         self.$layoutCacheModal.modal('hide');
@@ -204,6 +211,7 @@ $(document).ready(function () {
       error: function (xhr) {
         var $resp = $(xhr.responseText);
         self.$layoutCacheModal.find('.modal-body').prepend($resp.find('.errors'));
+        self.cacheModalStopLoading();
         console.log(xhr, 'Error clearing caches:', xhr.statusText);
       },
     });
@@ -255,15 +263,21 @@ $(document).ready(function () {
         headers: {
           'X-CSRF-Token': this.layouts.csrf,
         },
+        beforeSend: function () {
+          self.layouts.cacheModalStartLoading();
+        },
         success: function () {
-          self.layouts.$blockCacheModal.modal('show');
+          self.layouts.$blockCacheModal.modal('hide');
         },
         error: function (xhr) {
+          self.layouts.cacheModalStopLoading();
           $form.html(xhr.responseText);
           afterModalRender($form);
         },
       });
     };
+    this.layouts.cacheModalStartLoading();
+    this.layouts.$blockCacheModal.modal('show');
     $.ajax({
       type: 'GET',
       url: this.layouts.basePath + this.id + '/cache/blocks',
@@ -271,74 +285,36 @@ $(document).ready(function () {
         var $form = $(data);
         afterModalRender($form);
         self.layouts.$blockCacheModal.find('.modal-body').html($form);
-        self.layouts.$blockCacheModal.modal('show');
         $form.on('submit', formAction.bind(this));
+      },
+      error: function (xhr) {
+        self.layouts.$blockCacheModal.find('.modal-body').html(xhr.responseText);
+        self.layouts.cacheModalStopLoading();
       },
     });
   };
 
   function LayoutsBox(el) {
     this.$el = $(el);
-    this.$content = this.$el.find('.layouts-box-content');
-    this.layoutsList = this.$el.find('#layouts-list-wrapper')[0];
-    this.$loader = this.$el.find('.layout-loading');
-    this.fetchedLayouts = false;
-    this.$toggleBtn = $('.js-manage-layouts');
-    this.opened = false;
-    this.url = el.dataset.url;
     this.csrf = $('meta[name=ngbm-admin-csrf-token]').attr('content');
     this.basePath = $('meta[name=ngbm-admin-base-path]').attr('content') + 'layouts/';
     this.$blockCacheModal = $('#clearBlockCachesModal');
-    this.setupEvents();
+    this.initLayouts();
   }
-  LayoutsBox.prototype.setupEvents = function () {
-    this.$toggleBtn.on('click', this.toggleBox.bind(this));
-  };
-  LayoutsBox.prototype.toggleBox = function () {
-    return this.opened ? this.closeBox() : this.openBox();
-  };
-  LayoutsBox.prototype.openBox = function () {
-    if (!this.fetchedLayouts) return this.getLayouts();
-    this.$content.slideDown(250);
-    this.$toggleBtn.addClass('open');
-    this.opened = true;
-  };
-  LayoutsBox.prototype.closeBox = function () {
-    this.$content.slideUp(250);
-    this.$toggleBtn.removeClass('open');
-    this.opened = false;
-  };
-  LayoutsBox.prototype.showLoader = function () {
-    this.$toggleBtn.addClass('loading');
-  };
-  LayoutsBox.prototype.hideLoader = function () {
-    this.$toggleBtn.removeClass('loading');
-  };
-  LayoutsBox.prototype.getLayouts = function () {
-    var self = this;
-    $.ajax({
-      type: 'GET',
-      url: this.url,
-      beforeSend: function () {
-        self.showLoader();
-      },
-      success: function (data) {
-        self.fetchedLayouts = true;
-        self.layoutsList.innerHTML = data;
-        self.initLayouts();
-        self.hideLoader();
-        self.openBox();
-      },
-    });
-  };
   LayoutsBox.prototype.initLayouts = function () {
     var self = this;
     this.$el.find('.layout-list-item').each(function () {
       return new LayoutMapped(this, self);
     });
   };
+  LayoutsBox.prototype.cacheModalStartLoading = function () {
+    if (!this.$blockCacheModal.find('.modal-loading').length) this.$blockCacheModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
+  };
+  LayoutsBox.prototype.cacheModalStopLoading = function () {
+    this.$blockCacheModal.find('.modal-loading').remove();
+  };
 
-  $('.mapped-layouts-box').each(function() {
+  $('.mapped-layouts-box').each(function () {
     return new LayoutsBox(this);
   });
 });

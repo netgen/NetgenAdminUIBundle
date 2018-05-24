@@ -7757,6 +7757,24 @@ input.tagssuggestfield {
       -ms-flex: 1;
           flex: 1; }
 
+.ngmodal .modal-loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
 .ngmodal .modal-header {
   background: #404040;
   color: #fff;
@@ -7792,7 +7810,9 @@ input.tagssuggestfield {
 
 .ngmodal .modal-body {
   padding: 30px 15px;
-  font-size: 16px; }
+  font-size: 16px;
+  position: relative;
+  min-height: 86px; }
   .ngmodal .modal-body p {
     font-size: inherit;
     margin: 0 0 1em; }
@@ -7805,46 +7825,14 @@ input.tagssuggestfield {
 .ngmodal .layout-loading {
   text-align: center; }
 
-.mapped-layouts-box .layouts-box-content {
-  display: none;
+.layout-list-wrapper {
+  padding: 15px;
   background: #f5f5f5;
-  padding: 15px; }
-
-.mapped-layouts-box .layout-loading {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 10000;
-  background: rgba(255, 255, 255, 0.5); }
-  .mapped-layouts-box .layout-loading i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-            transform: translate3d(-50%, -50%, 0); }
-
-.js-manage-layouts {
-  position: relative; }
-  .js-manage-layouts .layout-loading {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -1px;
-    bottom: -1px;
-    font-size: .75em;
-    background: rgba(245, 245, 245, 0.8);
-    padding: .4em 0 0; }
-  .js-manage-layouts.loading .layout-loading {
-    display: block; }
-  .js-manage-layouts:focus, .js-manage-layouts:focus:active {
-    outline: none; }
-  .js-manage-layouts.open > i.fa {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg); }
+  margin: 0 0 15px; }
+  .layout-list-wrapper > h4 {
+    font-size: 1.125em;
+    margin: 0 0 1em;
+    font-weight: 500; }
 
 .layout-list {
   list-style-type: none;
@@ -7883,7 +7871,8 @@ input.tagssuggestfield {
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     font-size: 12px;
     line-height: 1.5;
-    margin: 0 0 10px; }
+    margin: 0 0 10px;
+    min-height: 60px; }
     .layout-list .layout-item p {
       font-size: inherit;
       margin: 2px 0; }
@@ -7917,6 +7906,10 @@ input.tagssuggestfield {
     .layout-list .layout-target ul {
       color: #333; }
   .layout-list .layout-conditions {
+    width: 28%; }
+  .layout-list .layout-description {
+    width: 28%; }
+  .layout-list .layout-modified {
     width: 28%; }
   .layout-list .layout-actions {
     width: 100px;

@@ -1,11 +1,7 @@
 <div class="mapped-layouts-box">
-    <div class="layouts-box-content">
-        <div id="layouts-list-wrapper">
-            {% include '@NetgenAdminUI/layouts/location_mappings.html.twig' %}
+    {% include '@NetgenAdminUI/layouts/location_mappings.html.twig' %}
 
-            {% include '@NetgenAdminUI/layouts/related_layouts.html.twig' %}
-        </div>
-    </div>
+    {% include '@NetgenAdminUI/layouts/related_layouts.html.twig' %}
 </div>
 
 <div class="modal fade ngmodal" id="clearBlockCachesModal" tabindex="-1" role="dialog" aria-labelledby="clearBlockCachesModalLabel">
