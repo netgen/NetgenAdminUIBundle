@@ -46,7 +46,7 @@ class LayoutsController extends Controller
         $request = $this->createRequest($content, $location);
 
         return $this->render(
-            '@NetgenAdminUI/layouts/netgen_layouts.html.twig',
+            '@NetgenAdminUI/layouts/location_layouts.html.twig',
             array(
                 'rules' => $this->layoutResolver->resolveRules($request, array('ez_content_type')),
                 'related_layouts' => $this->relatedLayoutsLoader->loadRelatedLayouts($location),
