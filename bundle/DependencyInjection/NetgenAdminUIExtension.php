@@ -131,6 +131,6 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         }
         # this service is backend for collected info admin
         # if service exists then plugin should be available
-        return class_exists('Netgen\Bundle\InformationCollectionBundle\API\InformationCollectionService');
+        return interface_exists('Netgen\Bundle\InformationCollectionBundle\API\Service\InformationCollection');
     }
 }
