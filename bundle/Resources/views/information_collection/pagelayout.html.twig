@@ -1,0 +1,32 @@
+{% extends '@NetgenAdminUI/pagelayout.html.twig' %}
+
+{% trans_default_domain 'netgen_information_collection_admin' %}
+
+{% block title %}
+    {{ 'pagelayout.title'|trans }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '@NetgenInformationCollection/admin/stylesheets.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include '@NetgenInformationCollection/admin/javascripts.html.twig' %}
+{% endblock %}
+
+{% block pre_content %}
+    <div class="ic-app">
+        <div class="ic-content">
+            <div class="path">
+                {% include '@NetgenInformationCollection/admin/path.html.twig' %}
+            </div>
+{% endblock %}
+
+{% block post_content %}
+        </div>
+    </div>
+{% endblock %}

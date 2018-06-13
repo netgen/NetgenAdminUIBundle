@@ -1,0 +1,8 @@
+{% if is_granted('ez:infocollector:read') %}
+    <li{% if active %} class="active"{% endif %}>
+        <a href="{{ path( 'netgen_information_collection.route.admin.overview' ) }}">
+            <img src="{{ asset('bundles/netgeninformationcollection/admin/images/ic-logo-silhouette.svg') }}" class="icon" />
+            <span class="tt">{{ 'netgen_admin_ui.menu.information_collection'|trans }}</span>
+        </a>
+    </li>
+{% endif %}

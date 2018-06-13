@@ -15,16 +15,27 @@ services:
         arguments:
             - "%kernel.bundles%"
         tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -1 }
+            - { name: "netgen_admin_ui.menu_plugin", priority: -10 }
+
+    netgen_admin_ui.menu_plugin.information_collection:
+        class: Netgen\Bundle\AdminUIBundle\MenuPlugin\InformationCollectionMenuPlugin
+        public: false
+        arguments:
+            - "%kernel.bundles%"
+            # this service is backend for collected info admin
+            # if service exists then plugin should be available
+            - "@=container.has('netgen_information_collection.api.service')"
+        tags:
+            - { name: "netgen_admin_ui.menu_plugin", priority: -20 }
 
     netgen_admin_ui.menu_plugin.legacy_cache:
         class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyCachePlugin
         public: false
         tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -10 }
+            - { name: "netgen_admin_ui.menu_plugin", priority: -100 }
 
     netgen_admin_ui.menu_plugin.legacy_bookmarks:
         class: Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyBookmarksPlugin
         public: false
         tags:
-            - { name: "netgen_admin_ui.menu_plugin", priority: -20 }
+            - { name: "netgen_admin_ui.menu_plugin", priority: -200 }
