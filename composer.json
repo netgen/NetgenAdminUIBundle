@@ -27,6 +27,9 @@
         "ezsystems/ezpublish-kernel": "^6.0",
         "phpunit/phpunit": "^4.8|^5.7|^6.5"
     },
+    "conflict": {
+        "netgen/block-manager": "<0.8"
+    },
     "autoload": {
         "psr-4": {
             "Netgen\\Bundle\\AdminUIBundle\\": "bundle"

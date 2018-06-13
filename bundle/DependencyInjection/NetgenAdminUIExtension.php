@@ -2,7 +2,6 @@
 
 namespace Netgen\Bundle\AdminUIBundle\DependencyInjection;
 
-use Netgen\BlockManager\Version as BlockManagerVersion;
 use Netgen\TagsBundle\Version as TagsBundleVersion;
 use RuntimeException;
 use Symfony\Component\Config\FileLocator;
@@ -45,7 +44,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
             $loader->load('layouts/services.yml');
         }
 
-        if ($this->hasInformationCollection($activatedBundles, $container)) {
+        if ($this->hasInformationCollection($activatedBundles)) {
             $loader->load('information_collection/services.yml');
         }
 
@@ -87,14 +86,6 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasLayouts(array $activatedBundles)
     {
-        if (!class_exists('Netgen\BlockManager\Version')) {
-            return false;
-        }
-
-        if (BlockManagerVersion::VERSION_ID < 800) {
-            return false;
-        }
-
         return array_key_exists('NetgenBlockManagerBundle', $activatedBundles);
     }
 
@@ -125,7 +116,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      *
      * @return bool
      */
-    protected function hasInformationCollection(array $activatedBundles, ContainerBuilder $containerBuilder)
+    protected function hasInformationCollection(array $activatedBundles)
     {
         if (!array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)) {
             return false;

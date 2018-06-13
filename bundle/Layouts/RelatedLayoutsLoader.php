@@ -45,7 +45,9 @@ class RelatedLayoutsLoader
     {
         $query = $this->databaseConnection->createQueryBuilder();
 
-        $valueColumnName = Version::VERSION_ID < 1100 ? 'value_id' : 'value';
+        $valueColumnName = class_exists('Netgen\BlockManager\Version') && Version::VERSION_ID < 1100
+            ? 'value_id' :
+            'value';
 
         $query->select('DISTINCT b.layout_id')
             ->from('ngbm_collection_item', 'ci')
