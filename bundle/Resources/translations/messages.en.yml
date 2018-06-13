@@ -40,7 +40,7 @@ netgen_admin_ui.layouts.mappings.mapped_layout: 'Mapped layout'
 netgen_admin_ui.layouts.mappings.targets: 'Targets'
 netgen_admin_ui.layouts.mappings.conditions: 'Conditions'
 
-netgen_admin_ui.layouts.related_layouts.title: 'List of layouts related to this node/object'
+netgen_admin_ui.layouts.related_layouts.title: 'List of layouts using this node/object as block item'
 netgen_admin_ui.layouts.related_layouts.layout_name: 'Name'
 netgen_admin_ui.layouts.related_layouts.description: 'Description'
 netgen_admin_ui.layouts.related_layouts.modified: 'Last modified'
