@@ -5,6 +5,7 @@
 * Redesigned "Manage layouts" button. Instead of the popup, mapped layouts are now in a tab on node view page
 * Added possibility to clear the caches for mapped layouts directly on node view page
 * Added list of related layouts (layouts where current node or object are added as a manual item in a block)
+* Added support for new Netgen Information Collection admin interface
 
 ## 2.2.0 (23.02.2018)
 
