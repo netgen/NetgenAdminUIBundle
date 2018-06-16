@@ -4,10 +4,10 @@
 URL[default]=
 
 [Topmenu_media]
-URL[default]=Media
+URL[default]=media
 
 [Topmenu_users]
-URL[default]=Users
+URL[default]=users
 
 [Leftmenu_setup]
 Links[]

@@ -16,10 +16,10 @@
         {case match=''}
             {set $icon='fa fa-sitemap'}
         {/case}
-        {case match='Media'}
+        {case match='media'}
           {set $icon='fa fa-picture-o'}
         {/case}
-        {case match='Users'}
+        {case match='users'}
             {set $icon='fa fa-user'}
         {/case}
         {case match='setup/cache'}
