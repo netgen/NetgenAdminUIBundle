@@ -2,9 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
-use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Netgen\Bundle\InformationCollectionBundle\Version as InformationCollectionVersion;
 
 class InformationCollectionMenuPlugin implements MenuPluginInterface
 {
@@ -45,7 +43,7 @@ class InformationCollectionMenuPlugin implements MenuPluginInterface
 
         return $this->hasInformationCollectionService;
     }
-    
+
     public function matches(Request $request)
     {
         return mb_stripos(
