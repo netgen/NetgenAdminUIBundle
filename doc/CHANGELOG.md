@@ -1,6 +1,6 @@
 # Netgen Admin UI Bundle changelog
 
-## 2.3.0
+## 2.3.0 (29.06.2018)
 
 * Redesigned "Manage layouts" button. Instead of the popup, mapped layouts are now in a tab on node view page
 * Added possibility to clear the caches for mapped layouts directly on node view page
