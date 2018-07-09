@@ -84,6 +84,7 @@
 
                 {/let}
             </span>
+            <span class="box-bc pull-left"><span class="button-right"></span></span>
             {* DESIGN: Control bar START *}
             <div class="btn-group">
                 <input class="btn btn-default" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/admin/content/edit' )}" title="{'Store the contents of the draft that is being edited and continue editing. Use this button to periodically save your work while editing.'|i18n( 'design/admin/content/edit' )}" />
