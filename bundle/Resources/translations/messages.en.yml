@@ -51,3 +51,7 @@ netgen_admin_ui.layouts.edit_layout: 'Edit layout'
 netgen_admin_ui.layouts.cache_clear.question: 'Are you sure you want to clear caches for this layout?'
 netgen_admin_ui.layouts.cache_clear.cancel: 'Cancel'
 netgen_admin_ui.layouts.cache_clear.submit: 'Clear cache'
+
+layouts.layout.clear_block_caches: 'Clear block caches'
+layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
+layouts.layout.clear_cache: 'Clear layout cache'

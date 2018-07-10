@@ -299,9 +299,16 @@ $(document).ready(function () {
     this.$el = $(el);
     this.csrf = $('meta[name=ngbm-admin-csrf-token]').attr('content');
     this.basePath = $('meta[name=ngbm-admin-base-path]').attr('content') + 'layouts/';
-    this.$blockCacheModal = $('#clearBlockCachesModal');
-    this.initLayouts();
+    this.$content = this.$el.find('.layouts-box-content');
+    this.$loader = this.$el.find('.layout-loading');
+    this.fetchedLayouts = false;
+    this.$toggleBtn = $('#node-tab-nglayouts').find('a');
+    this.url = el.dataset.url;
+    this.setupEvents();
   }
+  LayoutsBox.prototype.setupEvents = function () {
+    this.$toggleBtn.on('click', this.getLayouts.bind(this));
+  };
   LayoutsBox.prototype.initLayouts = function () {
     var self = this;
     this.$el.find('.layout-list-item').each(function () {
@@ -309,10 +316,37 @@ $(document).ready(function () {
     });
   };
   LayoutsBox.prototype.cacheModalStartLoading = function () {
-    if (!this.$blockCacheModal.find('.modal-loading').length) this.$blockCacheModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
+    if (!this.$blockCacheModal.find('.modal-loading').length) {
+      this.$blockCacheModal.find('.modal-title').html('&nbsp;');
+      this.$blockCacheModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
+    }
   };
   LayoutsBox.prototype.cacheModalStopLoading = function () {
     this.$blockCacheModal.find('.modal-loading').remove();
+  };
+  LayoutsBox.prototype.showLoader = function () {
+    this.$el.addClass('loading');
+  };
+  LayoutsBox.prototype.hideLoader = function () {
+    this.$el.removeClass('loading');
+  };
+  LayoutsBox.prototype.getLayouts = function () {
+    if (this.fetchedLayouts) return;
+    var self = this;
+    $.ajax({
+      type: 'GET',
+      url: this.url,
+      beforeSend: function () {
+        self.showLoader();
+      },
+      success: function (data) {
+        self.fetchedLayouts = true;
+        self.$content.html(data);
+        self.$blockCacheModal = $('#clearBlockCachesModal');
+        self.initLayouts();
+        self.hideLoader();
+      },
+    });
   };
 
   $('.mapped-layouts-box').each(function () {

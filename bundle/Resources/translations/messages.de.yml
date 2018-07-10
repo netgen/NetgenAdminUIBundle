@@ -41,3 +41,7 @@ netgen_admin_ui.layouts.mappings.targets: 'Ziele'
 netgen_admin_ui.layouts.mappings.conditions: 'Bedingungen'
 
 netgen_admin_ui.layouts.edit_layout: 'Layout bearbeiten'
+
+layouts.layout.clear_block_caches: 'Clear block caches'
+layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
+layouts.layout.clear_cache: 'Clear layout cache'

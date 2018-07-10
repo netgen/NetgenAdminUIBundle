@@ -8007,4 +8007,13 @@ input.tagssuggestfield {
   padding: 2em 1em;
   margin: 0 !important;
   text-align: center; }
+
+.mapped-layouts-box > .layout-loading {
+  display: none;
+  position: relative;
+  padding: 5em 0;
+  text-align: center; }
+
+.mapped-layouts-box.loading > .layout-loading {
+  display: block; }
 /*# sourceMappingURL=style.css.map */

@@ -293,3 +293,20 @@
         text-align: center;
     }
 }
+
+.mapped-layouts-box {
+    > .layout-loading {
+        display: none;
+        position: relative;
+        // background: $lightBg;
+        padding: 5em 0;
+        text-align: center;
+        i {
+        }
+    }
+    &.loading {
+        > .layout-loading {
+            display: block;
+        }
+    }
+}
