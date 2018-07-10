@@ -1,5 +1,9 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.3.1 (10.07.2018)
+
+* Load list of applied and related layouts via AJAX, to fix issues with view cache
+
 ## 2.3.0 (29.06.2018)
 
 * Redesigned "Manage layouts" button. Instead of the popup, mapped layouts are now in a tab on node view page
