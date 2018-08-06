@@ -28,6 +28,82 @@
         </div>
     </div>
     <div class="path-edit-container"></div>
+    {if or( and( eq( $version.status, 0 ), $is_creator, $object.can_edit ),
+                  and( eq( $object.status, 2 ), $object.can_edit ) )}
+    <form clas="path-edit-container" method="post" action={concat( 'content/versionview/', $object.id, '/', $version.version, '/', $language, '/', $from_language )|ezurl}>
+
+        {* Translation *}
+        {if fetch( content, translation_list )|count|gt( 1 )}
+            <div class="form-group pull-left">
+                <label class="hidden">{'Translation'|i18n( 'design/admin/content/view/versionview' )}:</label>
+                <select class="form-control inline" name="SelectedLanguage">
+                {if $translation_list|count|gt( 1 )}
+                    {def $locale_object = false}
+                    {foreach $translation_list as $locale_code}
+                        {set $locale_object = $locale_code|locale()}
+                        <option value="{$locale_code}" {if eq( $locale_code, $object_languagecode )}selected="selected"{/if}>
+                            {if $locale_object.is_valid}
+                                <img src="{$locale_code|flag_icon}" width="18" height="12" alt="{$locale_code}" style="vertical-align: middle;" /> {$locale_object.intl_language_name|shorten( 16 )}
+                            {else}
+                                {'%1 (No locale information available)'|i18n( 'design/admin/content/view/versionview',, array( $locale_code ) )}
+                            {/if}
+                        </option>
+                    {/foreach}
+                {else}
+                    <option value="{$version.language_list[0].language_code}" selected="selected" disabled="disabled">
+                        {if $version.language_list[0].locale.is_valid}
+                            <img src="{$version.language_list[0].language_code|flag_icon}" width="18" height="12" alt="{$version.language_list[0].language_code}" style="vertical-align: middle;" /> {$version.language_list[0].locale.intl_language_name|shorten( 16 )}
+                        {else}
+                            {'%1 (No locale information available)'|i18n( 'design/admin/content/view/versionview',, array( $version.language_list[0].language_code ) )}
+                        {/if}
+                     </option>
+                {/if}
+                </select>
+            </div>
+        {/if}
+
+        {* Location *}
+        {section show=$version.node_assignments|count|gt( 0 )}
+        <div class="form-group pull-left">
+            <label class="hidden">{'Location'|i18n( 'design/admin/content/view/versionview' )}:</label>
+            <select class="form-control inline" name="SelectedPlacement">
+            {section show=$version.node_assignments|count|gt( 1 )}
+            {section var=Locations loop=$version.node_assignments}
+                <option value="{$Locations.item.id}" {if eq( $Locations.item.id, $placement )}selected="selected"{/if}>&nbsp;{$Locations.item.parent_node_obj.name|wash}</option>
+            {/section}
+            {section-else}
+                <option  value="{$version.node_assignments[0].id}" selected="selected" disabled="disabled">&nbsp;{$version.node_assignments[0].parent_node_obj.name|wash}</option>
+            {/section}
+            </select>
+        </div>
+        {/section}
+        <div class="form-group pull-left">
+            <label class="hidden">{'SiteAccess'|i18n( 'design/admin/content/view/versionview' )}:</label>
+            <select class="form-control inline" name="SelectedSiteAccess">
+            {if $site_access_locale_map|count|gt( 1 )}
+                {foreach $site_access_locale_map as $related_site_access => $related_site_access_locale}
+                    <option value="{$related_site_access}" {if eq( $related_site_access, $siteaccess )}selected="selected"{/if}>&nbsp;{$related_site_access|wash}</option>
+                {/foreach}
+            {else}
+                <option value="{$site_designs[0]}" selected="selected" disabled="disabled">&nbsp;{$site_designs[0]|wash}</option>
+            {/if}
+            </select>
+            <input class="button" type="submit" name="ChangeSettingsButton" value="{'Update view'|i18n( 'design/admin/content/view/versionview' )}" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" />
+        </div>
+        <div class="form-group pull-left">
+            {if or( and( eq( $version.status, 0 ), $is_creator, $object.can_edit ),
+                      and( eq( $object.status, 2 ), $object.can_edit ) )}
+                <input class="defaultbutton" type="submit" name="EditButton" value="{'Back to edit'|i18n( 'design/admin/content/view/versionview' )}" title="{'Edit the draft that is being displayed.'|i18n( 'design/admin/content/view/versionview' )}" />
+                <input class="button" type="submit" name="PreviewPublishButton" value="{'Publish'|i18n( 'design/admin/content/view/versionview' )}" title="{'Publish the draft that is being displayed.'|i18n( 'design/admin/content/view/versionview' )}" />
+            {else}
+                {if is_set( $redirect_uri )}
+                    <input class="text" type="hidden" name="RedirectURI" value="{$redirect_uri}" />
+                {/if}
+                <input class="button" type="submit" name="BackButton" value="{'Back'|i18n( 'design/admin/content/view/versionview' )}" />
+            {/if}
+        </div>
+    </form>
+    {/if}
 
 </div>
 
