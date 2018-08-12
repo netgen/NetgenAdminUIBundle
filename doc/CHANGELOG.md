@@ -1,5 +1,10 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.4.0
+
+* Enable preview from object edit interface, thanks @thiagocamposviana (#15)
+* Added Netgen Layouts admin interface integration
+
 ## 2.3.1 (10.07.2018)
 
 * Load list of applied and related layouts via AJAX, to fix issues with view cache
