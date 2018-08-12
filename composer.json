@@ -28,7 +28,8 @@
         "phpunit/phpunit": "^4.8|^5.7|^6.5"
     },
     "conflict": {
-        "netgen/block-manager": "<0.8"
+        "netgen/block-manager": "<0.8",
+        "netgen/admin-ui-layouts-bundle": "*"
     },
     "autoload": {
         "psr-4": {

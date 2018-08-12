@@ -1,0 +1,31 @@
+{% extends '@NetgenAdminUI/pagelayout.html.twig' %}
+
+{% trans_default_domain 'ngbm_admin' %}
+
+{% block title %}
+    {{ 'pagelayout.title'|trans }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '@NetgenBlockManagerAdmin/admin/stylesheets.html.twig' %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/netgenadminui/css/style.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include '@NetgenBlockManagerAdmin/admin/javascripts.html.twig' %}
+{% endblock %}
+
+{% block pre_content %}
+    <div class="ng-layouts-app">
+        <div class="layouts-content">
+{% endblock %}
+
+{% block post_content %}
+        </div>
+    </div>
+{% endblock %}

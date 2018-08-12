@@ -5,14 +5,14 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     // Automatically load required grunt tasks
-    require('jit-grunt')(grunt,{
+    require('jit-grunt')(grunt, {
         lockfile: 'grunt-lock'
     });
 
     // Configurable paths
     var config = {
-        resources_dir: 'bundle/Resources/',
-        public_dir: 'bundle/Resources/public/'
+        resources_dir: 'bundle/Resources',
+        public_dir: 'bundle/Resources/public'
     };
 
     // Define the configuration for all the tasks
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         // Project settings
         config: config,
 
-        //Prevent multiple grunt instances
+        // Prevent multiple grunt instances
         lockfile: {
             grunt: {
                 path: 'grunt.lock'
@@ -31,9 +31,9 @@ module.exports = function (grunt) {
         watch: {
             gruntfile: {
                 files: ['Gruntfile.js'],
-                 options: {
-                     reload: true
-                 }
+                options: {
+                    reload: true
+                }
             },
             sass: {
                 files: ['<%= config.resources_dir %>/sass/{,*/}*.{scss,sass}'],
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
         },
     });
 
-    grunt.registerTask('serve', 'start the server and preview your app', function () {
+    grunt.registerTask('serve', 'Start the server and preview your app', function () {
         grunt.task.run([
             'lockfile',
             'sass:dist',

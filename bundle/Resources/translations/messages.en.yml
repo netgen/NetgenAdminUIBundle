@@ -31,6 +31,7 @@ netgen_admin_ui.user.logout: 'Logout'
 
 netgen_admin_ui.menu.tags: 'Netgen Tags'
 netgen_admin_ui.menu.information_collection: 'Collected information'
+netgen_admin_ui.menu.layouts: 'Netgen Layouts'
 netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Clear cache'
 netgen_admin_ui.menu.bookmarks: 'Bookmarks'
