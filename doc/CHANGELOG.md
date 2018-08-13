@@ -4,6 +4,7 @@
 
 * Enable preview from object edit interface, thanks @thiagocamposviana (#15)
 * Added Netgen Layouts admin interface integration
+* Add translation for `ngadminui` siteaccess
 
 ## 2.3.1 (10.07.2018)
 
