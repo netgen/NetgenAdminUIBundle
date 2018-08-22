@@ -9,7 +9,7 @@ class NetgenAdminUIExtensionTest extends AbstractExtensionTestCase
 {
     public function testWithNoEzCoreExtraBundle()
     {
-        $this->expectException('RuntimeException');
+        $this->setExpectedException('RuntimeException');
 
         $this->container->setParameter('kernel.bundles', []);
         $this->load();
