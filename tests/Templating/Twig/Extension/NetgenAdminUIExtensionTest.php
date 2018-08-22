@@ -43,10 +43,7 @@ class NetgenAdminUIExtensionTest extends TestCase
             return $this->mockedKernel;
         };
 
-        $this->legacyKernel = Closure::fromCallable($callbackMock);
-        $legacyKernel = $this->legacyKernel;
-
-        $this->extension = new NetgenAdminUIExtension($this->pathHelper, $legacyKernel);
+        $this->extension = new NetgenAdminUIExtension($this->pathHelper, $callbackMock);
     }
 
     public function testGetName()
