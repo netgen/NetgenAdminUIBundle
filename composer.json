@@ -25,7 +25,8 @@
     },
     "require-dev": {
         "ezsystems/ezpublish-kernel": "^6.0",
-        "phpunit/phpunit": "^4.8|^5.7|^6.5"
+        "phpunit/phpunit": "^4.8|^5.7|^6.5",
+        "matthiasnoback/symfony-dependency-injection-test": "^1.0"
     },
     "conflict": {
         "netgen/block-manager": "<0.8",

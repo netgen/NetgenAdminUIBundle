@@ -21,12 +21,10 @@
             <exclude>
                 <directory>bundle/Command</directory>
                 <directory>bundle/Controller</directory>
-                <directory>bundle/DependencyInjection</directory>
                 <directory>bundle/EventListener</directory>
                 <directory>bundle/Exception</directory>
                 <directory>bundle/Installer</directory>
                 <directory>bundle/Resources</directory>
-                <directory>bundle/Templating</directory>
                 <file>bundle/NetgenAdminUIBundle.php</file>
             </exclude>
         </whitelist>
