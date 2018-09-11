@@ -50,8 +50,10 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         }
 
         $logoType = $container->getParameter('netgen_admin_ui.logo_type');
-        if ($logoType === 'default' && class_exists('Netgen\Bundle\MoreBundle\NetgenMoreBundle')) {
-            $container->setParameter('netgen_admin_ui.logo_type', 'ngadminui');
+        if ($logoType === 'default') {
+            if (class_exists('Netgen\Bundle\SiteBundle\NetgenSiteBundle') || class_exists('Netgen\Bundle\MoreBundle\NetgenMoreBundle')) {
+                $container->setParameter('netgen_admin_ui.logo_type', 'ngadminui');
+            }
         }
     }
 
