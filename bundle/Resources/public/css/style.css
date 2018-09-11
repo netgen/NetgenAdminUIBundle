@@ -5690,7 +5690,17 @@ label {
   color: #58666e;
   padding-bottom: 80px;
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
 
 #maincontent {
   margin: 0 240px 0 0;
@@ -8041,11 +8051,13 @@ input.tagssuggestfield {
         color: #F3590A;
         cursor: default; }
 
-.layout-column.main-column {
-  background: #f5f5f5; }
-
-.ng-layouts-app .layouts-content {
-  padding-bottom: 45px;
-  background: whitesmoke;
-  position: static; }
+.ng-layouts-app {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-bottom: -45px; }
+  .ng-layouts-app .layouts-content {
+    padding-bottom: 45px;
+    background: whitesmoke;
+    position: static; }
 /*# sourceMappingURL=style.css.map */

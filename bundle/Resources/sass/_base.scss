@@ -529,7 +529,7 @@ label {
 }
 
 .main-content {
-    color:#58666e; padding-bottom:80px; position:relative; min-height:100%;
+    color:#58666e; padding-bottom:80px; position:relative; min-height:100%; display: flex; flex-direction: column; align-items: stretch;
 }
 
 #maincontent {
