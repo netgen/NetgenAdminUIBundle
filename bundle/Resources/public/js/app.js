@@ -89,21 +89,49 @@ $(document).ready(function () {
   /* */
 
   /* edit tabs */
-  (function() {
+  (function(){
     var control = $('.edit-tab-control'),
       trigger = control.find('a'),
       tabs = $('.edit-tabs'),
       tab = tabs.find('.tab'),
-      i = 0;
-    trigger.eq(0).addClass('active');
-    tab.not(tab.eq(0)).hide();
-    trigger.on('click', function(e) {
-      i = $(this).index();
-      trigger.removeClass('active');
-      $(this).addClass('active');
-      tab.eq(i).fadeIn().siblings().hide();
-      e.preventDefault();
-    })
+      groupId = false,
+      preferences = {},
+      preferenceStr = sessionStorage.getItem( 'netgen/ngadminui/preferences' );
+
+    if( preferenceStr )
+    {
+      preferences = JSON.parse( preferenceStr );
+    }
+      groupId = preferences.activeEditTab || false;
+
+      trigger.on('click', function(e){
+        i = $(this).index();
+        trigger.removeClass('active');
+        $(this).addClass('active');
+        tab.eq(i).fadeIn().siblings().hide();
+        sessionStorage.setItem( 'netgen/ngadminui/preferences',
+          JSON.stringify({ activeEditTab: $(this).attr( 'data-field-group' ) })
+        );
+        e.preventDefault();
+      });
+
+      if( groupId )
+      {
+        var selected = trigger.filter( '[data-field-group="'+ groupId +'"]');
+
+        if( selected.length )
+        {
+          selected.click();
+        }
+        else
+        {
+          trigger.eq(0).click();
+        }
+      }
+      else
+      {
+        trigger.eq(0).click();
+      }
   })();
   /* */
 
