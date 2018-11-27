@@ -111,7 +111,7 @@
                          $attribute_default_category = ezini( 'ClassAttributeSettings', 'DefaultCategory', 'content.ini' )}
 
                 {foreach $content_attributes_grouped_data_map as $attribute_group => $content_attributes_grouped}
-                    <a href="#">{$attribute_categorys[$attribute_group]}</a>
+                    <a href="#" data-field-group="{$attribute_group}">{$attribute_categorys[$attribute_group]}</a>
                 {/foreach}
 
                 {/default}
