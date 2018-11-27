@@ -96,42 +96,37 @@ $(document).ready(function () {
       tab = tabs.find('.tab'),
       groupId = false,
       preferences = {},
-      preferenceStr = sessionStorage.getItem( 'netgen/ngadminui/preferences' );
+      preferenceStr = sessionStorage.getItem('netgen/ngadminui/preferences');
 
-    if( preferenceStr )
-    {
-      preferences = JSON.parse( preferenceStr );
+    if(preferenceStr){
+      preferences = JSON.parse(preferenceStr);
     }
-      groupId = preferences.activeEditTab || false;
+    groupId = preferences.activeEditTab || false;
 
-      trigger.on('click', function(e){
-        i = $(this).index();
-        trigger.removeClass('active');
-        $(this).addClass('active');
-        tab.eq(i).fadeIn().siblings().hide();
-        sessionStorage.setItem( 'netgen/ngadminui/preferences',
-          JSON.stringify({ activeEditTab: $(this).attr( 'data-field-group' ) })
-        );
-        e.preventDefault();
-      });
+    trigger.on('click', function(e){
+      i = $(this).index();
+      trigger.removeClass('active');
+      $(this).addClass('active');
+      tab.eq(i).fadeIn().siblings().hide();
+      sessionStorage.setItem('netgen/ngadminui/preferences',
+        JSON.stringify({activeEditTab: $(this).attr('data-field-group')})
+      );
+      e.preventDefault();
+    });
 
-      if( groupId )
-      {
-        var selected = trigger.filter( '[data-field-group="'+ groupId +'"]');
+    if(groupId){
+      var selected = trigger.filter('[data-field-group="'+groupId+'"]');
 
-        if( selected.length )
-        {
-          selected.click();
-        }
-        else
-        {
-          trigger.eq(0).click();
-        }
+      if(selected.length){
+        selected.click();
       }
-      else
-      {
+      else{
         trigger.eq(0).click();
       }
+    }
+    else{
+      trigger.eq(0).click();
+    }
   })();
   /* */
 
