@@ -10,7 +10,7 @@
 </div>
 {/set-block}
 
-{ezpagedata_set( 'top_menu', $top_menu )}
+{set scope='global' persistent_variable=hash( 'top_menu', $top_menu ) }
 
 <!-- Maincontent START -->
 

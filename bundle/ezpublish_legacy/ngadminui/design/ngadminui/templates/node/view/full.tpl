@@ -60,7 +60,7 @@
     </div>
 {/set-block}
 
-{ezpagedata_set( 'top_menu', $top_menu )}
+{set scope='global' persistent_variable=hash( 'top_menu', $top_menu ) }
 
 <div class="content-view-full class-{$node.class_identifier}">
     {include uri='design:infocollection_validation.tpl'}
