@@ -605,7 +605,7 @@ fieldset.ezcca-collapsible {
         margin:0 0 0.875em;
     }
     background:$lightBg; padding:0 $gutter; margin:0;
-    ::after {
+    &::after {
         clear:both; display:table; content:"";
     }
     .title-edit {

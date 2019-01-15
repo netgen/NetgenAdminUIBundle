@@ -5811,7 +5811,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
   margin: 0; }
   .title-wrapper h1, .title-wrapper h2, .title-wrapper h3 {
     margin: 0 0 0.875em; }
-  .title-wrapper ::after {
+  .title-wrapper::after {
     clear: both;
     display: table;
     content: ""; }
