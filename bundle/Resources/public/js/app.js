@@ -298,7 +298,8 @@ $(document).ready(function () {
   function LayoutsBox(el) {
     this.$el = $(el);
     this.csrf = $('meta[name=ngbm-admin-csrf-token]').attr('content');
-    this.basePath = $('meta[name=ngbm-admin-base-path]').attr('content') + 'layouts/';
+    this.basePath = $('meta[name=ngbm-admin-base-path]').attr('content');
+    this.basePath += this.basePath.charAt(this.basePath.length - 1) !== '/' ? '/layouts/' : 'layouts/';
     this.$content = this.$el.find('.layouts-box-content');
     this.$loader = this.$el.find('.layout-loading');
     this.fetchedLayouts = false;
