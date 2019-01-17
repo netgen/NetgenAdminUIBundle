@@ -1,12 +1,8 @@
 {* Window controls *}
-{def $default_tab = ezini( 'ViewSettings', 'DefaultTab', 'ngadminui.ini' )}
-{* If no DefaultTab is defined, display view tab by default *}
-{if $default_tab|not()}
-    {set $default_tab = 'view'}
-{/if}
 {def $node_url_alias      = $node.url_alias
      $tabs_disabled       = false()
      $default_tabs        = ezini( 'ViewSettings', 'DefaultTabs', 'ngadminui.ini' )
+     $default_tab         = ezini( 'ViewSettings', 'DefaultTab', 'ngadminui.ini' )
      $node_tab_index      = cond( is_set( $default_tabs[$node.object.class_identifier] ), $default_tabs[$node.object.class_identifier], true(), $default_tab )
      $available_languages = fetch( 'content', 'prioritized_languages' )
      $translations        = $node.object.languages
