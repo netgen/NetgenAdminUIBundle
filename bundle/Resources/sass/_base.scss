@@ -119,7 +119,7 @@ label {
 .form-control {border:1px solid #e8e8e8; @include rounded(2px); -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.025); background:#f8f8f8;}
 
 #page {
-    background:transparent; padding-top:$headerHeight;
+    background:transparent; padding-top:$headerHeight; min-height: initial;
 }
 
 #header {

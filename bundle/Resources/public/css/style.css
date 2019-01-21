@@ -5115,7 +5115,8 @@ label {
 
 #page {
   background: transparent;
-  padding-top: 70px; }
+  padding-top: 70px;
+  min-height: initial; }
 
 #header {
   border: none;
