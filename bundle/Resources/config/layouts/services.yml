@@ -33,3 +33,11 @@ services:
             - "@netgen_block_manager.http_cache.client"
         tags:
             - { name: kernel.event_subscriber }
+
+    netgen_admin_ui.layouts.event_listener.is_enterprise_version:
+        class: Netgen\Bundle\AdminUIBundle\Layouts\EventListener\IsEnterpriseVersionListener
+        public: true
+        arguments:
+            - "%netgen_admin_ui.layouts.is_enterprise%"
+        tags:
+            - { name: kernel.event_subscriber }

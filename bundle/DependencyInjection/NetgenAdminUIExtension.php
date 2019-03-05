@@ -43,6 +43,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         if ($this->hasLayouts($activatedBundles)) {
             $loader->load('layouts/controllers.yml');
             $loader->load('layouts/services.yml');
+            $this->setIsLayoutsEnterprise($container, $activatedBundles);
         }
 
         if ($this->hasInformationCollection($activatedBundles)) {
@@ -90,6 +91,20 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
     protected function hasLayouts(array $activatedBundles)
     {
         return array_key_exists('NetgenBlockManagerBundle', $activatedBundles);
+    }
+
+    /**
+     * Sets the flag to the container if Netgen Layouts is the enterprise or open source version.
+     *
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array $activatedBundles
+     */
+    protected function setIsLayoutsEnterprise(ContainerBuilder $container, array $activatedBundles)
+    {
+        $container->setParameter(
+            'netgen_admin_ui.layouts.is_enterprise',
+            array_key_exists('NetgenLayoutsEnterpriseBundle', $activatedBundles)
+        );
     }
 
     /**
