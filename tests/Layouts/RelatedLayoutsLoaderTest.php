@@ -130,7 +130,7 @@ class RelatedLayoutsLoaderTest extends TestCase
             ),
             array(
                 'layout_id' => 7,
-            )
+            ),
         );
 
         $layout1 = new Layout(array('name' => 'Frontpage'));

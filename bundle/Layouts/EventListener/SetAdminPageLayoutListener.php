@@ -34,7 +34,7 @@ class SetAdminPageLayoutListener implements EventSubscriberInterface
     /**
      * Sets if the current siteaccess will be considered as Netgen Admin UI siteaccess.
      *
-     * @param null|bool $isAdminSiteAccess
+     * @param bool|null $isAdminSiteAccess
      */
     public function setIsAdminSiteAccess($isAdminSiteAccess = null)
     {

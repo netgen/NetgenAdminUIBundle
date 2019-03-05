@@ -3,8 +3,6 @@
 namespace Netgen\Bundle\AdminUIBundle\Tests\Templating\Twig\Extension;
 
 use Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension\NetgenAdminUIExtension;
-use Closure;
-use eZPreferences;
 use PHPUnit\Framework\TestCase;
 
 class NetgenAdminUIExtensionTest extends TestCase

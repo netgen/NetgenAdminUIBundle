@@ -11,7 +11,7 @@ class NetgenAdminUIExtensionTest extends AbstractExtensionTestCase
     {
         $this->setExpectedException('RuntimeException');
 
-        $this->container->setParameter('kernel.bundles', []);
+        $this->container->setParameter('kernel.bundles', array());
         $this->load();
     }
 
@@ -48,8 +48,8 @@ class NetgenAdminUIExtensionTest extends AbstractExtensionTestCase
 
     protected function getContainerExtensions()
     {
-        return [
+        return array(
             new NetgenAdminUIExtension(),
-        ];
+        );
     }
 }
