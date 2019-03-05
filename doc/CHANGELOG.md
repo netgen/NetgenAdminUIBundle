@@ -1,10 +1,35 @@
 # Netgen Admin UI Bundle changelog
 
+## 2.5.0 (05.03.2019)
+
+* Fix EZP-24800: Support `allowed classes` limitation for object relation attributes
+* Remember last selected attribute group when editing a content object
+* Replace the template operator `ezpagedata_set` with persistent variables
+* Add the `Copy` button to the full view
+* Add support for specifying Google Maps API key
+* Add possibility to configure the default tab
+* Properly support Netgen Layouts Enterprise edition
+
+## 2.4.2 (15.01.2019)
+
+* Fix some display issues in Netgen Layouts
+* Support routing changes introduced in Netgen Layouts 0.13
+
+## 2.4.1 (11.09.2018)
+
+* Fix logo check for open source version of Media Site
+* Fix background color in Netgen Layouts
+* Add some unit tests
+
 ## 2.4.0 (16.08.2018)
 
 * Enable preview from object edit interface, thanks @thiagocamposviana (#15)
 * Added Netgen Layouts admin interface integration
 * Add translation for `ngadminui` siteaccess
+
+## 2.3.2 (11.09.2018)
+
+* Fix logo check for open source version of Media Site
 
 ## 2.3.1 (10.07.2018)
 
