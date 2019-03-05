@@ -281,6 +281,7 @@
             + label {
                 overflow:hidden;
                 text-indent:-999em;
+                display: none;
                 &::before {
                     text-indent:0;
                 }
