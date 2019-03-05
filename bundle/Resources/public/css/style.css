@@ -34,7 +34,7 @@
   src: url("../fonts/Roboto/Roboto-italic.eot");
   src: url("../fonts/Roboto/Roboto-italic.eot?#iefix") format("embedded-opentype"), local("Roboto"), local("Roboto-italic"), url("../fonts/Roboto/Roboto-italic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-italic.woff") format("woff"), url("../fonts/Roboto/Roboto-italic.ttf") format("truetype"), url("../fonts/Roboto/Roboto-italic.svg#Roboto") format("svg"); }
 
-#content-tree-menu .node-name-hidden::before, .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i {
+#content-tree-menu .node-name-hidden::before, .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i, .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
   display: inline-block;
   font: normal normal normal 14px FontAwesome;
   font-size: inherit;
@@ -8005,18 +8005,38 @@ input.tagssuggestfield {
     border-bottom: 1px solid #d1d1d1; }
     .nl-modal-cache .nl-caches-table tbody tr:last-child {
       border-bottom: none; }
-  .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
-    overflow: hidden;
-    text-indent: -999em;
-    display: none; }
-    .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
-      text-indent: 0; }
-    .nl-modal-mask .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
-      padding: 0 !important;
+  .nl-modal-cache .nl-caches-table input[type="checkbox"] {
+    position: absolute;
+    left: -9999em; }
+    .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
+      display: block;
       width: 2em;
       height: 2em;
-      margin: 0;
-      display: inline-block; }
+      position: relative;
+      padding: 0.3846153846em 0.3846153846em 0.3846153846em 2em !important;
+      margin: 0 0 0.5em;
+      cursor: pointer;
+      overflow: hidden;
+      text-indent: -999em; }
+      .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
+        text-indent: 0;
+        font-size: 24px;
+        content: "\f096";
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        color: #666666; }
+      .nl-modal-mask .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
+        padding: 0 !important;
+        width: 2em;
+        height: 2em;
+        margin: 0;
+        display: inline-block; }
+    .nl-modal-cache .nl-caches-table input[type="checkbox"]:checked + label::before {
+      content: "\f14a";
+      color: #0098c7; }
+    .nl-modal-cache .nl-caches-table input[type="checkbox"]:indeterminate + label::before {
+      content: "\f147"; }
 
 .nl-modal-cache .errors {
   list-style-type: none;

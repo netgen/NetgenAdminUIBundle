@@ -278,12 +278,27 @@
             }
         }
         input[type="checkbox"] {
+            position:absolute;
+            left:-9999em;
             + label {
+                display:block;
+                width: 2em;
+                height: 2em;
+                position:relative;
+                padding:0.3846153846em 0.3846153846em 0.3846153846em 2em !important;
+                margin:0 0 0.5em;
+                cursor:pointer;
                 overflow:hidden;
                 text-indent:-999em;
-                display: none;
                 &::before {
                     text-indent:0;
+                    @extend %fontawesome;
+                    font-size:24px;
+                    content:"\f096";
+                    position:absolute;
+                    left:0;
+                    top:0.1em;
+                    color:hsl(0, 0, 40);
                 }
                 .nl-modal-mask & {
                     padding:0 !important;
@@ -293,6 +308,22 @@
                     display:inline-block;
                 }
             }
+            &:checked {
+                + label {
+                    &::before {
+                        content:"\f14a";
+                        color:hsl(194, 100, 39);
+                    }
+                }
+            }
+            &:indeterminate {
+                + label {
+                    &::before {
+                        content:"\f147";
+                    }
+                }
+            }
+
         }
     }
     .errors {
