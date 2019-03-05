@@ -8005,6 +8005,17 @@ input.tagssuggestfield {
     border-bottom: 1px solid #d1d1d1; }
     .nl-modal-cache .nl-caches-table tbody tr:last-child {
       border-bottom: none; }
+  .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
+    overflow: hidden;
+    text-indent: -999em; }
+    .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
+      text-indent: 0; }
+    .nl-modal-mask .nl-modal-cache .nl-caches-table input[type="checkbox"] + label {
+      padding: 0 !important;
+      width: 2em;
+      height: 2em;
+      margin: 0;
+      display: inline-block; }
 
 .nl-modal-cache .errors {
   list-style-type: none;

@@ -277,6 +277,22 @@
                 }
             }
         }
+        input[type="checkbox"] {
+            + label {
+                overflow:hidden;
+                text-indent:-999em;
+                &::before {
+                    text-indent:0;
+                }
+                .nl-modal-mask & {
+                    padding:0 !important;
+                    width:2em;
+                    height:2em;
+                    margin:0;
+                    display:inline-block;
+                }
+            }
+        }
     }
     .errors {
         list-style-type: none;
