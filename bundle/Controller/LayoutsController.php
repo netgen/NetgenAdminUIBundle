@@ -86,6 +86,17 @@ class LayoutsController extends Controller
      */
     protected function checkPermissions()
     {
-        $this->denyAccessUnlessGranted('ROLE_NGBM_EDITOR');
+        if ($this->isGranted('ROLE_NGBM_EDITOR')) {
+            return;
+        }
+
+        if ($this->isGranted('nglayouts:ui:access')) {
+            return;
+        }
+
+        $exception = $this->createAccessDeniedException();
+        $exception->setAttributes('nglayouts:ui:access');
+
+        throw $exception;
     }
 }

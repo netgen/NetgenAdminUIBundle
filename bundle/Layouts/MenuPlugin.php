@@ -35,7 +35,15 @@ class MenuPlugin implements MenuPluginInterface
 
     public function isActive()
     {
-        return $this->authorizationChecker->isGranted('ROLE_NGBM_ADMIN');
+        if ($this->authorizationChecker->isGranted('ROLE_NGBM_ADMIN')) {
+            return true;
+        }
+
+        if ($this->authorizationChecker->isGranted('nglayouts:ui:access')) {
+            return true;
+        }
+
+        return false;
     }
 
     public function matches(Request $request)

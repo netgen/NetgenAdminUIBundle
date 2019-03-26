@@ -1,18 +1,21 @@
 {% import '@NetgenBlockManagerAdmin/admin/macros.html.twig' as macros %}
 
+{% set can_edit = is_granted('ROLE_NGBM_EDITOR') or is_granted('nglayouts:layout:edit', layout) %}
+{% set can_clear_cache = is_granted('ROLE_NGBM_ADMIN') or is_granted('nglayouts:layout:clear_cache', layout) %}
+
 <li class="layout-list-item" data-layout-id="{{ layout.id }}">
     <div class="layout-item">
         <div class="layout-name">{{ layout.name }}</div>
         <div class="layout-description">{{ layout.description }}</div>
         <div class="layout-modified">{{ layout.modified|localizeddate }}</div>
 
-        <div class="layout-actions">
-            {% if is_granted('ROLE_NGBM_EDITOR') %}
+        {% if can_edit %}
+            <div class="layout-actions">
                 <a href="{{ macros.layout_path(layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
 
-        {% if is_granted('ROLE_NGBM_ADMIN') %}
+        {% if can_clear_cache %}
             <div class="layout-dropdown dropdown">
                 <button id="layout-{{ layout.id }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ layout.id }}-dropdown">
@@ -25,7 +28,7 @@
         {% endif %}
     </div>
 
-    {% if is_granted('ROLE_NGBM_ADMIN') %}
+    {% if can_clear_cache %}
         <div class="modal fade ngmodal layout-cache-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
