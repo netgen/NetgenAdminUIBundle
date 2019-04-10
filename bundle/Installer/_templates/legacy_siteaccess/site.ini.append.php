@@ -33,6 +33,7 @@ TextTranslation=disabled
 [ContentSettings]
 CachedViewPreferences[full]=admin_navigation_content=1;admin_children_viewmode=list;admin_list_limit=1
 TranslationList={{ translationList }}
+RedirectAfterPublish=node
 
 [TemplateSettings]
 Debug=disabled
