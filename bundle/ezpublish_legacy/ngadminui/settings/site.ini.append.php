@@ -2,3 +2,4 @@
 
 [TemplateSettings]
 ExtensionAutoloadPath[]=ngadminui
+*/ ?>
