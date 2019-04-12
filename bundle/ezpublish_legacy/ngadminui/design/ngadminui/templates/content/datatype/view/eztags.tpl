@@ -15,7 +15,7 @@
         {foreach $attribute.content.tags as $tag}
             <img class="transparent-png-icon" src="{$tag.icon|tag_icon}" title="{$tag.keyword|wash}" alt="{$tag.keyword|wash}" />
 
-            <a href={if has_tags_bundle()}"{symfony_path('netgen_tags_admin_tag_show', hash( 'tagId', $tag.id ))}"{else}{if $nice_urls}{$tag.url|ezurl}{else}{concat( 'tags/id/', $tag.id )|ezurl}{/if}{/if}>
+            <a href={if has_tags_bundle()}"{symfony_path('netgen_tags_admin_tag_show', hash( 'tagId', $tag.id ))}"{elseif $nice_urls}{$tag.url|ezurl}{else}{concat( 'tags/id/', $tag.id )|ezurl}{/if}>
                 {$tag.keyword|wash}
             </a>
             {delimiter}, {/delimiter}
