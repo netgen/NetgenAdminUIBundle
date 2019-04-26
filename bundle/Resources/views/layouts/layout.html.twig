@@ -1,9 +1,9 @@
-{% import '@NetgenBlockManagerAdmin/admin/macros.html.twig' as macros %}
+{% import '@NetgenLayoutsAdmin/admin/macros.html.twig' as macros %}
 
-{% set can_edit = is_granted('ROLE_NGBM_EDITOR') or is_granted('nglayouts:layout:edit', layout) %}
-{% set can_clear_cache = is_granted('ROLE_NGBM_ADMIN') or is_granted('nglayouts:layout:clear_cache', layout) %}
+{% set can_edit = is_granted('ROLE_NGLAYOUTS_EDITOR') or is_granted('nglayouts:layout:edit', layout) %}
+{% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', layout) %}
 
-<li class="layout-list-item" data-layout-id="{{ layout.id }}">
+<li class="layout-list-item" data-layout-id="{{ layout.id.toString }}">
     <div class="layout-item">
         <div class="layout-name">{{ layout.name }}</div>
         <div class="layout-description">{{ layout.description }}</div>
@@ -11,14 +11,14 @@
 
         {% if can_edit %}
             <div class="layout-actions">
-                <a href="{{ macros.layout_path(layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
+                <a href="{{ macros.layout_path(layout.id.toString) }}" class="btn btn-primary btn-sm js-open-ngl">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
             </div>
         {% endif %}
 
         {% if can_clear_cache %}
             <div class="layout-dropdown dropdown">
-                <button id="layout-{{ layout.id }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ layout.id }}-dropdown">
+                <button id="layout-{{ layout.id.toString }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ layout.id.toString }}-dropdown">
                     <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans }}</button></li>
                     {% if is_enterprise %}
                         <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans }}</span></button></li>
@@ -34,7 +34,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i></i></button>
-                        <h4 class="modal-title">{{ 'layouts.cache.layout.title'|trans({}, 'ngbm_admin') }}: <strong>{{ layout.name }}</strong></h4>
+                        <h4 class="modal-title">{{ 'layouts.cache.layout.title'|trans({}, 'nglayouts_admin') }}: <strong>{{ layout.name }}</strong></h4>
                     </div>
                     <div class="modal-body">
                         <p>{{ 'netgen_admin_ui.layouts.cache_clear.question'|trans }}</p>

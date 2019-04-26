@@ -1,21 +1,21 @@
-{% import '@NetgenBlockManagerAdmin/admin/macros.html.twig' as macros %}
+{% import '@NetgenLayoutsAdmin/admin/macros.html.twig' as macros %}
 
-{% set can_edit = is_granted('ROLE_NGBM_EDITOR') or is_granted('nglayouts:layout:edit', rule.layout) %}
-{% set can_clear_cache = is_granted('ROLE_NGBM_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
+{% set can_edit = is_granted('ROLE_NGLAYOUTS_EDITOR') or is_granted('nglayouts:layout:edit', rule.layout) %}
+{% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
 
-<li class="layout-list-item" data-layout-id="{{ rule.layout.id }}">
+<li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}">
     <div class="layout-item">
         <div class="layout-name">{{ rule.layout.name }}</div>
 
         <div class="layout-target">
             {% set target_type = rule.targets[0].targetType.type %}
 
-            <p>{{ ('layout_resolver.target.' ~ target_type)|trans({}, 'ngbm') }}:</p>
+            <p>{{ ('layout_resolver.target.' ~ target_type)|trans({}, 'nglayouts') }}:</p>
 
             <ul>
                 {% for target in rule.targets %}
                     <li {% if rule_count == 1 and rule.targets|length == 1 and (target_type == 'ezlocation' or target_type == 'ezcontent') %}class="unique"{% endif %}>
-                        {{ ngbm_render_rule_target(target, {}, 'value') }}
+                        {{ nglayouts_render_rule_target(target, {}, 'value') }}
                     </li>
                 {% endfor %}
             </ul>
@@ -24,21 +24,21 @@
         <div class="layout-conditions">
             <ul>
                 {% for condition in rule.conditions %}
-                    <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'ngbm') }}: {{ ngbm_render_rule_condition(condition, {}, 'value') }}</li>
+                    <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'nglayouts') }}: {{ nglayouts_render_rule_condition(condition, {}, 'value') }}</li>
                 {% endfor %}
             </ul>
         </div>
 
         {% if can_edit %}
             <div class="layout-actions">
-                <a href="{{ macros.layout_path(rule.layout.id) }}" class="btn btn-primary btn-sm js-open-bm">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
+                <a href="{{ macros.layout_path(rule.layout.id.toString) }}" class="btn btn-primary btn-sm js-open-ngl">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
             </div>
         {% endif %}
 
         {% if can_clear_cache %}
             <div class="layout-dropdown dropdown">
-                <button id="layout-{{ rule.layout.id }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ rule.layout.id }}-dropdown">
+                <button id="layout-{{ rule.layout.id.toString }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ rule.layout.id.toString }}-dropdown">
                     <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans }}</button></li>
                     {% if is_enterprise %}
                         <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans }}</span></button></li>
@@ -54,7 +54,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i></i></button>
-                        <h4 class="modal-title">{{ 'layouts.cache.layout.title'|trans({}, 'ngbm_admin') }}: <strong>{{ rule.layout.name }}</strong></h4>
+                        <h4 class="modal-title">{{ 'layouts.cache.layout.title'|trans({}, 'nglayouts_admin') }}: <strong>{{ rule.layout.name }}</strong></h4>
                     </div>
                     <div class="modal-body">
                         <p>{{ 'netgen_admin_ui.layouts.cache_clear.question'|trans }}</p>

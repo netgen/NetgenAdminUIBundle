@@ -2,8 +2,8 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Layouts\EventListener;
 
-use Netgen\Bundle\BlockManagerAdminBundle\Event\AdminMatchEvent;
-use Netgen\Bundle\BlockManagerAdminBundle\Event\BlockManagerAdminEvents;
+use Netgen\Bundle\LayoutsAdminBundle\Event\AdminMatchEvent;
+use Netgen\Bundle\LayoutsAdminBundle\Event\LayoutsAdminEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SetAdminPageLayoutListener implements EventSubscriberInterface
@@ -28,7 +28,7 @@ class SetAdminPageLayoutListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(BlockManagerAdminEvents::ADMIN_MATCH => 'onAdminMatch');
+        return array(LayoutsAdminEvents::ADMIN_MATCH => 'onAdminMatch');
     }
 
     /**

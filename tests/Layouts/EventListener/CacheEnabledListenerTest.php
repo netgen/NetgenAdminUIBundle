@@ -2,12 +2,12 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\Layouts\EventListener;
 
-use Netgen\BlockManager\Event\BlockManagerEvents;
-use Netgen\BlockManager\Event\CollectViewParametersEvent;
-use Netgen\BlockManager\HttpCache\NullClient;
-use Netgen\BlockManager\View\View\FormView;
-use Netgen\BlockManager\View\View\LayoutView;
 use Netgen\Bundle\AdminUIBundle\Layouts\EventListener\CacheEnabledListener;
+use Netgen\Layouts\Event\CollectViewParametersEvent;
+use Netgen\Layouts\Event\LayoutsEvents;
+use Netgen\Layouts\HttpCache\NullClient;
+use Netgen\Layouts\View\View\FormView;
+use Netgen\Layouts\View\View\LayoutView;
 use PHPUnit\Framework\TestCase;
 
 class CacheEnabledListenerTest extends TestCase
@@ -20,17 +20,16 @@ class CacheEnabledListenerTest extends TestCase
     public function setUp()
     {
         if (
-            !class_exists('\Netgen\BlockManager\Version')
-            || !class_exists('Netgen\BlockManager\Event\CollectViewParametersEvent')
-            || !class_exists('Netgen\BlockManager\Event\BlockManagerEvents')
-            || !class_exists('Netgen\BlockManager\View\View\FormView')
-            || !class_exists('Netgen\BlockManager\View\View\LayoutView')
-            || !class_exists('Netgen\BlockManager\HttpCache\NullClient')
+            !class_exists('Netgen\Layouts\Event\CollectViewParametersEvent')
+            || !class_exists('Netgen\Layouts\Event\LayoutsEvents')
+            || !class_exists('Netgen\Layouts\View\View\FormView')
+            || !class_exists('Netgen\Layouts\View\View\LayoutView')
+            || !class_exists('Netgen\Layouts\HttpCache\NullClient')
         ) {
             $this->markTestSkipped();
         }
 
-        $httpCacheClient = $this->getMockBuilder('Netgen\BlockManager\HttpCache\ClientInterface')
+        $httpCacheClient = $this->getMockBuilder('Netgen\Layouts\HttpCache\ClientInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -39,7 +38,7 @@ class CacheEnabledListenerTest extends TestCase
 
     public function testGetSubscribedEvents()
     {
-        $this->assertEquals(array(BlockManagerEvents::BUILD_VIEW => 'onBuildView'), CacheEnabledListener::getSubscribedEvents());
+        $this->assertEquals(array(LayoutsEvents::BUILD_VIEW => 'onBuildView'), CacheEnabledListener::getSubscribedEvents());
     }
 
     public function testOnBuildViewWithWrongView()

@@ -3,7 +3,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader
         public: false
         arguments:
-            - "@netgen_block_manager.api.service.layout"
+            - "@netgen_layouts.api.service.layout"
             - "@database_connection"
 
     netgen_admin_ui.layouts.menu_plugin:
@@ -30,7 +30,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\Layouts\EventListener\CacheEnabledListener
         public: true
         arguments:
-            - "@netgen_block_manager.http_cache.client"
+            - "@netgen_layouts.http_cache.client"
         tags:
             - { name: kernel.event_subscriber }
 

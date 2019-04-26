@@ -29,7 +29,8 @@
         "matthiasnoback/symfony-dependency-injection-test": "^1.0"
     },
     "conflict": {
-        "netgen/block-manager": "<0.8",
+        "netgen/block-manager": "*",
+        "netgen/layouts-core": "<1.0",
         "netgen/admin-ui-layouts-bundle": "*"
     },
     "autoload": {

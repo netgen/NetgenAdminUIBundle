@@ -5,16 +5,16 @@ namespace Netgen\Bundle\AdminUIBundle\Layouts;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
 use eZ\Publish\API\Repository\Values\Content\Location;
-use Netgen\BlockManager\API\Service\LayoutService;
-use Netgen\BlockManager\API\Values\Layout\Layout;
-use Netgen\BlockManager\API\Values\Value;
-use Netgen\BlockManager\Version;
+use Netgen\Layouts\API\Service\LayoutService;
+use Netgen\Layouts\API\Values\Layout\Layout;
+use Netgen\Layouts\API\Values\Value;
 use PDO;
+use Ramsey\Uuid\Uuid;
 
 class RelatedLayoutsLoader
 {
     /**
-     * @var \Netgen\BlockManager\API\Service\LayoutService
+     * @var \Netgen\Layouts\API\Service\LayoutService
      */
     protected $layoutService;
 
@@ -39,21 +39,17 @@ class RelatedLayoutsLoader
      *
      * @param \eZ\Publish\API\Repository\Values\Content\Location $location
      *
-     * @return \Netgen\BlockManager\API\Values\Layout\Layout[]
+     * @return \Netgen\Layouts\API\Values\Layout\Layout[]
      */
     public function loadRelatedLayouts(Location $location)
     {
         $query = $this->databaseConnection->createQueryBuilder();
 
-        $valueColumnName = class_exists('Netgen\BlockManager\Version') && Version::VERSION_ID < 1100
-            ? 'value_id' :
-            'value';
-
-        $query->select('DISTINCT b.layout_id')
-            ->from('ngbm_collection_item', 'ci')
+        $query->select('DISTINCT l.uuid')
+            ->from('nglayouts_collection_item', 'ci')
             ->innerJoin(
                 'ci',
-                'ngbm_block_collection',
+                'nglayouts_block_collection',
                 'bc',
                 $query->expr()->andX(
                     $query->expr()->eq('bc.collection_id', 'ci.collection_id'),
@@ -62,11 +58,20 @@ class RelatedLayoutsLoader
             )
             ->innerJoin(
                 'bc',
-                'ngbm_block',
+                'nglayouts_block',
                 'b',
                 $query->expr()->andX(
                     $query->expr()->eq('b.id', 'bc.block_id'),
                     $query->expr()->eq('b.status', 'bc.block_status')
+                )
+            )
+            ->innerJoin(
+                'b',
+                'nglayouts_layout',
+                'l',
+                $query->expr()->andX(
+                    $query->expr()->eq('l.id', 'b.layout_id'),
+                    $query->expr()->eq('l.status', 'b.status')
                 )
             )
             ->where(
@@ -74,11 +79,11 @@ class RelatedLayoutsLoader
                     $query->expr()->orX(
                         $query->expr()->andX(
                             $query->expr()->eq('ci.value_type', ':content_value_type'),
-                            $query->expr()->eq('ci.' . $valueColumnName, ':content_id')
+                            $query->expr()->eq('ci.value', ':content_id')
                         ),
                         $query->expr()->andX(
                             $query->expr()->eq('ci.value_type', ':location_value_type'),
-                            $query->expr()->eq('ci.' . $valueColumnName, ':location_id')
+                            $query->expr()->eq('ci.value', ':location_id')
                         )
                     ),
                     $query->expr()->eq('ci.status', ':status')
@@ -92,7 +97,7 @@ class RelatedLayoutsLoader
 
         $relatedLayouts = array_map(
             function (array $dataRow) {
-                return $this->layoutService->loadLayout($dataRow['layout_id']);
+                return $this->layoutService->loadLayout(Uuid::fromString($dataRow['uuid']));
             },
             $query->execute()->fetchAll(PDO::FETCH_ASSOC)
         );

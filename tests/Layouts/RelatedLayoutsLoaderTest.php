@@ -4,8 +4,8 @@ namespace Netgen\Bundle\AdminUIBundle\Tests\Layouts;
 
 use eZ\Publish\API\Repository\Values\Content\ContentInfo;
 use eZ\Publish\Core\Repository\Values\Content\Location;
-use Netgen\BlockManager\Core\Values\Layout\Layout;
 use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
+use Netgen\Layouts\Core\Values\Layout\Layout;
 use PHPUnit\Framework\TestCase;
 
 class RelatedLayoutsLoaderTest extends TestCase
@@ -28,15 +28,14 @@ class RelatedLayoutsLoaderTest extends TestCase
     public function setUp()
     {
         if (
-            !interface_exists('\Netgen\BlockManager\API\Service\LayoutService')
-            || !interface_exists('\Netgen\BlockManager\API\Values\Layout\Layout')
-            || !interface_exists('\Netgen\BlockManager\API\Values\Value')
-            || !class_exists('\Netgen\BlockManager\Version')
+            !interface_exists('\Netgen\Layouts\API\Service\LayoutService')
+            || !interface_exists('\Netgen\Layouts\API\Values\Layout\Layout')
+            || !interface_exists('\Netgen\Layouts\API\Values\Value')
             ) {
             $this->markTestSkipped();
         }
 
-        $this->layoutService = $this->getMockBuilder('Netgen\BlockManager\API\Service\LayoutService')
+        $this->layoutService = $this->getMockBuilder('Netgen\Layouts\API\Service\LayoutService')
             ->disableOriginalConstructor()
             ->getMock();
 

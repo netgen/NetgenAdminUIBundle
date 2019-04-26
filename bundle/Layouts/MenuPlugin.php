@@ -3,7 +3,7 @@
 namespace Netgen\Bundle\AdminUIBundle\Layouts;
 
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
-use Netgen\Bundle\BlockManagerAdminBundle\EventListener\SetIsAdminRequestListener;
+use Netgen\Bundle\LayoutsAdminBundle\EventListener\SetIsAdminRequestListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
@@ -35,7 +35,7 @@ class MenuPlugin implements MenuPluginInterface
 
     public function isActive()
     {
-        if ($this->authorizationChecker->isGranted('ROLE_NGBM_ADMIN')) {
+        if ($this->authorizationChecker->isGranted('ROLE_NGLAYOUTS_ADMIN')) {
             return true;
         }
 

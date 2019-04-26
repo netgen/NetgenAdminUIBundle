@@ -5,14 +5,14 @@ namespace Netgen\Bundle\AdminUIBundle\Controller;
 use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface;
 use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
+use Netgen\Layouts\Layout\Resolver\LayoutResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class LayoutsController extends Controller
 {
     /**
-     * @var \Netgen\BlockManager\Layout\Resolver\LayoutResolverInterface
+     * @var \Netgen\Layouts\Layout\Resolver\LayoutResolverInterface
      */
     protected $layoutResolver;
 
@@ -86,7 +86,7 @@ class LayoutsController extends Controller
      */
     protected function checkPermissions()
     {
-        if ($this->isGranted('ROLE_NGBM_EDITOR')) {
+        if ($this->isGranted('ROLE_NGLAYOUTS_EDITOR')) {
             return;
         }
 

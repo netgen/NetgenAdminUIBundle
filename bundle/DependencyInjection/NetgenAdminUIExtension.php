@@ -70,7 +70,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         );
 
         if ($this->hasLayouts($container->getParameter('kernel.bundles'))) {
-            $configs['layouts/view.yml'] = 'netgen_block_manager';
+            $configs['layouts/view.yml'] = 'netgen_layouts';
         }
 
         foreach ($configs as $fileName => $extensionName) {
@@ -90,7 +90,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasLayouts(array $activatedBundles)
     {
-        return array_key_exists('NetgenBlockManagerBundle', $activatedBundles);
+        return array_key_exists('NetgenLayoutsBundle', $activatedBundles);
     }
 
     /**

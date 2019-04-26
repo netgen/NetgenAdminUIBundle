@@ -11,7 +11,7 @@
                 <div class="layout-dropdown"></div>
             </li>
             {% for related_layout in related_layouts %}
-                {{ ngbm_render_layout(related_layout, {}, 'ngadminui') }}
+                {{ nglayouts_render_layout(related_layout, {}, 'ngadminui') }}
             {% endfor %}
         </ul>
     {% else %}

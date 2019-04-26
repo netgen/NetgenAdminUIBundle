@@ -177,9 +177,9 @@ $(document).ready(function () {
     $('#removePrompt').modal('show');
   });
 
-  /* save current url to local storage when opening bm */
-  $(document).on('click', '.js-open-bm', function(e) {
-    localStorage.setItem('bm_referrer', window.location.href);
+  /* save current url to local storage when opening Netgen Layouts edit interface */
+  $(document).on('click', '.js-open-ngl', function(e) {
+    localStorage.setItem('ngl_referrer', window.location.href);
   });
 
   /* toggle menu on small screens */
@@ -320,8 +320,8 @@ $(document).ready(function () {
 
   function LayoutsBox(el) {
     this.$el = $(el);
-    this.csrf = $('meta[name=ngbm-admin-csrf-token]').attr('content');
-    this.basePath = $('meta[name=ngbm-admin-base-path]').attr('content');
+    this.csrf = $('meta[name=nglayouts-admin-csrf-token]').attr('content');
+    this.basePath = $('meta[name=nglayouts-admin-base-path]').attr('content');
     this.basePath += this.basePath.charAt(this.basePath.length - 1) !== '/' ? '/layouts/' : 'layouts/';
     this.$content = this.$el.find('.layouts-box-content');
     this.$loader = this.$el.find('.layout-loading');

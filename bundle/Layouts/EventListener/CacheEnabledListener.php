@@ -2,18 +2,18 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Layouts\EventListener;
 
-use Netgen\BlockManager\Event\BlockManagerEvents;
-use Netgen\BlockManager\Event\CollectViewParametersEvent;
-use Netgen\BlockManager\HttpCache\ClientInterface;
-use Netgen\BlockManager\HttpCache\NullClient;
-use Netgen\BlockManager\View\View\LayoutViewInterface;
-use Netgen\BlockManager\View\View\RuleViewInterface;
+use Netgen\Layouts\Event\CollectViewParametersEvent;
+use Netgen\Layouts\Event\LayoutsEvents;
+use Netgen\Layouts\HttpCache\ClientInterface;
+use Netgen\Layouts\HttpCache\NullClient;
+use Netgen\Layouts\View\View\LayoutViewInterface;
+use Netgen\Layouts\View\View\RuleViewInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class CacheEnabledListener implements EventSubscriberInterface
 {
     /**
-     * @var \Netgen\BlockManager\HttpCache\ClientInterface
+     * @var \Netgen\Layouts\HttpCache\ClientInterface
      */
     private $httpCacheClient;
 
@@ -30,7 +30,7 @@ class CacheEnabledListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(BlockManagerEvents::BUILD_VIEW => 'onBuildView');
+        return array(LayoutsEvents::BUILD_VIEW => 'onBuildView');
     }
 
     /**

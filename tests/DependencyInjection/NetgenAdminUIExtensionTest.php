@@ -19,7 +19,7 @@ class NetgenAdminUIExtensionTest extends AbstractExtensionTestCase
     {
         $this->container->setParameter('kernel.bundles', array(
             'EzCoreExtraBundle' => 'EzCoreExtraBundle',
-            'NetgenBlockManagerBundle' => 'NetgenBlockManagerBundle',
+            'NetgenLayoutsBundle' => 'NetgenLayoutsBundle',
         ));
 
         $this->load();
@@ -31,7 +31,7 @@ class NetgenAdminUIExtensionTest extends AbstractExtensionTestCase
     {
         $this->container->setParameter('kernel.bundles', array(
             'EzCoreExtraBundle' => 'EzCoreExtraBundle',
-            'NetgenBlockManagerBundle' => 'NetgenBlockManagerBundle',
+            'NetgenLayoutsBundle' => 'NetgenLayoutsBundle',
             'NetgenInformationCollectionBundle' => 'NetgenInformationCollectionBundle',
         ));
 
