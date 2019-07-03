@@ -63,9 +63,7 @@ class PathHelperTest extends TestCase
             new ConfigResolverStub(
                 array(
                     'ezsettings' => array(
-                        'content.tree_root.location_id' => array(
-                            'default' => $this->rootLocation->id,
-                        ),
+                        'content.tree_root.location_id' => $this->rootLocation->id,
                     ),
                 )
             ),
