@@ -43,6 +43,5 @@ services:
         arguments:
             - "@ezpublish.api.service.location"
             - "@ezpublish.translation_helper"
+            - "@ezpublish.config.resolver"
             - "@router"
-        calls:
-            - [setRootLocationId, ["$content.tree_root.location_id$"]]
