@@ -6,6 +6,7 @@ use eZ\Publish\API\Repository\Values\Content\ContentInfo;
 use eZ\Publish\Core\Base\Exceptions\UnauthorizedException;
 use eZ\Publish\Core\Repository\Values\Content\Location;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
+use Netgen\Bundle\AdminUIBundle\Tests\Stubs\ConfigResolverStub;
 use PHPUnit\Framework\TestCase;
 
 class PathHelperTest extends TestCase
@@ -56,8 +57,20 @@ class PathHelperTest extends TestCase
             )),
         ));
 
-        $this->helper = new PathHelper($this->locationService, $this->translationHelper, $this->router);
-        $this->helper->setRootLocationId($this->rootLocation->id);
+        $this->helper = new PathHelper(
+            $this->locationService,
+            $this->translationHelper,
+            new ConfigResolverStub(
+                array(
+                    'ezsettings' => array(
+                        'content.tree_root.location_id' => array(
+                            'default' => $this->rootLocation->id,
+                        ),
+                    ),
+                )
+            ),
+            $this->router
+        );
     }
 
     public function testGetPath()
