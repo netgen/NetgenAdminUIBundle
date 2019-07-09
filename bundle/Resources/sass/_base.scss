@@ -197,7 +197,7 @@ label {
         background:$asideBg; border:none; color:$asideColor; position:fixed; top:50%; z-index:1000; right:auto; width:200px; left:51px; overflow-y:scroll; @include rounded(0); min-width:0;
     }
     .aside-nav {
-        height:100%; width:$asideWidth + 15px; padding-right:15px; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch;
+        height:100%; width:$asideWidth + 15px; padding-right:15px; overflow-x:hidden; overflow-y:scroll;
         &::-webkit-scrollbar {display:none;}
     }
 }
