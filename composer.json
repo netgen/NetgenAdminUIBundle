@@ -24,8 +24,8 @@
         "netgen/ngsymfonytools": "^1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5 || ^8.2",
-        "matthiasnoback/symfony-dependency-injection-test": "^1.0"
+        "phpunit/phpunit": "^7.5",
+        "matthiasnoback/symfony-dependency-injection-test": "^3.1"
     },
     "conflict": {
         "netgen/block-manager": "*",
