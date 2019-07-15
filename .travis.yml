@@ -1,46 +1,40 @@
+dist: xenial
+
 language: php
 
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+
 cache:
-    directories:
-        - vendor
+  directories:
+    - $HOME/.cache/composer
 
-matrix:
-    # mark as finished before allow_failures are run
-    fast_finish: true
-    include:
-        - php: 5.5
-        - php: 5.6
-        - php: 7.0
-        - php: 7.1
-        - php: 7.2
-
-# test only master (+ pull requests)
 branches:
   only:
     - master
 
-# make sure to update composer to latest available version
-before_install:
-    - phpenv config-add travis.php.ini
+before_script:
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
-# install dependencies
-install:
-    - travis_wait composer install
+  # Read-only OAuth token to work around GitHub API rate limits
+  - composer config -g github-oauth.github.com "4b3b0a83ea27d9544d3608a384c7a14625a98804"
 
-# execute phpunit as the script command
+  - composer update --no-suggest --prefer-dist
+
 script:
-  - ./vendor/bin/phpunit -d memory_limit=-1 --colors -c phpunit.xml.dist --coverage-clover=coverage.xml
+  - composer validate --strict
+  - vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover=coverage.xml --colors=always
 
-# disable mail notifications
-notification:
+notifications:
   email: false
 
-# reduce depth (history) of git checkout
 git:
-  depth: 30
-
-# we don't need sudo
-sudo: false
+  depth: 1
 
 # send coverage to codecov.io
 after_success:
