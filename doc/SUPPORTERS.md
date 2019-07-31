@@ -1,6 +1,6 @@
 # SUPPORTERS
 
-This bundle, built by [Netgen](https://www.netgenlabs.com), is also partially supported by the following companies:
+This bundle, built by [Netgen](https://netgen.io), is also partially supported by the following companies:
 
 ## Regular monthly contribution
 
