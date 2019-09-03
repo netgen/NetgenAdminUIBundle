@@ -5246,16 +5246,17 @@ label {
     right: auto;
     width: 200px;
     left: 51px;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 0;
     min-width: 0; }
   .navi-wrap .aside-nav {
     height: 100%;
-    width: 115px;
-    padding-right: 15px;
+    width: 100px;
     overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; }
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scrollbar-color: #999 transparent; }
     .navi-wrap .aside-nav::-webkit-scrollbar {
       display: none; }
 
