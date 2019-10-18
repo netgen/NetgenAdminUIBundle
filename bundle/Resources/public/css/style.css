@@ -5090,7 +5090,7 @@ label {
       margin: 30px 0 0;
       display: block;
       width: 100%;
-      background: #7AC143;
+      background: #F97B62;
       font-size: 16px;
       font-weight: 500;
       text-transform: uppercase;
@@ -5500,7 +5500,7 @@ label {
       background: rgba(0, 0, 0, 0.025); }
     .leftmenu-items-list > li.current > a {
       background: #fff;
-      color: #7AC143; }
+      color: #F97B62; }
 
 #content-tree-menu {
   list-style-type: none;
@@ -5582,7 +5582,7 @@ label {
     background: transparent !important;
     color: #9c9c9c; }
   #content-tree-menu .currentnode > a {
-    color: #7AC143; }
+    color: #F97B62; }
     #content-tree-menu .currentnode > a span {
       color: inherit; }
   #content-tree-menu .currentnode .node-name-hidden {
@@ -5866,7 +5866,7 @@ fieldset.ezcca-collapsible.ezcca-collapsed {
         line-height: 10px; }
   .tabs > li.active a {
     color: #333;
-    border-bottom-color: #7AC143; }
+    border-bottom-color: #F97B62; }
   .tabs > li.active .badge {
     background: #555; }
   .tabs .badge {
@@ -6680,13 +6680,13 @@ table th.yui-dt-hidden, table tr.yui-dt-odd .yui-dt-hidden, table tr.yui-dt-even
       text-decoration: none;
       color: #666; }
       #maincontent.node-edit-container .edit-tab-control a:hover {
-        color: #7AC143;
+        color: #F97B62;
         background: rgba(255, 255, 255, 0.2); }
       #maincontent.node-edit-container .edit-tab-control a:first-child {
         border-top: none; }
       #maincontent.node-edit-container .edit-tab-control a.active, #maincontent.node-edit-container .edit-tab-control a.active:hover, #maincontent.node-edit-container .edit-tab-control a.active:focus {
         background-color: #fff;
-        color: #7AC143;
+        color: #F97B62;
         font-weight: 500; }
   #maincontent.node-edit-container .path-edit-container {
     position: fixed;
@@ -7021,7 +7021,7 @@ fieldset legend {
       transition: background-color 200ms;
       color: #009AC7; }
       .yui-calcontainer .yui-calendar td.calcell:hover {
-        background: #7AC143;
+        background: #F97B62;
         color: #fff; }
       .yui-calcontainer .yui-calendar td.calcell.oom {
         background: #e9e9e9;
@@ -7499,7 +7499,7 @@ input.tagssuggestfield {
   .content-view-ezmultiupload .thumbnail-class-name {
     padding-top: 6px; }
   .content-view-ezmultiupload #multiuploadProgress {
-    border: 1px solid #7AC143;
+    border: 1px solid #F97B62;
     background: #FFF5F0;
     padding: 7px; }
     .content-view-ezmultiupload #multiuploadProgress p {
@@ -7509,7 +7509,7 @@ input.tagssuggestfield {
   .content-view-ezmultiupload #multiuploadProgressBarOutline {
     width: 304px; }
   .content-view-ezmultiupload #multiuploadProgressBar {
-    background: #7AC143; }
+    background: #F97B62; }
 
 /* custom extensions styling */
 .classlists .context-block .box-header, .ezfindnavigationpart .context-block .box-header, .ezbccienavigationpart .context-block .box-header {
