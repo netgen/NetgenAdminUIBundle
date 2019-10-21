@@ -1,14 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 128 128">
-  <defs>
-    <path id="adminui-mark-circle_color-a" d="M126.73561,63.3678049 C126.73561,98.364878 98.364878,126.73561 63.3678049,126.73561 C28.3707317,126.73561 2.84217094e-14,98.364878 2.84217094e-14,63.3678049 C2.84217094e-14,28.3707317 28.3707317,2.84217094e-14 63.3678049,2.84217094e-14 C98.364878,2.84217094e-14 126.73561,28.3707317 126.73561,63.3678049"/>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 127 104">
   <g fill="none" fill-rule="evenodd">
-    <mask id="adminui-mark-circle_color-b" fill="#fff">
-      <use xlink:href="#adminui-mark-circle_color-a"/>
-    </mask>
-    <use fill="#F97B62" xlink:href="#adminui-mark-circle_color-a"/>
-    <polygon fill="#000" points="81.514 33.893 67.814 65.551 74.57 84.226 82.034 103.885 89.574 123.546 120.309 123.546" mask="url(#adminui-mark-circle_color-b)"/>
-    <polygon fill="#FFF" points="45.041 33.893 5.545 124.714 17.282 124.714 56.778 33.893" mask="url(#adminui-mark-circle_color-b)"/>
-    <polygon fill="#FFF" points="69.79 33.893 30.295 124.714 42.032 124.714 81.527 33.893" mask="url(#adminui-mark-circle_color-b)"/>
+    <polygon fill="#FFF" points="12.186 103.934 57.146 .547 44.96 .547 0 103.934"/>
+    <polygon fill="#FFF" points="37.436 103.934 82.396 .547 70.213 .547 25.25 103.934"/>
+    <polygon fill="#F97B62" points="82.314 .549 66.532 37.014 74.317 58.524 82.913 81.165 91.597 103.813 126.998 103.813"/>
   </g>
 </svg>
