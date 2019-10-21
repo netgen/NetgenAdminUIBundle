@@ -635,7 +635,7 @@ fieldset.ezcca-collapsible {
         a {
             display:block; position:relative; background:transparent; font-weight:500; padding:15px 4px; color:#979797; text-decoration:none; border-bottom:4px solid transparent;
             &:hover {
-                color:#337ab7;
+                color:#2970EF;
             }
             .badge {
                 background:#bfbfbf; font-size:9px; padding:3px 6px; line-height:10px;
@@ -1357,7 +1357,7 @@ fieldset legend {color:#58666e; font-weight:400; font-size:19px;}
         .edit-icon {
             position:absolute; right:0; width:auto; top:0; display:none;
             &:hover {
-                color:#337ab7;
+                color:#2970EF;
             }
         }
     }
@@ -1570,7 +1570,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
             }
             a {
                 span {
-                    font-size:12px; color:lighten(#337ab7, 20%);
+                    font-size:12px; color:lighten(#2970EF, 20%);
                 }
             }
         }
@@ -1732,7 +1732,7 @@ input.tagssuggestfield {display:block; height:34px; padding:6px 12px; font-size:
 .badge {text-shadow:0 1px 0 rgba(0,0,0,0.2);}
 .text-success-lter {color:#43d967;}
 .bg-success {color:#fff; background-color:#27c24c;}
-.bg-primary {background-color:#337ab7;}
+.bg-primary {background-color:#2970EF;}
 .bg-info {background-color:#5bc0de;}
 .bg-warning {background-color:#f0ad4e;}
 .bg-danger {background-color:#d9534f;}
@@ -1842,7 +1842,7 @@ $yuiInputHeight: 26px;
                     margin:12px 0;
                 }
                 .trigger {
-                    border:none; color:#337ab7; text-decoration:underline; background-color:transparent;
+                    border:none; color:#2970EF; text-decoration:underline; background-color:transparent;
                 }
                 input[type="radio"], input[type="checkbox"] {
                     margin:0;

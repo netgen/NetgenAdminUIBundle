@@ -22,7 +22,7 @@ color:#333;
 html {background:#F0F0EE;}
 td {font-size:10px;}
 textarea {resize:none;outline:none;}
-a:link, a:visited {color:#337ab7;}
+a:link, a:visited {color:#2970EF;}
 a:hover {color:#23527c;}
 .nowrap {white-space: nowrap}
 
@@ -87,7 +87,7 @@ td.charmap, #charmap a {width:18px; height:18px; border:1px solid #AAA; text-ali
 .tabs ul {margin:0; padding:0; list-style:none; display:table;}
 .tabs li {display:table-cell; margin:0; padding:0 2px 0 0; text-align:center; background:transparent; vertical-align:top; word-break:break-word;}
 .tabs a {text-decoration:none; font-size:11px; padding:8px 10px; display:block; color:#979797; border-bottom:3px solid transparent;}
-.tabs a:hover {color:#337ab7;}
+.tabs a:hover {color:#2970EF;}
 .tabs li.current a {border-bottom-color:#F3590A; color:#333;}
 
 /* Panels */

@@ -7,7 +7,7 @@ $lightBg: #f5f5f5;
 $thBg: #a7a7a7;
 $baseFont: 'Roboto',Helvetica,Arial,sans-serif;
 $fontSize: 14px;
-$activeColor: #F97B62;
+$activeColor: #e22303;
 $leftColumnWidth: 240px;
 $leftColumnWidthSm: 160px;
 $headerHeight: 70px;
@@ -15,7 +15,7 @@ $gutter: 15px;
 $darkBg: #272A2F;
 $layoutsAdminBgColor: hsl(0, 0, 96);
 
-$btnPrimary: #009AC7;
+$btnPrimary: #2970EF;
 $btnBorder: #e4e4e4;
 
 @mixin rounded($x:50%) {

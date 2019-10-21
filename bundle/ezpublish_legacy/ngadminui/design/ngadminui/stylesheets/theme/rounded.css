@@ -330,7 +330,7 @@ input.button:hover, input.button:focus {
 
 input.defaultbutton
 {
-    background-color: #337ab7;
+    background-color: #2970EF;
     color: #fff;
     border-color:#204d74;
 }
@@ -362,7 +362,7 @@ input.button-disabled, input.button[disabled="disabled"]
 /* DASHBOARD */
 #ez-version
 {
-    color: #E24602;
+    color: #e22303;
 }
 
 #ez-publish-community-project-is-innovative-and-cutting-edge

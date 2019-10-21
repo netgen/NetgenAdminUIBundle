@@ -16,7 +16,7 @@
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 
-// $brand-primary:         darken(#428bca, 6.5%) // #337ab7
+// $brand-primary:         darken(#428bca, 6.5%) // #2970EF
 // $brand-success:         #5cb85c
 // $brand-info:            #5bc0de
 // $brand-warning:         #f0ad4e
@@ -33,7 +33,7 @@
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-$link-color:            #0089b3;
+$link-color:            #2970EF;
 //** Link hover color set via `darken()` function.
 // $link-hover-color:      darken($link-color, 15%)
 //** Link hover decoration.
@@ -160,8 +160,8 @@ $icon-font-path: "/bundles/netgenadminui/bower/bootstrap-sass/assets/fonts/boots
 $btn-default-border:             #e4e4e4;
 
 // $btn-primary-color:              #fff
- $btn-primary-bg:                 #009AC7;
- $btn-primary-border:             #009AC7;
+ $btn-primary-bg:                 $btnPrimary;
+ $btn-primary-border:             $btnPrimary;
 
 // $btn-success-color:              #fff
 // $btn-success-bg:                 $brand-success
