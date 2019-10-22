@@ -25,7 +25,7 @@
 
         <p>{'Select the file containing the package then click the upload button'|i18n('design/admin/package')}</p>
         <div class="block">
-            <input type="hidden" name="MAX_FILE_SIZE" value="32000000" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="512000000" />
             <input name="PackageBinaryFile" type="file" />
         </div>
         {* DESIGN: Content END *}
