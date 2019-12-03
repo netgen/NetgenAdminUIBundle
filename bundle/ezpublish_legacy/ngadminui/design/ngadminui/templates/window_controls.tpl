@@ -4,6 +4,7 @@
      $default_tabs        = ezini( 'ViewSettings', 'DefaultTabs', 'ngadminui.ini' )
      $default_tab         = ezini( 'ViewSettings', 'DefaultTab', 'ngadminui.ini' )
      $node_tab_index      = cond( is_set( $default_tabs[$node.object.class_identifier] ), $default_tabs[$node.object.class_identifier], true(), $default_tab )
+     $read_open_tab_by_cookie = true()
      $available_languages = fetch( 'content', 'prioritized_languages' )
      $translations        = $node.object.languages
      $translations_count  = $translations|count
@@ -32,6 +33,14 @@
 
 {set $valid_tabs = $valid_tabs|append( $additional_tabs )
      $additional_tabs_count = $additional_tabs|count()}
+
+{if is_set( $view_parameters.tab )}
+    {* Signal to node_tab.js that tab is forced by url *}
+    {set $read_open_tab_by_cookie = false()}
+    {set $node_tab_index = $view_parameters.tab}
+{elseif $valid_tabs|contains( $node_tab_index )|not()}
+    {set $node_tab_index = $default_tab}
+{/if}
 
 <div class="window-controls-tabs">
     <ul class="tabs clearfix">

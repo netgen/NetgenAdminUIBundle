@@ -121,6 +121,6 @@ jQuery(function( $ )
         if($('.tabs').find('.selected').length) {
             selectedId = $('.tabs').find('.selected').attr('id').split('tab-')[1];
         }
-        NodeTab.open( 'node-tab-' + selectedId );
+        NodeTab.open( 'node-tab-' + selectedId, false );
     }
 });
