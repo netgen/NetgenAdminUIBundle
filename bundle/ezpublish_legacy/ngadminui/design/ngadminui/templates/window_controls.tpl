@@ -33,6 +33,11 @@
 {set $valid_tabs = $valid_tabs|append( $additional_tabs )
      $additional_tabs_count = $additional_tabs|count()}
 
+{if is_set( $view_parameters.tab )}
+    {* Signal to node_tab.js that tab is forced by url *}
+    {set $node_tab_index = $view_parameters.tab}
+{/if}
+
 <div class="window-controls-tabs">
     <ul class="tabs clearfix">
 
