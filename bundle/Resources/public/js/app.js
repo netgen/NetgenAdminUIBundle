@@ -329,6 +329,7 @@ $(document).ready(function () {
     this.$toggleBtn = $('#node-tab-nglayouts').find('a');
     this.url = el.dataset.url;
     this.setupEvents();
+    this.$el.is(':visible') && this.getLayouts();
   }
   LayoutsBox.prototype.setupEvents = function () {
     this.$toggleBtn.on('click', this.getLayouts.bind(this));
