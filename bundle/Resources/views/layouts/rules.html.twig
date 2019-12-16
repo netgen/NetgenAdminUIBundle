@@ -11,7 +11,7 @@
                 <div class="layout-dropdown"></div>
             </li>
             {% for rule in rules %}
-                {{ nglayouts_render_rule(rule, {}, 'ngadminui') }}
+                {{ nglayouts_render_rule(rule, {location: location}, 'ngadminui') }}
             {% endfor %}
         </ul>
     {% else %}

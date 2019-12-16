@@ -180,6 +180,8 @@ $(document).ready(function () {
   /* save current url to local storage when opening Netgen Layouts edit interface */
   $(document).on('click', '.js-open-ngl', function(e) {
     localStorage.setItem('ngl_referrer', window.location.href);
+    e.currentTarget.dataset.locationId !== undefined && localStorage.setItem('ngl_referrer_value_id', e.currentTarget.dataset.locationId);
+    e.currentTarget.dataset.valueType !== undefined && localStorage.setItem('ngl_referrer_value_type', e.currentTarget.dataset.valueType);
   });
 
   /* toggle menu on small screens */
