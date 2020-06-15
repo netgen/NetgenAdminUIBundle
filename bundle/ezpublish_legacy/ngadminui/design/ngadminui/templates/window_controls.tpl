@@ -23,11 +23,11 @@
 {/if}
 
 {foreach ezini( 'WindowControlsSettings', 'AdditionalTabs', 'admininterface.ini' ) as $tab}
-    {def $tab_navigation_part = ezini( concat( 'AdditionalTab_', $tab ), 'NavigationPartName', 'admininterface.ini' )}
-    {if eq( $tab_navigation_part, $navigation_part_name )}
+    {def $tab_navigation_parts = ezini( concat( 'AdditionalTab_', $tab ), 'NavigationPartName', 'admininterface.ini' )|explode( ';' )}
+    {if $tab_navigation_parts|contains( $navigation_part_name )}
         {set $additional_tabs = $additional_tabs|append( $tab )}
     {/if}
-    {undef $tab_navigation_part}
+    {undef $tab_navigation_parts}
 {/foreach}
 
 {set $valid_tabs = $valid_tabs|append( $additional_tabs )
