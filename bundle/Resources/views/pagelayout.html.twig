@@ -15,7 +15,7 @@
 
     {% include '@NetgenAdminUI/page_head.html.twig' %}
 
-    {% if module_result is defined and navigation_part == 'ezcontentnavigationpart' %}
+    {% if module_result is defined and navigation_part in ['ezcontentnavigationpart', 'ezmedianavigationpart'] %}
         {% include '@NetgenLayoutsAdmin/admin/head.html.twig' ignore missing %}
     {% endif %}
 
