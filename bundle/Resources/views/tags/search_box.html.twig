@@ -1,18 +1,18 @@
 <div class="search-form">
     {% if not ui_context_edit %}
-        {% set search_term = app.request.query.get( 'searchTerm', '' ) %}
+        {% set search_text = app.request.query.get('searchText', '') %}
 
         <form action="{{ path( 'netgen_tags_admin_search' ) }}" method="get" class="navbar-form" role="search">
             {% if ui_context_edit %}
                 <button id="searchButton" type="submit" class="search-btn disabled" disabled="disabled"><i class="fa fa-search"></i></button>
-                <input id="searchTerm" name="searchTerm" class="search-input disabled" type="text" size="20" value="{{ search_term }}" placeholder="{{ 'netgen_admin_ui.search.search_tags'|trans }}" disabled="disabled" />
+                <input id="searchText" name="searchText" class="search-input disabled" type="text" size="20" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_tags'|trans }}" disabled="disabled" />
             {% else %}
                 <button id="searchButton" type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-                <input id="searchText" name="searchTerm" class="search-input" type="text" value="{{ search_term }}" placeholder="{{ 'netgen_admin_ui.search.search_tags'|trans }}" />
+                <input id="searchText" name="searchText" class="search-input" type="text" value="{{ search_text }}" placeholder="{{ 'netgen_admin_ui.search.search_tags'|trans }}" />
 
                 {% if ui_context == 'browse' %}
-                    <input name="Mode" type="hidden" value="browse" />
-                    <input name="BrowsePageLimit" type="hidden" value="{{ [10, 10, 25, 50][min( ngadmin_ezpreference( 'admin_list_limit' ), 3)] }}" />
+                    <input name="search_tags[mode]" type="hidden" value="browse" />
+                    <input name="search_tags[browsePageLimit]" type="hidden" value="{{ [10, 10, 25, 50][min( ngadmin_ezpreference( 'admin_list_limit' ), 3)] }}" />
                 {% endif %}
             {% endif %}
         </form>
