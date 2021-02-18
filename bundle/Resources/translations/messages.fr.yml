@@ -18,6 +18,7 @@ netgen_admin_ui.login.submit: 'Se connecter'
 netgen_admin_ui.login.submit.title: 'Cliquez ici pour vous connecter en utilisant la combinaison nom d''utilisateur / mot de passe saisies dans les champs ci-dessus.'
 
 netgen_admin_ui.search.search_content: 'Chercher les contenus...'
+netgen_admin_ui.search.search_tags: 'Chercher les tags...'
 
 netgen_admin_ui.user.view_profile: 'Voir le profil'
 netgen_admin_ui.user.change_information: 'Modifier l''information'

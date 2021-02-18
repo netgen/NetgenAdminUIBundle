@@ -42,6 +42,7 @@ class TagsMenuPlugin implements MenuPluginInterface
         return array(
             'aside' => '@NetgenAdminUI/menu/plugins/tags/aside.html.twig',
             'left' => '@NetgenAdminUI/menu/plugins/tags/left.html.twig',
+            'top' => '@NetgenAdminUI/menu/plugins/tags/top.html.twig',
         );
     }
 

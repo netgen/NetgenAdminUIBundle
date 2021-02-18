@@ -1,0 +1,5 @@
+{% include '@NetgenAdminUI/tags/search_box.html.twig' %}
+
+{% if persistent_variable.top_menu is defined %}
+    {{ persistent_variable.top_menu|raw }}
+{% endif %}
