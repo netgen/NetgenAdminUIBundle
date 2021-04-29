@@ -118,7 +118,7 @@ class LayoutsController extends Controller
      */
     protected function isRuleOneOnOne(Location $location, Rule $rule)
     {
-        if ($rule->getTargets()->count() > 1) {
+        if ($rule->getTargets()->count() !== 1) {
             return false;
         }
 
