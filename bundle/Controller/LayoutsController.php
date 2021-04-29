@@ -46,7 +46,7 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
-        $rules = [];
+        $rules = array();
         foreach ($this->layoutResolver->resolveRules($request, array('ez_content_type')) as $rule) {
             if ($this->isRuleOneOnOne($location, $rule)) {
                 $rules[] = $rule;
