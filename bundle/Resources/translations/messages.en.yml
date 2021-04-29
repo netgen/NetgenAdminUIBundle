@@ -36,7 +36,7 @@ netgen_admin_ui.menu.cache: 'Cache'
 netgen_admin_ui.menu.clear_cache: 'Clear cache'
 netgen_admin_ui.menu.bookmarks: 'Bookmarks'
 
-netgen_admin_ui.layouts.mappings.title: 'List of layout mappings applied to this node/object, ordered by priority'
+netgen_admin_ui.layouts.mappings.title: 'List of layout mappings directly applied to this node/object'
 netgen_admin_ui.layouts.mappings.no_rules: 'No mappings'
 netgen_admin_ui.layouts.mappings.mapped_layout: 'Mapped layout'
 netgen_admin_ui.layouts.mappings.targets: 'Targets'

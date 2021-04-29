@@ -7900,10 +7900,13 @@ input.tagssuggestfield {
         margin: 0; }
       .layout-list .layout-item ul .unique {
         font-weight: 700; }
-    .layout-list .layout-item .layout-name {
+    .layout-list .layout-item .layout-name .name {
       color: #333333;
       font-size: 14px;
       font-weight: 700; }
+    .layout-list .layout-item .layout-name .groups {
+      color: #333333;
+      font-size: 12px; }
     .layout-list .layout-item .layout-dropdown {
       padding: 0; }
   .layout-list .layout-list-head {

@@ -2,10 +2,14 @@
 
 {% set can_edit = is_granted('ROLE_NGLAYOUTS_EDITOR') or is_granted('nglayouts:layout:edit', rule.layout) %}
 {% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
+{% set parent_groups = nglayouts_parent_rule_groups(rule)|slice(1) %}
 
 <li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}">
     <div class="layout-item">
-        <div class="layout-name">{{ rule.layout.name }}</div>
+        <div class="layout-name">
+            <p class="name">{{ rule.layout.name }}</p>
+            <p class="groups">{{ parent_groups|map(group => group.name)|join(' / ') }}</p>
+        </div>
 
         <div class="layout-target">
             {% set target_type = rule.targets[0].targetType.type %}
@@ -21,10 +25,19 @@
             </ul>
         </div>
 
+        {% set parent_group_conditions = [] %}
+        {% for group in parent_groups %}
+            {% set parent_group_conditions = parent_group_conditions|merge(group.conditions.toArray) %}
+        {% endfor %}
+
         <div class="layout-conditions">
             <ul>
-                {% for condition in rule.conditions %}
+                {% for condition in parent_group_conditions %}
                     <li>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'nglayouts') }}: {{ nglayouts_render_rule_condition(condition, {}, 'value') }}</li>
+                {% endfor %}
+
+                {% for condition in rule.conditions %}
+                    <li><strong>{{ ('layout_resolver.condition.' ~ condition.conditionType.type)|trans({}, 'nglayouts') }}: {{ nglayouts_render_rule_condition(condition, {}, 'value') }}</strong></li>
                 {% endfor %}
             </ul>
         </div>

@@ -141,9 +141,15 @@
             }
         }
         .layout-name {
-            color:hsl(0, 0, 20);
-            font-size:14px;
-            font-weight:700;
+            .name {
+                color:hsl(0, 0, 20);
+                font-size:14px;
+                font-weight:700;
+            }
+            .groups {
+                color:hsl(0, 0, 20);
+                font-size:12px;
+            }
         }
         .layout-dropdown {
             padding: 0;

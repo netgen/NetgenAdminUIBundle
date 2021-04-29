@@ -6,6 +6,7 @@ use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
+use Netgen\Layouts\API\Values\LayoutResolver\Rule;
 use Netgen\Layouts\Layout\Resolver\LayoutResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -45,10 +46,17 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
+        $rules = [];
+        foreach ($this->layoutResolver->resolveRules($request, array('ez_content_type')) as $rule) {
+            if ($this->isRuleOneOnOne($location, $rule)) {
+                $rules[] = $rule;
+            }
+        }
+
         return $this->render(
             '@NetgenAdminUI/layouts/location_layouts.html.twig',
             array(
-                'rules' => $this->layoutResolver->resolveRules($request, array('ez_content_type')),
+                'rules' => $rules,
                 'related_layouts' => $this->relatedLayoutsLoader->loadRelatedLayouts($location),
                 'location' => $location,
             )
@@ -98,5 +106,33 @@ class LayoutsController extends Controller
         $exception->setAttributes('nglayouts:ui:access');
 
         throw $exception;
+    }
+
+    /**
+     * Returns if the provided rule has a 1:1 mapping to provided location.
+     *
+     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param \Netgen\Layouts\API\Values\LayoutResolver\Rule $rule
+     *
+     * @return bool
+     */
+    protected function isRuleOneOnOne(Location $location, Rule $rule)
+    {
+        if ($rule->getTargets()->count() > 1) {
+            return false;
+        }
+
+        /** @var \Netgen\Layouts\API\Values\LayoutResolver\Target $target */
+        $target = $rule->getTargets()[0];
+
+        if ($target->getTargetType()::getType() !== 'ez_location') {
+            return false;
+        }
+
+        if ((int) $target->getValue() !== (int) $location->id) {
+            return false;
+        }
+
+        return true;
     }
 }
