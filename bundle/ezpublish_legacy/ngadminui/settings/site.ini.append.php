@@ -2,4 +2,8 @@
 
 [TemplateSettings]
 ExtensionAutoloadPath[]=ngadminui
+
+[RegionalSettings]
+TranslationExtensions[]=ngadminui
+
 */ ?>
