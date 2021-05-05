@@ -2,7 +2,7 @@
     <div class="node-top-switch">
         <ul class="node-view-switch">
             <li class="active">
-                <a href=""><i class="fa fa-file-text-o"></i> Content</a>
+                <a href=""><i class="fa fa-file-text-o"></i> {'Content'|i18n( 'design/admin/node/view/full' )}</a>
                 {if fetch( content, translation_list )|count|gt(1)}
                     <form class="dropdown language-switch" method="post" action={'content/action'|ezurl}>
                         {def
@@ -39,7 +39,7 @@
                                     {if $node.object.can_edit_languages|count|gt( 1 )}
                                         <li role="separator" class="divider"></li>
                                     {/if}
-                                    <li><button type="submit" name="EditButton">+ Add new translation</button></li>
+                                    <li><button type="submit" name="EditButton">+ {'Add new translation'|i18n( 'design/admin/node/view/full' )}</button></li>
                                 {/if}
                             </ul>
                         {/if}
@@ -54,7 +54,7 @@
                     <input type="hidden" name="ChangeSettingsButton" value="{'Update view'|i18n( 'design/admin/content/view/versionview' )}" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" />
                     <input type="hidden" name="ezxform_token" value="@$ezxFormToken@" />
                 </form>
-                <a type="submit" name="ChangeSettingsButton" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" onclick="document.getElementById('previewForm').submit();"><i class="fa fa-globe"></i> Preview</a>
+                <a type="submit" name="ChangeSettingsButton" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" onclick="document.getElementById('previewForm').submit();"><i class="fa fa-globe"></i> {'Preview'|i18n( 'design/admin/node/view/full' )}</a>
             </li>
         </ul>
     </div>
