@@ -5,5 +5,4 @@ ExtensionAutoloadPath[]=ngadminui
 
 [RegionalSettings]
 TranslationExtensions[]=ngadminui
-
 */ ?>
