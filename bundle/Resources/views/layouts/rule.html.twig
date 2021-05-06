@@ -7,8 +7,8 @@
 <li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}">
     <div class="layout-item">
         <div class="layout-name">
-            <p class="name">{{ rule.layout.name }}</p>
             <p class="groups">{{ parent_groups|map(group => group.name)|join(' / ') }}</p>
+            <p class="name">{{ rule.layout.name }}</p>
         </div>
 
         <div class="layout-target">
