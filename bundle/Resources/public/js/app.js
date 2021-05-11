@@ -187,13 +187,9 @@ $(document).ready(function () {
     /* checkbox */
     $(document).on('change', '.rules-checkbox', function () {
       if (this.checked) {
-        $('.rule-non-direct').each(function () {
-          $(this).show();
-        });
+        $('.rule-non-direct').show();
       } else {
-        $('.rule-non-direct').each(function () {
-          $(this).hide();
-        });
+        $('.rule-non-direct').hide();
       }
     });
 
