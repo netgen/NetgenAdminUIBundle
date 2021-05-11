@@ -7847,6 +7847,8 @@ input.tagssuggestfield {
     font-size: 1.125em;
     margin: 0 0 1em;
     font-weight: 500; }
+  .layout-list-wrapper > h4.title-all-rules {
+    display: none; }
 
 .layout-list {
   list-style-type: none;

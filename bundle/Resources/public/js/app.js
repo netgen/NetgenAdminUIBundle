@@ -188,8 +188,14 @@ $(document).ready(function () {
     $(document).on('change', '.rules-checkbox', function () {
       if (this.checked) {
         $('.rule-non-direct').show();
+
+        $('.title-direct-rules').hide();
+        $('.title-all-rules').show();
       } else {
         $('.rule-non-direct').hide();
+
+        $('.title-direct-rules').show();
+        $('.title-all-rules').hide();
       }
     });
 
