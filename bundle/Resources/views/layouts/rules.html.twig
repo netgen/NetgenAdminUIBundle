@@ -11,9 +11,15 @@
                 <div class="layout-dropdown"></div>
             </li>
             {% for rule in rules %}
-                {{ nglayouts_render_rule(rule, {location: location}, 'ngadminui') }}
+                <div class="rule{% if not (rules_one_on_one[rule.id.toString] ?? false) %} rule-non-direct{% endif %}">
+                    {{ nglayouts_render_rule(rule, {location: location}, 'ngadminui') }}
+                </div>
             {% endfor %}
         </ul>
+
+        <div class="show-all-rules">
+            <label><input type="checkbox" name="show-all-rules" /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
+        </div>
     {% else %}
         <p>{{ 'netgen_admin_ui.layouts.mappings.no_rules'|trans }}</p>
     {% endif %}

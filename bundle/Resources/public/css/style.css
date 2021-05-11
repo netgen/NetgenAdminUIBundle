@@ -7858,6 +7858,8 @@ input.tagssuggestfield {
     padding: 0; }
   .layout-list p {
     color: inherit; }
+  .layout-list .rule-non-direct {
+    display: none; }
   .layout-list .layout-item,
   .layout-list .layout-list-head {
     display: -webkit-box;

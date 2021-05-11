@@ -46,17 +46,18 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
-        $rules = array();
-        foreach ($this->layoutResolver->resolveRules($request, array('ez_content_type')) as $rule) {
-            if ($this->isRuleOneOnOne($location, $rule)) {
-                $rules[] = $rule;
-            }
+        $rules = $this->layoutResolver->resolveRules($request, array('ez_content_type'));
+        $rulesOneOnOne = array();
+
+        foreach ($rules as $rule) {
+            $rulesOneOnOne[$rule->getId()->toString()] = $this->isRuleOneOnOne($location, $rule);
         }
 
         return $this->render(
             '@NetgenAdminUI/layouts/location_layouts.html.twig',
             array(
                 'rules' => $rules,
+                'rules_one_on_one' => $rulesOneOnOne,
                 'related_layouts' => $this->relatedLayoutsLoader->loadRelatedLayouts($location),
                 'location' => $location,
             )

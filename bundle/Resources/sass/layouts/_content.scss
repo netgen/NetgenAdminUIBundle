@@ -104,6 +104,9 @@
     p {
         color:inherit;
     }
+    .rule-non-direct {
+      display: none;
+    }
     .layout-item,
     .layout-list-head {
         display:flex;
