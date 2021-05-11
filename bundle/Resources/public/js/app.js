@@ -184,6 +184,19 @@ $(document).ready(function () {
     e.currentTarget.dataset.valueType !== undefined && localStorage.setItem('ngl_referrer_value_type', e.currentTarget.dataset.valueType);
   });
 
+    /* checkbox */
+    $(document).on('change', '.rules-checkbox', function () {
+      if (this.checked) {
+        $('.rule-non-direct').each(function () {
+          $(this).show();
+        });
+      } else {
+        $('.rule-non-direct').each(function () {
+          $(this).hide();
+        });
+      }
+    });
+
   /* toggle menu on small screens */
   (function() {
     var toggleClassName = 'menu-visible';
