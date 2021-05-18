@@ -84,7 +84,6 @@
 
 .layout-list-wrapper {
     padding: $gutter;
-    background: $lightBg;
     margin: 0 0 $gutter;
     > h4 {
         font-size: 1.125em;
@@ -110,6 +109,9 @@
     .rule-non-direct {
       display: none;
     }
+    .layout-list-item {
+        margin: 0;
+    }
     .layout-item,
     .layout-list-head {
         display:flex;
@@ -122,12 +124,20 @@
         }
     }
     .layout-item {
-        background:#fff;
+        /* background:#fff;
         box-shadow:0 1px 2px hsla(0, 0, 0, .3);
         font-size:12px;
         line-height:1.5;
         margin:0 0 10px;
+        min-height: 60px; */
+
+        background:#fff;
+        display: flex;
+        position: relative;
+        color: #666666;
         min-height: 60px;
+        border-bottom: 1px solid #e3e3e3;
+
         p {
             font-size:inherit;
             margin:2px 0;
@@ -159,6 +169,12 @@
         }
         .layout-dropdown {
             padding: 0;
+        }
+
+        &:hover {
+            .layout-dropdown {
+                visibility: visible;
+            }
         }
     }
     .layout-list-head {
@@ -196,6 +212,7 @@
         }
     }
     .layout-dropdown {
+        visibility: hidden;
         padding: 0;
         align-items: stretch;
         width: 60px;
@@ -207,9 +224,7 @@
             padding: .2em .5em;
             transition: background .25s;
             outline: none;
-            &:hover {
-                background: #e5e5e5;
-            }
+            color: #3671E7;
         }
         .dropdown-menu {
             background: #404040;
@@ -234,6 +249,7 @@
             }
         }
         &.open {
+            visibility: visible;
             button {
                 background: #404040;
                 color: #fff;
