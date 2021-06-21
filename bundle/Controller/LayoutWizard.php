@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
-use Netgen\Bundle\LayoutsEzPlatformBundle\Form\Admin\Type\LayoutWizardType;
+use Netgen\Bundle\AdminUIBundle\Form\Type\LayoutWizardType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
