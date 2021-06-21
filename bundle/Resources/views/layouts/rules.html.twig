@@ -21,6 +21,10 @@
         <div class="show-all-rules">
             <label><input type="checkbox" name="show-all-rules" class="rules-checkbox" /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
         </div>
+
+        <div>
+            <a class="btn btn-primary js-direct-mapping">create new direct mapping</a>
+        </div>
     {% else %}
         <p>{{ 'netgen_admin_ui.layouts.mappings.no_rules'|trans }}</p>
     {% endif %}

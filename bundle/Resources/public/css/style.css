@@ -34,6 +34,15 @@
   src: url("../fonts/Roboto/Roboto-italic.eot");
   src: url("../fonts/Roboto/Roboto-italic.eot?#iefix") format("embedded-opentype"), local("Roboto"), local("Roboto-italic"), url("../fonts/Roboto/Roboto-italic.woff2") format("woff2"), url("../fonts/Roboto/Roboto-italic.woff") format("woff"), url("../fonts/Roboto/Roboto-italic.ttf") format("truetype"), url("../fonts/Roboto/Roboto-italic.svg#Roboto") format("svg"); }
 
+/* material icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/MaterialIcons/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/MaterialIcons/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/MaterialIcons/MaterialIcons-Regular.woff) format("woff"), url(../font/MaterialIcons/MaterialIcons-Regular.ttf) format("truetype"); }
+
 #content-tree-menu .node-name-hidden::before, .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i, .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
   display: inline-block;
   font: normal normal normal 14px FontAwesome;
@@ -43,6 +52,21 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0); }
+
+.nl-modal-mask .nl-modal .close-modal, .nl-modal-mask form input[type="checkbox"] + label::before {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
 
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -4734,7 +4758,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-.loading-ng-icon {
+.loading-ng-icon, .nl-modal-mask .nl-modal-loader > span {
   display: inline-block;
   position: relative;
   font-size: 1em;
@@ -4745,21 +4769,21 @@ button.close {
           transform: rotate(-48deg);
   -webkit-animation: loadRotate 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
           animation: loadRotate 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-  .loading-ng-icon::before, .loading-ng-icon::after {
+  .loading-ng-icon::before, .nl-modal-mask .nl-modal-loader > span::before, .loading-ng-icon::after, .nl-modal-mask .nl-modal-loader > span::after {
     content: "";
     display: block;
     background: currentColor;
     border-radius: 50%;
     position: absolute;
     left: 50%; }
-  .loading-ng-icon::before {
+  .loading-ng-icon::before, .nl-modal-mask .nl-modal-loader > span::before {
     width: 1em;
     height: 1em;
     margin-left: -0.5em;
     bottom: 1.375em;
     -webkit-animation: loadBounceTopSquash 0.75s alternate infinite ease, loadBounceTopFlow 0.75s alternate infinite ease;
             animation: loadBounceTopSquash 0.75s alternate infinite ease, loadBounceTopFlow 0.75s alternate infinite ease; }
-  .loading-ng-icon::after {
+  .loading-ng-icon::after, .nl-modal-mask .nl-modal-loader > span::after {
     width: 1.375em;
     height: 1.375em;
     margin-left: -0.6875em;
@@ -7749,6 +7773,312 @@ input.tagssuggestfield {
   .menu-visible.without-left-menu #columns {
     -webkit-transform: none;
             transform: none; } }
+
+.nl-modal-mask {
+  position: fixed;
+  z-index: 1200;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 15px;
+  -webkit-animation: maskFadeIn 0.2s;
+          animation: maskFadeIn 0.2s; }
+  .nl-modal-mask * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .nl-modal-mask .nl-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 0px;
+    width: 800px;
+    max-width: 98%;
+    max-height: 98%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-animation: modalSlide 0.4s ease-out;
+            animation: modalSlide 0.4s ease-out; }
+    .nl-modal-mask .nl-modal .nl-grid {
+      margin-left: -7.5px;
+      margin-right: -7.5px; }
+      .nl-modal-mask .nl-modal .nl-grid > [class^='col-'] {
+        padding-left: 7.5px;
+        padding-right: 7.5px; }
+    .nl-modal-mask .nl-modal .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 16px;
+      display: block;
+      color: #fff;
+      border: none;
+      padding: 0;
+      font-size: 24px;
+      text-align: center;
+      background: transparent;
+      text-decoration: none; }
+      .nl-modal-mask .nl-modal .close-modal::before {
+        content: "clear"; }
+    .nl-modal-mask .nl-modal .nl-modal-body {
+      padding: 35px 80px;
+      overflow-y: auto;
+      font-size: 16px; }
+      .nl-modal-mask .nl-modal .nl-modal-body #delete-verification {
+        display: block;
+        margin: 0 0 1em;
+        border-radius: 2px;
+        width: 100%;
+        padding: 0 0.75em;
+        font-size: 14px;
+        height: 44px;
+        border: 1px solid #b3b3b3;
+        background: #fff; }
+      .nl-modal-mask .nl-modal .nl-modal-body input[type="radio"] {
+        float: left;
+        margin-right: 16px; }
+      .nl-modal-mask .nl-modal .nl-modal-body .row-input {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child {
+          display: block; }
+          .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child input {
+            width: auto; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input.error-input input {
+          border: 1px solid red; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input select, .nl-modal-mask .nl-modal .nl-modal-body .row-input input, .nl-modal-mask .nl-modal .nl-modal-body .row-input textarea {
+          width: 290px; }
+    .nl-modal-mask .nl-modal .nl-modal-head {
+      padding: 15px 35px 15px 15px;
+      background: #404040;
+      color: #fff;
+      border-radius: 0px 0px 0 0;
+      font-size: 20px;
+      min-height: 58px; }
+    .nl-modal-mask .nl-modal .nl-modal-actions {
+      padding: 15px;
+      text-align: right;
+      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      .nl-modal-mask .nl-modal .nl-modal-actions .nl-btn {
+        margin-left: .5em; }
+    .nl-modal-mask .nl-modal .errors {
+      list-style-type: none;
+      margin: -0.5em 0 0.5em;
+      padding: 0;
+      font-size: 15px;
+      margin-left: auto; }
+      .nl-modal-mask .nl-modal .errors li {
+        color: red; }
+    .nl-modal-mask .nl-modal .nl-btn {
+      background: 0 0;
+      border: none;
+      border-radius: 2px;
+      color: #404040;
+      position: relative;
+      height: 36px;
+      margin: 0;
+      min-width: 64px;
+      padding: 0 12px;
+      display: inline-block;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      overflow: hidden;
+      will-change: box-shadow; }
+    .nl-modal-mask .nl-modal .nl-btn-primary {
+      background: #2970ef;
+      color: #fff;
+      font-weight: bold; }
+  .nl-modal-mask form label {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0 0 4px;
+    margin-bottom: 24px; }
+  .nl-modal-mask form input[type="text"],
+  .nl-modal-mask form input[type="number"],
+  .nl-modal-mask form input[type="url"],
+  .nl-modal-mask form input[type="email"],
+  .nl-modal-mask form textarea,
+  .nl-modal-mask form select {
+    display: block;
+    margin: 0 0 1em;
+    border-radius: 2px;
+    width: 100%;
+    padding: 0 0.75em;
+    font-size: 14px;
+    height: 44px;
+    border: 1px solid #b3b2b2;
+    background: #fff; }
+    .nl-modal-mask form input[type="text"]::-webkit-input-placeholder,
+    .nl-modal-mask form input[type="number"]::-webkit-input-placeholder,
+    .nl-modal-mask form input[type="url"]::-webkit-input-placeholder,
+    .nl-modal-mask form input[type="email"]::-webkit-input-placeholder,
+    .nl-modal-mask form textarea::-webkit-input-placeholder,
+    .nl-modal-mask form select::-webkit-input-placeholder {
+      color: #b3b2b2; }
+    .nl-modal-mask form input[type="text"]::-moz-placeholder,
+    .nl-modal-mask form input[type="number"]::-moz-placeholder,
+    .nl-modal-mask form input[type="url"]::-moz-placeholder,
+    .nl-modal-mask form input[type="email"]::-moz-placeholder,
+    .nl-modal-mask form textarea::-moz-placeholder,
+    .nl-modal-mask form select::-moz-placeholder {
+      color: #b3b2b2; }
+    .nl-modal-mask form input[type="text"]::-ms-input-placeholder,
+    .nl-modal-mask form input[type="number"]::-ms-input-placeholder,
+    .nl-modal-mask form input[type="url"]::-ms-input-placeholder,
+    .nl-modal-mask form input[type="email"]::-ms-input-placeholder,
+    .nl-modal-mask form textarea::-ms-input-placeholder,
+    .nl-modal-mask form select::-ms-input-placeholder {
+      color: #b3b2b2; }
+    .nl-modal-mask form input[type="text"]::placeholder,
+    .nl-modal-mask form input[type="number"]::placeholder,
+    .nl-modal-mask form input[type="url"]::placeholder,
+    .nl-modal-mask form input[type="email"]::placeholder,
+    .nl-modal-mask form textarea::placeholder,
+    .nl-modal-mask form select::placeholder {
+      color: #b3b2b2; }
+    .nl-modal-mask form input[type="text"][disabled],
+    .nl-modal-mask form input[type="number"][disabled],
+    .nl-modal-mask form input[type="url"][disabled],
+    .nl-modal-mask form input[type="email"][disabled],
+    .nl-modal-mask form textarea[disabled],
+    .nl-modal-mask form select[disabled] {
+      color: #999999;
+      border-color: #cccccc;
+      cursor: not-allowed; }
+  .nl-modal-mask form select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    padding-right: 2em;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEuNDEiPjxwYXRoIGQ9Ik01LjUzIDcuNDlMLjIgMi4xNWEuNjYuNjYgMCAwIDEgMC0uOTNMLjgyLjU5YS42Ni42NiAwIDAgMSAuOTMgMEw2IDQuODIgMTAuMjUuNmEuNjYuNjYgMCAwIDEgLjkzIDBsLjYzLjYzYy4yNS4yNS4yNS42NyAwIC45M0w2LjQ3IDcuNDlhLjY2LjY2IDAgMCAxLS45NCAweiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: right .75em center;
+    background-size: .75em auto; }
+    .nl-modal-mask form select::-ms-expand {
+      display: none; }
+    .nl-modal-mask form select[multiple] {
+      background-image: none;
+      height: auto;
+      padding: .25em 0; }
+      .nl-modal-mask form select[multiple] option {
+        padding: .25em .5em; }
+  .nl-modal-mask form textarea {
+    height: auto;
+    min-height: 120px;
+    padding-top: 0.375em;
+    resize: vertical; }
+  .nl-modal-mask form input[type="checkbox"] {
+    position: absolute;
+    left: -9999em; }
+    .nl-modal-mask form input[type="checkbox"] + label {
+      display: block;
+      position: relative;
+      padding: 0.3846153846em 0.3846153846em 0.3846153846em 2em !important;
+      margin: 0 0 0.5em;
+      cursor: pointer; }
+      .nl-modal-mask form input[type="checkbox"] + label::before {
+        font-size: 24px;
+        content: "check_box_outline_blank";
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        color: #666666; }
+    .nl-modal-mask form input[type="checkbox"]:checked + label::before {
+      content: "check_box";
+      color: blue; }
+    .nl-modal-mask form input[type="checkbox"]:indeterminate + label::before {
+      content: "indeterminate_check_box"; }
+  .nl-modal-mask .form-actions {
+    text-align: right; }
+  .nl-modal-mask .nl-modal-loader {
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: none; }
+  .nl-modal-mask.modal-loading .nl-modal-loader {
+    display: block; }
+  .nl-modal-mask.modal-loading .nl-modal {
+    display: none; }
+  .nl-modal-mask .nl-message {
+    padding: 1em;
+    margin: 1.4em 0;
+    font-size: .875em; }
+    .nl-modal-mask .nl-message-warning {
+      background: #f2e1c4; }
+    .nl-modal-mask .nl-message-info {
+      background: #d6eff7; }
+  .nl-modal-mask #nl-move-modal {
+    max-height: 90vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    @media only screen and (min-width: 1200px) {
+      .nl-modal-mask #nl-move-modal {
+        width: 33%; } }
+    @media only screen and (max-width: 1366px) {
+      .nl-modal-mask #nl-move-modal {
+        width: 50%; } }
+    @media only screen and (max-width: 900px) {
+      .nl-modal-mask #nl-move-modal {
+        width: 60%; } }
+    .nl-modal-mask #nl-move-modal .nl-group, .nl-modal-mask #nl-move-modal .nl-group-head {
+      border-bottom: 1px solid transparent; }
+    .nl-modal-mask #nl-move-modal .group-title {
+      width: 100%; }
+    .nl-modal-mask #nl-move-modal .nl-group-body {
+      padding: 0; }
+
+@-webkit-keyframes maskFadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes maskFadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes modalSlide {
+  from {
+    margin-top: 50px;
+    opacity: 0; }
+  top {
+    margin-top: 0;
+    opacity: 1; } }
+
+@keyframes modalSlide {
+  from {
+    margin-top: 50px;
+    opacity: 0; }
+  top {
+    margin-top: 0;
+    opacity: 1; } }
 
 .ngmodal .modal-dialog {
   height: 100%;
