@@ -41,6 +41,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
         }
 
         if ($this->hasLayouts($activatedBundles)) {
+            $loader->load('layouts/forms.yml');
             $loader->load('layouts/controllers.yml');
             $loader->load('layouts/services.yml');
             $this->setIsLayoutsEnterprise($container, $activatedBundles);
