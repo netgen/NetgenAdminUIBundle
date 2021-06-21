@@ -4,6 +4,11 @@ ngadmin_layouts_location_layouts:
         _controller: "netgen_admin_ui.controller.layouts:showLocationLayouts"
     methods:  [GET]
 
+ngadmin_layouts_layout_wizard:
+    path: /ngadmin/layouts/{locationId}/wizard
+    controller: netgen_admin_ui.controller.layout_wizard
+    methods:  [GET, POST]
+
 _ezpublishPreviewContentDefaultSa:
     path: /content/versionview/{contentId}/{versionNo}/{language}
     defaults:

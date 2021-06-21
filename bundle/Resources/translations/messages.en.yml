@@ -55,6 +55,17 @@ netgen_admin_ui.layouts.cache_clear.question: 'Are you sure you want to clear ca
 netgen_admin_ui.layouts.cache_clear.cancel: 'Cancel'
 netgen_admin_ui.layouts.cache_clear.submit: 'Clear cache'
 
+netgen_admin_ui.layout_wizard.title: 'Create location-based mapping for "%locationName%"'
+netgen_admin_ui.layout_wizard.button.cancel: 'Discard'
+netgen_admin_ui.layout_wizard.button.save: 'Save mapping & edit layout'
+netgen_admin_ui.layout_wizard.action.new_layout: 'Apply a fresh new layout to this location'
+netgen_admin_ui.layout_wizard.action.copy_layout: 'Duplicate existing layout and apply it'
+netgen_admin_ui.layout_wizard.layout: 'Choose existing layout'
+netgen_admin_ui.layout_wizard.layout_name: 'New layout name'
+netgen_admin_ui.layout_wizard.layout_description: 'New layout description'
+netgen_admin_ui.layout_wizard.rule_group: 'Choose mapping group'
+netgen_admin_ui.layout_wizard.activate_rule: 'Activate mapping immediately after layout is published'
+
 layouts.layout.clear_block_caches: 'Clear block caches'
 layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
 layouts.layout.clear_cache: 'Clear layout cache'

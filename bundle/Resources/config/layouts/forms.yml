@@ -1,0 +1,8 @@
+services:
+    netgen_admin_ui.layouts.form.layout_wizard:
+        class: Netgen\Bundle\AdminUIBundle\Form\Type\LayoutWizardType
+        arguments:
+            - "@netgen_layouts.api.service.layout"
+            - "@netgen_layouts.api.service.layout_resolver"
+        tags:
+            - { name: form.type }
