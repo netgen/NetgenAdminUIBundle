@@ -41,6 +41,12 @@ final class LayoutWizard extends Controller
                 'location' => $location,
                 'form' => $form->createView(),
             ],
+            new Response(
+                null,
+                $form->isSubmitted() ?
+                    Response::HTTP_UNPROCESSABLE_ENTITY :
+                    Response::HTTP_OK
+            ),
         );
     }
 
