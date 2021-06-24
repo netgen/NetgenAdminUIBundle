@@ -80,9 +80,14 @@
                 justify-content: space-between;
 
                 &:first-child {
-                    display: block;
-                    input {
+                    input[type="radio"] {
                         width: auto;
+                    }
+                    label[for="layout_wizard_action_1"] {
+                        display: inline;
+                    }
+                    #layout_wizard_action_1 {
+                        margin-bottom: 24px;
                     }
                 }
 
