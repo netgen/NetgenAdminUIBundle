@@ -4,5 +4,6 @@ services:
         arguments:
             - "@netgen_layouts.api.service.layout"
             - "@netgen_layouts.api.service.layout_resolver"
+            - "@netgen_layouts.layout.registry.layout_type"
         tags:
             - { name: form.type }

@@ -8,6 +8,11 @@ ngadmin_layouts_layout_wizard:
     path: /ngadmin/layouts/{locationId}/wizard
     controller: netgen_admin_ui.controller.layout_wizard
     methods:  [GET, POST]
+    
+ngadmin_layouts_layout_wizard_callback:
+    path: /ngadmin/layouts/{locationId}/wizard/callback
+    controller: netgen_admin_ui.controller.layout_wizard_callback
+    methods:  [GET]
 
 _ezpublishPreviewContentDefaultSa:
     path: /content/versionview/{contentId}/{versionNo}/{language}
