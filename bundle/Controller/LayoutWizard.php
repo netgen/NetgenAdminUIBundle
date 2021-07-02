@@ -80,7 +80,20 @@ final class LayoutWizard extends Controller
                 UrlGeneratorInterface::ABSOLUTE_URL,
             );
 
-            return new JsonResponse(['return_url' => $returnUrl]);
+            $layoutUrl = $this->generateUrl(
+                'nglayouts_app',
+                [
+                    '_fragment' => 'layout/' . $layout->getId()->toString(),
+                ],
+                UrlGeneratorInterface::ABSOLUTE_URL,
+            );
+
+            return new JsonResponse(
+                [
+                    'return_url' => $returnUrl,
+                    'layout_url' => $layoutUrl,
+                ]
+            );
         }
 
         return $this->render(
