@@ -7,37 +7,78 @@ namespace Netgen\Bundle\AdminUIBundle\Form\Type;
 use Netgen\Layouts\API\Service\LayoutResolverService;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\LayoutResolver\RuleGroup;
+use Netgen\Layouts\Layout\Registry\LayoutTypeRegistry;
+use Netgen\Layouts\Validator\Constraint\LayoutName;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints;
-use Netgen\Layouts\Validator\Constraint\LayoutName;
 
 final class LayoutWizardType extends AbstractType
 {
-    private LayoutService $layoutService;
+    public const ACTION_TYPE_NEW_LAYOUT = 'new_layout';
 
-    private LayoutResolverService $layoutResolverService;
+    public const ACTION_TYPE_COPY_LAYOUT = 'copy_layout';
 
-    public function __construct(LayoutService $layoutService, LayoutResolverService $layoutResolverService)
-    {
+    /**
+     * @var \Netgen\Layouts\API\Service\LayoutService
+     */
+    private $layoutService;
+
+    /**
+     * @var \Netgen\Layouts\API\Service\LayoutResolverService
+     */
+    private $layoutResolverService;
+
+    /**
+     * @var \Netgen\Layouts\Layout\Registry\LayoutTypeRegistry
+     */
+    private $layoutTypeRegistry;
+
+    public function __construct(
+        LayoutService $layoutService,
+        LayoutResolverService $layoutResolverService,
+        LayoutTypeRegistry $layoutTypeRegistry
+    ) {
         $this->layoutService = $layoutService;
         $this->layoutResolverService = $layoutResolverService;
+        $this->layoutTypeRegistry = $layoutTypeRegistry;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $layoutTypes = $this->layoutTypeRegistry->getLayoutTypes(true);
+
         $builder->add(
             'action',
             Type\ChoiceType::class,
             [
                 'label' => false,
                 'expanded' => true,
-                'data' => 'new_layout',
+                'data' => self::ACTION_TYPE_NEW_LAYOUT,
                 'choices' => [
-                    'layout_wizard.action.new_layout' => 'new_layout',
-                    'layout_wizard.action.copy_layout' => 'copy_layout',
+                    'netgen_admin_ui.layout_wizard.action.new_layout' => self::ACTION_TYPE_NEW_LAYOUT,
+                    'netgen_admin_ui.layout_wizard.action.copy_layout' => self::ACTION_TYPE_COPY_LAYOUT,
+                ],
+            ],
+        );
+
+        $builder->add(
+            'layout_type',
+            Type\ChoiceType::class,
+            [
+                'label' => 'netgen_admin_ui.layout_wizard.layout_type',
+                'required' => true,
+                'choices' => $layoutTypes,
+                'choice_value' => 'identifier',
+                'choice_name' => 'identifier',
+                'choice_label' => 'name',
+                'choice_translation_domain' => false,
+                'expanded' => true,
+                'data' => $layoutTypes[array_key_first($layoutTypes)],
+                'constraints' => [
+                    new Constraints\NotBlank(),
                 ],
             ],
         );
@@ -46,7 +87,7 @@ final class LayoutWizardType extends AbstractType
             'layout',
             Type\ChoiceType::class,
             [
-                'label' => 'layout_wizard.layout',
+                'label' => 'netgen_admin_ui.layout_wizard.layout',
                 'choices' => $this->layoutService->loadAllLayouts(),
                 'choice_value' => 'id',
                 'choice_label' => 'name',
@@ -57,7 +98,7 @@ final class LayoutWizardType extends AbstractType
             'layout_name',
             Type\TextType::class,
             [
-                'label' => 'layout_wizard.layout_name',
+                'label' => 'netgen_admin_ui.layout_wizard.layout_name',
                 'constraints' => [
                     new Constraints\NotBlank(),
                     new LayoutName(),
@@ -69,7 +110,7 @@ final class LayoutWizardType extends AbstractType
             'layout_description',
             Type\TextareaType::class,
             [
-                'label' => 'layout_wizard.layout_description',
+                'label' => 'netgen_admin_ui.layout_wizard.layout_description',
                 'required' => false,
                 'constraints' => [
                     new Constraints\NotNull(),
@@ -83,9 +124,9 @@ final class LayoutWizardType extends AbstractType
             'rule_group',
             Type\ChoiceType::class,
             [
-                'label' => 'layout_wizard.rule_group',
+                'label' => 'netgen_admin_ui.layout_wizard.rule_group',
                 'choices' => $this->layoutResolverService->loadRuleGroups(
-                    $this->layoutResolverService->loadRuleGroup(Uuid::fromString(RuleGroup::ROOT_UUID))
+                    $this->layoutResolverService->loadRuleGroup(Uuid::fromString(RuleGroup::ROOT_UUID)),
                 ),
                 'choice_value' => 'id',
                 'choice_label' => 'name',
@@ -96,7 +137,7 @@ final class LayoutWizardType extends AbstractType
             'activate_rule',
             Type\CheckboxType::class,
             [
-                'label' => 'layout_wizard.activate_rule',
+                'label' => 'netgen_admin_ui.layout_wizard.activate_rule',
                 'data' => true,
                 'constraints' => [
                     new Constraints\NotNull(),
