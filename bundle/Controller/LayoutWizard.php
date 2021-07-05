@@ -57,9 +57,8 @@ final class LayoutWizard extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $layout = $form->get('action')->getData() === LayoutWizardType::ACTION_TYPE_NEW_LAYOUT ?
-                $this->createNewLayout($form, $request) :
+                $this->createNewLayout($form, $request->getLocale()) :
                 $this->copyLayout($form, $form->get('layout')->getData());
 
             $wizardData = [
@@ -127,12 +126,12 @@ final class LayoutWizard extends Controller
         throw $exception;
     }
 
-    private function createNewLayout(FormInterface $form, Request $request): Layout
+    private function createNewLayout(FormInterface $form, string $locale): Layout
     {
         $createStruct = $this->layoutService->newLayoutCreateStruct(
             $this->layoutTypeRegistry->getLayoutType($form->get('layout_type')->getData()->getIdentifier()),
             $form->get('layout_name')->getData(),
-            $request->getLocale(),
+            $locale,
         );
 
         $createStruct->description = $form->get('layout_description')->getData() ?? '';
