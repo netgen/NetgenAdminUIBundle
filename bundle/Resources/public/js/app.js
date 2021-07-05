@@ -180,8 +180,12 @@ const submitModal = (url, modal, method, csrf, body, afterSuccess, afterError) =
     }
     return response.text();
   }).then((data) => {
+    const layoutUrl = JSON.parse(data)['layout_url'];
+    const returnUrl = JSON.parse(data)['return_url'];
+    window.localStorage.setItem('ngl_referrer', returnUrl);
+    window.location.replace(layoutUrl);
     modal.close();
-    if (afterSuccess) afterSuccess(data);
+    // if (afterSuccess) afterSuccess(data);
     return true;
   }).catch((error) => {
     console.log(error); // eslint-disable-line no-console
