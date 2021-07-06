@@ -64,7 +64,7 @@ class NlModal {
 
   disableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = true;
-    this.el.querySelector('#layout_wizard_layout_type').style.display = 'block';
+    this.el.querySelector('#layout_wizard_layout_type').style.display = 'flex';
     /* this.el.querySelector('#layout_wizard_layout_name').disabled = true;
     this.el.querySelector('#layout_wizard_layout_description').disabled = true;
     this.el.querySelector('#layout_wizard_rule_group').disabled = true;

@@ -151,6 +151,92 @@
             color: #fff;
             font-weight: bold;
         }
+
+        .layout-type {
+            display: flex;
+            margin: 0 -1%;
+            flex-wrap: wrap;
+            max-height: 20rem;
+            overflow-y: auto;
+            width: 100%;
+
+            .layout-type-item {
+                margin: 0 1% 1em;
+                flex: 0 0 14.666666667%;
+                width: 14.666666667%;
+
+                input[type='radio'] {
+                    position: absolute;
+                    left: -9999em;
+                    visibility: hidden;
+
+                    +label {
+                        font-size: .875em;
+                        font-weight: normal;
+                        text-align: center;
+                        cursor: pointer;
+                        position: relative;
+                        padding: 0;
+                        margin: 0;
+                        display: block;
+
+                        .icon {
+                            content: '';
+                            display: block;
+                            height: 0;
+                            padding: 0 0 138%;
+                            border: 2px solid #999999;
+                            background-size: 85%;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            border-radius: 0.125rem;
+                            position: relative;
+                        }
+                    }
+
+                    &:checked {
+                        +label {
+                            color: #2a72ef;
+
+                            .icon {
+                                border-color: #2a72ef;
+
+                                &:after {
+                                    font-family: 'Material Icons';
+                                    vertical-align: text-bottom;
+                                    font-size: 2rem;
+                                    font-weight: normal;
+                                    font-style: normal;
+                                    display: inline-block;
+                                    line-height: 1;
+                                    text-transform: none;
+                                    letter-spacing: normal;
+                                    word-wrap: normal;
+                                    white-space: nowrap;
+                                    direction: ltr;
+                                    text-rendering: optimizeLegibility;
+                                    font-feature-settings: 'liga';
+                                    content: 'check';
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    color: #fff;
+                                    text-align: center;
+                                    width: 3rem;
+                                    height: 3rem;
+                                    line-height: 2.6rem;
+                                    border-radius: 50%;
+                                    border: .2rem solid #fff;
+                                    background: #2a72ef;
+                                    animation: checkedFadeIn .15s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     form {
         label {
