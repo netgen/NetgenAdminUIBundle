@@ -7920,10 +7920,9 @@ input.tagssuggestfield {
       width: 100%; }
       .nl-modal-mask .nl-modal .layout-type .layout-type-item {
         margin: 0 1% 1em;
-        -webkit-box-flex: 0;
-            -ms-flex: 0 0 14.666666667%;
-                flex: 0 0 14.666666667%;
-        width: 14.666666667%; }
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1; }
         .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio'] {
           position: absolute;
           left: -9999em;
