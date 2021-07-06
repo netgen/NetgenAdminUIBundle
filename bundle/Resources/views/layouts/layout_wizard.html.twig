@@ -1,6 +1,7 @@
 {% extends '@NetgenLayoutsAdmin/form/modal.html.twig' %}
 
 {% form_theme form '@NetgenLayoutsAdmin/form/theme/nglayouts.html.twig' %}
+{% form_theme form.layout_type _self %}
 
 {% block header %}
     {{ 'netgen_admin_ui.layout_wizard.title'|trans({'%locationName%': location.contentInfo.name}) }}

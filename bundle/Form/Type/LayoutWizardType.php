@@ -13,6 +13,8 @@ use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\Validator\Constraints;
 
 final class LayoutWizardType extends AbstractType
@@ -145,5 +147,17 @@ final class LayoutWizardType extends AbstractType
                 ],
             ],
         );
+    }
+
+    public function finishView(FormView $view, FormInterface $form, array $options): void
+    {
+        /** @var \Netgen\Layouts\Layout\Type\LayoutTypeInterface $layoutType */
+        foreach ($this->layoutTypeRegistry->getLayoutTypes(true) as $layoutType) {
+            if (!isset($view['layout_type'][$layoutType->getIdentifier()])) {
+                continue;
+            }
+
+            $view['layout_type'][$layoutType->getIdentifier()]->vars['layout_type'] = $layoutType;
+        }
     }
 }
