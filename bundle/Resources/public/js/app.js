@@ -182,7 +182,9 @@ const submitModal = (url, modal, method, csrf, body, afterSuccess, afterError) =
     }
     return response.text();
   }).then((data) => {
+    // eslint-disable-next-line dot-notation
     const layoutUrl = JSON.parse(data)['layout_url'];
+    // eslint-disable-next-line dot-notation
     const returnUrl = JSON.parse(data)['return_url'];
     window.localStorage.setItem('ngl_referrer', returnUrl);
     window.location.replace(layoutUrl);
