@@ -6,9 +6,27 @@
     {{ 'netgen_admin_ui.layout_wizard.title'|trans({'%locationName%': location.contentInfo.name}) }}
 {% endblock %}
 
+{% block _layout_wizard_layout_type_widget %}
+    <div {{ block('widget_container_attributes') }}>
+    {%- for child in form %}
+        <div class="layout-type-item">
+            {{- form_widget(child) -}}
+            {{- form_label(child) -}}
+        </div>
+    {% endfor -%}
+    </div>
+{% endblock %}
+
+{% block _layout_wizard_layout_type_entry_label %}
+    <label for="{{ id }}" class="required">
+        <i class="icon" {% if form.vars.layout_type.icon is not null %}style="background-image:url({{ asset(form.vars.layout_type.icon) }})"{% endif %}></i>
+        {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
+    </label>
+{% endblock %}
+
 {% block children %}
     {{ form_row(form.action) }}
-    {{ form_row(form.layout_type) }}
+    {{ form_row(form.layout_type, {attr: {class: 'layout-type'}}) }}
     {{ form_row(form.layout) }}
     {{ form_row(form.layout_name) }}
     {{ form_row(form.layout_description) }}
