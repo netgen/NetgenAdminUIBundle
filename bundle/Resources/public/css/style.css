@@ -7858,10 +7858,12 @@ input.tagssuggestfield {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
                 justify-content: space-between; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child {
-          display: block; }
-          .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child input {
-            width: auto; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child input[type="radio"] {
+          width: auto; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child label[for="layout_wizard_action_1"] {
+          display: inline; }
+        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child #layout_wizard_action_1 {
+          margin-bottom: 24px; }
         .nl-modal-mask .nl-modal .nl-modal-body .row-input.error-input input {
           border: 1px solid red; }
         .nl-modal-mask .nl-modal .nl-modal-body .row-input select, .nl-modal-mask .nl-modal .nl-modal-body .row-input input, .nl-modal-mask .nl-modal .nl-modal-body .row-input textarea {
