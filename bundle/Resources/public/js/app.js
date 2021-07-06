@@ -64,18 +64,20 @@ class NlModal {
 
   disableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = true;
-    this.el.querySelector('#layout_wizard_layout_name').disabled = true;
+    this.el.querySelector('#layout_wizard_layout_type').style.display = 'block';
+    /* this.el.querySelector('#layout_wizard_layout_name').disabled = true;
     this.el.querySelector('#layout_wizard_layout_description').disabled = true;
     this.el.querySelector('#layout_wizard_rule_group').disabled = true;
-    this.el.querySelector('#layout_wizard_activate_rule').disabled = true;
+    this.el.querySelector('#layout_wizard_activate_rule').disabled = true; */
   }
 
   enableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = false;
-    this.el.querySelector('#layout_wizard_layout_name').disabled = false;
+    this.el.querySelector('#layout_wizard_layout_type').style.display = 'none';
+    /* this.el.querySelector('#layout_wizard_layout_name').disabled = false;
     this.el.querySelector('#layout_wizard_layout_description').disabled = false;
     this.el.querySelector('#layout_wizard_rule_group').disabled = false;
-    this.el.querySelector('#layout_wizard_activate_rule').disabled = false;
+    this.el.querySelector('#layout_wizard_activate_rule').disabled = false; */
   }
 
   setupEvents() {
@@ -381,7 +383,6 @@ $(document).ready(function () {
     const apiUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`;
     const baseUrl = `${apiUrl}/ngadmin/layouts`;
     const url = `${baseUrl}/${layoutId}/wizard`;
-    console.log(url);
     const modal = new NlModal({
       preload: true,
       autoClose: false,
