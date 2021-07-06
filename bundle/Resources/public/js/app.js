@@ -65,19 +65,11 @@ class NlModal {
   disableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = true;
     this.el.querySelector('#layout_wizard_layout_type').style.display = 'flex';
-    /* this.el.querySelector('#layout_wizard_layout_name').disabled = true;
-    this.el.querySelector('#layout_wizard_layout_description').disabled = true;
-    this.el.querySelector('#layout_wizard_rule_group').disabled = true;
-    this.el.querySelector('#layout_wizard_activate_rule').disabled = true; */
   }
 
   enableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = false;
     this.el.querySelector('#layout_wizard_layout_type').style.display = 'none';
-    /* this.el.querySelector('#layout_wizard_layout_name').disabled = false;
-    this.el.querySelector('#layout_wizard_layout_description').disabled = false;
-    this.el.querySelector('#layout_wizard_rule_group').disabled = false;
-    this.el.querySelector('#layout_wizard_activate_rule').disabled = false; */
   }
 
   setupEvents() {
@@ -148,21 +140,6 @@ class NlModal {
     this.el.parentElement && this.el.parentElement.removeChild(this.el);
   }
 }
-
-const fetchModal = (url, modal, formAction, afterSuccess) => {
-  fetch(url, {
-    method: 'GET',
-  }).then((response) => {
-    if (!response.ok) throw new Error(`HTTP error, status ${response.status}`);
-    return response.text();
-  }).then((data) => {
-    modal.insertModalHtml(data);
-    modal.el.addEventListener('apply', formAction);
-    if (afterSuccess) afterSuccess();
-  }).catch((error) => {
-    console.log(error); // eslint-disable-line no-console
-  });
-};
 
 const submitModal = (url, modal, method, csrf, body, afterSuccess, afterError) => {
   fetch(url, {
