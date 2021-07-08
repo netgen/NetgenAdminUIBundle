@@ -42,7 +42,7 @@ final class LayoutWizardCallback extends Controller
 
         $layoutId = Uuid::fromString($wizardData['layout']);
         if (!$this->layoutService->layoutExists($layoutId, Layout::STATUS_PUBLISHED)) {
-            throw new BadRequestHttpException();
+            return $this->redirectToRoute(UrlAliasRouter::URL_ALIAS_ROUTE_NAME, ['locationId' => $location->id]);
         }
 
         $ruleGroup = $this->layoutResolverService->loadRuleGroup(Uuid::fromString($wizardData['rule_group']));
