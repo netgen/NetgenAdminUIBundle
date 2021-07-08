@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 
 /* modal plugin */
-export default class NlMoveModalGroup {
+class NlMoveModalGroup {
   constructor(el, data, modal, depth = 0, disabled = false) {
     this.data = data;
     this.modal = modal;
