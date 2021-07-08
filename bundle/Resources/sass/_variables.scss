@@ -14,6 +14,16 @@ $headerHeight: 70px;
 $gutter: 15px;
 $darkBg: #272A2F;
 $layoutsAdminBgColor: hsl(0, 0, 96);
+$textColor: hsl(0, 0, 25);
+$bgColor: hsl(0, 0, 96);
+$panelBg: hsl(0, 0, 100);
+$panelLightColor: hsl(218, 19, 75);
+$linkColor: #2970ef;
+$highlightColor: #e22303;
+$gutter: 20px;
+$panelFontSize: 13px;
+$btnHeight: 36px;
+$inputHeight: 32px;
 
 $btnPrimary: #2970EF;
 $btnBorder: #e4e4e4;
@@ -44,4 +54,16 @@ $btnBorder: #e4e4e4;
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+}
+
+%fadeIn {
+    animation:fadeIn 350ms ease-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    top {
+        opacity:1;
+    }
 }
