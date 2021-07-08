@@ -35,9 +35,10 @@
 {% endblock %}
 
 {% block _layout_wizard_rule_group_widget %}
-    <div {{ block('widget_container_attributes') }}>
-        <button>{{ 'netgen_admin_ui.layout_wizard.rule_group.button'|trans }}</button>
+    <div>
         {{ block('hidden_widget') }}
+        <p class="chosen-group"></p>
+        <button type="button" class="nl-btn nl-btn-primary choose-group">{{ 'netgen_admin_ui.layout_wizard.rule_group.button'|trans }}</button>
     </div>
 {% endblock %}
 

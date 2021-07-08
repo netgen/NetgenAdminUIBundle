@@ -18,11 +18,6 @@ class NlMoveModalGroup {
 
     this.disabled = disabled;
 
-    this.moving = this.modal.selectedIds.includes(this.id);
-
-    // eslint-disable-next-line no-unused-expressions
-    this.id === this.modal.group.id || !this.reorderPermission || this.moving ? this.disabled = true : null;
-
     this.apiUrl = `${window.location.origin}${document.querySelector('meta[name=nglayouts-admin-base-path]').getAttribute('content')}`;
 
     this.modalGroups = {};
@@ -122,6 +117,7 @@ class NlMoveModalGroup {
       this.checkBoxContainer.style.visibility = 'visible';
       this.selected = true;
       this.el.classList.add('selected');
+      this.modal.selectedGroup = this.data;
     }
     Object.keys(this.modalGroups).forEach(key => this.modalGroups[key].handleCheckbox(id));
   }
@@ -149,7 +145,7 @@ class NlMoveModalGroup {
 
 /* modal plugin */
 class NlModal {
-  constructor(opt) {
+  constructor(opt, parentModal = null) {
     this.options = Object.assign({
       preload: false,
       cancelDisabled: false,
@@ -169,6 +165,13 @@ class NlModal {
     this.loader.className = 'nl-modal-loader';
     this.loader.innerHTML = '<span></span>';
 
+    // move modal extras
+    this.modalGroups = {};
+    this.parentModal = parentModal;
+    this.selectedGroup = null;
+    console.log(document.getElementsByClassName('chosen-group'));
+    [this.chosenGroup] = document.getElementsByClassName('chosen-group');
+
     this.onKeyDown = (e) => {
       e.keyCode === 27 && this.close();
       e.keyCode === 13 && e.preventDefault();
@@ -176,7 +179,7 @@ class NlModal {
 
     this.onKeyDown = this.onKeyDown.bind(this);
 
-    this.loadModal();
+    this.parentModal === null ? this.loadModal() : this.loadGroupModal();
     this.setupEvents();
   }
 
@@ -195,6 +198,33 @@ class NlModal {
     this.el.appendChild(this.container);
     this.appEl.appendChild(this.el);
     window.addEventListener('keydown', this.onKeyDown);
+  }
+
+  handleCheckbox(id) {
+    Object.keys(this.modalGroups).forEach(key => this.modalGroups[key].handleCheckbox(id));
+    // id === null ? this.moveButton.disabled = true : this.moveButton.disabled = false;
+  }
+
+  loadContent() {
+    const apiUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`;
+    const url = `${apiUrl}/nglayouts/admin/api/mappings/groups/root`;
+    [this.modalBody] = this.container.getElementsByClassName('nl-modal-body');
+    // this.addModalGroup({ id: '00000000-0000-0000-0000-000000000000', name: 'root' });
+
+    fetch(url, {
+      method: 'GET',
+    }).then((response) => {
+      if (!response.ok) throw new Error(`HTTP error, status ${response.status}`);
+      return response.text();
+    }).then((data) => {
+      const parsedData = JSON.parse(data);
+      this.addModalGroup(parsedData.group);
+    }).then(() => {
+      this.modalBody.appendChild(this.modalGroups[Object.keys(this.modalGroups)[0]].el);
+    })
+      .catch((error) => {
+        console.log(error); // eslint-disable-line no-console
+      });
   }
 
   loadGroupModal() {
@@ -257,7 +287,7 @@ class NlModal {
     return `<div class="nl-modal">
                       <button class="close-modal"></button>
                       <div class="nl-modal-head">${this.options.title}</div>
-                      <div class="nl-modal-body">${this.options.body}</div>
+                      <div class="nl-modal-body">${this.parentModal === null ? this.options.body : ''}</div>
                       <div class="nl-modal-actions">
                           <button type="button" class="nl-btn nl-btn-default action-cancel">${this.options.cancelText}</button>
                           <button type="button" class="nl-btn nl-btn-primary action-apply">${this.options.applyText}</button>
@@ -280,13 +310,26 @@ class NlModal {
       if (e.target.closest('.close-modal')) {
         this.close(e);
       } else if (e.target.closest('.action-apply')) {
-        this.apply(e);
+        this.parentModal === null ? this.apply(e) : this.setChosenGroup();
       } else if (e.target.closest('.action-cancel')) {
         this.cancel(e);
+      } else if (e.target.closest('.choose-group')) {
+        e.preventDefault();
+        console.log(this);
+        const modal = new NlModal({
+          preload: true,
+          autoClose: false,
+        }, this);
       } else if (e.target.closest('#layout_wizard_action_0') || e.target.closest('#layout_wizard_action_1')) {
         e.target.value === 'new_layout' ? this.disableForm() : this.enableForm();
       }
     });
+  }
+
+  setChosenGroup(e) {
+    e && e.preventDefault();
+    this.parentModal.chosenGroup.innerHTML = this.selectedGroup.name;
+    this.close();
   }
 
   apply(e) {
