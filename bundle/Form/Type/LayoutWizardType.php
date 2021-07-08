@@ -30,10 +30,19 @@ final class LayoutWizardType extends AbstractType
      */
     private $layoutTypeRegistry;
 
-    public function __construct(LayoutService $layoutService, LayoutTypeRegistry $layoutTypeRegistry)
-    {
+    /**
+     * @var bool
+     */
+    private $isEnterprise;
+
+    public function __construct(
+        LayoutService $layoutService,
+        LayoutTypeRegistry $layoutTypeRegistry,
+        bool $isEnterprise
+    ) {
         $this->layoutService = $layoutService;
         $this->layoutTypeRegistry = $layoutTypeRegistry;
+        $this->isEnterprise = $isEnterprise;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -110,17 +119,19 @@ final class LayoutWizardType extends AbstractType
             ],
         );
 
-        $builder->add(
-            'rule_group',
-            Type\HiddenType::class,
-            [
-                'label' => 'netgen_admin_ui.layout_wizard.rule_group',
-                'constraints' => [
-                    new Constraints\NotBlank(),
-                    new Constraints\Uuid(['versions' => [Constraints\Uuid::V4_RANDOM]]),
+        if ($this->isEnterprise) {
+            $builder->add(
+                'rule_group',
+                Type\HiddenType::class,
+                [
+                    'label' => 'netgen_admin_ui.layout_wizard.rule_group',
+                    'constraints' => [
+                        new Constraints\NotBlank(),
+                        new Constraints\Uuid(['versions' => [Constraints\Uuid::V4_RANDOM]]),
+                    ],
                 ],
-            ],
-        );
+            );
+        }
 
         $builder->add(
             'activate_rule',

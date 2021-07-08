@@ -9,6 +9,7 @@ use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Layouts\API\Service\LayoutResolverService;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
+use Netgen\Layouts\API\Values\LayoutResolver\RuleGroup;
 use Netgen\Layouts\Ez\Layout\Resolver\TargetType\Location as LocationTargetType;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -45,7 +46,8 @@ final class LayoutWizardCallback extends Controller
             return $this->redirectToRoute(UrlAliasRouter::URL_ALIAS_ROUTE_NAME, ['locationId' => $location->id]);
         }
 
-        $ruleGroup = $this->layoutResolverService->loadRuleGroup(Uuid::fromString($wizardData['rule_group']));
+        $ruleGroupId = $wizardData['rule_group'] ?? RuleGroup::ROOT_UUID;
+        $ruleGroup = $this->layoutResolverService->loadRuleGroup(Uuid::fromString($ruleGroupId));
         $groupRules = $this->layoutResolverService->loadRulesFromGroup($ruleGroup, 0, 1);
 
         $ruleCreateStruct = $this->layoutResolverService->newRuleCreateStruct();
@@ -53,12 +55,7 @@ final class LayoutWizardCallback extends Controller
         $ruleCreateStruct->enabled = (bool) $wizardData['activate_rule'];
         $ruleCreateStruct->priority = count($groupRules) > 0 ? $groupRules[0]->getPriority() + 10 : 0;
 
-        $rule = $this->layoutResolverService->createRule(
-            $ruleCreateStruct,
-            $this->layoutResolverService->loadRuleGroup(
-                Uuid::fromString($wizardData['rule_group']),
-            ),
-        );
+        $rule = $this->layoutResolverService->createRule($ruleCreateStruct, $ruleGroup);
 
         $targetCreateStruct = $this->layoutResolverService->newTargetCreateStruct(LocationTargetType::getType());
         $targetCreateStruct->value = $location->id;

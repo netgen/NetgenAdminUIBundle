@@ -4,5 +4,6 @@ services:
         arguments:
             - "@netgen_layouts.api.service.layout"
             - "@netgen_layouts.layout.registry.layout_type"
+            - "%netgen_admin_ui.layouts.is_enterprise%"
         tags:
             - { name: form.type }

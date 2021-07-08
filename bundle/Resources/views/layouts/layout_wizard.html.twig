@@ -2,7 +2,10 @@
 
 {% form_theme form '@NetgenLayoutsAdmin/form/theme/nglayouts.html.twig' %}
 {% form_theme form.layout_type _self %}
-{% form_theme form.rule_group _self %}
+
+{% if form.rule_group is defined %}
+    {% form_theme form.rule_group _self %}
+{% endif %}
 
 {% block header %}
     {{ 'netgen_admin_ui.layout_wizard.title'|trans({'%locationName%': location.contentInfo.name}) }}
@@ -50,7 +53,11 @@
     {{ form_row(form.layout) }}
     {{ form_row(form.layout_name) }}
     {{ form_row(form.layout_description) }}
-    {{ form_row(form.rule_group) }}
+
+    {% if form.rule_group is defined %}
+        {{ form_row(form.rule_group) }}
+    {% endif %}
+
     {{ form_row(form.activate_rule) }}
 {% endblock %}
 
