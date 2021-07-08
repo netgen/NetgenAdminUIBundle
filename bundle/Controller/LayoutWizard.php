@@ -63,9 +63,12 @@ final class LayoutWizard extends Controller
 
             $wizardData = [
                 'layout' => $layout->getId()->toString(),
-                'rule_group' => $form->get('rule_group')->getData(),
                 'activate_rule' => $form->get('activate_rule')->getData(),
             ];
+
+            if ($form->has('rule_group')) {
+                $wizardData['rule_group'] = $form->get('rule_group')->getData();
+            }
 
             $wizardId = hash('sha256', random_bytes(32));
             $request->getSession()->set(sprintf('_layouts_ezplatform_wizard/%s', $wizardId), $wizardData);
