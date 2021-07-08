@@ -43,6 +43,44 @@
   /* For IE6-8 */
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/MaterialIcons/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/MaterialIcons/MaterialIcons-Regular.woff) format("woff"), url(../font/MaterialIcons/MaterialIcons-Regular.ttf) format("truetype"); }
 
+@font-face {
+  font-family: 'netgen-layouts';
+  src: url("../fonts/Netgen/netgen-layouts.eot?1ps4yu");
+  src: url("../fonts/Netgen/netgen-layouts.eot?1ps4yu#iefix") format("embedded-opentype"), url("../fonts/Netgen/netgen-layouts.ttf?1ps4yu") format("truetype"), url("..//fonts/Netgen/netgen-layouts.woff?1ps4yu") format("woff"), url("../fonts/Netgen/netgen-layouts.svg?1ps4yu#netgen-layouts") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'netgen-layouts' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-group-disabled:before {
+  content: "\e900"; }
+
+.icon-group-disabled-open:before {
+  content: "\e901"; }
+
+.icon-group-open:before {
+  content: "\e902"; }
+
+.icon-group:before {
+  content: "\e903"; }
+
+.icon-rule-disabled:before {
+  content: "\e904"; }
+
+.icon-rule:before {
+  content: "\e905"; }
+
 #content-tree-menu .node-name-hidden::before, .fontawesome, #action-controls-container .yui-button button::before, #action-controls-container .yui-button button::after, .yui-pg-first [data-icon]::before, .yui-pg-previous [data-icon]::before, .yui-pg-next [data-icon]::before, .yui-pg-last [data-icon]::before, .yuimenuitemlabel::before, .yuimenu .topscrollbar::before, .yuimenu .bottomscrollbar::before, .rightmenu .show-hide-control::before, fieldset.ezcca-collapsible legend a::before, .thumbview::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .block-control-icon::before, .content-edit .yui-skin-ezflow .yui-navset .yui-content .block-header .trigger::before, #size-warning .size-warning-text .icon::before, #size-warning .size-warning-text .icon::after, #menu-toggle i, .nl-modal-cache .nl-caches-table input[type="checkbox"] + label::before {
   display: inline-block;
   font: normal normal normal 14px FontAwesome;

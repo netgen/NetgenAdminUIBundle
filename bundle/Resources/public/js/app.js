@@ -169,8 +169,8 @@ class NlModal {
     this.modalGroups = {};
     this.parentModal = parentModal;
     this.selectedGroup = null;
-    console.log(document.getElementsByClassName('chosen-group'));
     [this.chosenGroup] = document.getElementsByClassName('chosen-group');
+    this.hiddenInput = document.getElementById('layout_wizard_rule_group');
 
     this.onKeyDown = (e) => {
       e.keyCode === 27 && this.close();
@@ -315,7 +315,6 @@ class NlModal {
         this.cancel(e);
       } else if (e.target.closest('.choose-group')) {
         e.preventDefault();
-        console.log(this);
         const modal = new NlModal({
           preload: true,
           autoClose: false,
@@ -328,7 +327,9 @@ class NlModal {
 
   setChosenGroup(e) {
     e && e.preventDefault();
-    this.parentModal.chosenGroup.innerHTML = this.selectedGroup.name;
+    this.chosenGroup.innerHTML = this.selectedGroup.name;
+    console.log(this.hiddenInput);
+    this.hiddenInput.value = this.selectedGroup.id;
     this.close();
   }
 
