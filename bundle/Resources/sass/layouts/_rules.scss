@@ -38,14 +38,12 @@
         margin:0;
         min-width:64px;
         display:inline-block;
-        font-family:$baseFont;
         font-size:13px;
         overflow:hidden;
         outline:none;
         cursor:pointer;
         text-decoration:none;
         text-align:center;
-        line-height:$btnHeight;
         vertical-align:middle;
 
 
@@ -176,7 +174,7 @@
 .nl-rule-cell {
     display: flex;
     align-items: center;
-    padding: 4px $gutter 4px 0;
+    padding: 4px 4px 4px 0;
     &.rule-layout {
         width: 35%;
     }
@@ -518,7 +516,7 @@
     .nl-rule-head {
         display: flex;
         position: relative;
-        padding-left: $gutter;
+        padding-left: 4px;
         color: hsl(0, 0, 40);
         min-height: 60px;
         border-bottom: 1px solid #e3e3e3;
@@ -656,7 +654,7 @@
             right: 0;
             width: 40%;
             height: 100%;
-            padding: $gutter;
+            padding: 4px;
             background: #fff;
             z-index: 1001;
             padding: 60px;
@@ -803,23 +801,23 @@
                     .js-trigger {
                         background: #fff;
                         color: inherit;
-                        height: $inputHeight;
+                        height: 24px;
                         font-size: 1em;
                         border-radius: 0;
                         span {
-                            line-height: $inputHeight;
+                            line-height: 24px;
                         }
                         &::after {
-                            background: $linkColor;
+                            background: blue;
                             color: #fff;
-                            line-height: $inputHeight;
+                            line-height: 24px;
                             transition: background .15s ease, color .15s ease;
                             border-radius: 0;
                             font-size: 20px;
                         }
                         &:hover {
                             &::after {
-                                background: darken($linkColor, 4%);
+                                background: darken(blue, 4%);
                             }
                         }
                     }
@@ -930,7 +928,7 @@
                     position: absolute;
                     content: 'edit';
                     font-size: 1.1666666667em;
-                    color: $linkColor;
+                    color: blue;
                     margin: 0 0 2px .5em;
                     vertical-align: middle;
                     right: 10px;
@@ -943,8 +941,8 @@
         text-transform: uppercase;
         padding: .5em 1.25em;
         display: inline-block;
-        margin: 0 $gutter;
-        background: $highlightColor;
+        margin: 0 4px;
+        background: lightblue;
         color: #fff;
     }
 
@@ -991,7 +989,7 @@
         visibility: visible !important;
         background: transparent;
         box-shadow: none;
-        outline: 1px dashed $panelLightColor;
+        outline: 1px dashed lightblue;
         outline-offset: 4px;
         cursor: grabbing;
         * {
@@ -1531,23 +1529,23 @@
                     .js-trigger {
                         background: #fff;
                         color: inherit;
-                        height: $inputHeight;
+                        height: 24px;
                         font-size: 1em;
                         border-radius: 0;
                         span {
-                            line-height: $inputHeight;
+                            line-height: 24px;
                         }
                         &::after {
-                            background: $linkColor;
+                            background: blue;
                             color: #fff;
-                            line-height: $inputHeight;
+                            line-height: 24px;
                             transition: background .15s ease, color .15s ease;
                             border-radius: 0;
                             font-size: 20px;
                         }
                         &:hover {
                             &::after {
-                                background: darken($linkColor, 4%);
+                                background: darken(blue, 4%);
                             }
                         }
                     }
@@ -1617,7 +1615,7 @@
     .nl-group-head {
         position: relative;
         display: flex;
-        padding-left: $gutter;
+        padding-left: 4px;
         color: hsl(0, 0, 40);
         align-items: center;
         min-height: 60px;
@@ -1829,7 +1827,7 @@
 
     .nl-group-body {
         display: none;
-        padding: $gutter;
+        padding: 4px;
         background: white;
         padding: 0 20px;
 
@@ -1910,7 +1908,7 @@
                     @extend %material-icons;
                     content: "edit";
                     font-size: 1.1666666667em;
-                    color: $linkColor;
+                    color: blue;
                     margin: 0 0 2px 0.5em;
                     vertical-align: middle;
                     position: absolute;
@@ -1924,8 +1922,8 @@
         text-transform: uppercase;
         padding: 0.5em 1.25em;
         display: inline-block;
-        margin: 0 $gutter;
-        background: $highlightColor;
+        margin: 0 4px;
+        background: lightblue;
         color: #fff;
     }
 
@@ -1972,7 +1970,7 @@
         visibility: visible !important;
         background: transparent;
         box-shadow: none;
-        outline: 1px dashed $panelLightColor;
+        outline: 1px dashed gray;
         outline-offset: 4px;
         cursor: grabbing;
         * {
@@ -2037,8 +2035,8 @@
     left: 0;
     right: 0;
     top: 164px;
-    bottom: $gutter * 1.5;
-    padding: 6px $gutter * 1.5 $gutter * 4 $gutter * 1.5;
+    bottom: 4px * 1.5;
+    padding: 6px 4px * 1.5 4px * 4 4px * 1.5;
     .nl-rule-between {
         text-align: center;
         margin: .75em 0;
