@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\AdminUIBundle\Form\Type;
 
-use Netgen\Layouts\API\Service\LayoutResolverService;
 use Netgen\Layouts\API\Service\LayoutService;
-use Netgen\Layouts\API\Values\LayoutResolver\RuleGroup;
 use Netgen\Layouts\Layout\Registry\LayoutTypeRegistry;
 use Netgen\Layouts\Validator\Constraint\LayoutName;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,22 +26,13 @@ final class LayoutWizardType extends AbstractType
     private $layoutService;
 
     /**
-     * @var \Netgen\Layouts\API\Service\LayoutResolverService
-     */
-    private $layoutResolverService;
-
-    /**
      * @var \Netgen\Layouts\Layout\Registry\LayoutTypeRegistry
      */
     private $layoutTypeRegistry;
 
-    public function __construct(
-        LayoutService $layoutService,
-        LayoutResolverService $layoutResolverService,
-        LayoutTypeRegistry $layoutTypeRegistry
-    ) {
+    public function __construct(LayoutService $layoutService, LayoutTypeRegistry $layoutTypeRegistry)
+    {
         $this->layoutService = $layoutService;
-        $this->layoutResolverService = $layoutResolverService;
         $this->layoutTypeRegistry = $layoutTypeRegistry;
     }
 
@@ -124,14 +112,13 @@ final class LayoutWizardType extends AbstractType
 
         $builder->add(
             'rule_group',
-            Type\ChoiceType::class,
+            Type\HiddenType::class,
             [
                 'label' => 'netgen_admin_ui.layout_wizard.rule_group',
-                'choices' => $this->layoutResolverService->loadRuleGroups(
-                    $this->layoutResolverService->loadRuleGroup(Uuid::fromString(RuleGroup::ROOT_UUID)),
-                ),
-                'choice_value' => 'id',
-                'choice_label' => 'name',
+                'constraints' => [
+                    new Constraints\NotBlank(),
+                    new Constraints\Uuid(['versions' => [Constraints\Uuid::V4_RANDOM]]),
+                ],
             ],
         );
 

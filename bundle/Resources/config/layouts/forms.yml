@@ -3,7 +3,6 @@ services:
         class: Netgen\Bundle\AdminUIBundle\Form\Type\LayoutWizardType
         arguments:
             - "@netgen_layouts.api.service.layout"
-            - "@netgen_layouts.api.service.layout_resolver"
             - "@netgen_layouts.layout.registry.layout_type"
         tags:
             - { name: form.type }

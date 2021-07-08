@@ -2,6 +2,7 @@
 
 {% form_theme form '@NetgenLayoutsAdmin/form/theme/nglayouts.html.twig' %}
 {% form_theme form.layout_type _self %}
+{% form_theme form.rule_group _self %}
 
 {% block header %}
     {{ 'netgen_admin_ui.layout_wizard.title'|trans({'%locationName%': location.contentInfo.name}) }}
@@ -23,6 +24,20 @@
         <i class="icon" {% if form.vars.layout_type.icon is not null %}style="background-image:url({{ asset(form.vars.layout_type.icon) }})"{% endif %}></i>
         {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
     </label>
+{% endblock %}
+
+{% block _layout_wizard_rule_group_row %}
+    <div class="row-input">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{% endblock %}
+
+{% block _layout_wizard_rule_group_widget %}
+    <div {{ block('widget_container_attributes') }}>
+        <button>{{ 'netgen_admin_ui.layout_wizard.rule_group.button'|trans }}</button>
+    </div>
 {% endblock %}
 
 {% block children %}
