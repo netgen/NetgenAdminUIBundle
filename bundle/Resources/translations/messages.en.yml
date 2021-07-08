@@ -65,6 +65,7 @@ netgen_admin_ui.layout_wizard.layout: 'Choose existing layout'
 netgen_admin_ui.layout_wizard.layout_name: 'New layout name'
 netgen_admin_ui.layout_wizard.layout_description: 'New layout description'
 netgen_admin_ui.layout_wizard.rule_group: 'Choose mapping group'
+netgen_admin_ui.layout_wizard.rule_group.button: 'Choose'
 netgen_admin_ui.layout_wizard.activate_rule: 'Activate mapping immediately after layout is published'
 
 layouts.layout.clear_block_caches: 'Clear block caches'
