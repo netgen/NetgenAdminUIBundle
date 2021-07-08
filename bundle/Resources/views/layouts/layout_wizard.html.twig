@@ -37,6 +37,7 @@
 {% block _layout_wizard_rule_group_widget %}
     <div {{ block('widget_container_attributes') }}>
         <button>{{ 'netgen_admin_ui.layout_wizard.rule_group.button'|trans }}</button>
+        {{ block('hidden_widget') }}
     </div>
 {% endblock %}
 
