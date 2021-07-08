@@ -38,7 +38,7 @@
 {% endblock %}
 
 {% block _layout_wizard_rule_group_widget %}
-    <div>
+    <div class="choose-group-div">
         {{ block('hidden_widget') }}
         <p class="chosen-group">
             {% if value is not empty %}{{ nglayouts_rule_group_name(value) }}{% endif %}
