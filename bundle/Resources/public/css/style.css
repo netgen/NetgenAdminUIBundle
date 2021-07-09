@@ -7863,10 +7863,10 @@ input.tagssuggestfield {
             flex-direction: column;
     -webkit-animation: modalSlide 0.4s ease-out;
             animation: modalSlide 0.4s ease-out; }
-    .nl-modal-mask .nl-modal .nl-grid {
+    .nl-modal-mask .nl-modal .nl-gird {
       margin-left: -10px;
       margin-right: -10px; }
-      .nl-modal-mask .nl-modal .nl-grid > [class^='col-'] {
+      .nl-modal-mask .nl-modal .nl-gird > [class^='col-'] {
         padding-left: 10px;
         padding-right: 10px; }
     .nl-modal-mask .nl-modal .close-modal {
@@ -7945,6 +7945,14 @@ input.tagssuggestfield {
       text-align: end; }
       .nl-modal-mask .nl-modal .errors li {
         color: red; }
+    .nl-modal-mask .nl-modal .choose-group-div {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .nl-modal-mask .nl-modal .choose-group-div .chosen-group {
+        margin-right: 2rem; }
+    .nl-modal-mask .nl-modal #layout_wizard_action {
+      width: 100%; }
     .nl-modal-mask .nl-modal .nl-btn {
       background: 0 0;
       border: none;
@@ -8039,6 +8047,13 @@ input.tagssuggestfield {
                 background: #2a72ef;
                 -webkit-animation: checkedFadeIn .15s;
                         animation: checkedFadeIn .15s; }
+          .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label {
+            color: #999999; }
+            .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon {
+              border-color: #999999;
+              cursor: not-allowed; }
+              .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon::after {
+                display: none; }
   .nl-modal-mask form label {
     display: block;
     font-weight: normal;

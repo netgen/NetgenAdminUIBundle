@@ -297,12 +297,14 @@ class NlModal {
 
   disableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = true;
-    this.el.querySelector('#layout_wizard_layout_type').style.display = 'flex';
+    // eslint-disable-next-line no-return-assign
+    document.getElementsByName('layout_wizard[layout_type]').forEach(el => el.disabled = false);
   }
 
   enableForm() {
     this.el.querySelector('#layout_wizard_layout').disabled = false;
-    this.el.querySelector('#layout_wizard_layout_type').style.display = 'none';
+    // eslint-disable-next-line no-return-assign
+    document.getElementsByName('layout_wizard[layout_type]').forEach(el => el.disabled = true);
   }
 
   setupEvents() {
@@ -328,7 +330,6 @@ class NlModal {
   setChosenGroup(e) {
     e && e.preventDefault();
     this.chosenGroup.innerHTML = this.selectedGroup.name;
-    console.log(this.hiddenInput);
     this.hiddenInput.value = this.selectedGroup.id;
     this.close();
   }
