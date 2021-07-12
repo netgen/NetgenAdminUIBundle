@@ -45,8 +45,8 @@
 
 @font-face {
   font-family: 'netgen-layouts';
-  src: url("../fonts/Netgen/netgen-layouts.eot?1ps4yu");
-  src: url("../fonts/Netgen/netgen-layouts.eot?1ps4yu#iefix") format("embedded-opentype"), url("../fonts/Netgen/netgen-layouts.ttf?1ps4yu") format("truetype"), url("..//fonts/Netgen/netgen-layouts.woff?1ps4yu") format("woff"), url("../fonts/Netgen/netgen-layouts.svg?1ps4yu#netgen-layouts") format("svg");
+  src: url("../fonts/layouts/netgen-layouts.eot?1ps4yu");
+  src: url("../fonts/layouts/netgen-layouts.eot?1ps4yu#iefix") format("embedded-opentype"), url("../fonts/layouts/netgen-layouts.ttf?1ps4yu") format("truetype"), url("..//fonts/layouts/netgen-layouts.woff?1ps4yu") format("woff"), url("../fonts/layouts/netgen-layouts.svg?1ps4yu#netgen-layouts") format("svg");
   font-weight: normal;
   font-style: normal; }
 
