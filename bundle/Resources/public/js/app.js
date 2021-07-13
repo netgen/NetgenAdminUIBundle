@@ -296,13 +296,19 @@ class NlModal {
   }
 
   disableForm() {
-    this.el.querySelector('#layout_wizard_layout').disabled = true;
+    this.el.querySelector('#layout_wizard_layout').style.display = 'none';
+    this.el.querySelector('#layout_wizard_layout').previousElementSibling.style.display = 'none';
+    this.el.querySelector('#layout_wizard_layout_type').style.display = 'flex';
+    this.el.querySelector('#layout_wizard_layout_type').previousElementSibling.style.display = 'block';
     // eslint-disable-next-line no-return-assign
     document.getElementsByName('layout_wizard[layout_type]').forEach(el => el.disabled = false);
   }
 
   enableForm() {
-    this.el.querySelector('#layout_wizard_layout').disabled = false;
+    this.el.querySelector('#layout_wizard_layout').style.display = 'block';
+    this.el.querySelector('#layout_wizard_layout').previousElementSibling.style.display = 'block';
+    this.el.querySelector('#layout_wizard_layout_type').style.display = 'none';
+    this.el.querySelector('#layout_wizard_layout_type').previousElementSibling.style.display = 'none';
     // eslint-disable-next-line no-return-assign
     document.getElementsByName('layout_wizard[layout_type]').forEach(el => el.disabled = true);
   }
