@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints;
 
 final class LayoutWizardType extends AbstractType
@@ -44,6 +45,15 @@ final class LayoutWizardType extends AbstractType
         $this->layoutService = $layoutService;
         $this->layoutTypeRegistry = $layoutTypeRegistry;
         $this->isEnterprise = $isEnterprise;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'validation_groups' => static function (FormInterface $form): array {
+                return ['Default', $form->get('action')->getData()];
+            },
+        ]);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -78,7 +88,7 @@ final class LayoutWizardType extends AbstractType
                 'expanded' => true,
                 'data' => $layoutTypes[array_key_first($layoutTypes)],
                 'constraints' => [
-                    new Constraints\NotBlank(),
+                    new Constraints\NotBlank(['groups' => [self::ACTION_TYPE_NEW_LAYOUT]]),
                 ],
             ],
         );
