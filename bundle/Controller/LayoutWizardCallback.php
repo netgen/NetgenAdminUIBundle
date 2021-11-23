@@ -63,7 +63,12 @@ final class LayoutWizardCallback extends Controller
         $this->layoutResolverService->addTarget($rule, $targetCreateStruct);
         $this->layoutResolverService->publishRule($rule);
 
-        return $this->redirectToRoute(UrlAliasRouter::URL_ALIAS_ROUTE_NAME, ['locationId' => $location->id]);
+        return $this->redirect(
+            $this->generateUrl(
+                UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+                ['locationId' => $location->id]
+            ) . '/(tab)/nglayouts'
+        );
     }
 
     public function checkPermissions(): void
