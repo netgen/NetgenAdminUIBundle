@@ -140,6 +140,7 @@ final class LayoutWizardType extends AbstractType
                 Type\HiddenType::class,
                 [
                     'label' => 'netgen_admin_ui.layout_wizard.rule_group',
+                    'error_bubbling' => false,
                     'constraints' => [
                         new Constraints\NotBlank(),
                         new Constraints\Uuid(['versions' => [Constraints\Uuid::V4_RANDOM]]),
