@@ -9120,6 +9120,7 @@ input.tagssuggestfield {
     .nl-group.show-details > .nl-group-details-overlay > .nl-group-details {
       display: block; }
   .nl-group.show-move > .nl-group-content > .nl-group-head {
+    position: -webkit-sticky;
     position: sticky;
     top: -3px;
     outline: 2px solid #3671E7;
