@@ -2,6 +2,7 @@
 
 {% set can_edit = is_granted('ROLE_NGLAYOUTS_EDITOR') or is_granted('nglayouts:layout:edit', rule.layout) %}
 {% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
+{% set can_activate = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:mapping:activate', { rule_group: rule.ruleGroupId.toString }) %}
 {% set parent_groups = nglayouts_parent_rule_groups(rule)|slice(1) %}
 
 <li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}">
@@ -52,6 +53,14 @@
             <div class="layout-dropdown dropdown">
                 <button id="layout-{{ rule.layout.id.toString }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ rule.layout.id.toString }}-dropdown">
+                    {% if can_activate %}
+                        {% if rule.enabled %}
+                            <li><button {% if not rule.published %}disabled="disabled"{% else %} class="js-rule-edit" data-action="disable" {% endif %}>{{ 'layouts.rule.disable_rule'|trans }}</button></li>
+                        {% else %}
+                            <li><button {% if not rule.published %}disabled="disabled"{% else %} class="js-rule-edit" data-action="enable" {% endif %}>{{ 'layouts.rule.enable_rule'|trans }}</button></li>
+                        {% endif %}
+                    {% endif %}
+
                     <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans }}</button></li>
                     {% if is_enterprise %}
                         <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans }}</span></button></li>
