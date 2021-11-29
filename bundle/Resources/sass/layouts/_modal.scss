@@ -101,6 +101,14 @@
                     width: 290px;
                 }
             }
+
+            .group-title {
+                width: 100%;
+
+                p {
+                    word-break: break-word;
+                }
+            }
         }
         .nl-modal-head {
             padding:15px 35px 15px 15px;

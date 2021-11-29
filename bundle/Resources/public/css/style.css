@@ -7922,6 +7922,10 @@ input.tagssuggestfield {
           border: 1px solid red; }
         .nl-modal-mask .nl-modal .nl-modal-body .row-input select, .nl-modal-mask .nl-modal .nl-modal-body .row-input input, .nl-modal-mask .nl-modal .nl-modal-body .row-input textarea {
           width: 290px; }
+      .nl-modal-mask .nl-modal .nl-modal-body .group-title {
+        width: 100%; }
+        .nl-modal-mask .nl-modal .nl-modal-body .group-title p {
+          word-break: break-word; }
     .nl-modal-mask .nl-modal .nl-modal-head {
       padding: 15px 35px 15px 15px;
       background: #404040;
@@ -9120,7 +9124,6 @@ input.tagssuggestfield {
     .nl-group.show-details > .nl-group-details-overlay > .nl-group-details {
       display: block; }
   .nl-group.show-move > .nl-group-content > .nl-group-head {
-    position: -webkit-sticky;
     position: sticky;
     top: -3px;
     outline: 2px solid #3671E7;
