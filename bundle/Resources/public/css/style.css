@@ -7952,7 +7952,8 @@ input.tagssuggestfield {
     .nl-modal-mask .nl-modal .choose-group-div {
       display: -webkit-box;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      margin-bottom: 1em; }
       .nl-modal-mask .nl-modal .choose-group-div .chosen-group {
         margin-right: 2rem; }
     .nl-modal-mask .nl-modal #layout_wizard_action {
