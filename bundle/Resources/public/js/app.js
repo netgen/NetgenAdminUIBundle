@@ -313,6 +313,10 @@ class NlModal {
     document.getElementsByName('layout_wizard[layout_type]').forEach(el => el.disabled = true);
   }
 
+  checkForm() {
+    this.el.querySelector('#layout_wizard_action_0').checked ? this.disableForm() : this.enableForm();
+  }
+
   setupEvents() {
     this.el.addEventListener('click', (e) => {
       if (e.target.closest('.close-modal')) {
@@ -408,6 +412,7 @@ const submitModal = (url, modal, method, csrf, body, afterSuccess, afterError) =
     if (!response.ok) {
       return response.text().then((data) => {
         modal.insertModalHtml(data);
+        modal.checkForm();
         if (afterError) afterError();
         throw new Error(`HTTP error, status ${response.status}`);
       });
