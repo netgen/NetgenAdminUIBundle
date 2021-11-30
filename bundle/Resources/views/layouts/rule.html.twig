@@ -4,7 +4,7 @@
 {% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
 {% set parent_groups = nglayouts_parent_rule_groups(rule)|slice(1) %}
 
-<li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}">
+<li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}" data-rule-id="{{ rule.id.toString }}">
     <div class="layout-item">
         <div class="layout-name">
             <p class="groups">{{ parent_groups|map(group => group.name)|join(' / ') }}</p>
