@@ -42,9 +42,6 @@ netgen_admin_ui.layouts.mappings.conditions: 'Conditions'
 
 netgen_admin_ui.layouts.edit_layout: 'Editer le layout'
 
-layouts.rule.enable_rule: 'Activate mapping'
-layouts.rule.disable_rule: 'Deactivate mapping'
-
 layouts.layout.clear_block_caches: 'Clear block caches'
 layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
 layouts.layout.clear_cache: 'Clear layout cache'

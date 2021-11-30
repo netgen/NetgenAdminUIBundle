@@ -69,9 +69,6 @@ netgen_admin_ui.layout_wizard.rule_group: 'Choose mapping group'
 netgen_admin_ui.layout_wizard.rule_group.button: 'Choose'
 netgen_admin_ui.layout_wizard.activate_rule: 'Activate mapping immediately after layout is published'
 
-layouts.rule.enable_rule: 'Activate mapping'
-layouts.rule.disable_rule: 'Deactivate mapping'
-
 layouts.layout.clear_block_caches: 'Clear block caches'
 layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
 layouts.layout.clear_cache: 'Clear layout cache'
