@@ -676,13 +676,17 @@ $(document).ready(function () {
     this.$el = $(el);
     this.layouts = layouts;
     this.id = el.dataset.layoutId;
+    this.ruleId = el.dataset.ruleId;
     this.$layoutCacheModal = this.$el.find('.layout-cache-modal');
+    this.$layoutDeleteModal = this.$el.find('.layout-delete-modal');
     this.setupEvents();
   }
   LayoutMapped.prototype.setupEvents = function () {
     this.$el.find('.js-clear-layout-cache').on('click', this.openCacheModal.bind(this));
     this.$el.find('.js-clear-block-caches').on('click', this.clearBlockCaches.bind(this));
+    this.$el.find('.js-rule-delete').on('click', this.openDeleteModal.bind(this));
     this.$layoutCacheModal.on('click', '.js-modal-confirm', this.clearLayoutCache.bind(this));
+    this.$layoutDeleteModal.on('click', '.js-modal-confirm', this.deleteRule.bind(this));
   };
   LayoutMapped.prototype.openCacheModal = function (e) {
     e.preventDefault();
@@ -690,11 +694,23 @@ $(document).ready(function () {
     this.cacheModalStopLoading();
     this.$layoutCacheModal.modal('show');
   };
+  LayoutMapped.prototype.openDeleteModal = function (e) {
+    e.preventDefault();
+    this.$layoutDeleteModal.find('.errors').remove();
+    this.deleteModalStopLoading();
+    this.$layoutDeleteModal.modal('show');
+  };
   LayoutMapped.prototype.cacheModalStartLoading = function () {
     if (!this.$layoutCacheModal.find('.modal-loading').length) this.$layoutCacheModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
   };
   LayoutMapped.prototype.cacheModalStopLoading = function () {
     this.$layoutCacheModal.find('.modal-loading').remove();
+  };
+  LayoutMapped.prototype.deleteModalStartLoading = function () {
+    if (!this.$layoutDeleteModal.find('.modal-loading').length) this.$layoutDeleteModal.find('.modal-body').append('<div class="modal-loading"><i class="loading-ng-icon"></i></div>');
+  };
+  LayoutMapped.prototype.deleteModalStopLoading = function () {
+    this.$layoutDeleteModal.find('.modal-loading').remove();
   };
   LayoutMapped.prototype.clearLayoutCache = function (e) {
     e.preventDefault();
@@ -794,6 +810,32 @@ $(document).ready(function () {
       error(xhr) {
         self.layouts.$blockCacheModal.find('.modal-body').html(xhr.responseText);
         self.layouts.cacheModalStopLoading();
+      },
+    });
+  };
+  LayoutMapped.prototype.deleteRule = function (e) {
+    e.preventDefault();
+    const self = this;
+    $.ajax({
+      type: 'DELETE',
+      url: `/ngadmin/layouts/rules/${this.ruleId}/delete`,
+      headers: {
+        'X-CSRF-Token': this.layouts.csrf,
+      },
+      beforeSend() {
+        self.$layoutDeleteModal.find('.errors').remove();
+        self.deleteModalStartLoading();
+      },
+      success() {
+        self.$layoutDeleteModal.modal('hide');
+        self.$el.remove();
+        $('.modal-backdrop').remove();
+      },
+      error(xhr) {
+        const $resp = $(xhr.responseText);
+        self.$layoutDeleteModal.find('.modal-body').prepend($resp.find('.errors'));
+        self.deleteModalStopLoading();
+        console.log(xhr, 'Error deleting:', xhr.statusText);
       },
     });
   };
