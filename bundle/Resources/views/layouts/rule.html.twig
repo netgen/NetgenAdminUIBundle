@@ -2,6 +2,7 @@
 
 {% set can_edit = is_granted('ROLE_NGLAYOUTS_EDITOR') or is_granted('nglayouts:layout:edit', rule.layout) %}
 {% set can_clear_cache = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:layout:clear_cache', rule.layout) %}
+{% set can_delete = is_granted('ROLE_NGLAYOUTS_ADMIN') or is_granted('nglayouts:mapping:delete', { rule_group: rule.ruleGroupId.toString }) %}
 {% set parent_groups = nglayouts_parent_rule_groups(rule)|slice(1) %}
 
 <li class="layout-list-item" data-layout-id="{{ rule.layout.id.toString }}" data-rule-id="{{ rule.id.toString }}">
@@ -53,8 +54,13 @@
                 <button id="layout-{{ rule.layout.id.toString }}-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="layout-{{ rule.layout.id.toString }}-dropdown">
                     <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-layout-cache">{{ 'layouts.layout.clear_cache'|trans }}</button></li>
+
                     {% if is_enterprise %}
                         <li><button {% if not http_cache_enabled %}disabled="disabled"{% endif %} class="js-clear-block-caches">{{ 'layouts.layout.clear_block_caches'|trans }} <span class="note">{{ 'layouts.layout.clear_block_caches.note'|trans }}</span></button></li>
+                    {% endif %}
+
+                    {% if can_delete %}
+                        <li><button class="js-rule-delete">{{ 'layouts.rule.delete_rule'|trans }}</button></li>
                     {% endif %}
                 </ul>
             </div>

@@ -45,3 +45,5 @@ netgen_admin_ui.layouts.edit_layout: 'Editer le layout'
 layouts.layout.clear_block_caches: 'Clear block caches'
 layouts.layout.clear_block_caches.note: 'Clears ESI and AJAX block caches'
 layouts.layout.clear_cache: 'Clear layout cache'
+
+layouts.rule.delete_rule: 'Delete mapping'
