@@ -34,8 +34,7 @@
         <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
         <fieldset>
 
-            {def $sort_fields=hash( 6, 'Class identifier'|i18n( 'design/admin/node/view/full' ),
-                                    7, 'Class name'|i18n( 'design/admin/node/view/full' ),
+            {def $sort_fields=hash(
                                     5, 'Depth'|i18n( 'design/admin/node/view/full' ),
                                     3, 'Modified'|i18n( 'design/admin/node/view/full' ),
                                     9, 'Name'|i18n( 'design/admin/node/view/full' ),
