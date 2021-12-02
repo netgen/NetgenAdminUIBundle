@@ -18,6 +18,8 @@ ngadmin_layouts_rules_delete_rule:
     path: /ngadmin/layouts/rules/{ruleId}/delete
     controller: netgen_admin_ui.controller.delete_rule
     methods:  [DELETE]
+    defaults:
+        _nglayouts_status: published
 
 _ezpublishPreviewContentDefaultSa:
     path: /content/versionview/{contentId}/{versionNo}/{language}
