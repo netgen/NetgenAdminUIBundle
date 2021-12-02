@@ -18,6 +18,8 @@ class NlMoveModalGroup {
 
     this.disabled = disabled;
 
+    this.disabled = !this.data.permissions.mapping.edit;
+
     this.apiUrl = `${window.location.origin}${document.querySelector('meta[name=nglayouts-admin-base-path]').getAttribute('content')}`;
 
     this.modalGroups = {};
