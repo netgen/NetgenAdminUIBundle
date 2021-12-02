@@ -33,6 +33,20 @@ final class DeleteRule extends Controller
      */
     public function __invoke(Rule $rule, Request $request): Response
     {
+        $this->denyAccessUnlessGranted('nglayouts:mapping:delete', ['ruleGroup', $rule->getRuleGroupId()->toString()]);
+
+        $layout = $rule->getLayout();
+
+        if (
+            $layout !== null &&
+            $this->layoutResolverService->getRuleCountForLayout($layout) === 1 &&
+            $this->isGranted('nglayouts:layout:delete')
+        ) {
+            $this->layoutService->deleteLayout($layout);
+        }
+
+        $this->layoutResolverService->deleteRule($rule);
+
         return new Response('', Response::HTTP_NO_CONTENT);
     }
 }
