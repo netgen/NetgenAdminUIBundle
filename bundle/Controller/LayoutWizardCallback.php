@@ -43,7 +43,12 @@ final class LayoutWizardCallback extends Controller
 
         $layoutId = Uuid::fromString($wizardData['layout']);
         if (!$this->layoutService->layoutExists($layoutId, Layout::STATUS_PUBLISHED)) {
-            return $this->redirectToRoute(UrlAliasRouter::URL_ALIAS_ROUTE_NAME, ['locationId' => $location->id]);
+            return $this->redirect(
+                $this->generateUrl(
+                    UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+                    ['locationId' => $location->id]
+                ) . '/(tab)/nglayouts'
+            );
         }
 
         $ruleGroupId = $wizardData['rule_group'] ?? RuleGroup::ROOT_UUID;
