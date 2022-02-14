@@ -1,5 +1,13 @@
 <div class="layout-list-wrapper">
-    <h4 class="title-direct-rules">{{ 'netgen_admin_ui.layouts.mappings.title'|trans }}</h4>
+    <div class="direct-mapping-header">
+        <h4 class="title-direct-rules">{{ 'netgen_admin_ui.layouts.mappings.title'|trans }}</h4>
+        <div class="direct-mapping-notice">
+            <a class="btn btn-primary js-direct-mapping">
+                {{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule'|trans }}
+            </a>
+            <p class="direct-mapping-button-sub">{{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule_subtitle'|trans }}</p>
+        </div>
+    </div>
     <h4 class="title-all-rules">{{ 'netgen_admin_ui.layouts.mappings.title_all_rules'|trans }}</h4>
 
     {% if rules is not empty %}
@@ -20,10 +28,6 @@
 
         <div class="show-all-rules">
             <label><input type="checkbox" name="show-all-rules" class="rules-checkbox" /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
-        </div>
-
-        <div>
-            <a class="btn btn-primary js-direct-mapping">{{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule'|trans }}</a>
         </div>
     {% else %}
         <p>{{ 'netgen_admin_ui.layouts.mappings.no_rules'|trans }}</p>
