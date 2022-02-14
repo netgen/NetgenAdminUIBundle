@@ -54,7 +54,7 @@ class NetgenAdminUIExtensionTest extends TestCase
         $this->assertNotEmpty($this->extension->getFunctions());
 
         foreach ($this->extension->getFunctions() as $function) {
-            $this->assertInstanceOf('Twig_SimpleFunction', $function);
+            $this->assertInstanceOf('Twig\TwigFunction', $function);
         }
     }
 

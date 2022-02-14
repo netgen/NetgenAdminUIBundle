@@ -2,8 +2,8 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Installer\Generator;
 
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 abstract class Generator
 {
@@ -34,8 +34,8 @@ abstract class Generator
      */
     protected function render($template, $parameters)
     {
-        $twig = new Twig_Environment(
-            new Twig_Loader_Filesystem($this->skeletonDirs),
+        $twig = new Environment(
+            new FilesystemLoader($this->skeletonDirs),
             array(
                 'debug' => true,
                 'cache' => false,

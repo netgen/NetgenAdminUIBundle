@@ -5,10 +5,10 @@ namespace Netgen\Bundle\AdminUIBundle\Templating\Twig\Extension;
 use Closure;
 use eZPreferences;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class NetgenAdminUIExtension extends Twig_Extension
+class NetgenAdminUIExtension extends AbstractExtension
 {
     /**
      * @var \Netgen\Bundle\AdminUIBundle\Helper\PathHelper
@@ -50,12 +50,12 @@ class NetgenAdminUIExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'ngadmin_location_path',
                 array($this, 'getLocationPath'),
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'ngadmin_ezpreference',
                 array($this, 'getLegacyPreference')
             ),
