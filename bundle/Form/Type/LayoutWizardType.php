@@ -8,7 +8,6 @@ use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\Layout\Registry\LayoutTypeRegistry;
 use Netgen\Layouts\Validator\Constraint\LayoutName;
-use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
@@ -149,9 +148,7 @@ final class LayoutWizardType extends AbstractType
                         new Constraints\Callback(
                             [
                                 'callback' => static function ($value, ExecutionContextInterface $context): void {
-                                    try {
-                                        Uuid::fromString($value);
-                                    } catch (InvalidUuidStringException $e) {
+                                    if (!Uuid::isValid($value)) {
                                         $context->buildViolation('This is not a valid UUID.')
                                             ->atPath('rule_group')
                                             ->addViolation();
