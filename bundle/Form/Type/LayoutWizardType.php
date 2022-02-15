@@ -8,6 +8,8 @@ use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\Layout\Registry\LayoutTypeRegistry;
 use Netgen\Layouts\Validator\Constraint\LayoutName;
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,6 +17,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 final class LayoutWizardType extends AbstractType
 {
@@ -143,7 +146,19 @@ final class LayoutWizardType extends AbstractType
                     'error_bubbling' => false,
                     'constraints' => [
                         new Constraints\NotBlank(),
-                        new Constraints\Uuid(['versions' => [Constraints\Uuid::V4_RANDOM]]),
+                        new Constraints\Callback(
+                            [
+                                'callback' => static function ($value, ExecutionContextInterface $context): void {
+                                    try {
+                                        Uuid::fromString($value);
+                                    } catch (InvalidUuidStringException $e) {
+                                        $context->buildViolation('This is not a valid UUID.')
+                                            ->atPath('rule_group')
+                                            ->addViolation();
+                                    }
+                                }
+                            ]
+                        ),
                     ],
                 ],
             );
