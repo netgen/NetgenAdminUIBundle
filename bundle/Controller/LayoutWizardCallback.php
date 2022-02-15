@@ -36,10 +36,16 @@ final class LayoutWizardCallback extends Controller
     {
         $wizardId = sprintf('_layouts_ezplatform_wizard/%s', $request->query->get('wizardId', ''));
         if (!$request->getSession()->has($wizardId)) {
-            throw new BadRequestHttpException();
+            return $this->redirect(
+                $this->generateUrl(
+                    UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+                    ['locationId' => $location->id]
+                ) . '/(tab)/nglayouts'
+            );
         }
 
         $wizardData = $request->getSession()->get($wizardId);
+        $request->getSession()->remove($wizardId);
 
         $layoutId = Uuid::fromString($wizardData['layout']);
         if (!$this->layoutService->layoutExists($layoutId, Layout::STATUS_PUBLISHED)) {
