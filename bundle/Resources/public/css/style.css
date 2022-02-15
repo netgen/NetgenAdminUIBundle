@@ -91,7 +91,7 @@
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0); }
 
-.nl-modal-mask .nl-modal .close-modal, .nl-modal-mask form input[type="checkbox"] + label::before, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .settings-list .settings-value.editable-value::after {
+.nl-modal-mask .nl-modal .close-modal, .nl-modal-mask form input[type="checkbox"] + label::before, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .nl-export-checkbox input + label::before, .nl-group .settings-list .settings-value.editable-value::after {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -8238,6 +8238,9 @@ input.tagssuggestfield {
   #rules input[type='checkbox'] {
     position: absolute;
     left: -9999em; }
+    #rules input[type='checkbox']:disabled + label {
+      opacity: .2;
+      cursor: not-allowed; }
     #rules input[type='checkbox'] + label {
       display: block;
       position: relative;
@@ -9003,8 +9006,33 @@ input.tagssuggestfield {
   outline: none; }
   .nl-group .nl-export-checkbox {
     visibility: visible; }
-    .nl-group .nl-export-checkbox > label {
-      opacity: 0.3; }
+    .nl-group .nl-export-checkbox input {
+      position: absolute;
+      pointer-events: all;
+      opacity: 0.3;
+      left: -9999em; }
+      .nl-group .nl-export-checkbox input + label {
+        position: relative;
+        margin: 0;
+        padding-left: 1em;
+        padding-right: .5em;
+        cursor: pointer;
+        display: block;
+        min-height: 1em;
+        font-size: 24px; }
+        .nl-group .nl-export-checkbox input + label::before {
+          position: absolute;
+          font-size: 1em;
+          line-height: 1;
+          left: 0;
+          top: 0;
+          content: "check_box_outline_blank"; }
+      .nl-group .nl-export-checkbox input:checked + label::before {
+        content: "check_box";
+        color: #2970ef; }
+      .nl-group .nl-export-checkbox input:disabled + label {
+        opacity: .2;
+        cursor: not-allowed; }
   .nl-group > .nl-group-content > .nl-group-head:hover {
     background-color: #FEF8E8; }
     .nl-group > .nl-group-content > .nl-group-head:hover .group-title {
@@ -9059,6 +9087,9 @@ input.tagssuggestfield {
       background-color: #F4F8FE; }
     .nl-group.selected > .nl-group-content > .nl-group-head .nl-export-checkbox > label {
       opacity: 1; }
+      .nl-group.selected > .nl-group-content > .nl-group-head .nl-export-checkbox > label::before {
+        content: "check_box";
+        color: #2970ef; }
   .nl-group.selected:hover > .nl-group-content > .nl-group-head {
     background-color: #F4F8FE; }
     .nl-group.selected:hover > .nl-group-content > .nl-group-head .group-title {
@@ -9814,6 +9845,38 @@ input.tagssuggestfield {
     font-weight: 500; }
   .layout-list-wrapper > h4.title-all-rules {
     display: none; }
+  .layout-list-wrapper .direct-mapping-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .layout-list-wrapper .direct-mapping-header .title-direct-rules {
+      font-size: 1.125em;
+      font-weight: 500; }
+    .layout-list-wrapper .direct-mapping-header .direct-mapping-notice {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .layout-list-wrapper .direct-mapping-header .direct-mapping-notice .direct-mapping-button-main {
+        font-size: 16px;
+        padding: 0;
+        margin: 0; }
+      .layout-list-wrapper .direct-mapping-header .direct-mapping-notice .direct-mapping-button-sub {
+        font-size: 12px;
+        padding: 0;
+        margin: 6px 0 0 0; }
 
 .layout-list {
   list-style-type: none;
