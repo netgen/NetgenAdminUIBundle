@@ -1,7 +1,5 @@
 <?php
 
-use \Netgen\TagsBundle\Version as TagsBundleVersion;
-
 class NgAdminUiTagsBundleOperator
 {
     /**
@@ -39,7 +37,7 @@ class NgAdminUiTagsBundleOperator
     public static function modify( $tpl, $operatorName, $operatorParameters, $rootNamespace, $currentNamespace, &$operatorValue, $namedParameters, $placement )
     {
         if ( $operatorName === 'has_tags_bundle' ) {
-            $operatorValue = class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::VERSION_ID >= 30000;
+            $operatorValue = class_exists('Netgen\TagsBundle\API\Repository\Values\Tags\Tag');
         }
     }
 }

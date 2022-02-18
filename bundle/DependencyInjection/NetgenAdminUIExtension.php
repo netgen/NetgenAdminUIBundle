@@ -2,7 +2,6 @@
 
 namespace Netgen\Bundle\AdminUIBundle\DependencyInjection;
 
-use Netgen\TagsBundle\Version as TagsBundleVersion;
 use RuntimeException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
@@ -53,7 +52,7 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
 
         $logoType = $container->getParameter('netgen_admin_ui.logo_type');
         if ($logoType === 'default') {
-            if (class_exists('Netgen\Bundle\SiteBundle\NetgenSiteBundle') || class_exists('Netgen\Bundle\MoreBundle\NetgenMoreBundle')) {
+            if (class_exists('Netgen\Bundle\SiteBundle\NetgenSiteBundle')) {
                 $container->setParameter('netgen_admin_ui.logo_type', 'ngadminui');
             }
         }
@@ -117,14 +116,6 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasTags(array $activatedBundles)
     {
-        if (!class_exists('Netgen\TagsBundle\Version')) {
-            return false;
-        }
-
-        if (TagsBundleVersion::MAJOR_VERSION < 3) {
-            return false;
-        }
-
         return array_key_exists('NetgenTagsBundle', $activatedBundles);
     }
 
@@ -137,11 +128,6 @@ class NetgenAdminUIExtension extends Extension implements PrependExtensionInterf
      */
     protected function hasInformationCollection(array $activatedBundles)
     {
-        if (!array_key_exists('NetgenInformationCollectionBundle', $activatedBundles)) {
-            return false;
-        }
-        // this service is backend for collected info admin
-        // if service exists then plugin should be available
-        return interface_exists('Netgen\Bundle\InformationCollectionBundle\API\Service\InformationCollection');
+        return array_key_exists('NetgenInformationCollectionBundle', $activatedBundles);
     }
 }

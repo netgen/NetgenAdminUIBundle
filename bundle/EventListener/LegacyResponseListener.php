@@ -7,7 +7,7 @@ use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
 use Netgen\Bundle\AdminUIBundle\Exception\NotFoundHttpException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class LegacyResponseListener implements EventSubscriberInterface
@@ -41,11 +41,11 @@ class LegacyResponseListener implements EventSubscriberInterface
      * Converts the legacy 404 response to proper Symfony exception.
      *
      *
-     * @param \Symfony\Component\HttpKernel\Event\FilterResponseEvent $event
+     * @param \Symfony\Component\HttpKernel\Event\ResponseEvent $event
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
-    public function onKernelResponse(FilterResponseEvent $event)
+    public function onKernelResponse(ResponseEvent $event)
     {
         $routeName = $event->getRequest()->attributes->get('_route');
         if ($routeName !== FallbackRouter::ROUTE_NAME) {

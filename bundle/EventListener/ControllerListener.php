@@ -2,9 +2,10 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -16,30 +17,20 @@ class ControllerListener implements EventSubscriberInterface
     protected $controllerResolver;
 
     /**
-     * @var bool
+     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
      */
-    protected $isAdminSiteAccess;
-
-    /**
-     * @var array
-     */
-    protected $legacyRoutes;
+    protected $configResolver;
 
     /**
      * Constructor.
      *
      * @param \Symfony\Component\HttpKernel\Controller\ControllerResolverInterface $controllerResolver
-     * @param bool $isAdminSiteAccess
-     * @param array $legacyRoutes
+     * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
      */
-    public function __construct(
-        ControllerResolverInterface $controllerResolver,
-        $isAdminSiteAccess = false,
-        $legacyRoutes = array()
-    ) {
+    public function __construct(ControllerResolverInterface $controllerResolver, ConfigResolverInterface $configResolver)
+    {
         $this->controllerResolver = $controllerResolver;
-        $this->isAdminSiteAccess = $isAdminSiteAccess;
-        $this->legacyRoutes = $legacyRoutes;
+        $this->configResolver = $configResolver;
     }
 
     /**
@@ -57,21 +48,21 @@ class ControllerListener implements EventSubscriberInterface
     /**
      * Redirects configured routes to eZ legacy.
      *
-     * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event
+     * @param \Symfony\Component\HttpKernel\Event\ControllerEvent $event
      */
-    public function onKernelController(FilterControllerEvent $event)
+    public function onKernelController(ControllerEvent $event)
     {
         if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST) {
             return;
         }
 
-        if (!$this->isAdminSiteAccess) {
+        if (!$this->configResolver->getParameter('is_admin_ui_siteaccess', 'netgen_admin_ui')) {
             return;
         }
 
         $currentRoute = $event->getRequest()->attributes->get('_route');
 
-        foreach ($this->legacyRoutes as $legacyRoute) {
+        foreach ($this->configResolver->getParameter('legacy_routes', 'netgen_admin_ui') as $legacyRoute) {
             if (stripos($currentRoute, $legacyRoute) === 0) {
                 $event->getRequest()->attributes->set('_controller', 'ezpublish_legacy.controller:indexAction');
                 $event->setController($this->controllerResolver->getController($event->getRequest()));

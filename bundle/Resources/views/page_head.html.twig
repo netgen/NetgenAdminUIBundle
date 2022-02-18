@@ -55,7 +55,7 @@
             div#maincolumn { padding-right: 20px; padding-left: 50px; }
         {% else %}
             {% if admin_left_size %}
-                {% set left_menu_widths = ezpublish.configResolver.parameter( 'LeftMenuSettings.MenuWidth', 'menu' ) %}
+                {% set left_menu_widths = ezplatform.configResolver.parameter( 'LeftMenuSettings.MenuWidth', 'menu' ) %}
 
                 {% if left_menu_widths[admin_left_size] is defined %}
                     {% set left_size_hash = left_menu_widths[admin_left_size]|number_format %}

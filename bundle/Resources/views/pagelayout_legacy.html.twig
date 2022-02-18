@@ -1,14 +1,14 @@
 {% extends '@NetgenAdminUI/pagelayout.html.twig' %}
 
 {% if module_result is not defined %}
-    {% set module_result = ezpublish.legacy.all %}
+    {% set module_result = ezplatform.legacy.all %}
 {% endif %}
 
 {# CONTENT INFO #}
 
 {% set content_info = null %}
-{% if ezpublish.legacy.has( 'content_info' ) %}
-    {% set content_info = ezpublish.legacy.get( 'content_info' ) %}
+{% if ezplatform.legacy.has( 'content_info' ) %}
+    {% set content_info = ezplatform.legacy.get( 'content_info' ) %}
 {% endif %}
 
 {% if module_result.content_info is defined %}
@@ -18,8 +18,8 @@
 {# PERSISTENT VARIABLE #}
 
 {% set persistent_variable = [] %}
-{% if ezpublish.legacy.has( 'persistent_variable' ) %}
-    {% set persistent_variable = ezpublish.legacy.get( 'persistent_variable' ) %}
+{% if ezplatform.legacy.has( 'persistent_variable' ) %}
+    {% set persistent_variable = ezplatform.legacy.get( 'persistent_variable' ) %}
 {% endif %}
 
 {# SHOWING OR HIDING SIDE MENU #}
@@ -32,11 +32,11 @@
 
 {# LEGACY PATH #}
 
-{% set legacy_path_array = ezpublish.legacy.has( 'path' ) ? ezpublish.legacy.get( 'path' ) : [] %}
+{% set legacy_path_array = ezplatform.legacy.has( 'path' ) ? ezplatform.legacy.get( 'path' ) : [] %}
 
 {% if legacy_path_array is not empty %}
     {% set path_array = [] %}
-    {% set root_location_path = path( ezpublish.rootLocation ) %}
+    {% set root_location_path = path( 'ez_urlalias', { locationId: ezplatform.rootLocation.id } ) %}
 
     {% if not (root_location_path ends with '/') %}
         {% set root_location_path = root_location_path ~ '/' %}

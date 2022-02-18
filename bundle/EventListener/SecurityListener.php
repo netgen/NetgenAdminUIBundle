@@ -106,7 +106,7 @@ class SecurityListener implements EventSubscriberInterface
 
         $currentRequest->getSession()->set(
             'eZUserLoggedInID',
-            $this->repository->getCurrentUser()->id
+            $this->repository->getPermissionResolver()->getCurrentUserReference()->getUserId()
         );
     }
 

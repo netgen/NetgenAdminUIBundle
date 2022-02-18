@@ -1,6 +1,6 @@
-{% macro user_avatar( content ) %}{% spaceless %}
+{% macro user_avatar( content ) %}{% apply spaceless %}
     {% include 'design:page_aside_user.tpl' %}
-{% endspaceless %}{% endmacro %}
+{% endapply %}{% endmacro %}
 
 {% import _self as macros %}
 

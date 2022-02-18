@@ -2,7 +2,6 @@
 
 namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
-use Netgen\TagsBundle\Version as TagsBundleVersion;
 use Symfony\Component\HttpFoundation\Request;
 
 class TagsMenuPlugin implements MenuPluginInterface
@@ -52,11 +51,7 @@ class TagsMenuPlugin implements MenuPluginInterface
      */
     public function isActive()
     {
-        if (!isset($this->enabledBundles['NetgenTagsBundle'])) {
-            return false;
-        }
-
-        return class_exists('Netgen\TagsBundle\Version') && TagsBundleVersion::MAJOR_VERSION >= 3;
+        return isset($this->enabledBundles['NetgenTagsBundle']);
     }
 
     /**

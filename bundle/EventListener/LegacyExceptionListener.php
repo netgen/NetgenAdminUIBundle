@@ -3,26 +3,22 @@
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class LegacyExceptionListener implements EventSubscriberInterface
 {
     /**
-     * @var bool
+     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
      */
-    protected $isAdminSiteAccess;
+    protected $configResolver;
 
-    /**
-     * Constructor.
-     *
-     * @param bool $isAdminSiteAccess
-     */
-    public function __construct($isAdminSiteAccess = false)
+    public function __construct(ConfigResolverInterface $configResolver)
     {
-        $this->isAdminSiteAccess = $isAdminSiteAccess;
+        $this->configResolver = $configResolver;
     }
 
     /**
@@ -38,11 +34,11 @@ class LegacyExceptionListener implements EventSubscriberInterface
     /**
      * Handles the legacy exceptions.
      *
-     * @param \Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent $event
+     * @param \Symfony\Component\HttpKernel\Event\ExceptionEvent $event
      */
-    public function onException(GetResponseForExceptionEvent $event)
+    public function onException(ExceptionEvent $event)
     {
-        if (!$this->isAdminSiteAccess) {
+        if (!$this->configResolver->getParameter('is_admin_ui_siteaccess', 'netgen_admin_ui')) {
             return;
         }
 
@@ -51,7 +47,7 @@ class LegacyExceptionListener implements EventSubscriberInterface
             return;
         }
 
-        $exception = $event->getException();
+        $exception = $event->getThrowable();
         if (!$exception instanceof NotFoundHttpException) {
             return;
         }

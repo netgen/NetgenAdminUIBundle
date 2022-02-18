@@ -2,9 +2,10 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use Netgen\Bundle\InformationCollectionBundle\Templating\Twig\AdminGlobalVariable;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class SetInformationCollectionAdminPageLayoutListener implements EventSubscriberInterface
@@ -15,35 +16,27 @@ class SetInformationCollectionAdminPageLayoutListener implements EventSubscriber
     protected $globalVariable;
 
     /**
+     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     */
+    protected $configResolver;
+
+    /**
      * @var string
      */
     protected $pageLayoutTemplate;
 
     /**
-     * @var bool
-     */
-    protected $isAdminSiteAccess = false;
-
-    /**
      * Constructor.
      *
      * @param \Netgen\Bundle\InformationCollectionBundle\Templating\Twig\AdminGlobalVariable $globalVariable
+     * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
      * @param string $pageLayoutTemplate
      */
-    public function __construct(AdminGlobalVariable $globalVariable, $pageLayoutTemplate)
+    public function __construct(AdminGlobalVariable $globalVariable, ConfigResolverInterface $configResolver, $pageLayoutTemplate)
     {
         $this->globalVariable = $globalVariable;
+        $this->configResolver = $configResolver;
         $this->pageLayoutTemplate = $pageLayoutTemplate;
-    }
-
-    /**
-     * Sets if the current siteaccess will be considered as Netgen Admin UI siteaccess.
-     *
-     * @param bool $isAdminSiteAccess
-     */
-    public function setIsAdminSiteAccess($isAdminSiteAccess = false)
-    {
-        $this->isAdminSiteAccess = (bool) $isAdminSiteAccess;
     }
 
     /**
@@ -59,15 +52,15 @@ class SetInformationCollectionAdminPageLayoutListener implements EventSubscriber
     /**
      * Sets the Netgen Tags admin pagelayout for Netgen Admin UI.
      *
-     * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
+     * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(RequestEvent $event)
     {
         if (!$event->isMasterRequest()) {
             return;
         }
 
-        if (!$this->isAdminSiteAccess) {
+        if (!$this->configResolver->getParameter('is_admin_ui_siteaccess', 'netgen_admin_ui')) {
             return;
         }
 

@@ -1,8 +1,8 @@
-{% set left_menu %}{% spaceless %}
+{% set left_menu %}{% apply spaceless %}
     {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.left is defined %}
         {% include menu_plugins[current_menu_plugin].templates.left ignore missing %}
     {% endif %}
-{% endspaceless %}{% endset %}
+{% endapply %}{% endset %}
 
 {% if left_menu|striptags|trim is not empty %}
     <div id="left-column" class="left-column layout-column">

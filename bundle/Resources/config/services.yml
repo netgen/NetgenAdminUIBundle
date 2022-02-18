@@ -23,7 +23,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyExceptionListener
         # public: false
         arguments:
-            - "$is_admin_ui_siteaccess;netgen_admin_ui$"
+            - "@ezpublish.config.resolver"
         tags:
             - { name: kernel.event_subscriber }
 
@@ -32,8 +32,7 @@ services:
         # public: false
         arguments:
             - "@controller_resolver"
-            - "$is_admin_ui_siteaccess;netgen_admin_ui$"
-            - "$legacy_routes;netgen_admin_ui$"
+            - "@ezpublish.config.resolver"
         tags:
             - {name: kernel.event_subscriber}
 
