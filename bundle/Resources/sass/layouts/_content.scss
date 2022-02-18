@@ -90,19 +90,18 @@
         margin: 0 0 1em;
         font-weight: 500;
     }
-    > h4.title-all-rules {
-        display: none;
-    }
 
     .direct-mapping-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        .title-direct-rules {
+        .title-direct-rules, .title-all-rules {
             font-size: 1.125em;
             font-weight: 500
         }
+
+
 
         .direct-mapping-notice {
             display: flex;
