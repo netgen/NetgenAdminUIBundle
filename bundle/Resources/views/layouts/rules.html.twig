@@ -27,7 +27,7 @@
         </ul>
 
         <div class="show-all-rules">
-            <label><input type="checkbox" name="show-all-rules" class="rules-checkbox" /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
+            <label><input type="checkbox" name="show-all-rules" class="rules-checkbox"{% if rules_one_on_one is empty %} checked="checked"{% endif %} /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
         </div>
     {% else %}
         <p>{{ 'netgen_admin_ui.layouts.mappings.no_rules'|trans }}</p>
