@@ -9843,8 +9843,6 @@ input.tagssuggestfield {
     font-size: 1.125em;
     margin: 0 0 1em;
     font-weight: 500; }
-  .layout-list-wrapper > h4.title-all-rules {
-    display: none; }
   .layout-list-wrapper .direct-mapping-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9855,7 +9853,7 @@ input.tagssuggestfield {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-    .layout-list-wrapper .direct-mapping-header .title-direct-rules {
+    .layout-list-wrapper .direct-mapping-header .title-direct-rules, .layout-list-wrapper .direct-mapping-header .title-all-rules {
       font-size: 1.125em;
       font-weight: 500; }
     .layout-list-wrapper .direct-mapping-header .direct-mapping-notice {
