@@ -13,260 +13,263 @@
     * {
         box-sizing:border-box;
     }
-    .nl-modal {
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        background:#fff;
-        border-radius:$modalBorderRadius;
-        width:800px;
-        max-width:98%;
-        max-height:98%;
-        display:flex;
-        flex-direction:column;
-        animation:modalSlide 0.4s ease-out;
-        .nl-gird {
-            margin-left:-$gutter/2;
-            margin-right:-$gutter/2;
-            > [class^='col-'] {
-                padding-left:$gutter/2;
-                padding-right:$gutter/2;
-            }
-        }
-        .close-modal {
-            position:absolute;
-            right:15px;
-            top:16px;
-            display:block;
-            color:#fff;
-            border:none;
-            padding:0;
-            font-size:24px;
-            text-align:center;
-            background:transparent;
-            text-decoration:none;
-            @extend %material-icons;
-            &::before {
-                content:"clear";
-            }
-        }
-        .nl-modal-body {
-            padding:35px 80px;
-            overflow-y:auto;
-            font-size: 16px;
 
-            #delete-verification {
-                display: block;
-                margin: 0 0 1em;
-                border-radius: 2px;
-                width: 100%;
-                padding: 0 0.75em;
-                font-size: 14px;
-                height: 44px;
-                border: 1px solid #b3b3b3;
-                background: #fff;
-            }
-
-            input[type="radio"] {
-                float: left;
-                margin-right: 16px;
-            }
-
-            .row-input {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-
-                &:first-child {
-                    input[type="radio"] {
-                        width: auto;
-                    }
-                    label[for="layout_wizard_action_1"] {
-                        display: inline;
-                    }
-                    #layout_wizard_action_1 {
-                        margin-bottom: 24px;
-                    }
-                }
-
-                &.error-input {
-                    input {
-                        border: 1px solid red;
-                    }
-                }
-
-                select, input, textarea {
-                    width: 290px;
-                }
-            }
-
-            .group-title {
-                width: 100%;
-
-                p {
-                    word-break: break-word;
-                }
-            }
-        }
-        .nl-modal-head {
-            padding:15px 35px 15px 15px;
-            background:hsl(0, 0, 25);
-            color:#fff;
-            border-radius:$modalBorderRadius $modalBorderRadius 0 0;
-            font-size:20px;
-            min-height:58px;
-        }
-        .nl-modal-actions {
-            padding: 15px;
-            text-align: right;
-            border-top: 1px solid rgba(#000, .1);
-            .nl-btn {
-                margin-left: .5em;
-            }
-        }
-        .errors {
-            list-style-type:none;
-            margin:-0.5em 0 0.5em;
-            padding:0;
-            font-size:15px;
-            margin-left: auto;
-            width: 100%;
-            text-align: end;
-            li {
-                color:red;
-            }
-        }
-
-        .choose-group-div {
+    form[name="layout_wizard"] {
+        .row-input {
             display: flex;
-            margin-bottom: 1em;
-
-            .chosen-group {
-                margin-right: 2rem;
-            }
-        }
-
-        #layout_wizard_action {
-            width: 100%;
-        }
-        
-        .nl-btn {
-            background: 0 0;
-            border: none;
-            border-radius: 2px;
-            color: #404040;
-            position: relative;
-            height: 36px;
-            margin: 0;
-            min-width: 64px;
-            padding: 0 12px;
-            display: inline-block;
-            font-family: "Roboto", Helvetica, Arial, sans-serif;
-            font-size: 13px;
-            overflow: hidden;
-            will-change: box-shadow;
-        }
-
-        .nl-btn-primary {
-            background: #2970ef;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .layout-type {
-            display: flex;
-            margin: 0 -1%;
             flex-wrap: wrap;
-            max-height: 20rem;
-            overflow-y: auto;
-            width: 100%;
+            align-items: center;
+            justify-content: space-between;
 
-            .layout-type-item {
-                margin: 0 1% 1em;
-                flex: 1;
+            &:first-child {
+                input[type="radio"] {
+                    width: auto;
+                }
+                label[for="layout_wizard_action_1"] {
+                    display: inline;
+                }
+                #layout_wizard_action_1 {
+                    margin-bottom: 24px;
+                }
+            }
 
-                input[type='radio'] {
-                    position: absolute;
-                    left: -9999em;
-                    visibility: hidden;
+            &.error-input {
+                input {
+                    border: 1px solid red;
+                }
+            }
 
-                    +label {
-                        font-size: .875em;
-                        font-weight: normal;
-                        text-align: center;
-                        cursor: pointer;
-                        position: relative;
-                        padding: 0;
-                        margin: 0;
-                        display: block;
+            select, input, textarea {
+                width: 290px;
+            }
+        }
 
-                        .icon {
-                            content: '';
-                            display: block;
-                            height: 0;
-                            padding: 0 0 138%;
-                            border: 2px solid #999999;
-                            background-size: 85%;
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                            border-radius: 0.125rem;
-                            position: relative;
-                        }
+        .nl-modal {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            background:#fff;
+            border-radius:$modalBorderRadius;
+            width:800px;
+            max-width:98%;
+            max-height:98%;
+            display:flex;
+            flex-direction:column;
+            animation:modalSlide 0.4s ease-out;
+            .nl-gird {
+                margin-left:-$gutter/2;
+                margin-right:-$gutter/2;
+                > [class^='col-'] {
+                    padding-left:$gutter/2;
+                    padding-right:$gutter/2;
+                }
+            }
+            .close-modal {
+                position:absolute;
+                right:15px;
+                top:16px;
+                display:block;
+                color:#fff;
+                border:none;
+                padding:0;
+                font-size:24px;
+                text-align:center;
+                background:transparent;
+                text-decoration:none;
+                @extend %material-icons;
+                &::before {
+                    content:"clear";
+                }
+            }
+            .nl-modal-body {
+                padding:35px 80px;
+                overflow-y:auto;
+                font-size: 16px;
+    
+                #delete-verification {
+                    display: block;
+                    margin: 0 0 1em;
+                    border-radius: 2px;
+                    width: 100%;
+                    padding: 0 0.75em;
+                    font-size: 14px;
+                    height: 44px;
+                    border: 1px solid #b3b3b3;
+                    background: #fff;
+                }
+    
+                input[type="radio"] {
+                    float: left;
+                    margin-right: 16px;
+                }
+    
+                .group-title {
+                    width: 100%;
+    
+                    p {
+                        word-break: break-word;
                     }
-
-                    &:checked {
+                }
+            }
+            .nl-modal-head {
+                padding:15px 35px 15px 15px;
+                background:hsl(0, 0, 25);
+                color:#fff;
+                border-radius:$modalBorderRadius $modalBorderRadius 0 0;
+                font-size:20px;
+                min-height:58px;
+            }
+            .nl-modal-actions {
+                padding: 15px;
+                text-align: right;
+                border-top: 1px solid rgba(#000, .1);
+                .nl-btn {
+                    margin-left: .5em;
+                }
+            }
+            .errors {
+                list-style-type:none;
+                margin:-0.5em 0 0.5em;
+                padding:0;
+                font-size:15px;
+                margin-left: auto;
+                width: 100%;
+                text-align: end;
+                li {
+                    color:red;
+                }
+            }
+    
+            .choose-group-div {
+                display: flex;
+                margin-bottom: 1em;
+    
+                .chosen-group {
+                    margin-right: 2rem;
+                }
+            }
+    
+            #layout_wizard_action {
+                width: 100%;
+            }
+            
+            .nl-btn {
+                background: 0 0;
+                border: none;
+                border-radius: 2px;
+                color: #404040;
+                position: relative;
+                height: 36px;
+                margin: 0;
+                min-width: 64px;
+                padding: 0 12px;
+                display: inline-block;
+                font-family: "Roboto", Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                overflow: hidden;
+                will-change: box-shadow;
+            }
+    
+            .nl-btn-primary {
+                background: #2970ef;
+                color: #fff;
+                font-weight: bold;
+            }
+    
+            .layout-type {
+                display: flex;
+                margin: 0 -1%;
+                flex-wrap: wrap;
+                max-height: 20rem;
+                overflow-y: auto;
+                width: 100%;
+    
+                .layout-type-item {
+                    margin: 0 1% 1em;
+                    flex: 1;
+    
+                    input[type='radio'] {
+                        position: absolute;
+                        left: -9999em;
+                        visibility: hidden;
+    
                         +label {
-                            color: #2a72ef;
-
+                            font-size: .875em;
+                            font-weight: normal;
+                            text-align: center;
+                            cursor: pointer;
+                            position: relative;
+                            padding: 0;
+                            margin: 0;
+                            display: block;
+    
                             .icon {
-                                border-color: #2a72ef;
-
-                                &:after {
-                                    font-family: 'Material Icons';
-                                    vertical-align: text-bottom;
-                                    font-size: 2rem;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    display: inline-block;
-                                    line-height: 1;
-                                    text-transform: none;
-                                    letter-spacing: normal;
-                                    word-wrap: normal;
-                                    white-space: nowrap;
-                                    direction: ltr;
-                                    text-rendering: optimizeLegibility;
-                                    font-feature-settings: 'liga';
-                                    content: 'check';
-                                    position: absolute;
-                                    left: 50%;
-                                    top: 50%;
-                                    transform: translate(-50%, -50%);
-                                    color: #fff;
-                                    text-align: center;
-                                    width: 3rem;
-                                    height: 3rem;
-                                    line-height: 2.6rem;
-                                    border-radius: 50%;
-                                    border: .2rem solid #fff;
-                                    background: #2a72ef;
-                                    animation: checkedFadeIn .15s;
+                                content: '';
+                                display: block;
+                                height: 0;
+                                padding: 0 0 138%;
+                                border: 2px solid #999999;
+                                background-size: 85%;
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                border-radius: 0.125rem;
+                                position: relative;
+                            }
+                        }
+    
+                        &:checked {
+                            +label {
+                                color: #2a72ef;
+    
+                                .icon {
+                                    border-color: #2a72ef;
+    
+                                    &:after {
+                                        font-family: 'Material Icons';
+                                        vertical-align: text-bottom;
+                                        font-size: 2rem;
+                                        font-weight: normal;
+                                        font-style: normal;
+                                        display: inline-block;
+                                        line-height: 1;
+                                        text-transform: none;
+                                        letter-spacing: normal;
+                                        word-wrap: normal;
+                                        white-space: nowrap;
+                                        direction: ltr;
+                                        text-rendering: optimizeLegibility;
+                                        font-feature-settings: 'liga';
+                                        content: 'check';
+                                        position: absolute;
+                                        left: 50%;
+                                        top: 50%;
+                                        transform: translate(-50%, -50%);
+                                        color: #fff;
+                                        text-align: center;
+                                        width: 3rem;
+                                        height: 3rem;
+                                        line-height: 2.6rem;
+                                        border-radius: 50%;
+                                        border: .2rem solid #fff;
+                                        background: #2a72ef;
+                                        animation: checkedFadeIn .15s;
+                                    }
                                 }
                             }
                         }
-                    }
-
-                    &:disabled {
-                        + label {
-                            color: #999999;
-
-                            .icon {
-                                border-color: #999999;
-                                cursor: not-allowed;
-
-                                &::after {
-                                    display: none;
+    
+                        &:disabled {
+                            + label {
+                                color: #999999;
+    
+                                .icon {
+                                    border-color: #999999;
+                                    cursor: not-allowed;
+    
+                                    &::after {
+                                        display: none;
+                                    }
                                 }
                             }
                         }
