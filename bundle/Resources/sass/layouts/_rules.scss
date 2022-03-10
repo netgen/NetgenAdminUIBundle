@@ -3,6 +3,14 @@
     input[type='checkbox'] {
         position: absolute;
         left: -9999em;
+
+        &:disabled {
+            + label {
+                opacity: .2;
+                cursor: not-allowed;
+            }
+        }
+
         + label {
             display: block;
             position: relative;
@@ -11,6 +19,7 @@
             cursor: pointer;
             font-size: 1em;
             line-height: 1.4;
+
             &::before {
                 @extend %material-icons;
                 content: 'check_box_outline_blank';
@@ -20,6 +29,7 @@
                 top: -4px;
             }
         }
+
         &:checked {
             + label {
                 &::before {
@@ -1015,8 +1025,45 @@
 
     .nl-export-checkbox {
         visibility: visible;
-        > label {
+
+        input {
+            position: absolute;
+            pointer-events: all;
             opacity: 0.3;
+            left: -9999em;
+            + label {
+                position: relative;
+                margin: 0;
+                padding-left: 1em;
+                padding-right: .5em;
+                cursor: pointer;
+                display: block;
+                min-height: 1em;
+                font-size: 24px;
+                &::before {
+                    @extend %material-icons;
+                    position: absolute;
+                    font-size: 1em;
+                    line-height: 1;
+                    left: 0;
+                    top: 0;
+                    content: "check_box_outline_blank";
+                }
+            }
+            &:checked {
+                + label {
+                    &::before {
+                        content: "check_box";
+                        color: $linkColor;
+                    }
+                }
+            }
+            &:disabled {
+                + label {
+                    opacity: .2;
+                    cursor: not-allowed;
+                }
+            }
         }
     }
 
@@ -1145,6 +1192,11 @@
                 .nl-export-checkbox {
                     > label {
                         opacity: 1;
+
+                        &::before {
+                            content: "check_box";
+                            color: $linkColor;
+                        }
                     }
                 }
             }

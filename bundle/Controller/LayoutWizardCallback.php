@@ -14,7 +14,6 @@ use Netgen\Layouts\Ez\Layout\Resolver\TargetType\Location as LocationTargetType;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use function sprintf;
 
 final class LayoutWizardCallback extends Controller
@@ -36,10 +35,16 @@ final class LayoutWizardCallback extends Controller
     {
         $wizardId = sprintf('_layouts_ezplatform_wizard/%s', $request->query->get('wizardId', ''));
         if (!$request->getSession()->has($wizardId)) {
-            throw new BadRequestHttpException();
+            return $this->redirect(
+                $this->generateUrl(
+                    UrlAliasRouter::URL_ALIAS_ROUTE_NAME,
+                    ['locationId' => $location->id]
+                ) . '/(tab)/nglayouts'
+            );
         }
 
         $wizardData = $request->getSession()->get($wizardId);
+        $request->getSession()->remove($wizardId);
 
         $layoutId = Uuid::fromString($wizardData['layout']);
         if (!$this->layoutService->layoutExists($layoutId, Layout::STATUS_PUBLISHED)) {
@@ -53,12 +58,17 @@ final class LayoutWizardCallback extends Controller
 
         $ruleGroupId = $wizardData['rule_group'] ?? RuleGroup::ROOT_UUID;
         $ruleGroup = $this->layoutResolverService->loadRuleGroup(Uuid::fromString($ruleGroupId));
+
         $groupRules = $this->layoutResolverService->loadRulesFromGroup($ruleGroup, 0, 1);
+        $subGroups = $this->layoutResolverService->loadRuleGroups($ruleGroup, 0, 1);
+
+        $priority1 = count($groupRules) > 0 ? $groupRules[0]->getPriority() + 10 : 0;
+        $priority2 = count($subGroups) > 0 ? $subGroups[0]->getPriority() + 10 : 0;
 
         $ruleCreateStruct = $this->layoutResolverService->newRuleCreateStruct();
         $ruleCreateStruct->layoutId = $layoutId;
         $ruleCreateStruct->enabled = (bool) $wizardData['activate_rule'];
-        $ruleCreateStruct->priority = count($groupRules) > 0 ? $groupRules[0]->getPriority() + 10 : 0;
+        $ruleCreateStruct->priority = max($priority1, $priority2);
 
         $rule = $this->layoutResolverService->createRule($ruleCreateStruct, $ruleGroup);
 

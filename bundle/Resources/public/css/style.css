@@ -91,7 +91,7 @@
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0); }
 
-.nl-modal-mask .nl-modal .close-modal, .nl-modal-mask form input[type="checkbox"] + label::before, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .settings-list .settings-value.editable-value::after {
+.nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal, .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] + label::before, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .nl-export-checkbox input + label::before, .nl-group .settings-list .settings-value.editable-value::after {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -7843,7 +7843,29 @@ input.tagssuggestfield {
   .nl-modal-mask * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-  .nl-modal-mask .nl-modal {
+  .nl-modal-mask form[name="layout_wizard"] .row-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .nl-modal-mask form[name="layout_wizard"] .row-input:first-child input[type="radio"] {
+      width: auto; }
+    .nl-modal-mask form[name="layout_wizard"] .row-input:first-child label[for="layout_wizard_action_1"] {
+      display: inline; }
+    .nl-modal-mask form[name="layout_wizard"] .row-input:first-child #layout_wizard_action_1 {
+      margin-bottom: 24px; }
+    .nl-modal-mask form[name="layout_wizard"] .row-input.error-input input {
+      border: 1px solid red; }
+    .nl-modal-mask form[name="layout_wizard"] .row-input select, .nl-modal-mask form[name="layout_wizard"] .row-input input, .nl-modal-mask form[name="layout_wizard"] .row-input textarea {
+      width: 290px; }
+  .nl-modal-mask form[name="layout_wizard"] .nl-modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -7863,13 +7885,13 @@ input.tagssuggestfield {
             flex-direction: column;
     -webkit-animation: modalSlide 0.4s ease-out;
             animation: modalSlide 0.4s ease-out; }
-    .nl-modal-mask .nl-modal .nl-gird {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-gird {
       margin-left: -10px;
       margin-right: -10px; }
-      .nl-modal-mask .nl-modal .nl-gird > [class^='col-'] {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-gird > [class^='col-'] {
         padding-left: 10px;
         padding-right: 10px; }
-    .nl-modal-mask .nl-modal .close-modal {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal {
       position: absolute;
       right: 15px;
       top: 16px;
@@ -7881,13 +7903,13 @@ input.tagssuggestfield {
       text-align: center;
       background: transparent;
       text-decoration: none; }
-      .nl-modal-mask .nl-modal .close-modal::before {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal::before {
         content: "clear"; }
-    .nl-modal-mask .nl-modal .nl-modal-body {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body {
       padding: 35px 80px;
       overflow-y: auto;
       font-size: 16px; }
-      .nl-modal-mask .nl-modal .nl-modal-body #delete-verification {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body #delete-verification {
         display: block;
         margin: 0 0 1em;
         border-radius: 2px;
@@ -7897,49 +7919,27 @@ input.tagssuggestfield {
         height: 44px;
         border: 1px solid #b3b3b3;
         background: #fff; }
-      .nl-modal-mask .nl-modal .nl-modal-body input[type="radio"] {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body input[type="radio"] {
         float: left;
         margin-right: 16px; }
-      .nl-modal-mask .nl-modal .nl-modal-body .row-input {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child input[type="radio"] {
-          width: auto; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child label[for="layout_wizard_action_1"] {
-          display: inline; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input:first-child #layout_wizard_action_1 {
-          margin-bottom: 24px; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input.error-input input {
-          border: 1px solid red; }
-        .nl-modal-mask .nl-modal .nl-modal-body .row-input select, .nl-modal-mask .nl-modal .nl-modal-body .row-input input, .nl-modal-mask .nl-modal .nl-modal-body .row-input textarea {
-          width: 290px; }
-      .nl-modal-mask .nl-modal .nl-modal-body .group-title {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body .group-title {
         width: 100%; }
-        .nl-modal-mask .nl-modal .nl-modal-body .group-title p {
+        .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body .group-title p {
           word-break: break-word; }
-    .nl-modal-mask .nl-modal .nl-modal-head {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-head {
       padding: 15px 35px 15px 15px;
       background: #404040;
       color: #fff;
       border-radius: 0px 0px 0 0;
       font-size: 20px;
       min-height: 58px; }
-    .nl-modal-mask .nl-modal .nl-modal-actions {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-actions {
       padding: 15px;
       text-align: right;
       border-top: 1px solid rgba(0, 0, 0, 0.1); }
-      .nl-modal-mask .nl-modal .nl-modal-actions .nl-btn {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-actions .nl-btn {
         margin-left: .5em; }
-    .nl-modal-mask .nl-modal .errors {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .errors {
       list-style-type: none;
       margin: -0.5em 0 0.5em;
       padding: 0;
@@ -7947,18 +7947,18 @@ input.tagssuggestfield {
       margin-left: auto;
       width: 100%;
       text-align: end; }
-      .nl-modal-mask .nl-modal .errors li {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .errors li {
         color: red; }
-    .nl-modal-mask .nl-modal .choose-group-div {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .choose-group-div {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       margin-bottom: 1em; }
-      .nl-modal-mask .nl-modal .choose-group-div .chosen-group {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .choose-group-div .chosen-group {
         margin-right: 2rem; }
-    .nl-modal-mask .nl-modal #layout_wizard_action {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal #layout_wizard_action {
       width: 100%; }
-    .nl-modal-mask .nl-modal .nl-btn {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-btn {
       background: 0 0;
       border: none;
       border-radius: 2px;
@@ -7973,11 +7973,11 @@ input.tagssuggestfield {
       font-size: 13px;
       overflow: hidden;
       will-change: box-shadow; }
-    .nl-modal-mask .nl-modal .nl-btn-primary {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-btn-primary {
       background: #2970ef;
       color: #fff;
       font-weight: bold; }
-    .nl-modal-mask .nl-modal .layout-type {
+    .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -7987,16 +7987,16 @@ input.tagssuggestfield {
       max-height: 20rem;
       overflow-y: auto;
       width: 100%; }
-      .nl-modal-mask .nl-modal .layout-type .layout-type-item {
+      .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item {
         margin: 0 1% 1em;
         -webkit-box-flex: 1;
             -ms-flex: 1;
                 flex: 1; }
-        .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio'] {
+        .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio'] {
           position: absolute;
           left: -9999em;
           visibility: hidden; }
-          .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio'] + label {
+          .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio'] + label {
             font-size: .875em;
             font-weight: normal;
             text-align: center;
@@ -8005,7 +8005,7 @@ input.tagssuggestfield {
             padding: 0;
             margin: 0;
             display: block; }
-            .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio'] + label .icon {
+            .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio'] + label .icon {
               content: '';
               display: block;
               height: 0;
@@ -8016,11 +8016,11 @@ input.tagssuggestfield {
               background-position: center center;
               border-radius: 0.125rem;
               position: relative; }
-          .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label {
+          .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label {
             color: #2a72ef; }
-            .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label .icon {
+            .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label .icon {
               border-color: #2a72ef; }
-              .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label .icon:after {
+              .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:checked + label .icon:after {
                 font-family: 'Material Icons';
                 vertical-align: text-bottom;
                 font-size: 2rem;
@@ -8052,25 +8052,25 @@ input.tagssuggestfield {
                 background: #2a72ef;
                 -webkit-animation: checkedFadeIn .15s;
                         animation: checkedFadeIn .15s; }
-          .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label {
+          .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label {
             color: #999999; }
-            .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon {
+            .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon {
               border-color: #999999;
               cursor: not-allowed; }
-              .nl-modal-mask .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon::after {
+              .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type .layout-type-item input[type='radio']:disabled + label .icon::after {
                 display: none; }
-  .nl-modal-mask form label {
+  .nl-modal-mask form[name="layout_wizard"] label {
     display: block;
     font-weight: normal;
     font-size: 14px;
     margin: 0 0 4px;
     margin-bottom: 24px; }
-  .nl-modal-mask form input[type="text"],
-  .nl-modal-mask form input[type="number"],
-  .nl-modal-mask form input[type="url"],
-  .nl-modal-mask form input[type="email"],
-  .nl-modal-mask form textarea,
-  .nl-modal-mask form select {
+  .nl-modal-mask form[name="layout_wizard"] input[type="text"],
+  .nl-modal-mask form[name="layout_wizard"] input[type="number"],
+  .nl-modal-mask form[name="layout_wizard"] input[type="url"],
+  .nl-modal-mask form[name="layout_wizard"] input[type="email"],
+  .nl-modal-mask form[name="layout_wizard"] textarea,
+  .nl-modal-mask form[name="layout_wizard"] select {
     display: block;
     margin: 0 0 1em;
     border-radius: 2px;
@@ -8080,44 +8080,44 @@ input.tagssuggestfield {
     height: 44px;
     border: 1px solid #b3b2b2;
     background: #fff; }
-    .nl-modal-mask form input[type="text"]::-webkit-input-placeholder,
-    .nl-modal-mask form input[type="number"]::-webkit-input-placeholder,
-    .nl-modal-mask form input[type="url"]::-webkit-input-placeholder,
-    .nl-modal-mask form input[type="email"]::-webkit-input-placeholder,
-    .nl-modal-mask form textarea::-webkit-input-placeholder,
-    .nl-modal-mask form select::-webkit-input-placeholder {
+    .nl-modal-mask form[name="layout_wizard"] input[type="text"]::-webkit-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="number"]::-webkit-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="url"]::-webkit-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="email"]::-webkit-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] textarea::-webkit-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] select::-webkit-input-placeholder {
       color: #b3b2b2; }
-    .nl-modal-mask form input[type="text"]::-moz-placeholder,
-    .nl-modal-mask form input[type="number"]::-moz-placeholder,
-    .nl-modal-mask form input[type="url"]::-moz-placeholder,
-    .nl-modal-mask form input[type="email"]::-moz-placeholder,
-    .nl-modal-mask form textarea::-moz-placeholder,
-    .nl-modal-mask form select::-moz-placeholder {
+    .nl-modal-mask form[name="layout_wizard"] input[type="text"]::-moz-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="number"]::-moz-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="url"]::-moz-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="email"]::-moz-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] textarea::-moz-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] select::-moz-placeholder {
       color: #b3b2b2; }
-    .nl-modal-mask form input[type="text"]::-ms-input-placeholder,
-    .nl-modal-mask form input[type="number"]::-ms-input-placeholder,
-    .nl-modal-mask form input[type="url"]::-ms-input-placeholder,
-    .nl-modal-mask form input[type="email"]::-ms-input-placeholder,
-    .nl-modal-mask form textarea::-ms-input-placeholder,
-    .nl-modal-mask form select::-ms-input-placeholder {
+    .nl-modal-mask form[name="layout_wizard"] input[type="text"]::-ms-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="number"]::-ms-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="url"]::-ms-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="email"]::-ms-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] textarea::-ms-input-placeholder,
+    .nl-modal-mask form[name="layout_wizard"] select::-ms-input-placeholder {
       color: #b3b2b2; }
-    .nl-modal-mask form input[type="text"]::placeholder,
-    .nl-modal-mask form input[type="number"]::placeholder,
-    .nl-modal-mask form input[type="url"]::placeholder,
-    .nl-modal-mask form input[type="email"]::placeholder,
-    .nl-modal-mask form textarea::placeholder,
-    .nl-modal-mask form select::placeholder {
+    .nl-modal-mask form[name="layout_wizard"] input[type="text"]::placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="number"]::placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="url"]::placeholder,
+    .nl-modal-mask form[name="layout_wizard"] input[type="email"]::placeholder,
+    .nl-modal-mask form[name="layout_wizard"] textarea::placeholder,
+    .nl-modal-mask form[name="layout_wizard"] select::placeholder {
       color: #b3b2b2; }
-    .nl-modal-mask form input[type="text"][disabled],
-    .nl-modal-mask form input[type="number"][disabled],
-    .nl-modal-mask form input[type="url"][disabled],
-    .nl-modal-mask form input[type="email"][disabled],
-    .nl-modal-mask form textarea[disabled],
-    .nl-modal-mask form select[disabled] {
+    .nl-modal-mask form[name="layout_wizard"] input[type="text"][disabled],
+    .nl-modal-mask form[name="layout_wizard"] input[type="number"][disabled],
+    .nl-modal-mask form[name="layout_wizard"] input[type="url"][disabled],
+    .nl-modal-mask form[name="layout_wizard"] input[type="email"][disabled],
+    .nl-modal-mask form[name="layout_wizard"] textarea[disabled],
+    .nl-modal-mask form[name="layout_wizard"] select[disabled] {
       color: #999999;
       border-color: #cccccc;
       cursor: not-allowed; }
-  .nl-modal-mask form select {
+  .nl-modal-mask form[name="layout_wizard"] select {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
@@ -8126,39 +8126,39 @@ input.tagssuggestfield {
     background-repeat: no-repeat;
     background-position: right .75em center;
     background-size: .75em auto; }
-    .nl-modal-mask form select::-ms-expand {
+    .nl-modal-mask form[name="layout_wizard"] select::-ms-expand {
       display: none; }
-    .nl-modal-mask form select[multiple] {
+    .nl-modal-mask form[name="layout_wizard"] select[multiple] {
       background-image: none;
       height: auto;
       padding: .25em 0; }
-      .nl-modal-mask form select[multiple] option {
+      .nl-modal-mask form[name="layout_wizard"] select[multiple] option {
         padding: .25em .5em; }
-  .nl-modal-mask form textarea {
+  .nl-modal-mask form[name="layout_wizard"] textarea {
     height: auto;
     min-height: 120px;
     padding-top: 0.375em;
     resize: vertical; }
-  .nl-modal-mask form input[type="checkbox"] {
+  .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] {
     position: absolute;
     left: -9999em; }
-    .nl-modal-mask form input[type="checkbox"] + label {
+    .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] + label {
       display: block;
       position: relative;
       padding: 0.3846153846em 0.3846153846em 0.3846153846em 2em !important;
       margin: 0 0 0.5em;
       cursor: pointer; }
-      .nl-modal-mask form input[type="checkbox"] + label::before {
+      .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] + label::before {
         font-size: 24px;
         content: "check_box_outline_blank";
         position: absolute;
         left: 0;
         top: 0.1em;
         color: #666666; }
-    .nl-modal-mask form input[type="checkbox"]:checked + label::before {
+    .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"]:checked + label::before {
       content: "check_box";
       color: blue; }
-    .nl-modal-mask form input[type="checkbox"]:indeterminate + label::before {
+    .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"]:indeterminate + label::before {
       content: "indeterminate_check_box"; }
   .nl-modal-mask .form-actions {
     text-align: right; }
@@ -8238,6 +8238,9 @@ input.tagssuggestfield {
   #rules input[type='checkbox'] {
     position: absolute;
     left: -9999em; }
+    #rules input[type='checkbox']:disabled + label {
+      opacity: .2;
+      cursor: not-allowed; }
     #rules input[type='checkbox'] + label {
       display: block;
       position: relative;
@@ -9003,8 +9006,33 @@ input.tagssuggestfield {
   outline: none; }
   .nl-group .nl-export-checkbox {
     visibility: visible; }
-    .nl-group .nl-export-checkbox > label {
-      opacity: 0.3; }
+    .nl-group .nl-export-checkbox input {
+      position: absolute;
+      pointer-events: all;
+      opacity: 0.3;
+      left: -9999em; }
+      .nl-group .nl-export-checkbox input + label {
+        position: relative;
+        margin: 0;
+        padding-left: 1em;
+        padding-right: .5em;
+        cursor: pointer;
+        display: block;
+        min-height: 1em;
+        font-size: 24px; }
+        .nl-group .nl-export-checkbox input + label::before {
+          position: absolute;
+          font-size: 1em;
+          line-height: 1;
+          left: 0;
+          top: 0;
+          content: "check_box_outline_blank"; }
+      .nl-group .nl-export-checkbox input:checked + label::before {
+        content: "check_box";
+        color: #2970ef; }
+      .nl-group .nl-export-checkbox input:disabled + label {
+        opacity: .2;
+        cursor: not-allowed; }
   .nl-group > .nl-group-content > .nl-group-head:hover {
     background-color: #FEF8E8; }
     .nl-group > .nl-group-content > .nl-group-head:hover .group-title {
@@ -9059,6 +9087,9 @@ input.tagssuggestfield {
       background-color: #F4F8FE; }
     .nl-group.selected > .nl-group-content > .nl-group-head .nl-export-checkbox > label {
       opacity: 1; }
+      .nl-group.selected > .nl-group-content > .nl-group-head .nl-export-checkbox > label::before {
+        content: "check_box";
+        color: #2970ef; }
   .nl-group.selected:hover > .nl-group-content > .nl-group-head {
     background-color: #F4F8FE; }
     .nl-group.selected:hover > .nl-group-content > .nl-group-head .group-title {
@@ -9812,8 +9843,38 @@ input.tagssuggestfield {
     font-size: 1.125em;
     margin: 0 0 1em;
     font-weight: 500; }
-  .layout-list-wrapper > h4.title-all-rules {
-    display: none; }
+  .layout-list-wrapper .direct-mapping-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .layout-list-wrapper .direct-mapping-header .title-direct-rules, .layout-list-wrapper .direct-mapping-header .title-all-rules {
+      font-size: 1.125em;
+      font-weight: 500; }
+    .layout-list-wrapper .direct-mapping-header .direct-mapping-notice {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .layout-list-wrapper .direct-mapping-header .direct-mapping-notice .direct-mapping-button-main {
+        font-size: 16px;
+        padding: 0;
+        margin: 0; }
+      .layout-list-wrapper .direct-mapping-header .direct-mapping-notice .direct-mapping-button-sub {
+        font-size: 12px;
+        padding: 0;
+        margin: 6px 0 0 0; }
 
 .layout-list {
   list-style-type: none;

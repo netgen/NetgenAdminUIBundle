@@ -1,6 +1,14 @@
 <div class="layout-list-wrapper">
-    <h4 class="title-direct-rules">{{ 'netgen_admin_ui.layouts.mappings.title'|trans }}</h4>
-    <h4 class="title-all-rules">{{ 'netgen_admin_ui.layouts.mappings.title_all_rules'|trans }}</h4>
+    <div class="direct-mapping-header">
+        <h4 class="title-direct-rules" {% if rules_one_on_one is empty %} style="display: none" {% endif %}>{{ 'netgen_admin_ui.layouts.mappings.title'|trans }}</h4>
+        <h4 class="title-all-rules" {% if rules_one_on_one is empty %} style="display: block" {% endif %}>{{ 'netgen_admin_ui.layouts.mappings.title_all_rules'|trans }}</h4>
+        <div class="direct-mapping-notice">
+            <a class="btn btn-primary js-direct-mapping">
+                {{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule'|trans }}
+            </a>
+            <p class="direct-mapping-button-sub">{{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule.subtitle'|trans }}</p>
+        </div>
+    </div>
 
     {% if rules is not empty %}
         <ul class="layout-list">
@@ -12,18 +20,14 @@
                 <div class="layout-dropdown"></div>
             </li>
             {% for rule in rules %}
-                <div class="rule{% if not (rules_one_on_one[rule.id.toString] ?? false) %} rule-non-direct{% endif %}">
+                <div class="rule{% if not (rules_one_on_one[rule.id.toString] ?? false) %} rule-non-direct{% endif %}" {% if rules_one_on_one is empty %} style="display: block" {% endif %}>
                     {{ nglayouts_render_rule(rule, {location: location}, 'ngadminui') }}
                 </div>
             {% endfor %}
         </ul>
 
         <div class="show-all-rules">
-            <label><input type="checkbox" name="show-all-rules" class="rules-checkbox" /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
-        </div>
-
-        <div>
-            <a class="btn btn-primary js-direct-mapping">{{ 'netgen_admin_ui.layouts.mappings.create_new_direct_rule'|trans }}</a>
+            <label><input type="checkbox" name="show-all-rules" class="rules-checkbox" {% if rules_one_on_one is empty %} checked="checked"{% endif %} /> {{ 'netgen_admin_ui.layouts.mappings.show_all_rules'|trans }}</label>
         </div>
     {% else %}
         <p>{{ 'netgen_admin_ui.layouts.mappings.no_rules'|trans }}</p>

@@ -90,8 +90,36 @@
         margin: 0 0 1em;
         font-weight: 500;
     }
-    > h4.title-all-rules {
-        display: none;
+
+    .direct-mapping-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title-direct-rules, .title-all-rules {
+            font-size: 1.125em;
+            font-weight: 500
+        }
+
+
+
+        .direct-mapping-notice {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .direct-mapping-button-main {
+                font-size: 16px;
+                padding: 0;
+                margin: 0;
+            }
+
+            .direct-mapping-button-sub {
+                font-size: 12px;
+                padding: 0;
+                margin: 6px 0 0 0;
+            }
+        }
     }
 }
 .layout-list {
