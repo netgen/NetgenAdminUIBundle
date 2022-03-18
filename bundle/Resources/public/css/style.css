@@ -9859,6 +9859,8 @@ input.tagssuggestfield {
     .layout-list-wrapper .direct-mapping-header .title-direct-rules, .layout-list-wrapper .direct-mapping-header .title-all-rules {
       font-size: 1.125em;
       font-weight: 500; }
+    .layout-list-wrapper .direct-mapping-header .title-all-rules {
+      display: none; }
     .layout-list-wrapper .direct-mapping-header .direct-mapping-notice {
       display: -webkit-box;
       display: -ms-flexbox;
