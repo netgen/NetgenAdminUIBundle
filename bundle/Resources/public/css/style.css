@@ -91,7 +91,7 @@
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0); }
 
-.nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal, .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] + label::before, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .nl-export-checkbox input + label::before, .nl-group .settings-list .settings-value.editable-value::after {
+.nl-modal-mask form[name="layout_wizard"] input[type="checkbox"] + label::before, .nl-modal-mask .nl-modal .close-modal, #rules input[type='checkbox'] + label::before, .nl-rule .settings-list .settings-value.editable-value::after, .nl-group .nl-export-checkbox input + label::before, .nl-group .settings-list .settings-value.editable-value::after {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -7866,49 +7866,9 @@ input.tagssuggestfield {
     .nl-modal-mask form[name="layout_wizard"] .row-input select, .nl-modal-mask form[name="layout_wizard"] .row-input input, .nl-modal-mask form[name="layout_wizard"] .row-input textarea {
       width: 290px; }
   .nl-modal-mask form[name="layout_wizard"] .nl-modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    background: #fff;
-    border-radius: 0px;
-    width: 800px;
-    max-width: 98%;
-    max-height: 98%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-animation: modalSlide 0.4s ease-out;
-            animation: modalSlide 0.4s ease-out; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-gird {
-      margin-left: -10px;
-      margin-right: -10px; }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-gird > [class^='col-'] {
-        padding-left: 10px;
-        padding-right: 10px; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal {
-      position: absolute;
-      right: 15px;
-      top: 16px;
-      display: block;
-      color: #fff;
-      border: none;
-      padding: 0;
-      font-size: 24px;
-      text-align: center;
-      background: transparent;
-      text-decoration: none; }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .close-modal::before {
-        content: "clear"; }
+    width: 800px; }
     .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body {
-      padding: 35px 80px;
-      overflow-y: auto;
-      font-size: 16px; }
+      padding: 35px 80px; }
       .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body #delete-verification {
         display: block;
         margin: 0 0 1em;
@@ -7919,26 +7879,6 @@ input.tagssuggestfield {
         height: 44px;
         border: 1px solid #b3b3b3;
         background: #fff; }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body input[type="radio"] {
-        float: left;
-        margin-right: 16px; }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body .group-title {
-        width: 100%; }
-        .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-body .group-title p {
-          word-break: break-word; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-head {
-      padding: 15px 35px 15px 15px;
-      background: #404040;
-      color: #fff;
-      border-radius: 0px 0px 0 0;
-      font-size: 20px;
-      min-height: 58px; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-actions {
-      padding: 15px;
-      text-align: right;
-      border-top: 1px solid rgba(0, 0, 0, 0.1); }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-modal-actions .nl-btn {
-        margin-left: .5em; }
     .nl-modal-mask form[name="layout_wizard"] .nl-modal .errors {
       list-style-type: none;
       margin: -0.5em 0 0.5em;
@@ -7949,34 +7889,8 @@ input.tagssuggestfield {
       text-align: end; }
       .nl-modal-mask form[name="layout_wizard"] .nl-modal .errors li {
         color: red; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .choose-group-div {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      margin-bottom: 1em; }
-      .nl-modal-mask form[name="layout_wizard"] .nl-modal .choose-group-div .chosen-group {
-        margin-right: 2rem; }
     .nl-modal-mask form[name="layout_wizard"] .nl-modal #layout_wizard_action {
       width: 100%; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-btn {
-      background: 0 0;
-      border: none;
-      border-radius: 2px;
-      color: #404040;
-      position: relative;
-      height: 36px;
-      margin: 0;
-      min-width: 64px;
-      padding: 0 12px;
-      display: inline-block;
-      font-family: "Roboto", Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      overflow: hidden;
-      will-change: box-shadow; }
-    .nl-modal-mask form[name="layout_wizard"] .nl-modal .nl-btn-primary {
-      background: #2970ef;
-      color: #fff;
-      font-weight: bold; }
     .nl-modal-mask form[name="layout_wizard"] .nl-modal .layout-type {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -8074,7 +7988,6 @@ input.tagssuggestfield {
     display: block;
     margin: 0 0 1em;
     border-radius: 2px;
-    width: 100%;
     padding: 0 0.75em;
     font-size: 14px;
     height: 44px;
@@ -8160,6 +8073,96 @@ input.tagssuggestfield {
       color: blue; }
     .nl-modal-mask form[name="layout_wizard"] input[type="checkbox"]:indeterminate + label::before {
       content: "indeterminate_check_box"; }
+  .nl-modal-mask .nl-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 0px;
+    width: 600px;
+    max-width: 98%;
+    max-height: 98%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-animation: modalSlide 0.4s ease-out;
+            animation: modalSlide 0.4s ease-out; }
+    .nl-modal-mask .nl-modal .nl-gird {
+      margin-left: -10px;
+      margin-right: -10px; }
+      .nl-modal-mask .nl-modal .nl-gird > [class^='col-'] {
+        padding-left: 10px;
+        padding-right: 10px; }
+    .nl-modal-mask .nl-modal .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 16px;
+      display: block;
+      color: #fff;
+      border: none;
+      padding: 0;
+      font-size: 24px;
+      text-align: center;
+      background: transparent;
+      text-decoration: none; }
+      .nl-modal-mask .nl-modal .close-modal::before {
+        content: "clear"; }
+    .nl-modal-mask .nl-modal .nl-modal-body {
+      padding: 25px 15px;
+      overflow-y: auto;
+      font-size: 16px; }
+      .nl-modal-mask .nl-modal .nl-modal-body input[type="radio"] {
+        float: left;
+        margin-right: 16px; }
+      .nl-modal-mask .nl-modal .nl-modal-body .group-title {
+        width: 100%; }
+        .nl-modal-mask .nl-modal .nl-modal-body .group-title p {
+          word-break: break-word; }
+    .nl-modal-mask .nl-modal .nl-modal-head {
+      padding: 15px 35px 15px 15px;
+      background: #404040;
+      color: #fff;
+      border-radius: 0px 0px 0 0;
+      font-size: 20px;
+      min-height: 58px; }
+    .nl-modal-mask .nl-modal .nl-modal-actions {
+      padding: 15px;
+      text-align: right;
+      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      .nl-modal-mask .nl-modal .nl-modal-actions .nl-btn {
+        margin-left: .5em; }
+    .nl-modal-mask .nl-modal .choose-group-div {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 1em; }
+      .nl-modal-mask .nl-modal .choose-group-div .chosen-group {
+        margin-right: 2rem; }
+    .nl-modal-mask .nl-modal .nl-btn {
+      background: 0 0;
+      border: none;
+      border-radius: 2px;
+      color: #404040;
+      position: relative;
+      height: 36px;
+      margin: 0;
+      min-width: 64px;
+      padding: 0 12px;
+      display: inline-block;
+      font-family: "Roboto", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      overflow: hidden;
+      will-change: box-shadow; }
+    .nl-modal-mask .nl-modal .nl-btn-primary {
+      background: #2970ef;
+      color: #fff;
+      font-weight: bold; }
   .nl-modal-mask .form-actions {
     text-align: right; }
   .nl-modal-mask .nl-modal-loader {
@@ -9856,6 +9859,8 @@ input.tagssuggestfield {
     .layout-list-wrapper .direct-mapping-header .title-direct-rules, .layout-list-wrapper .direct-mapping-header .title-all-rules {
       font-size: 1.125em;
       font-weight: 500; }
+    .layout-list-wrapper .direct-mapping-header .title-all-rules {
+      display: none; }
     .layout-list-wrapper .direct-mapping-header .direct-mapping-notice {
       display: -webkit-box;
       display: -ms-flexbox;
