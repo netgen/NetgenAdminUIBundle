@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\Stubs;
 
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 
 class ConfigResolverStub implements ConfigResolverInterface
 {
@@ -14,7 +14,7 @@ class ConfigResolverStub implements ConfigResolverInterface
     /**
      * @var string
      */
-    private $defaultNamespace = 'ezsettings';
+    private $defaultNamespace = 'ibexa.site_access.config';
 
     public function __construct(array $parameters)
     {

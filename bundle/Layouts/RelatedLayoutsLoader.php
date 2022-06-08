@@ -4,7 +4,7 @@ namespace Netgen\Bundle\AdminUIBundle\Layouts;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
-use eZ\Publish\API\Repository\Values\Content\Location;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\API\Values\Value;
@@ -37,7 +37,7 @@ class RelatedLayoutsLoader
      * Related layout is a layout where the location or its content are referenced by
      * a manual item in one of the block collections.
      *
-     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
      *
      * @return \Netgen\Layouts\API\Values\Layout\Layout[]
      */
@@ -90,8 +90,8 @@ class RelatedLayoutsLoader
                 )
             )
             ->setParameter('status', Value::STATUS_PUBLISHED, Type::INTEGER)
-            ->setParameter('content_value_type', 'ezcontent', Type::STRING)
-            ->setParameter('location_value_type', 'ezlocation', Type::STRING)
+            ->setParameter('content_value_type', 'ibexa_content', Type::STRING)
+            ->setParameter('location_value_type', 'ibexa_location', Type::STRING)
             ->setParameter('content_id', $location->contentInfo->id, Type::INTEGER)
             ->setParameter('location_id', $location->id, Type::INTEGER);
 

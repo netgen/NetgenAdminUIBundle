@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Netgen\TagsBundle\Templating\Twig\AdminGlobalVariable;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -16,7 +16,7 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
     protected $globalVariable;
 
     /**
-     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
      */
     protected $configResolver;
 
@@ -29,7 +29,7 @@ class SetTagsAdminPageLayoutListener implements EventSubscriberInterface
      * Constructor.
      *
      * @param \Netgen\TagsBundle\Templating\Twig\AdminGlobalVariable $globalVariable
-     * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
+     * @param \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface $configResolver
      * @param string $pageLayoutTemplate
      */
     public function __construct(AdminGlobalVariable $globalVariable, ConfigResolverInterface $configResolver, $pageLayoutTemplate)

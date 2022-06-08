@@ -2,9 +2,9 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\Helper;
 
-use eZ\Publish\API\Repository\Values\Content\ContentInfo;
-use eZ\Publish\Core\Base\Exceptions\UnauthorizedException;
-use eZ\Publish\Core\Repository\Values\Content\Location;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
+use Ibexa\Core\Base\Exceptions\UnauthorizedException;
+use Ibexa\Core\Repository\Values\Content\Location;
 use Netgen\Bundle\AdminUIBundle\Helper\PathHelper;
 use Netgen\Bundle\AdminUIBundle\Tests\Stubs\ConfigResolverStub;
 use PHPUnit\Framework\TestCase;
@@ -32,16 +32,16 @@ class PathHelperTest extends TestCase
     protected $router;
 
     /**
-     * @var \eZ\Publish\Core\Repository\Values\Content\Location
+     * @var \Ibexa\Core\Repository\Values\Content\Location
      */
     protected $rootLocation;
 
     public function setUp()
     {
-        $this->locationService = $this->getMockBuilder('eZ\Publish\API\Repository\LocationService')
+        $this->locationService = $this->getMockBuilder('Ibexa\Contracts\Core\Repository\LocationService')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->translationHelper = $this->getMockBuilder('eZ\Publish\Core\Helper\TranslationHelper')
+        $this->translationHelper = $this->getMockBuilder('Ibexa\Core\Helper\TranslationHelper')
             ->disableOriginalConstructor()
             ->getMock();
         $this->router = $this->getMockBuilder('Symfony\Component\Routing\RouterInterface')
@@ -62,7 +62,7 @@ class PathHelperTest extends TestCase
             $this->translationHelper,
             new ConfigResolverStub(
                 array(
-                    'ezsettings' => array(
+                    'ibexa.site_access.config' => array(
                         'content.tree_root.location_id' => $this->rootLocation->id,
                     ),
                 )

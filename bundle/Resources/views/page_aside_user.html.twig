@@ -22,18 +22,18 @@
         <li>
             <div class="user-avatar" style="background-image:url({{ user_avatar }})">
             </div>
-            <h4 class="user-name">{{ ez_content_name( user_content ) }}</h4>
+            <h4 class="user-name">{{ ibexa_content_name( user_content ) }}</h4>
             <p class="user-role">{{ app.user.APIUser.login }}</p>
         </li>
 
         <li class="divider"></li>
 
         {% if ui_context != 'edit' and ui_context != 'browse' %}
-            {% if is_granted( 'ez:content:read', user_content ) %}
-                <li><a href="{{ path( 'ez_urlalias', { 'contentId': user_content.id } ) }}">{{ 'netgen_admin_ui.user.view_profile'|trans }}</a></li>
+            {% if is_granted( 'ibexa:content:read', user_content ) %}
+                <li><a href="{{ path( 'ibexa.url.alias', { 'contentId': user_content.id } ) }}">{{ 'netgen_admin_ui.user.view_profile'|trans }}</a></li>
             {% endif %}
 
-            {% if is_granted( 'ez:content:edit', user_content ) %}
+            {% if is_granted( 'ibexa:content:edit', user_content ) %}
                 <li>
                     <a href="{{ path( 'ez_legacy', { module_uri: '/content/edit/' ~ user_content.id } ) }}">{{ 'netgen_admin_ui.user.change_information'|trans }}</a>
                 </li>

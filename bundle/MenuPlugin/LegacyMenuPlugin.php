@@ -3,7 +3,7 @@
 namespace Netgen\Bundle\AdminUIBundle\MenuPlugin;
 
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
-use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
+use Ibexa\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Symfony\Component\HttpFoundation\Request;
 
 class LegacyMenuPlugin implements MenuPluginInterface

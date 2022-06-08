@@ -1,4 +1,4 @@
-{% if is_granted('ez:tags:read') %}
+{% if is_granted('ibexa:tags:read') %}
     <li{% if active %} class="active"{% endif %}>
         <a href="{{ path( 'netgen_tags_admin_root' ) }}">
             <img src="{{ asset('bundles/netgentags/admin/images/tags-logo.svg') }}" class="icon" />

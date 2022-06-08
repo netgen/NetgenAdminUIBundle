@@ -18,7 +18,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\Layouts\EventListener\SetAdminPageLayoutListener
         public: true
         arguments:
-            - "@ezpublish.config.resolver"
+            - "@ibexa.config.resolver"
             - "%netgen_admin_ui.layouts.pagelayout%"
         tags:
             - { name: kernel.event_subscriber }

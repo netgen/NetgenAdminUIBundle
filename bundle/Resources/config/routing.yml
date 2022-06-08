@@ -8,7 +8,7 @@ ngadmin_layouts_layout_wizard:
     path: /ngadmin/layouts/{locationId}/wizard
     controller: netgen_admin_ui.controller.layout_wizard
     methods:  [GET, POST]
-    
+
 ngadmin_layouts_layout_wizard_callback:
     path: /ngadmin/layouts/{locationId}/wizard/callback
     controller: netgen_admin_ui.controller.layout_wizard_callback
@@ -27,36 +27,36 @@ _ezpublishPreviewContentDefaultSa:
         _controller: "ezpublish_legacy.controller:indexAction"
     methods:  [GET]
 
-# Overrides for eZ Platform Admin UI routes conflicting with eZ Publish Legacy
+# Overrides for Ibexa Admin UI routes conflicting with eZ Publish Legacy
 # https://github.com/ezsystems/ezplatform-admin-ui/pull/287
 
-ezplatform.section.list:
+ibexa.section.list:
     path: /sections/list
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:Section:list'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\SectionController::listAction'
 
-ezplatform.section.view:
+ibexa.section.view:
     path: /sections/view/{sectionId}
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:Section:view'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\SectionController::viewAction'
 
-ezplatform.role.list:
+ibexa.role.list:
     path: /roles/list
     methods: ['GET']
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:Role:list'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\RoleController::listAction'
 
-ezplatform.object_state.groups.list:
+ibexa.object_state.groups.list:
     path: /state/groups/list
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:list'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\ObjectStateGroupController::listAction'
 
-ezplatform.object_state.group.view:
+ibexa.object_state.group.view:
     path: /state/groups/{objectStateGroupId}
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:view'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\ObjectStateGroupController::viewAction'
 
-ezplatform.object_state.group.add:
+ibexa.object_state.group.add:
     path: /state/groups/create
     defaults:
-        _controller: 'EzPlatformAdminUiBundle:ObjectStateGroup:add'
+        _controller: 'Ibexa\Bundle\AdminUi\Controller\ObjectStateGroupController::addAction'

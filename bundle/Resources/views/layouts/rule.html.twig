@@ -19,7 +19,7 @@
 
             <ul>
                 {% for target in rule.targets %}
-                    <li {% if rule_count == 1 and rule.targets|length == 1 and (target_type == 'ez_location' or target_type == 'ez_content') %}class="unique"{% endif %}>
+                    <li {% if rule_count == 1 and rule.targets|length == 1 and (target_type == 'ibexa_location' or target_type == 'ibexa_content') %}class="unique"{% endif %}>
                         {{ nglayouts_render_rule_target(target, {}, 'value') }}
                     </li>
                 {% endfor %}
@@ -45,7 +45,7 @@
 
         {% if can_edit %}
             <div class="layout-actions">
-                <a href="{{ macros.layout_path(rule.layout.id.toString) }}" class="btn btn-primary btn-sm js-open-ngl" data-value-id="{{location.id}}" data-value-type="ezlocation">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
+                <a href="{{ macros.layout_path(rule.layout.id.toString) }}" class="btn btn-primary btn-sm js-open-ngl" data-value-id="{{location.id}}" data-value-type="ibexa_location">{{ 'netgen_admin_ui.layouts.edit_layout'|trans }}</a>
             </div>
         {% endif %}
 

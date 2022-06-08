@@ -4,8 +4,8 @@ services:
         # public: false
         arguments:
             - "@request_stack"
-            - "@ezpublish.api.repository"
-            - "@ezpublish.config.resolver"
+            - "@ibexa.api.repository"
+            - "@ibexa.config.resolver"
             - "@security.token_storage"
             - "@security.authorization_checker"
         tags:
@@ -23,7 +23,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\EventListener\LegacyExceptionListener
         # public: false
         arguments:
-            - "@ezpublish.config.resolver"
+            - "@ibexa.config.resolver"
         tags:
             - { name: kernel.event_subscriber }
 
@@ -32,7 +32,7 @@ services:
         # public: false
         arguments:
             - "@controller_resolver"
-            - "@ezpublish.config.resolver"
+            - "@ibexa.config.resolver"
         tags:
             - {name: kernel.event_subscriber}
 
@@ -40,7 +40,7 @@ services:
         class: Netgen\Bundle\AdminUIBundle\Helper\PathHelper
         public: false
         arguments:
-            - "@ezpublish.api.service.location"
-            - "@ezpublish.translation_helper"
-            - "@ezpublish.config.resolver"
+            - "@ibexa.api.service.location"
+            - "@Ibexa\\Core\\Helper\\TranslationHelper"
+            - "@ibexa.config.resolver"
             - "@router"

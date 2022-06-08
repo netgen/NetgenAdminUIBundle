@@ -4,7 +4,7 @@ services:
         # public: false
         arguments:
             - "@netgen_information_collection.templating.admin_global_variable"
-            - "@ezpublish.config.resolver"
+            - "@ibexa.config.resolver"
             - "%netgen_admin_ui.information_collection.pagelayout%"
         tags:
             - { name: kernel.event_subscriber }

@@ -6,8 +6,8 @@ parameters:
     netgen_admin_ui.layouts.pagelayout: '@@NetgenAdminUI/layouts/pagelayout.html.twig'
 
     netgen_admin_ui.default.is_admin_ui_siteaccess: false
-    netgen_admin_ui.default.legacy_routes: [ez_urlalias]
+    netgen_admin_ui.default.legacy_routes: [ibexa.url.alias]
 
     netgen_admin_ui.ngadminui.is_admin_ui_siteaccess: true
-    eztags.ngadminui.routing.enable_tag_router: false
-    ezsettings.ngadminui.treemenu.http_cache: false
+    netgen_tags.ngadminui.routing.enable_tag_router: false
+    ibexa.site_access.config.ngadminui.treemenu.http_cache: false

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
-use eZ\Publish\API\Repository\Values\Content\Location;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 use Netgen\Bundle\AdminUIBundle\Form\Type\LayoutWizardType;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
@@ -71,7 +71,7 @@ final class LayoutWizard extends Controller
             }
 
             $wizardId = hash('sha256', random_bytes(32));
-            $request->getSession()->set(sprintf('_layouts_ezplatform_wizard/%s', $wizardId), $wizardData);
+            $request->getSession()->set(sprintf('_layouts_ibexa_wizard/%s', $wizardId), $wizardData);
 
             $returnUrl = $this->generateUrl(
                 'ngadmin_layouts_layout_wizard_callback',

@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Installer\Generator;
 
-use eZ\Publish\API\Repository\Values\Content\Language;
+use Ibexa\Contracts\Core\Repository\Values\Content\Language;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -43,7 +43,7 @@ class ConfigurationGenerator extends Generator
     public function generate(InputInterface $input, OutputInterface $output)
     {
         $fileSystem = $this->container->get('filesystem');
-        $configResolver = $this->container->get('ezpublish.config.resolver');
+        $configResolver = $this->container->get('ibexa.config.resolver');
         $kernelRootDir = $this->container->getParameter('kernel.root_dir');
 
         $siteAccessGroup = $input->getOption('site-access-group');
@@ -70,16 +70,16 @@ class ConfigurationGenerator extends Generator
 
         $siteAccessName = $input->getOption('site-access-name');
 
-        $languageService = $this->container->get('ezpublish.api.repository')->getContentLanguageService();
+        $languageService = $this->container->get('ibexa.api.repository')->getContentLanguageService();
         $languages = $languageService->loadLanguages();
 
         $settings = array(
             'parameters' => array(
                 'netgen_admin_ui.' . $siteAccessName . '.is_admin_ui_siteaccess' => true,
-                'eztags.' . $siteAccessName . '.routing.enable_tag_router' => false,
-                'ezsettings.' . $siteAccessName . '.treemenu.http_cache' => false,
+                'netgen_tags.' . $siteAccessName . '.routing.enable_tag_router' => false,
+                'ibexa.site_access.config.' . $siteAccessName . '.treemenu.http_cache' => false,
             ),
-            'ezpublish' => array(
+            'ibexa' => array(
                 'siteaccess' => array(
                     'list' => array(
                         $siteAccessName,

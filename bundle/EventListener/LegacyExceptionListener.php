@@ -3,7 +3,7 @@
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
 use eZ\Bundle\EzPublishLegacyBundle\Routing\FallbackRouter;
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class LegacyExceptionListener implements EventSubscriberInterface
 {
     /**
-     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
      */
     protected $configResolver;
 

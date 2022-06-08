@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\EventListener;
 
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -17,7 +17,7 @@ class ControllerListener implements EventSubscriberInterface
     protected $controllerResolver;
 
     /**
-     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
      */
     protected $configResolver;
 
@@ -25,7 +25,7 @@ class ControllerListener implements EventSubscriberInterface
      * Constructor.
      *
      * @param \Symfony\Component\HttpKernel\Controller\ControllerResolverInterface $controllerResolver
-     * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
+     * @param \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface $configResolver
      */
     public function __construct(ControllerResolverInterface $controllerResolver, ConfigResolverInterface $configResolver)
     {

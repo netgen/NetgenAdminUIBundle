@@ -2,26 +2,26 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Helper;
 
-use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\Core\Helper\TranslationHelper;
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Core\Helper\TranslationHelper;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 class PathHelper
 {
     /**
-     * @var \eZ\Publish\API\Repository\LocationService
+     * @var \Ibexa\Contracts\Core\Repository\LocationService
      */
     protected $locationService;
 
     /**
-     * @var \eZ\Publish\Core\Helper\TranslationHelper
+     * @var \Ibexa\Core\Helper\TranslationHelper
      */
     protected $translationHelper;
 
     /**
-     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
      */
     protected $configResolver;
 
@@ -33,9 +33,9 @@ class PathHelper
     /**
      * Constructor.
      *
-     * @param \eZ\Publish\API\Repository\LocationService $locationService
-     * @param \eZ\Publish\Core\Helper\TranslationHelper $translationHelper
-     * @param \eZ\Publish\Core\MVC\ConfigResolverInterface $configResolver
+     * @param \Ibexa\Contracts\Core\Repository\LocationService $locationService
+     * @param \Ibexa\Core\Helper\TranslationHelper $translationHelper
+     * @param \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface $configResolver
      * @param \Symfony\Component\Routing\RouterInterface $router
      */
     public function __construct(

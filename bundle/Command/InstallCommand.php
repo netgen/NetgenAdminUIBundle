@@ -3,7 +3,7 @@
 namespace Netgen\Bundle\AdminUIBundle\Command;
 
 use Exception;
-use eZ\Publish\API\Repository\Exceptions\NotFoundException;
+use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use InvalidArgumentException;
 use Netgen\Bundle\AdminUIBundle\Installer\Generator\ConfigurationGenerator;
 use Netgen\Bundle\AdminUIBundle\Installer\Generator\LegacySiteAccessGenerator;
@@ -76,7 +76,7 @@ class InstallCommand extends ContainerAwareCommand
                 sprintf(
                     "%s\n%s",
                     'Installation is not possible because eZ Publish Legacy is not present.',
-                    'Netgen Admin UI requires eZ Publish Community 2014.12 (Netgen Variant), eZ Publish 5.4.x or eZ Platform with Legacy Bridge to work.'
+                    'Netgen Admin UI requires eZ Publish Community 2014.12 (Netgen Variant), eZ Publish 5.4.x or eZ Platform/Ibexa OSS with Legacy Bridge to work.'
                 )
             );
         }
@@ -107,7 +107,7 @@ class InstallCommand extends ContainerAwareCommand
                     );
                 }
 
-                $existingSiteAccesses = $this->getContainer()->getParameter('ezpublish.siteaccess.list');
+                $existingSiteAccesses = $this->getContainer()->getParameter('ibexa.site_access.list');
                 if (in_array($siteaccess, $existingSiteAccesses, true)) {
                     throw new InvalidArgumentException(
                         sprintf('Siteaccess "%s" already exists.', $siteaccess)
@@ -125,7 +125,7 @@ class InstallCommand extends ContainerAwareCommand
             'Enter the language code in which the Netgen Admin UI will be translated',
             'eng-GB',
             function ($languageCode) {
-                $languageService = $this->getContainer()->get('ezpublish.api.repository')->getContentLanguageService();
+                $languageService = $this->getContainer()->get('ibexa.api.repository')->getContentLanguageService();
 
                 try {
                     $languageService->loadLanguage($languageCode);
@@ -141,7 +141,7 @@ class InstallCommand extends ContainerAwareCommand
 
         $this->output->writeln('');
 
-        $availableGroups = array_keys($this->getContainer()->getParameter('ezpublish.siteaccess.groups'));
+        $availableGroups = array_keys($this->getContainer()->getParameter('ibexa.site_access.groups'));
         $availableGroups[] = 'default';
 
         $siteAccessGroup = $this->askForChoiceData(

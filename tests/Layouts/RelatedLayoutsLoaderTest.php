@@ -2,8 +2,8 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\Layouts;
 
-use eZ\Publish\API\Repository\Values\Content\ContentInfo;
-use eZ\Publish\Core\Repository\Values\Content\Location;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
+use Ibexa\Core\Repository\Values\Content\Location;
 use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
 use Netgen\Layouts\Core\Values\Layout\Layout;
 use PHPUnit\Framework\TestCase;

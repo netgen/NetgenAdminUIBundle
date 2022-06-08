@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Tests\MenuPlugin;
 
-use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
+use Ibexa\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\LegacyMenuPlugin;
 use Netgen\Bundle\AdminUIBundle\MenuPlugin\MenuPluginInterface;
 use PHPUnit\Framework\TestCase;
@@ -47,7 +47,7 @@ class LegacyMenuPluginTest extends TestCase
         $this->assertTrue($this->plugin->isActive());
     }
 
-    public function testMatchesWithEzRoute()
+    public function testMatchesWithIbexaRoute()
     {
         $request = new Request();
 

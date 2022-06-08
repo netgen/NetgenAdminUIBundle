@@ -2,9 +2,9 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
-use eZ\Publish\API\Repository\Values\Content\Content;
-use eZ\Publish\API\Repository\Values\Content\Location;
-use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
 use Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader;
 use Netgen\Layouts\API\Values\LayoutResolver\Rule;
 use Netgen\Layouts\Layout\Resolver\LayoutResolverInterface;
@@ -46,7 +46,7 @@ class LayoutsController extends Controller
 
         $request = $this->createRequest($content, $location);
 
-        $rules = $this->layoutResolver->resolveRules($request, array('ez_content_type'));
+        $rules = $this->layoutResolver->resolveRules($request, array('ibexa_content_type'));
         $rulesOneOnOne = array();
 
         foreach ($rules as $rule) {
@@ -67,8 +67,8 @@ class LayoutsController extends Controller
     /**
      * Creates the request used for fetching the mappings applied to provided content and location.
      *
-     * @param \eZ\Publish\API\Repository\Values\Content\Content $content
-     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
      *
      * @return \Symfony\Component\HttpFoundation\Request
      */
@@ -79,7 +79,7 @@ class LayoutsController extends Controller
         $request->attributes->set('content', $content);
         $request->attributes->set('location', $location);
 
-        if (interface_exists('eZ\Publish\Core\MVC\Symfony\View\ContentValueView')) {
+        if (interface_exists('Ibexa\Core\MVC\Symfony\View\ContentValueView')) {
             $contentView = new ContentView();
             $contentView->setLocation($location);
             $contentView->setContent($content);
@@ -112,7 +112,7 @@ class LayoutsController extends Controller
     /**
      * Returns if the provided rule has a 1:1 mapping to provided location.
      *
-     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Location $location
      * @param \Netgen\Layouts\API\Values\LayoutResolver\Rule $rule
      *
      * @return bool
@@ -126,7 +126,7 @@ class LayoutsController extends Controller
         /** @var \Netgen\Layouts\API\Values\LayoutResolver\Target $target */
         $target = $rule->getTargets()[0];
 
-        if ($target->getTargetType()::getType() !== 'ez_location') {
+        if ($target->getTargetType()::getType() !== 'ibexa_location') {
             return false;
         }
 

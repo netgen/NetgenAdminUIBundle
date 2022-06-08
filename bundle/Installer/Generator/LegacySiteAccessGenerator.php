@@ -2,7 +2,7 @@
 
 namespace Netgen\Bundle\AdminUIBundle\Installer\Generator;
 
-use eZ\Publish\API\Repository\Values\Content\Language;
+use Ibexa\Contracts\Core\Repository\Values\Content\Language;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -68,9 +68,9 @@ class LegacySiteAccessGenerator extends Generator
 
         // Template variables
 
-        $languageService = $this->container->get('ezpublish.api.repository')->getContentLanguageService();
+        $languageService = $this->container->get('ibexa.api.repository')->getContentLanguageService();
 
-        $relatedSiteAccessList = $this->container->getParameter('ezpublish.siteaccess.list');
+        $relatedSiteAccessList = $this->container->getParameter('ibexa.site_access.list');
         $relatedSiteAccessList[] = $siteAccessName;
 
         $availableLocales = array_map(

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Netgen\Bundle\AdminUIBundle\Controller;
 
-use eZ\Publish\API\Repository\Values\Content\Location;
-use eZ\Publish\Core\MVC\Symfony\Routing\UrlAliasRouter;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Core\MVC\Symfony\Routing\UrlAliasRouter;
 use Netgen\Layouts\API\Service\LayoutResolverService;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\API\Values\LayoutResolver\RuleGroup;
-use Netgen\Layouts\Ez\Layout\Resolver\TargetType\Location as LocationTargetType;
+use Netgen\Layouts\Ibexa\Layout\Resolver\TargetType\Location as LocationTargetType;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +33,7 @@ final class LayoutWizardCallback extends Controller
      */
     public function __invoke(Location $location, Request $request): RedirectResponse
     {
-        $wizardId = sprintf('_layouts_ezplatform_wizard/%s', $request->query->get('wizardId', ''));
+        $wizardId = sprintf('_layouts_ibexa_wizard/%s', $request->query->get('wizardId', ''));
         if (!$request->getSession()->has($wizardId)) {
             return $this->redirect(
                 $this->generateUrl(
