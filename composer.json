@@ -22,7 +22,7 @@
         "php": "^7.4 || ^8.1",
         "ibexa/core": "^4.1",
         "lolautruche/ez-core-extra-bundle": "^4.0",
-        "netgen/ngsymfonytools": "^1.3"
+        "netgen/ngsymfonytools": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
