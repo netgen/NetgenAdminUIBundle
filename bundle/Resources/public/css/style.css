@@ -8572,7 +8572,7 @@ input.tagssuggestfield {
         color: #fff; }
   .nl-rule .rule-details {
     padding-right: 0; }
-  .nl-rule .rule-link-layout {
+  .nl-rule .rule-padded-left {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -9159,7 +9159,6 @@ input.tagssuggestfield {
     .nl-group.show-details > .nl-group-details-overlay > .nl-group-details {
       display: block; }
   .nl-group.show-move > .nl-group-content > .nl-group-head {
-    position: -webkit-sticky;
     position: sticky;
     top: -3px;
     outline: 2px solid #3671E7;
