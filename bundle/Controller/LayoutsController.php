@@ -126,14 +126,18 @@ class LayoutsController extends Controller
         /** @var \Netgen\Layouts\API\Values\LayoutResolver\Target $target */
         $target = $rule->getTargets()[0];
 
-        if ($target->getTargetType()::getType() !== 'ibexa_location') {
-            return false;
+        if ($target->getTargetType()::getType() === 'ibexa_location') {
+            if ((int) $target->getValue() === (int) $location->id) {
+                return true;
+            }
         }
 
-        if ((int) $target->getValue() !== (int) $location->id) {
-            return false;
+        if ($target->getTargetType()::getType() === 'ibexa_content') {
+            if ((int) $target->getValue() === (int) $location->contentId) {
+                return true;
+            }
         }
 
-        return true;
+        return false;
     }
 }
