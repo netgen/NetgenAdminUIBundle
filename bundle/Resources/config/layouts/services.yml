@@ -1,3 +1,6 @@
+parameters:
+    netgen_admin_ui.layouts.create_content_route_matcher.siteaccesses: [ngadminui]
+
 services:
     netgen_admin_ui.layouts.related_layouts_loader:
         class: Netgen\Bundle\AdminUIBundle\Layouts\RelatedLayoutsLoader
@@ -5,6 +8,14 @@ services:
         arguments:
             - "@netgen_layouts.api.service.layout"
             - "@database_connection"
+
+    netgen_admin_ui.layouts.create_content_route_matcher:
+        class: Netgen\Bundle\AdminUIBundle\Layouts\CreateContentRouteMatcher
+        decorates: router
+        public: false
+        arguments:
+            - "@netgen_admin_ui.layouts.create_content_route_matcher.inner"
+            - "%netgen_admin_ui.layouts.create_content_route_matcher.siteaccesses%"
 
     netgen_admin_ui.layouts.menu_plugin:
         class: Netgen\Bundle\AdminUIBundle\Layouts\MenuPlugin
