@@ -23,6 +23,15 @@ services:
             - "@netgen_layouts.api.service.layout"
             - "@netgen_layouts.api.service.layout_resolver"
 
+    netgen_admin_ui.controller.create_content:
+        class: Netgen\Bundle\AdminUIBundle\Controller\CreateContent
+        public: true
+        parent: netgen_admin_ui.controller.base
+        arguments:
+            - "@ezpublish.api.service.location"
+            - "@ezpublish.api.service.content_type"
+            - "@ezpublish_legacy.kernel"
+
     netgen_admin_ui.controller.delete_rule:
         class: Netgen\Bundle\AdminUIBundle\Controller\DeleteRule
         public: true
