@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Netgen\Bundle\AdminUIBundle\Layouts;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\CacheWarmer\WarmableInterface;
 use Symfony\Component\Routing\Matcher\RequestMatcherInterface;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
 
-final class CreateContentRouteMatcher implements RouterInterface, RequestMatcherInterface
+final class CreateContentRouteMatcher implements RouterInterface, RequestMatcherInterface, WarmableInterface
 {
     /**
      * @var \Symfony\Component\Routing\RouterInterface&\Symfony\Component\Routing\Matcher\RequestMatcherInterface
@@ -72,5 +73,9 @@ final class CreateContentRouteMatcher implements RouterInterface, RequestMatcher
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH): string
     {
         return $this->router->generate($name, $parameters, $referenceType);
+    }
+
+    public function warmUp($cacheDir): void
+    {
     }
 }
