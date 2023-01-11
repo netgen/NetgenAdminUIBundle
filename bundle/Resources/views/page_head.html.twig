@@ -24,6 +24,7 @@
 <link rel="shortcut icon" href="{{ asset('bundles/netgenadminui/images/favicon/favicon.ico') }}">
 <meta name="msapplication-config" content="{{ asset('bundles/netgenadminui/images/favicon/browserconfig.xml') }}">
 <meta name="theme-color" content="#ffffff">
+<meta name="ngadminui-base-path" content="{{ path(ezpublish.rootLocation) }}">
 
 {% if current_menu_plugin != false and menu_plugins[current_menu_plugin].templates.head is defined %}
     {% include menu_plugins[current_menu_plugin].templates.head ignore missing %}
