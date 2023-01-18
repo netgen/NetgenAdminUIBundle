@@ -28,8 +28,8 @@ services:
         public: true
         parent: netgen_admin_ui.controller.base
         arguments:
-            - "@ezpublish.api.service.location"
-            - "@ezpublish.api.service.content_type"
+            - "@ibexa.api.service.location"
+            - "@ibexa.api.service.content_type"
             - "@ezpublish_legacy.kernel"
 
     netgen_admin_ui.controller.delete_rule:
