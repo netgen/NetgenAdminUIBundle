@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.1",
-        "ibexa/core": "^4.1",
+        "ibexa/core": "^4.4",
         "lolautruche/ez-core-extra-bundle": "^4.0",
         "netgen/ngsymfonytools": "^2.0"
     },
@@ -48,7 +48,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "3.0.x-dev"
         }
     }
 }
