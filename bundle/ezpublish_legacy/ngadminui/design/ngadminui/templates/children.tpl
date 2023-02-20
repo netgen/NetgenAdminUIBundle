@@ -13,8 +13,9 @@
      $children_count = fetch( content, list_count, hash( 'parent_node_id', $node.node_id,
                                                          'objectname_filter', $view_parameters.namefilter ) )
      $children    = array()
-     $priority    = and( eq( $node.sort_array[0][0], 'priority' ), $node.can_edit, $children_count ) }
-
+     $priority    = and( eq( $node.sort_array[0][0], 'priority' ), $node.can_edit, $children_count )
+     $priority_dd = and( $priority, $admin_children_viewmode|ne( 'thumbnail' ), $view_parameters.offset|eq( 0 ) )
+}
 
 <!-- Children START -->
 
@@ -90,6 +91,19 @@
 {ezscript_require( array('ezjsc::yui2', 'ezajaxsubitems_datatable.js') )}
 
 <!-- Children END -->
+{if $priority_dd}
+    <script type="text/javascript">
+    {literal}
+    jQuery(document).ready(function($)
+    {
+        $('#content-sub-items-list').on('datatable:rendered', function() {
+            var dnd = new admin2ppDragNDropChildren();
+            dnd.init();
+        });
+    }
+    {/literal});
+    </script>
+{/if}
 
 {undef $item_type $number_of_items $can_remove $can_move $can_edit $can_create $can_copy $current_path $admin_children_viewmode $children_count $children}
 </div>
