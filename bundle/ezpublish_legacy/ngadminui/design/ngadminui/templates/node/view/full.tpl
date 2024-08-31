@@ -49,10 +49,10 @@
                 {/if}
             </li>
             <li>
-                <form method="post" id="previewForm" action={concat( 'content/versionview/', $node.object.id, '/', $node.object.current_version, '/', $language.locale, '/', $from_language )|ezurl}>
+                <form method="post" id="previewForm" action={concat( 'content/versionview/', $node.object.id, '/', $node.object.current_version, '/', $node.object.current_language_object.locale_object.locale_code )|ezurl}>
                     <input type="hidden" id="SelectedLanguage" name="SelectedLanguage" value="{$node.object.current_language_object.locale_object.locale_code}" />
                     <input type="hidden" name="ChangeSettingsButton" value="{'Update view'|i18n( 'design/admin/content/view/versionview' )}" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" />
-                    <input type="hidden" name="ezxform_token" value="@$ezxFormToken@" />
+                    <input type="hidden" name="_token" value="@$ezxFormToken@" />
                 </form>
                 <a type="submit" name="ChangeSettingsButton" title="{'View the version that is currently being displayed using the selected language, location and design.'|i18n( 'design/admin/content/view/versionview' )}" onclick="document.getElementById('previewForm').submit();"><i class="fa fa-globe"></i> {'Preview'|i18n( 'design/admin/node/view/full' )}</a>
             </li>
