@@ -10,7 +10,6 @@ phpunit.phar
 style.css.map
 .php_cs.cache
 build/
-extension/
 package-lock.json
 yarn.lock
 .DS_Store

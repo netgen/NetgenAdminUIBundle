@@ -96,7 +96,7 @@ class NlMoveModalGroup {
                   </span>
                   <span class="icon-group-disabled">
                       <div class="disabled-tooltip">Group disabled</div>
-                  </span> 
+                  </span>
                   <p>${name}</p>
               </div>
           </div>
@@ -208,8 +208,9 @@ class NlModal {
   }
 
   loadContent() {
-    const apiUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`;
-    const url = `${apiUrl}/nglayouts/admin/api/mappings/groups/root`;
+    const basePath = document.querySelector('[name="ngadminui-base-path"]').getAttribute('content');
+    const apiUrl = `${window.location.origin}${basePath}`;
+    const url = `${apiUrl}nglayouts/admin/api/mappings/groups/root`;
     [this.modalBody] = this.container.getElementsByClassName('nl-modal-body');
     // this.addModalGroup({ id: '00000000-0000-0000-0000-000000000000', name: 'root' });
 
@@ -264,7 +265,7 @@ class NlModal {
                 </span>
                 <span class="icon-group-disabled">
                     <div class="disabled-tooltip">Group disabled</div>
-                </span> 
+                </span>
                 <p>${name}</p>
             </div>
         </div>
@@ -626,10 +627,11 @@ $(document).ready(function () {
 
   $(document).on('click', '.js-direct-mapping', (e) => {
     e.preventDefault();
-    const layoutId = document.querySelector('.mapped-layouts-box').dataset.url.split('/').pop();
-    const apiUrl = `${window.location.origin}/${window.location.pathname.split('/')[1]}`;
-    const baseUrl = `${apiUrl}/ngadmin/layouts`;
-    const url = `${baseUrl}/${layoutId}/wizard`;
+    const locationId = document.querySelector('.mapped-layouts-box').dataset.url.split('/').pop();
+    const basePath = document.querySelector('[name="ngadminui-base-path"]').getAttribute('content');
+    const apiUrl = `${window.location.origin}${basePath}`;
+    const baseUrl = `${apiUrl}ngadmin/layouts`;
+    const url = `${baseUrl}/${locationId}/wizard`;
     const modal = new NlModal({
       preload: true,
       autoClose: false,
