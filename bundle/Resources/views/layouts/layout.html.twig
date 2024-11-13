@@ -7,7 +7,7 @@
     <div class="layout-item">
         <div class="layout-name">{{ layout.name }}</div>
         <div class="layout-description">{{ layout.description }}</div>
-        <div class="layout-modified">{{ layout.modified|localizeddate }}</div>
+        <div class="layout-modified">{{ layout.modified|nglayouts_format_datetime }}</div>
 
         {% if can_edit %}
             <div class="layout-actions">
