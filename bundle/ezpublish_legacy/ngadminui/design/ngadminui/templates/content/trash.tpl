@@ -29,13 +29,13 @@ table.list td.width-280 { max-width: 280px; }
     <div class="context-block content-trash">
 
         {* DESIGN: Header START *}
-        <div class="box-header"><div class="box-ml">
+        <div class="box-header">
 
             <h1 class="context-title">{'Trash (%list_count)'|i18n( 'design/admin/content/trash',, hash( '%list_count', $list_count ) )}</h1>
 
             {* DESIGN: Mainline *}<div class="header-mainline"></div>
 
-        {* DESIGN: Header END *}</div></div>
+        {* DESIGN: Header END *}</div>
 
         {* DESIGN: Content START *}
         <div class="box-content panel">
@@ -221,7 +221,7 @@ table.list td.width-280 { max-width: 280px; }
             </div>
 
 
-            {* DESIGN: Content END *}</div></div></div>
+            {* DESIGN: Content END *}
 
             <div class="controlbar">
                 {* DESIGN: Control bar START *}
@@ -238,7 +238,7 @@ table.list td.width-280 { max-width: 280px; }
                 </div>
 
             <div class="float-break"></div>
-            {* DESIGN: Control bar END *}</div></div>
+            {* DESIGN: Control bar END *}
         </div>
     </div>
 </form>
