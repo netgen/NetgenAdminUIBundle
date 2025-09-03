@@ -630,7 +630,8 @@ $(document).ready(function () {
     const locationId = document.querySelector('.mapped-layouts-box').dataset.url.split('/').pop();
     const basePath = document.querySelector('[name="ngadminui-base-path"]').getAttribute('content');
     const apiUrl = `${window.location.origin}${basePath}`;
-    const baseUrl = `${apiUrl}ngadmin/layouts`;
+    const slash = apiUrl.endsWith('/') ? '' : '/';
+    const baseUrl = `${apiUrl}${slash}ngadmin/layouts`;
     const url = `${baseUrl}/${locationId}/wizard`;
     const modal = new NlModal({
       preload: true,
