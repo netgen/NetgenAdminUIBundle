@@ -16,7 +16,6 @@
     'ini',                'Ini settings'|i18n( 'design/admin/parts/setup/menu' ),
     'languages',          'Languages'|i18n( 'design/admin/parts/setup/menu' ),
     'notification',       'Notification'|i18n( 'design/admin/parts/setup/menu' ),
-    'pdf_export',         'PDF export'|i18n( 'design/admin/parts/setup/menu', 'PDF export'),
     'packages',           'Packages'|i18n( 'design/admin/parts/setup/menu' ),
     'rad',                'RAD'|i18n( 'design/admin/parts/setup/menu', 'Rapid Application Development'),
     'roles_and_policies', 'Roles and policies'|i18n( 'design/admin/parts/setup/menu' ),
